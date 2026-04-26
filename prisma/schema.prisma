@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model question_options {
+  id            Int       @id @default(autoincrement())
+  question_id   Int
+  option_number Int?
+  content       String    @db.Text
+  questions     questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "question_options_ibfk_1")
+
+  @@index([question_id], map: "question_id")
+}
+
+model questions {
+  id               Int                @id @default(autoincrement())
+  unit_id          Int
+  section          String?            @db.VarChar(255)
+  difficulty_level Int?
+  passage_text     String?            @db.Text
+  question_text    String             @db.Text
+  correct_answer   String             @db.Text
+  explanation      String?            @db.Text
+  media_url        String?            @db.VarChar(255)
+  question_options question_options[]
+  units            units              @relation(fields: [unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
+  submissions      submissions[]
+
+  @@index([unit_id], map: "unit_id")
+}
+
+model submissions {
+  id          Int       @id @default(autoincrement())
+  user_id     Int
+  question_id Int
+  user_answer String?   @db.VarChar(255)
+  is_correct  Boolean?
+  solved_at   DateTime? @default(now()) @db.Timestamp(0)
+  users       users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "submissions_ibfk_1")
+  questions   questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "submissions_ibfk_2")
+
+  @@index([question_id], map: "question_id")
+  @@index([user_id], map: "user_id")
+}
+
+model units {
+  id                 Int                  @id @default(autoincrement())
+  level              Int?
+  title              String?              @db.VarChar(255)
+  description        String?              @db.Text
+  order_index        Int?
+  questions          questions[]
+  user_unit_progress user_unit_progress[]
+}
+
+model user_unit_progress {
+  id           Int       @id @default(autoincrement())
+  user_id      Int
+  unit_id      Int
+  is_completed Boolean?  @default(false)
+  completed_at DateTime? @db.Timestamp(0)
+  users        users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_unit_progress_ibfk_1")
+  units        units     @relation(fields: [unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_unit_progress_ibfk_2")
+
+  @@index([unit_id], map: "unit_id")
+  @@index([user_id], map: "user_id")
+}
+
+model users {
+  id                 Int                  @id @default(autoincrement())
+  email              String               @unique(map: "email") @db.VarChar(255)
+  full_name          String?              @db.VarChar(255)
+  target_level       Int?
+  provider           String?              @db.VarChar(255)
+  provider_id        String?              @db.VarChar(255)
+  current_streak     Int?                 @default(0)
+  total_points       Int?                 @default(0)
+  hearts             Int?                 @default(5)
+  last_active_at     DateTime?            @db.Timestamp(0)
+  created_at         DateTime?            @default(now()) @db.Timestamp(0)
+  submissions        submissions[]
+  user_unit_progress user_unit_progress[]
+}

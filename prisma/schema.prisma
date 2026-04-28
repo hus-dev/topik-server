@@ -7,7 +7,7 @@ datasource db {
 }
 
 model users {
-  id                 String               @id @db.VarChar(36)
+  id                 String               @id @default(uuid()) @db.VarChar(36)
   email              String?              @db.VarChar(255)
   provider           String               @db.VarChar(20)
   provider_id        String?
@@ -32,7 +32,7 @@ model users {
 }
 
 model answers {
-  id              String        @id @db.VarChar(36)
+  id              String        @id @default(uuid()) @db.VarChar(36)
   session_id      String        @db.VarChar(36)
   question_id     String        @db.VarChar(36)
   selected_answer String?       @db.VarChar(1000)
@@ -46,9 +46,8 @@ model answers {
   @@unique([session_id, question_id], map: "uq_answers_session_q")
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model exam_sessions {
-  id                String         @id @db.VarChar(36)
+  id                String         @id @default(uuid()) @db.VarChar(36)
   user_id           String         @db.VarChar(36)
   mode              String         @db.VarChar(20)
   section           String         @db.VarChar(20)
@@ -68,7 +67,7 @@ model exam_sessions {
 }
 
 model grammar_items {
-  id                 String               @id @db.VarChar(36)
+  id                 String               @id @default(uuid()) @db.VarChar(36)
   pattern            String               @db.VarChar(255)
   description        String               @db.VarChar(4000)
   examples_json      Json
@@ -78,9 +77,8 @@ model grammar_items {
   user_grammar_items user_grammar_items[]
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model question_sets {
-  id            String          @id @db.VarChar(36)
+  id            String          @id @default(uuid()) @db.VarChar(36)
   title         String?         @db.VarChar(255)
   section       String          @db.VarChar(20)
   level         Int             @db.TinyInt
@@ -89,9 +87,8 @@ model question_sets {
   exam_sessions exam_sessions[]
 }
 
-/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
 model sync_queue {
-  id           String @id @db.VarChar(36)
+  id           String @id @default(uuid()) @db.VarChar(36)
   user_id      String @db.VarChar(36)
   entity_type  String @db.VarChar(50)
   entity_id    String @db.VarChar(36)
@@ -107,7 +104,7 @@ model sync_queue {
 }
 
 model user_grammar_items {
-  id              String        @id @db.VarChar(36)
+  id              String        @id @default(uuid()) @db.VarChar(36)
   user_id         String        @db.VarChar(36)
   grammar_item_id String        @db.VarChar(36)
   is_bookmarked   Int           @default(0) @db.TinyInt
@@ -120,7 +117,7 @@ model user_grammar_items {
 }
 
 model user_vocabulary {
-  id            String     @id @db.VarChar(36)
+  id            String     @id @default(uuid()) @db.VarChar(36)
   user_id       String     @db.VarChar(36)
   vocabulary_id String     @db.VarChar(36)
   is_bookmarked Int        @default(0) @db.TinyInt
@@ -133,7 +130,7 @@ model user_vocabulary {
 }
 
 model vocabulary {
-  id                String            @id @db.VarChar(36)
+  id                String            @id @default(uuid()) @db.VarChar(36)
   word              String            @db.VarChar(255)
   meaning_ko        String            @db.VarChar(1000)
   meaning_user_lang String?           @db.VarChar(1000)

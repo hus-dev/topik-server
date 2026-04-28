@@ -9,6 +9,7 @@ datasource db {
 model users {
   id                 String               @id @default(uuid()) @db.VarChar(36)
   email              String?              @db.VarChar(255)
+  password_hash      String?              @db.VarChar(255)
   provider           String               @db.VarChar(20)
   provider_id        String?
   nickname           String               @db.VarChar(100)

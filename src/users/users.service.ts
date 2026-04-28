@@ -48,6 +48,16 @@ export class UsersService {
     const user = await this.prisma.users.findFirst({
       where: { email },
     });
+    return user ? this.serializeUser(user) : null;
+  }
+
+  async findByProvider(provider: string, providerId: string) {
+    const user = await this.prisma.users.findFirst({
+      where: {
+        provider,
+        provider_id: providerId,
+      },
+    });
     return user;
   }
 

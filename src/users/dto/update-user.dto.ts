@@ -1,48 +1,25 @@
-import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsString, IsOptional, IsNumber, Min } from 'class-validator';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { CreateUserDto } from './create-user.dto';
+import { IsOptional, IsString, IsNumber, IsDecimal } from 'class-validator';
 
-export class UpdateUserDto implements Partial<CreateUserDto> {
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsEmail()
-  email?: string;
-
-  @ApiProperty({ required: false })
+export class UpdateUserDto extends PartialType(CreateUserDto) {
+  @ApiProperty({ example: '1.20', description: 'Font scale', required: false })
   @IsOptional()
   @IsString()
-  full_name?: string;
+  font_scale?: string;
 
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsNumber()
-  target_level?: number;
-
-  @ApiProperty({ required: false })
+  @ApiProperty({ example: 'mint', description: 'Theme color', required: false })
   @IsOptional()
   @IsString()
-  provider?: string;
+  theme_color?: string;
 
-  @ApiProperty({ required: false })
-  @IsOptional()
-  @IsString()
-  provider_id?: string;
-
-  @ApiProperty({ required: false, default: 0 })
+  @ApiProperty({ example: 1, description: 'Home layout index', required: false })
   @IsOptional()
   @IsNumber()
-  @Min(0)
-  current_streak?: number;
+  home_layout?: number;
 
-  @ApiProperty({ required: false, default: 0 })
+  @ApiProperty({ example: 1, description: 'Practice layout index', required: false })
   @IsOptional()
   @IsNumber()
-  @Min(0)
-  total_points?: number;
-
-  @ApiProperty({ required: false, default: 5 })
-  @IsOptional()
-  @IsNumber()
-  @Min(0)
-  hearts?: number;
+  practice_layout?: number;
 }

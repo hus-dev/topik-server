@@ -7,48 +7,71 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
+  // BigInt를 JSON으로 직렬화할 때 발생하는 문제를 해결하기 위한 헬퍼 함수
+  private serializeUser(user: any) {
+    return {
+      ...user,
+      created_at: user.created_at?.toString(),
+      updated_at: user.updated_at?.toString(),
+    };
+  }
+
   async create(createUserDto: CreateUserDto) {
-    return this.prisma.users.create({
-      data: createUserDto,
+    const now = BigInt(Date.now());
+    const user = await this.prisma.users.create({
+      data: {
+        ...createUserDto,
+        created_at: now,
+        updated_at: now,
+      },
     });
+    return this.serializeUser(user);
   }
 
   async findAll() {
-    return this.prisma.users.findMany();
+    const users = await this.prisma.users.findMany();
+    return users.map((user) => this.serializeUser(user));
   }
 
-  async findOne(id: number) {
+  async findOne(id: string) {
     const user = await this.prisma.users.findUnique({
       where: { id },
     });
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
-    return user;
+    return this.serializeUser(user);
   }
 
   async findByEmail(email: string) {
-    return this.prisma.users.findUnique({
+    const user = await this.prisma.users.findFirst({
       where: { email },
     });
+    return user ? this.serializeUser(user) : null;
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto) {
     try {
-      return await this.prisma.users.update({
+      const now = BigInt(Date.now());
+      const user = await this.prisma.users.update({
         where: { id },
-        data: updateUserDto,
+        data: {
+          ...updateUserDto,
+          updated_at: now,
+        },
       });
+      return this.serializeUser(user);
     } catch (error) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     try {
-      return await this.prisma.users.delete({
+      const user = await this.prisma.users.delete({
         where: { id },
       });
+      return this.serializeUser(user);
     } catch (error) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }

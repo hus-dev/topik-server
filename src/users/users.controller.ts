@@ -6,7 +6,6 @@ import {
   Patch,
   Param,
   Delete,
-  ParseIntPipe,
 } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
 import { UsersService } from './users.service';
@@ -33,7 +32,7 @@ export class UsersController {
 
   @Get(':id')
   @ApiOperation({ summary: 'Get a user by ID' })
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  findOne(@Param('id') id: string) {
     return this.usersService.findOne(id);
   }
 
@@ -41,7 +40,7 @@ export class UsersController {
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update a user' })
   update(
-    @Param('id', ParseIntPipe) id: number,
+    @Param('id') id: string,
     @Body() updateUserDto: UpdateUserDto,
   ) {
     return this.usersService.update(id, updateUserDto);
@@ -50,7 +49,7 @@ export class UsersController {
   @Delete(':id')
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete a user' })
-  remove(@Param('id', ParseIntPipe) id: number) {
+  remove(@Param('id') id: string) {
     return this.usersService.remove(id);
   }
 }

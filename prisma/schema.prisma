@@ -23,7 +23,6 @@ model users {
   practice_layout    Int                  @default(1) @db.TinyInt
   created_at         BigInt
   updated_at         BigInt
-  test               String               @db.VarChar(255)
   exam_sessions      exam_sessions[]
   sync_queue         sync_queue[]
   user_grammar_items user_grammar_items[]

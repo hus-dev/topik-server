@@ -6,82 +6,144 @@ datasource db {
   provider = "mysql"
 }
 
-model question_options {
-  id            Int       @id @default(autoincrement())
-  question_id   Int
-  option_number Int?
-  content       String    @db.Text
-  questions     questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "question_options_ibfk_1")
-
-  @@index([question_id], map: "question_id")
-}
-
-model questions {
-  id               Int                @id @default(autoincrement())
-  unit_id          Int
-  section          String?            @db.VarChar(255)
-  difficulty_level Int?
-  passage_text     String?            @db.Text
-  question_text    String             @db.Text
-  correct_answer   String             @db.Text
-  explanation      String?            @db.Text
-  media_url        String?            @db.VarChar(255)
-  question_options question_options[]
-  units            units              @relation(fields: [unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
-  submissions      submissions[]
-
-  @@index([unit_id], map: "unit_id")
-}
-
-model submissions {
-  id          Int       @id @default(autoincrement())
-  user_id     Int
-  question_id Int
-  user_answer String?   @db.VarChar(255)
-  is_correct  Boolean?
-  solved_at   DateTime? @default(now()) @db.Timestamp(0)
-  users       users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "submissions_ibfk_1")
-  questions   questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "submissions_ibfk_2")
-
-  @@index([question_id], map: "question_id")
-  @@index([user_id], map: "user_id")
-}
-
-model units {
-  id                 Int                  @id @default(autoincrement())
-  level              Int?
-  title              String?              @db.VarChar(255)
-  description        String?              @db.Text
-  order_index        Int?
-  questions          questions[]
-  user_unit_progress user_unit_progress[]
-}
-
-model user_unit_progress {
-  id           Int       @id @default(autoincrement())
-  user_id      Int
-  unit_id      Int
-  is_completed Boolean?  @default(false)
-  completed_at DateTime? @db.Timestamp(0)
-  users        users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_unit_progress_ibfk_1")
-  units        units     @relation(fields: [unit_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_unit_progress_ibfk_2")
-
-  @@index([unit_id], map: "unit_id")
-  @@index([user_id], map: "user_id")
-}
-
 model users {
-  id                 Int                  @id @default(autoincrement())
-  email              String               @unique(map: "email") @db.VarChar(255)
-  full_name          String?              @db.VarChar(255)
-  target_level       Int?
-  provider           String?              @db.VarChar(255)
-  provider_id        String?              @db.VarChar(255)
-  current_streak     Int?                 @default(0)
-  total_points       Int?                 @default(0)
-  hearts             Int?                 @default(5)
-  last_active_at     DateTime?            @db.Timestamp(0)
-  created_at         DateTime?            @default(now()) @db.Timestamp(0)
-  submissions        submissions[]
-  user_unit_progress user_unit_progress[]
+  id                 String               @id @db.VarChar(36)
+  email              String?              @db.VarChar(255)
+  provider           String               @db.VarChar(20)
+  provider_id        String?
+  nickname           String               @db.VarChar(100)
+  target_level       Int                  @db.TinyInt
+  language_code      String               @db.VarChar(10)
+  timezone           String               @db.VarChar(100)
+  timer_mode         String               @db.VarChar(20)
+  font_scale         Decimal              @default(1.00) @db.Decimal(3, 2)
+  theme_color        String               @default("mint") @db.VarChar(30)
+  home_layout        Int                  @default(1) @db.TinyInt
+  practice_layout    Int                  @default(1) @db.TinyInt
+  created_at         BigInt
+  updated_at         BigInt
+  exam_sessions      exam_sessions[]
+  sync_queue         sync_queue[]
+  user_grammar_items user_grammar_items[]
+  user_vocabulary    user_vocabulary[]
+
+  @@unique([provider, provider_id], map: "uq_users_provider_pid")
+  @@index([email], map: "idx_users_email")
+}
+
+model answers {
+  id              String        @id @db.VarChar(36)
+  session_id      String        @db.VarChar(36)
+  question_id     String        @db.VarChar(36)
+  selected_answer String?       @db.VarChar(1000)
+  text_answer     String?       @db.VarChar(4000)
+  is_correct      Int?          @db.TinyInt
+  spent_seconds   Int           @default(0)
+  bookmarked      Int           @default(0) @db.TinyInt
+  updated_at      BigInt
+  exam_sessions   exam_sessions @relation(fields: [session_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "answers_ibfk_1")
+
+  @@unique([session_id, question_id], map: "uq_answers_session_q")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model exam_sessions {
+  id                String         @id @db.VarChar(36)
+  user_id           String         @db.VarChar(36)
+  mode              String         @db.VarChar(20)
+  section           String         @db.VarChar(20)
+  set_id            String?        @db.VarChar(36)
+  total_questions   Int
+  current_index     Int            @default(0)
+  remaining_seconds Int
+  status            String         @db.VarChar(20)
+  started_at        BigInt
+  submitted_at      BigInt?
+  answers           answers[]
+  users             users          @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "exam_sessions_ibfk_1")
+  question_sets     question_sets? @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "exam_sessions_ibfk_2")
+
+  @@index([user_id, status], map: "idx_sessions_user_status")
+  @@index([set_id], map: "set_id")
+}
+
+model grammar_items {
+  id                 String               @id @db.VarChar(36)
+  pattern            String               @db.VarChar(255)
+  description        String               @db.VarChar(4000)
+  examples_json      Json
+  tags_json          Json
+  is_downloaded      Int                  @default(0) @db.TinyInt
+  updated_at         BigInt
+  user_grammar_items user_grammar_items[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model question_sets {
+  id            String          @id @db.VarChar(36)
+  title         String?         @db.VarChar(255)
+  section       String          @db.VarChar(20)
+  level         Int             @db.TinyInt
+  created_at    BigInt
+  updated_at    BigInt
+  exam_sessions exam_sessions[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model sync_queue {
+  id           String @id @db.VarChar(36)
+  user_id      String @db.VarChar(36)
+  entity_type  String @db.VarChar(50)
+  entity_id    String @db.VarChar(36)
+  action       String @db.VarChar(20)
+  payload_json Json
+  status       String @db.VarChar(20)
+  retry_count  Int    @default(0)
+  created_at   BigInt
+  updated_at   BigInt
+  users        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "sync_queue_ibfk_1")
+
+  @@index([user_id, status, created_at], map: "idx_sync_user_status_created")
+}
+
+model user_grammar_items {
+  id              String        @id @db.VarChar(36)
+  user_id         String        @db.VarChar(36)
+  grammar_item_id String        @db.VarChar(36)
+  is_bookmarked   Int           @default(0) @db.TinyInt
+  updated_at      BigInt
+  users           users         @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_grammar_items_ibfk_1")
+  grammar_items   grammar_items @relation(fields: [grammar_item_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_grammar_items_ibfk_2")
+
+  @@unique([user_id, grammar_item_id], map: "uq_user_grammar_user_item")
+  @@index([grammar_item_id], map: "grammar_item_id")
+}
+
+model user_vocabulary {
+  id            String     @id @db.VarChar(36)
+  user_id       String     @db.VarChar(36)
+  vocabulary_id String     @db.VarChar(36)
+  is_bookmarked Int        @default(0) @db.TinyInt
+  updated_at    BigInt
+  users         users      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_vocabulary_ibfk_1")
+  vocabulary    vocabulary @relation(fields: [vocabulary_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_vocabulary_ibfk_2")
+
+  @@unique([user_id, vocabulary_id], map: "uq_user_vocabulary_user_vocab")
+  @@index([vocabulary_id], map: "vocabulary_id")
+}
+
+model vocabulary {
+  id                String            @id @db.VarChar(36)
+  word              String            @db.VarChar(255)
+  meaning_ko        String            @db.VarChar(1000)
+  meaning_user_lang String?           @db.VarChar(1000)
+  level             Int               @db.TinyInt
+  tts_url           String?           @db.VarChar(500)
+  is_downloaded     Int               @default(0) @db.TinyInt
+  updated_at        BigInt
+  user_vocabulary   user_vocabulary[]
+  vocabulary        vocabulary?       @relation("vocabularyTovocabulary", fields: [tts_url], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "vocabulary_ibfk_1")
+  other_vocabulary  vocabulary[]      @relation("vocabularyTovocabulary")
+
+  @@index([tts_url], map: "tts_url")
 }

@@ -9,10 +9,11 @@ export class UsersService {
 
   // BigInt를 JSON으로 직렬화할 때 발생하는 문제를 해결하기 위한 헬퍼 함수
   private serializeUser(user: any) {
+    const { password_hash, ...safeUser } = user;
     return {
-      ...user,
-      created_at: user.created_at?.toString(),
-      updated_at: user.updated_at?.toString(),
+      ...safeUser,
+      created_at: safeUser.created_at?.toString(),
+      updated_at: safeUser.updated_at?.toString(),
     };
   }
 
@@ -47,7 +48,7 @@ export class UsersService {
     const user = await this.prisma.users.findFirst({
       where: { email },
     });
-    return user ? this.serializeUser(user) : null;
+    return user;
   }
 
   async update(id: string, updateUserDto: UpdateUserDto) {

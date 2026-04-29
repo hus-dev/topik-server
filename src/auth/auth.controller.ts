@@ -32,12 +32,4 @@ export class AuthController {
   async socialLogin(@Body() socialLoginDto: SocialLoginDto) {
     return this.authService.socialSignIn(socialLoginDto);
   }
-
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
-  @Get('profile')
-  @ApiOperation({ summary: 'Get current user profile' })
-  getProfile(@Request() req) {
-    return req.user;
-  }
 }

@@ -9,12 +9,17 @@ export class UsersService {
 
   // BigInt를 JSON으로 직렬화할 때 발생하는 문제를 해결하기 위한 헬퍼 함수
   private serializeUser(user: any) {
+    if (!user) return null;
     const { password_hash, ...safeUser } = user;
-    return {
-      ...safeUser,
-      created_at: safeUser.created_at?.toString(),
-      updated_at: safeUser.updated_at?.toString(),
-    };
+    
+    // Iterate through properties and convert BigInt to string
+    for (const key in safeUser) {
+      if (typeof safeUser[key] === 'bigint') {
+        safeUser[key] = safeUser[key].toString();
+      }
+    }
+    
+    return safeUser;
   }
 
   async create(createUserDto: CreateUserDto & { password_hash?: string }) {

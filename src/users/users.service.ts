@@ -19,7 +19,7 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto & { password_hash?: string }) {
     const now = BigInt(Date.now());
-    const { password, password_hash, ...userData } = createUserDto;
+    const { password, password_hash, ...userData } = createUserDto as any;
     
     const user = await this.prisma.users.create({
       data: {
@@ -50,6 +50,16 @@ export class UsersService {
   async findByEmail(email: string) {
     const user = await this.prisma.users.findFirst({
       where: { email },
+    });
+    return user;
+  }
+
+  async findByProvider(provider: string, providerId: string) {
+    const user = await this.prisma.users.findFirst({
+      where: {
+        provider,
+        provider_id: providerId,
+      },
     });
     return user;
   }

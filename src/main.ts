@@ -6,6 +6,9 @@ import { ValidationPipe } from '@nestjs/common';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
+  // CORS 활성화
+  app.enableCORS();
+
   // 전역 유효성 검사 파이프 설정
   app.useGlobalPipes(
     new ValidationPipe({

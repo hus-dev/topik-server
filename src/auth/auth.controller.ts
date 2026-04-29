@@ -24,12 +24,4 @@ export class AuthController {
   async login(@Body() loginDto: LoginDto) {
     return this.authService.login(loginDto);
   }
-
-  @UseGuards(AuthGuard('jwt'))
-  @ApiBearerAuth()
-  @Get('profile')
-  @ApiOperation({ summary: 'Get current user profile' })
-  getProfile(@Request() req) {
-    return req.user;
-  }
 }

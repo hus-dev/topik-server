@@ -6,9 +6,14 @@ import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
   constructor() {
-    const connectionString = process.env.DATABASE_URL;
+    let connectionString = process.env.DATABASE_URL;
     if (!connectionString) {
       throw new Error('DATABASE_URL is not set');
+    }
+
+    // The MariaDB adapter requires the connection string to start with 'mariadb://'
+    if (connectionString.startsWith('mysql://')) {
+      connectionString = connectionString.replace('mysql://', 'mariadb://');
     }
 
     // Prisma v7 requires adapter/accelerateUrl in PrismaClientOptions.

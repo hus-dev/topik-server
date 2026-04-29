@@ -29,6 +29,11 @@ export class UsersService {
     const user = await this.prisma.users.create({
       data: {
         ...userData,
+        provider: userData.provider || 'local',
+        target_level: userData.target_level || 1,
+        language_code: userData.language_code || 'ko',
+        timezone: userData.timezone || 'UTC',
+        timer_mode: userData.timer_mode || 'countup',
         password_hash: password_hash,
         created_at: now,
         updated_at: now,

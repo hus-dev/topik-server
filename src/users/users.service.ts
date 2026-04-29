@@ -24,7 +24,7 @@ export class UsersService {
 
   async create(createUserDto: CreateUserDto & { password_hash?: string }) {
     const now = BigInt(Date.now());
-    const { password, password_hash, ...userData } = createUserDto;
+    const { password, password_hash, ...userData } = createUserDto as any;
     
     const user = await this.prisma.users.create({
       data: {
@@ -56,23 +56,14 @@ export class UsersService {
     const user = await this.prisma.users.findFirst({
       where: { email },
     });
-    return user ? this.serializeUser(user) : null;
+    return user;
   }
 
-  // Only for internal Auth use
-  async findForAuth(email: string) {
-    return await this.prisma.users.findFirst({
-      where: { email },
-    });
-  }
-
-  async findByProviderAndId(provider: string, provider_id: string) {
-    const user = await this.prisma.users.findUnique({
+  async findByProvider(provider: string, providerId: string) {
+    const user = await this.prisma.users.findFirst({
       where: {
-        provider_provider_id: {
-          provider,
-          provider_id,
-        },
+        provider,
+        provider_id: providerId,
       },
     });
     return user;

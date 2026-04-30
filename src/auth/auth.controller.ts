@@ -4,6 +4,7 @@ import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
+import { ChangePasswordDto } from './dto/change-password.dto';
 import { AuthGuard } from '@nestjs/passport';
 
 @ApiTags('auth')
@@ -31,5 +32,18 @@ export class AuthController {
   @ApiResponse({ status: 200, description: 'Successfully logged in with social account' })
   async socialLogin(@Body() socialLoginDto: SocialLoginDto) {
     return this.authService.socialSignIn(socialLoginDto);
+  }
+
+  @Post('change-password')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Change user password' })
+  @ApiResponse({ status: 200, description: 'Password changed successfully' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async changePassword(
+    @Request() req,
+    @Body() changePasswordDto: ChangePasswordDto,
+  ) {
+    return this.authService.changePassword(req.user.userId, changePasswordDto);
   }
 }

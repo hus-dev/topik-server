@@ -95,6 +95,36 @@ export class AuthService {
     return await this.usersService.findOne(payload.sub);
   }
 
+  async changePassword(userId: string, changePasswordDto: any) {
+    const user = (await this.usersService.findOne(userId)) as any;
+    // user는 이미 findOne에서 존재 여부가 확인됨 (비밀번호 없는 소셜 사용자는 password_hash가 null)
+    if (!user.password_hash) {
+      throw new UnauthorizedException(
+        'Social accounts do not have a password. Please use social login.',
+      );
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      changePasswordDto.currentPassword,
+      user.password_hash,
+    );
+    if (!isPasswordValid) {
+      throw new UnauthorizedException('Current password is incorrect');
+    }
+
+    const salt = await bcrypt.genSalt();
+    const newPasswordHash = await bcrypt.hash(
+      changePasswordDto.newPassword,
+      salt,
+    );
+
+    await this.usersService.update(userId, {
+      password_hash: newPasswordHash,
+    } as any);
+
+    return { message: 'Password changed successfully' };
+  }
+
   private buildAuthResponse(user: any) {
     const payload = { email: user.email, sub: user.id, role: user.role };
     return {

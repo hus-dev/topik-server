@@ -47,6 +47,21 @@ export class UsersController {
     >;
   }
 
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @Patch('profile')
+  @ApiOperation({ summary: 'Update current user profile settings' })
+  @ApiResponse({ status: 200, description: 'Profile updated successfully' })
+  async updateProfile(
+    @Request() req: JwtRequest,
+    @Body() updateUserDto: UpdateUserDto,
+  ): Promise<Record<string, unknown>> {
+    return (await this.usersService.update(
+      req.user.userId,
+      updateUserDto,
+    )) as Record<string, unknown>;
+  }
+
   @Get(':id')
   @UseGuards(AuthGuard('jwt'), AdminGuard)
   @ApiBearerAuth()

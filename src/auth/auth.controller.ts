@@ -46,4 +46,16 @@ export class AuthController {
   ) {
     return this.authService.changePassword(req.user.userId, changePasswordDto);
   }
+
+  @Post('logout')
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Logout user' })
+  @ApiResponse({ status: 200, description: 'Successfully logged out' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
+  async logout() {
+    // JWT는 상태가 없으므로 서버에서는 성공 메시지만 반환하고,
+    // 실제 토큰 삭제는 클라이언트(앱)에서 수행합니다.
+    return { message: 'Logged out successfully' };
+  }
 }

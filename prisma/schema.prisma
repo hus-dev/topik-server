@@ -140,8 +140,5 @@ model vocabulary {
   is_downloaded     Int               @default(0) @db.TinyInt
   updated_at        BigInt
   user_vocabulary   user_vocabulary[]
-  vocabulary        vocabulary?       @relation("vocabularyTovocabulary", fields: [tts_url], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "vocabulary_ibfk_1")
-  other_vocabulary  vocabulary[]      @relation("vocabularyTovocabulary")
 
-  @@index([tts_url], map: "tts_url")
 }

@@ -43,8 +43,10 @@ model answers {
   bookmarked      Int           @default(0) @db.TinyInt
   updated_at      BigInt
   exam_sessions   exam_sessions @relation(fields: [session_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "answers_ibfk_1")
+  questions       questions     @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "answers_ibfk_2")
 
   @@unique([session_id, question_id], map: "uq_answers_session_q")
+  @@index([question_id], map: "question_id")
 }
 
 model exam_sessions {
@@ -86,6 +88,72 @@ model question_sets {
   created_at    BigInt
   updated_at    BigInt
   exam_sessions exam_sessions[]
+  questions     questions[]
+}
+
+model questions {
+  id                 String             @id @default(uuid()) @db.VarChar(36)
+  set_id             String?            @db.VarChar(36)
+  passage_id         String?            @db.VarChar(36)
+  section            String             @db.VarChar(20)
+  question_type      String             @db.VarChar(50)
+  question_number    Int
+  level              Int?               @db.TinyInt
+  prompt             String             @db.VarChar(4000)
+  correct_answer     String?            @db.VarChar(1000)
+  explanation        String?            @db.VarChar(4000)
+  ai_explanation     String?            @db.VarChar(4000)
+  difficulty         Int?               @db.TinyInt
+  time_limit_seconds Int?
+  is_ai_generated    Int                @default(0) @db.TinyInt
+  is_downloaded      Int                @default(0) @db.TinyInt
+  created_at         BigInt
+  updated_at         BigInt
+  answers            answers[]
+  question_sets      question_sets?     @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
+  question_passages  question_passages? @relation(fields: [passage_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_2")
+  question_media     question_media[]
+  question_options   question_options[]
+
+  @@index([set_id], map: "set_id")
+  @@index([passage_id], map: "passage_id")
+  @@index([section, question_type, level], map: "idx_questions_section_type_level")
+}
+
+model question_options {
+  id            String    @id @default(uuid()) @db.VarChar(36)
+  question_id   String    @db.VarChar(36)
+  option_number Int
+  content       String    @db.VarChar(1000)
+  is_correct    Int       @default(0) @db.TinyInt
+  questions     questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "question_options_ibfk_1")
+
+  @@unique([question_id, option_number], map: "uq_question_options_question_number")
+}
+
+model question_passages {
+  id          String      @id @default(uuid()) @db.VarChar(36)
+  title       String?     @db.VarChar(255)
+  content     String      @db.Text
+  translation String?     @db.Text
+  created_at  BigInt
+  updated_at  BigInt
+  questions   questions[]
+}
+
+model question_media {
+  id               String    @id @default(uuid()) @db.VarChar(36)
+  question_id      String    @db.VarChar(36)
+  media_type       String    @db.VarChar(20)
+  url              String    @db.VarChar(500)
+  duration_seconds Int?
+  transcript       String?   @db.VarChar(4000)
+  sort_order       Int       @default(1)
+  created_at       BigInt
+  updated_at       BigInt
+  questions        questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "question_media_ibfk_1")
+
+  @@index([question_id], map: "question_id")
 }
 
 model sync_queue {
@@ -140,5 +208,4 @@ model vocabulary {
   is_downloaded     Int               @default(0) @db.TinyInt
   updated_at        BigInt
   user_vocabulary   user_vocabulary[]
-
 }

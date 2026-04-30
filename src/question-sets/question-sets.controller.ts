@@ -6,11 +6,19 @@ import {
   Patch,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import { QuestionSetsService } from './question-sets.service';
 import { CreateQuestionSetDto } from './dto/create-question-set.dto';
 import { UpdateQuestionSetDto } from './dto/update-question-set.dto';
+import { AuthGuard } from '@nestjs/passport';
+import { AdminGuard } from '../auth/guards/admin.guard';
 
 @ApiTags('question-sets')
 @Controller('question-sets')
@@ -18,8 +26,13 @@ export class QuestionSetsController {
   constructor(private readonly questionSetsService: QuestionSetsService) {}
 
   @Post()
+  @UseGuards(AuthGuard('jwt'), AdminGuard)
+  @ApiBearerAuth()
   @ApiOperation({ summary: 'Create a new question set' })
-  @ApiResponse({ status: 201, description: 'Question set successfully created' })
+  @ApiResponse({
+    status: 201,
+    description: 'Question set successfully created',
+  })
   create(@Body() createQuestionSetDto: CreateQuestionSetDto) {
     return this.questionSetsService.create(createQuestionSetDto);
   }
@@ -37,6 +50,7 @@ export class QuestionSetsController {
   }
 
   @Patch(':id')
+  @UseGuards(AuthGuard('jwt'), AdminGuard)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update a question set' })
   update(
@@ -47,6 +61,7 @@ export class QuestionSetsController {
   }
 
   @Delete(':id')
+  @UseGuards(AuthGuard('jwt'), AdminGuard)
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete a question set' })
   remove(@Param('id') id: string) {

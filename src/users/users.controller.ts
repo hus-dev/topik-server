@@ -48,7 +48,9 @@ export class UsersController {
   }
 
   @Get(':id')
-  @ApiOperation({ summary: 'Get a user by ID' })
+  @UseGuards(AuthGuard('jwt'), AdminGuard)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Get a user by ID (Admin only)' })
   findOne(@Param('id') id: string): Promise<Record<string, unknown>> {
     return this.usersService.findOne(id) as Promise<Record<string, unknown>>;
   }

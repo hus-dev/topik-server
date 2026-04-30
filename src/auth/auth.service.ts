@@ -71,11 +71,22 @@ export class AuthService {
   }
 
   async socialSignIn(socialLoginDto: SocialLoginDto) {
-    // 1. 토큰 검증 및 소셜 ID 추출
-    const providerId =
-      socialLoginDto.provider === 'google'
-        ? await this.verifyGoogleToken(socialLoginDto.token)
-        : await this.verifyKakaoToken(socialLoginDto.token);
+    // 1. 토큰 검증 및 소셜 정보 추출
+    let providerId: string;
+    let email: string | undefined;
+    let nickname: string | undefined;
+
+    if (socialLoginDto.provider === 'google') {
+      const googleUser = await this.verifyGoogleToken(socialLoginDto.token);
+      providerId = googleUser.sub;
+      email = googleUser.email;
+      nickname = googleUser.name;
+    } else {
+      const kakaoUser = await this.verifyKakaoToken(socialLoginDto.token);
+      providerId = kakaoUser.id;
+      email = kakaoUser.email;
+      nickname = kakaoUser.nickname;
+    }
 
     // 2. DB에서 사용자 조회
     let user = await this.usersService.findByProvider(
@@ -83,9 +94,20 @@ export class AuthService {
       providerId,
     );
 
-    // 3. 없으면 에러 (가입 프로세스는 별도로 두거나 여기서 자동 가입 가능)
+    // 3. 없으면 자동 가입 (UI UX에 맞춰 바로 가입 처리)
     if (!user) {
-      throw new UnauthorizedException('Social account is not registered. Please sign up first.');
+      // 이메일이 있고 이미 가입된 경우 (local 등) 계정 통합 고려 가능하나, 
+      // 현재는 소셜 전용 계정으로 생성
+      user = await this.usersService.create({
+        email: email || null,
+        provider: socialLoginDto.provider,
+        provider_id: providerId,
+        nickname: nickname || `${socialLoginDto.provider}_user`,
+        target_level: 1, // 기본값
+        language_code: 'ko',
+        timezone: 'Asia/Seoul',
+        timer_mode: 'normal',
+      } as any);
     }
 
     return this.buildAuthResponse(user);
@@ -146,17 +168,27 @@ export class AuthService {
       throw new UnauthorizedException('Invalid Google token');
     }
 
-    const data = (await response.json()) as { sub?: string; aud?: string };
+    const data = (await response.json()) as { 
+      sub?: string; 
+      aud?: string; 
+      email?: string; 
+      name?: string 
+    };
     const expectedAudience = process.env.GOOGLE_CLIENT_ID;
+    
     if (!data.sub) {
       throw new UnauthorizedException('Invalid Google token payload');
     }
-    // 환경변수에 설정된 경우에만 검증
+    
     if (expectedAudience && data.aud !== expectedAudience) {
       throw new UnauthorizedException('Google token audience mismatch');
     }
 
-    return data.sub;
+    return {
+      sub: data.sub,
+      email: data.email,
+      name: data.name,
+    };
   }
 
   private async verifyKakaoToken(token: string) {
@@ -169,11 +201,24 @@ export class AuthService {
       throw new UnauthorizedException('Invalid Kakao token');
     }
 
-    const data = (await response.json()) as { id?: number | string };
+    const data = (await response.json()) as { 
+      id?: number | string;
+      kakao_account?: {
+        email?: string;
+        profile?: {
+          nickname?: string;
+        };
+      };
+    };
+    
     if (!data.id) {
       throw new UnauthorizedException('Invalid Kakao token payload');
     }
 
-    return String(data.id);
+    return {
+      id: String(data.id),
+      email: data.kakao_account?.email,
+      nickname: data.kakao_account?.profile?.nickname,
+    };
   }
 }

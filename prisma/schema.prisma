@@ -13,6 +13,7 @@ model users {
   provider           String               @db.VarChar(20)
   provider_id        String?
   nickname           String               @db.VarChar(100)
+  role               String               @default("user") @db.VarChar(20)
   target_level       Int                  @db.TinyInt
   language_code      String               @db.VarChar(10)
   timezone           String               @db.VarChar(100)

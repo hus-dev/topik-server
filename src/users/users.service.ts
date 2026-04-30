@@ -30,6 +30,7 @@ export class UsersService {
       data: {
         ...userData,
         provider: userData.provider || 'local',
+        role: 'user',
         target_level: userData.target_level || 1,
         language_code: userData.language_code || 'ko',
         timezone: userData.timezone || 'Asia/Seoul',

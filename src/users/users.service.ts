@@ -37,11 +37,6 @@ export class UsersService {
     return this.serializeUser(user);
   }
 
-  async findAll() {
-    const users = await this.prisma.users.findMany();
-    return users.map((user) => this.serializeUser(user));
-  }
-
   async findOne(id: string) {
     const user = await this.prisma.users.findUnique({
       where: { id },

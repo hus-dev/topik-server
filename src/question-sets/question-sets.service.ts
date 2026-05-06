@@ -61,7 +61,6 @@ export class QuestionSetsService {
             question_passages: true,
           },
         },
-        exam_sessions: true,
       },
     });
     if (!set) {

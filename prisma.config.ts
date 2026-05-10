@@ -3,12 +3,28 @@
 import 'dotenv/config';
 import { defineConfig } from 'prisma/config';
 
+function getDatabaseUrl() {
+  const connectionString = process.env['DATABASE_URL'];
+  if (!connectionString) return undefined;
+
+  const url = new URL(connectionString);
+  if (url.protocol === 'mysql:') {
+    url.protocol = 'mariadb:';
+  }
+
+  if (!url.searchParams.has('allowPublicKeyRetrieval')) {
+    url.searchParams.set('allowPublicKeyRetrieval', 'true');
+  }
+
+  return url.toString();
+}
+
 export default defineConfig({
   schema: 'prisma/schema.prisma',
   migrations: {
     path: 'prisma/migrations',
   },
   datasource: {
-    url: process.env['DATABASE_URL'],
+    url: getDatabaseUrl(),
   },
 });

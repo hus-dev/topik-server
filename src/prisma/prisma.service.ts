@@ -3,6 +3,20 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
+function normalizeMariaDbConnectionString(connectionString: string) {
+  const url = new URL(connectionString);
+
+  if (url.protocol === 'mysql:') {
+    url.protocol = 'mariadb:';
+  }
+
+  if (!url.searchParams.has('allowPublicKeyRetrieval')) {
+    url.searchParams.set('allowPublicKeyRetrieval', 'true');
+  }
+
+  return url.toString();
+}
+
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit {
   constructor() {
@@ -11,10 +25,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
       throw new Error('DATABASE_URL is not set');
     }
 
-    // The MariaDB adapter requires the connection string to start with 'mariadb://'
-    if (connectionString.startsWith('mysql://')) {
-      connectionString = connectionString.replace('mysql://', 'mariadb://');
-    }
+    connectionString = normalizeMariaDbConnectionString(connectionString);
 
     // Prisma v7 requires adapter/accelerateUrl in PrismaClientOptions.
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call

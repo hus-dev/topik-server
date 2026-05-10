@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -25,11 +25,16 @@ export class UsersService {
   async create(createUserDto: CreateUserDto & { password_hash?: string }) {
     const now = BigInt(Date.now());
     const { password, password_hash, ...userData } = createUserDto as any;
+    const provider = userData.provider || 'local';
+
+    if (provider === 'local' && !password_hash) {
+      throw new BadRequestException('Local users require password_hash');
+    }
     
     const user = await this.prisma.users.create({
       data: {
         ...userData,
-        provider: userData.provider || 'local',
+        provider,
         role: 'user',
         target_level: userData.target_level || 1,
         language_code: userData.language_code || 'ko',

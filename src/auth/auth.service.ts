@@ -1,4 +1,9 @@
-import { Injectable, UnauthorizedException, ConflictException } from '@nestjs/common';
+import {
+  BadRequestException,
+  ConflictException,
+  Injectable,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
 import { LoginDto } from './dto/login.dto';
@@ -16,6 +21,11 @@ export class AuthService {
   async register(createUserDto: CreateUserDto) {
     const { email, provider, provider_id } = createUserDto;
     const password = (createUserDto as any).password;
+    const authProvider = provider || 'local';
+
+    if (authProvider === 'local' && !password) {
+      throw new BadRequestException('Password is required for local registration');
+    }
 
     // Check if user exists by email if provided
     if (email) {
@@ -43,9 +53,14 @@ export class AuthService {
       password_hash = await bcrypt.hash(password, salt);
     }
 
+    if (authProvider === 'local' && !password_hash) {
+      throw new BadRequestException('Password hash could not be created');
+    }
+
     // Create user
     const user = await this.usersService.create({
       ...createUserDto,
+      provider: authProvider,
       password_hash,
     });
 
@@ -94,10 +109,19 @@ export class AuthService {
       providerId,
     );
 
-    // 3. 없으면 자동 가입 (UI UX에 맞춰 바로 가입 처리)
+    // 3. 같은 이메일의 로컬 계정이 있으면 소셜 정보를 연결하고 기존 password_hash를 보존
+    if (!user && email) {
+      const existingEmailUser = await this.usersService.findByEmail(email);
+      if (existingEmailUser) {
+        user = await this.usersService.update(existingEmailUser.id, {
+          provider: socialLoginDto.provider,
+          provider_id: providerId,
+        } as any);
+      }
+    }
+
+    // 4. 없으면 자동 가입 (UI UX에 맞춰 바로 가입 처리)
     if (!user) {
-      // 이메일이 있고 이미 가입된 경우 (local 등) 계정 통합 고려 가능하나, 
-      // 현재는 소셜 전용 계정으로 생성
       user = await this.usersService.create({
         email: email || null,
         provider: socialLoginDto.provider,

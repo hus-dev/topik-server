@@ -12,6 +12,7 @@ import {
 
 export class CreateQuestionOptionDto {
   @ApiProperty({ example: 1 })
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   option_number: number;
@@ -22,6 +23,7 @@ export class CreateQuestionOptionDto {
 
   @ApiPropertyOptional({ example: 1, description: '0 or 1' })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(0)
   @Max(1)
@@ -39,6 +41,7 @@ export class CreateQuestionMediaDto {
 
   @ApiPropertyOptional({ example: 60 })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(0)
   duration_seconds?: number;
@@ -50,6 +53,7 @@ export class CreateQuestionMediaDto {
 
   @ApiPropertyOptional({ example: 1 })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   sort_order?: number = 1;
@@ -75,12 +79,14 @@ export class CreateQuestionDto {
   question_type: string;
 
   @ApiProperty({ example: 1 })
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   question_number: number;
 
   @ApiPropertyOptional({ example: 3 })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   @Max(6)
@@ -107,6 +113,7 @@ export class CreateQuestionDto {
 
   @ApiPropertyOptional({ example: 2 })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(1)
   @Max(5)
@@ -114,12 +121,14 @@ export class CreateQuestionDto {
 
   @ApiPropertyOptional({ example: 60 })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(0)
   time_limit_seconds?: number;
 
   @ApiPropertyOptional({ example: 0, description: '0 or 1' })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(0)
   @Max(1)
@@ -127,6 +136,7 @@ export class CreateQuestionDto {
 
   @ApiPropertyOptional({ example: 0, description: '0 or 1' })
   @IsOptional()
+  @Type(() => Number)
   @IsInt()
   @Min(0)
   @Max(1)

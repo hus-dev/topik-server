@@ -95,10 +95,43 @@ export class QuestionsService {
     return this.serializeData(question);
   }
 
+  private async validateQuestionRelations(data: {
+    set_id?: string | null;
+    passage_id?: string | null;
+  }) {
+    if (data.set_id) {
+      const set = await this.prisma.question_sets.findUnique({
+        where: { id: data.set_id },
+        select: { id: true },
+      });
+
+      if (!set) {
+        throw new NotFoundException(
+          `Question set with ID ${data.set_id} not found`,
+        );
+      }
+    }
+
+    if (data.passage_id) {
+      const passage = await this.prisma.question_passages.findUnique({
+        where: { id: data.passage_id },
+        select: { id: true },
+      });
+
+      if (!passage) {
+        throw new NotFoundException(
+          `Question passage with ID ${data.passage_id} not found`,
+        );
+      }
+    }
+  }
+
   async create(createQuestionDto: CreateQuestionDto) {
     const { question_options, question_media, ...questionData } =
       createQuestionDto;
     const now = BigInt(Date.now());
+
+    await this.validateQuestionRelations(questionData);
 
     const question = await this.prisma.questions.create({
       data: {
@@ -149,6 +182,8 @@ export class QuestionsService {
     const { question_options, question_media, ...questionData } =
       updateQuestionDto;
     const now = BigInt(Date.now());
+
+    await this.validateQuestionRelations(questionData);
 
     const question = await this.prisma.$transaction(async (tx) => {
       if (question_options) {

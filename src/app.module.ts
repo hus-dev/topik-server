@@ -8,6 +8,8 @@ import { QuestionSetsModule } from './question-sets/question-sets.module';
 import { QuestionsModule } from './questions/questions.module';
 import { PracticeSessionsModule } from './practice-sessions/practice-sessions.module';
 import { BookmarksModule } from './bookmarks/bookmarks.module';
+import { VocabularyModule } from './vocabulary/vocabulary.module';
+import { GrammarModule } from './grammar/grammar.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { BookmarksModule } from './bookmarks/bookmarks.module';
     QuestionsModule,
     PracticeSessionsModule,
     BookmarksModule,
+    VocabularyModule,
+    GrammarModule,
   ],
   controllers: [AppController],
   providers: [AppService],

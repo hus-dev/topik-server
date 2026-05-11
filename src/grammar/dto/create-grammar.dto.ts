@@ -1,5 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString, IsArray } from 'class-validator';
 
 export class CreateGrammarDto {
   @ApiProperty({ example: '-고 있다' })
@@ -13,8 +13,10 @@ export class CreateGrammarDto {
   description: string;
 
   @ApiProperty({ example: [{ ko: '공부하고 있다', en: 'is studying' }] })
+  @IsArray()
   examples_json: any;
 
   @ApiProperty({ example: ['TOPIK II', 'progressive'] })
+  @IsArray()
   tags_json: any;
 }

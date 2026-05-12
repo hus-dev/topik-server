@@ -10,6 +10,7 @@ import { PracticeSessionsModule } from './practice-sessions/practice-sessions.mo
 import { BookmarksModule } from './bookmarks/bookmarks.module';
 import { VocabularyModule } from './vocabulary/vocabulary.module';
 import { GrammarModule } from './grammar/grammar.module';
+import { MockExamsModule } from './mock-exams/mock-exams.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { GrammarModule } from './grammar/grammar.module';
     QuestionSetsModule,
     QuestionsModule,
     PracticeSessionsModule,
+    MockExamsModule,
     BookmarksModule,
     VocabularyModule,
     GrammarModule,

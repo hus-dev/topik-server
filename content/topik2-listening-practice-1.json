@@ -1,0 +1,861 @@
+{
+  "set": {
+    "title": "TOPIK II Listening Practice Set 1",
+    "section": "listening",
+    "level": 3,
+    "source": "original",
+    "description": "Original TOPIK II-style listening questions for TOPIK GO MVP testing. The audio is generated locally from original Korean scripts and is not copied from official exams."
+  },
+  "questions": [
+    {
+      "question_number": 1,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 이어질 말로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 회의실이 어디에 있어요? 남자: 이 복도 끝에서 오른쪽으로 가시면 됩니다.",
+      "options": [
+        "네, 금방 도착할 거예요.",
+        "감사합니다. 바로 가 볼게요.",
+        "아니요, 회의는 끝났어요.",
+        "저는 회의 자료가 없습니다."
+      ],
+      "correct_answer": "2",
+      "explanation": "장소 안내를 받았으므로 감사하고 가 보겠다는 대답이 자연스럽습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 45
+    },
+    {
+      "question_number": 2,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 이어질 말로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 내일 발표 준비 다 했어요? 여자: 아직 자료를 조금 더 찾아봐야 해요.",
+      "options": [
+        "그럼 제가 도와드릴까요?",
+        "발표가 정말 좋았어요.",
+        "회의실은 3층이에요.",
+        "내일은 주말이에요."
+      ],
+      "correct_answer": "1",
+      "explanation": "상대가 아직 준비 중이라고 했으므로 도움을 제안하는 말이 자연스럽습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 45
+    },
+    {
+      "question_number": 3,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 이어질 말로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 이 버스가 시청에 가나요? 남자: 아니요. 시청에 가시려면 105번을 타셔야 합니다.",
+      "options": [
+        "그럼 105번을 어디에서 타요?",
+        "시청은 문을 닫았어요.",
+        "저는 버스를 운전합니다.",
+        "버스가 벌써 도착했어요."
+      ],
+      "correct_answer": "1",
+      "explanation": "다른 버스를 타야 한다는 안내를 들었으므로 타는 장소를 묻는 말이 알맞습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 45
+    },
+    {
+      "question_number": 4,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 이어질 말로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 오늘 점심 같이 드실래요? 여자: 미안해요. 오늘은 먼저 약속이 있어요.",
+      "options": [
+        "그럼 다음에 같이 먹어요.",
+        "네, 지금 주문할게요.",
+        "식당이 아주 조용하네요.",
+        "점심시간이 너무 길어요."
+      ],
+      "correct_answer": "1",
+      "explanation": "상대가 약속이 있다고 거절했으므로 다음을 기약하는 대답이 자연스럽습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 45
+    },
+    {
+      "question_number": 5,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 무엇을 하고 있는지 고르십시오.",
+      "audio_text": "여자: 손님, 이 제품은 이번 주에만 할인됩니다. 색상은 검은색과 흰색이 있고, 필요하시면 직접 신어 보실 수 있습니다.",
+      "options": [
+        "상품을 설명하고 있다",
+        "길을 안내하고 있다",
+        "회의를 진행하고 있다",
+        "음식을 주문하고 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "제품 가격, 색상, 착용 가능 여부를 설명하고 있으므로 상품 설명입니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 60
+    },
+    {
+      "question_number": 6,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 무엇을 하고 있는지 고르십시오.",
+      "audio_text": "남자: 이번 주 금요일까지 신청서를 제출해 주세요. 사진 한 장과 신분증 사본도 함께 내셔야 합니다.",
+      "options": [
+        "신청 방법을 안내하고 있다",
+        "사진을 찍고 있다",
+        "물건을 판매하고 있다",
+        "영화를 소개하고 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "신청서와 필요한 서류 제출을 안내하고 있습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 60
+    },
+    {
+      "question_number": 7,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 알맞은 그림이나 상황을 고르십시오.",
+      "audio_text": "여자: 어제 산 책을 읽어 봤는데 내용이 정말 재미있었어요. 특히 주인공이 여행을 떠나는 부분이 기억에 남아요.",
+      "options": [
+        "책에 대해 이야기하고 있다",
+        "여행 상품을 예약하고 있다",
+        "주인공을 만나고 있다",
+        "서점 위치를 묻고 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "읽은 책의 내용과 인상 깊은 부분을 이야기하고 있습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 60
+    },
+    {
+      "question_number": 8,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 생각으로 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 요즘은 엘리베이터 대신 계단을 이용하려고 해요. 시간이 조금 더 걸리지만 따로 운동할 시간이 없는 저에게는 좋은 방법인 것 같아요.",
+      "options": [
+        "계단 이용이 건강 관리에 도움이 된다",
+        "엘리베이터가 항상 더 안전하다",
+        "운동할 시간이 많아서 걱정이 없다",
+        "계단을 이용하면 시간이 전혀 걸리지 않는다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 계단 이용이 운동 시간이 부족한 자신에게 좋은 방법이라고 말합니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 60
+    },
+    {
+      "question_number": 9,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "여자: 이번 주 토요일에는 도서관 자료실 정리 작업이 있습니다. 오후 1시부터 3시까지는 책을 빌릴 수 없지만 열람실은 정상적으로 이용할 수 있습니다.",
+      "options": [
+        "토요일 오후 일부 시간에는 대출이 중단된다",
+        "토요일에는 열람실도 문을 닫는다",
+        "자료실 정리는 오전에 끝난다",
+        "도서관은 일요일에만 이용할 수 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "오후 1시부터 3시까지 책을 빌릴 수 없다고 했습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 70
+    },
+    {
+      "question_number": 10,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "남자: 다음 달부터 주민센터 한국어 회화 수업이 저녁 7시에 시작됩니다. 신청은 이번 주 금요일까지이며, 신청자가 10명보다 적으면 수업이 취소될 수 있습니다.",
+      "options": [
+        "신청자가 적으면 수업이 취소될 수 있다",
+        "수업은 아침 7시에 시작된다",
+        "신청은 다음 달부터 받는다",
+        "수업은 10명 이상 신청할 수 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "신청자가 10명보다 적으면 취소될 수 있다고 했습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 70
+    },
+    {
+      "question_number": 11,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 왜 전화를 했는지 고르십시오.",
+      "audio_text": "여자: 안녕하세요. 어제 주문한 책 배송 주소를 바꾸고 싶어서 전화드렸습니다. 아직 발송 전이면 회사 주소로 받을 수 있을까요?",
+      "options": [
+        "배송 주소를 변경하려고",
+        "책을 새로 주문하려고",
+        "회사 위치를 물어보려고",
+        "배송비를 환불받으려고"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 주문한 책의 배송 주소를 바꾸고 싶다고 말했습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 70
+    },
+    {
+      "question_number": 12,
+      "level": 3,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 왜 전화했는지 고르십시오.",
+      "audio_text": "남자: 오늘 오후 2시에 예약한 김민수입니다. 갑자기 회사 회의가 생겨서 예약 시간을 4시로 바꿀 수 있는지 문의드립니다.",
+      "options": [
+        "예약 시간을 바꾸려고",
+        "회의 장소를 예약하려고",
+        "회사에 늦는다고 말하려고",
+        "예약을 새로 확인하려고"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 예약 시간을 2시에서 4시로 바꾸고 싶다고 했습니다.",
+      "difficulty": 2,
+      "time_limit_seconds": 70
+    },
+    {
+      "question_number": 13,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 두 사람이 무엇에 대해 이야기하는지 고르십시오.",
+      "audio_text": "여자: 회사에서 점심시간을 자유롭게 정할 수 있게 됐다면서요? 남자: 네. 업무 상황에 맞게 식사할 수 있어서 좋은데, 팀 회의 시간이 겹칠 때는 조금 불편해요.",
+      "options": [
+        "자유 점심시간 제도",
+        "새로운 식당 메뉴",
+        "회의 자료 작성",
+        "직원 채용 방식"
+      ],
+      "correct_answer": "1",
+      "explanation": "두 사람은 점심시간을 자유롭게 정하는 제도의 장단점에 대해 이야기합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 80
+    },
+    {
+      "question_number": 14,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 두 사람이 무엇에 대해 이야기하는지 고르십시오.",
+      "audio_text": "남자: 요즘 박물관에 직접 만져 보고 체험하는 전시가 많아졌더라고요. 여자: 맞아요. 그냥 설명을 읽는 것보다 아이들이 훨씬 오래 기억하는 것 같아요.",
+      "options": [
+        "체험형 전시의 효과",
+        "박물관 입장료 인상",
+        "어린이 책 추천",
+        "전시 설명 번역"
+      ],
+      "correct_answer": "1",
+      "explanation": "직접 체험하는 전시와 기억 효과에 대해 말하고 있습니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 80
+    },
+    {
+      "question_number": 15,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 의견으로 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 온라인 수업은 어디서든 들을 수 있어서 편리합니다. 하지만 스스로 시간을 관리하지 않으면 수업을 미루기 쉽습니다. 그래서 학습 계획을 세우는 것이 중요합니다.",
+      "options": [
+        "온라인 수업에서는 자기 관리가 필요하다",
+        "온라인 수업은 장소 제한이 많다",
+        "온라인 수업은 계획 없이 들어야 효과적이다",
+        "온라인 수업은 항상 교실 수업보다 어렵다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 온라인 수업의 편리함과 자기 관리의 필요성을 말합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 85
+    },
+    {
+      "question_number": 16,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 의견으로 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 스마트폰 알림은 필요한 정보를 빨리 알려 주지만 너무 자주 울리면 집중력이 떨어집니다. 공부할 때는 꼭 필요한 알림만 남겨 두는 게 좋습니다.",
+      "options": [
+        "공부할 때는 알림을 적절히 관리해야 한다",
+        "알림은 많을수록 공부에 도움이 된다",
+        "스마트폰 알림은 모두 꼭 필요하다",
+        "공부할 때 스마트폰을 항상 켜 두어야 한다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 필요한 알림만 남겨 집중력을 지키자고 말합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 85
+    },
+    {
+      "question_number": 17,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "남자: 대중교통 앱은 버스 도착 시간을 알려 줘서 편리합니다. 하지만 날씨나 교통 상황 때문에 실제 도착 시간이 달라질 수 있으니 중요한 약속이 있으면 조금 일찍 출발하는 것이 좋습니다.",
+      "options": [
+        "앱 정보가 실제 상황에 따라 달라질 수 있다",
+        "앱 정보는 언제나 정확하다",
+        "중요한 약속에는 늦게 출발하는 것이 좋다",
+        "날씨는 버스 도착 시간과 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "날씨와 교통 상황 때문에 실제 도착 시간이 달라질 수 있다고 했습니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 85
+    },
+    {
+      "question_number": 18,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "여자: 일부 카페에서는 개인 컵을 가져오는 손님에게 할인을 제공합니다. 처음에는 참여자가 많지 않았지만 환경 보호에 대한 관심이 높아지면서 개인 컵을 사용하는 손님이 늘고 있습니다.",
+      "options": [
+        "개인 컵을 사용하는 손님이 늘고 있다",
+        "카페는 개인 컵 사용을 금지하고 있다",
+        "개인 컵 할인은 어제부터 없어졌다",
+        "환경 보호에 대한 관심은 줄어들고 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "개인 컵 사용자가 점차 늘고 있다고 했습니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 85
+    },
+    {
+      "question_number": 19,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 중심 생각을 고르십시오.",
+      "audio_text": "여자: 중고 물품 거래는 필요한 물건을 저렴하게 살 수 있다는 장점이 있습니다. 하지만 사진과 실제 상태가 다를 수 있으므로 거래 전에 설명을 자세히 확인해야 합니다.",
+      "options": [
+        "중고 거래 전에는 물건 상태를 확인해야 한다",
+        "중고 물품은 항상 새 물건보다 좋다",
+        "사진만 보고 바로 결제하는 것이 좋다",
+        "중고 거래는 자원 재사용과 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 중고 거래 전에 상태 확인이 필요하다고 말합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 90
+    },
+    {
+      "question_number": 20,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 중심 생각을 고르십시오.",
+      "audio_text": "남자: 식물을 건강하게 키우려면 물을 자주 주는 것만이 답은 아닙니다. 식물의 종류와 흙의 상태에 맞춰 물 주는 횟수를 조절해야 합니다.",
+      "options": [
+        "식물의 종류와 환경에 맞게 물을 주어야 한다",
+        "모든 식물은 매일 같은 양의 물이 필요하다",
+        "물을 많이 줄수록 식물은 항상 건강하다",
+        "흙의 상태는 식물 관리와 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 식물 종류와 흙 상태에 맞춘 물 주기를 강조합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 90
+    },
+    {
+      "question_number": 21,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 온라인 후기는 실제 사용 경험이 담겨 있어서 도움이 됩니다. 그렇지만 모든 후기가 객관적인 것은 아니니까 여러 후기를 비교해서 보는 것이 좋습니다.",
+      "options": [
+        "후기를 신중하게 확인해야 한다고 본다",
+        "후기를 절대 보면 안 된다고 본다",
+        "후기는 모두 정확하다고 믿는다",
+        "별점만 보면 충분하다고 생각한다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 후기를 참고하되 여러 후기를 비교하자는 신중한 태도를 보입니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 90
+    },
+    {
+      "question_number": 22,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 빠른 배송은 편리하지만 포장재가 많이 쓰이고 배송 노동자의 부담도 커질 수 있습니다. 편리함만 보고 서비스를 평가해서는 안 됩니다.",
+      "options": [
+        "빠른 배송의 사회적 비용도 고려해야 한다고 본다",
+        "빠른 배송은 아무 문제가 없다고 본다",
+        "포장재 사용은 배송과 관계없다고 본다",
+        "배송 노동자의 부담은 중요하지 않다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 빠른 배송의 편리함과 사회적 비용을 함께 고려해야 한다고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 100
+    },
+    {
+      "question_number": 23,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 주장하는 것을 고르십시오.",
+      "audio_text": "남자: 정보는 빠르게 퍼지지만 항상 정확한 것은 아닙니다. 제목만 보고 판단하지 말고 출처와 근거를 확인한 뒤 공유해야 합니다.",
+      "options": [
+        "정보를 공유하기 전에 출처와 근거를 확인해야 한다",
+        "제목만 보고 정보를 판단해도 된다",
+        "빠른 공유가 정확성보다 중요하다",
+        "출처는 정보 이해와 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 정보 공유 전에 출처와 근거 확인을 강조합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 100
+    },
+    {
+      "question_number": 24,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 주장하는 것을 고르십시오.",
+      "audio_text": "여자: 좋은 질문은 학습의 출발점입니다. 자신이 무엇을 알고 무엇을 모르는지 생각하면서 질문을 만들면 더 깊이 이해할 수 있습니다.",
+      "options": [
+        "질문을 만드는 과정은 깊은 이해에 도움이 된다",
+        "질문은 학습에 별 도움이 되지 않는다",
+        "답을 외우는 것만이 가장 중요하다",
+        "모르는 것을 생각하면 학습이 방해된다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 질문을 만드는 과정이 깊은 이해로 이어진다고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 100
+    },
+    {
+      "question_number": 25,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 의견으로 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 공유 주방은 창업 비용을 줄일 수 있어서 좋습니다. 하지만 여러 사람이 같은 공간을 쓰기 때문에 위생 관리와 사용 시간 조정이 꼭 필요합니다.",
+      "options": [
+        "공유 주방은 장점이 있지만 관리 기준이 필요하다",
+        "공유 주방은 혼자만 쓰는 공간이다",
+        "공유 주방에서는 위생 관리가 필요 없다",
+        "공유 주방은 음식 판매와 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 공유 주방의 장점과 관리 필요성을 함께 말합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 95
+    },
+    {
+      "question_number": 26,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 의견으로 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 지역 축제는 주민들이 함께 어울릴 수 있는 좋은 기회입니다. 그렇지만 쓰레기나 소음 문제가 생기지 않도록 환경 관리와 안전 대책도 준비해야 합니다.",
+      "options": [
+        "지역 축제에는 즐길 거리뿐 아니라 관리 대책도 필요하다",
+        "지역 축제에서는 안전 대책이 필요 없다",
+        "축제는 주민 교류와 관계가 없다",
+        "축제가 열리면 쓰레기 문제는 절대 생기지 않는다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 축제의 장점과 함께 환경 관리 및 안전 대책을 강조합니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 95
+    },
+    {
+      "question_number": 27,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 설명하는 서비스의 장점을 고르십시오.",
+      "audio_text": "남자: 병원 모바일 예약 서비스를 이용하면 원하는 시간을 미리 선택할 수 있습니다. 그래서 접수 후 오래 기다리는 불편을 줄일 수 있습니다.",
+      "options": [
+        "기다리는 시간을 줄일 수 있다",
+        "진료비가 항상 무료가 된다",
+        "병원에 가지 않아도 진료가 끝난다",
+        "예약 없이 더 오래 기다릴 수 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "모바일 예약 서비스의 장점은 대기 시간을 줄이는 것입니다.",
+      "difficulty": 3,
+      "time_limit_seconds": 90
+    },
+    {
+      "question_number": 28,
+      "level": 4,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 설명하는 변화로 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 전통 시장도 요즘 온라인 주문 서비스를 시작하고 있습니다. 또 젊은 상인들이 참여할 수 있는 공간을 마련해 새로운 소비 방식에 맞추려고 노력하고 있습니다.",
+      "options": [
+        "전통 시장이 새로운 소비 방식에 적응하려고 한다",
+        "전통 시장은 온라인 주문을 모두 중단했다",
+        "젊은 상인의 참여를 막고 있다",
+        "전통 시장은 변화할 필요가 없다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "온라인 주문과 젊은 상인 공간은 변화에 적응하려는 노력입니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 100
+    },
+    {
+      "question_number": 29,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 중심 생각을 고르십시오.",
+      "audio_text": "남자: 창의성은 특별한 재능만을 의미하지 않습니다. 이미 알고 있는 지식과 경험을 다른 방식으로 연결할 때도 창의적인 결과가 나올 수 있습니다.",
+      "options": [
+        "창의성은 지식과 경험의 새로운 연결에서 나올 수 있다",
+        "창의성은 타고난 재능이 없으면 불가능하다",
+        "기존 지식은 창의성을 방해하기만 한다",
+        "다양한 경험은 창의적 결과와 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 창의성을 지식과 경험의 새로운 연결로 설명합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 110
+    },
+    {
+      "question_number": 30,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 중심 생각을 고르십시오.",
+      "audio_text": "여자: 선택지가 많으면 자유로운 것 같지만 오히려 결정을 어렵게 만들 수 있습니다. 비교해야 할 정보가 너무 많아지기 때문입니다.",
+      "options": [
+        "선택지가 많으면 결정이 더 어려워질 수 있다",
+        "선택지가 많을수록 항상 빨리 결정한다",
+        "비교할 정보가 많으면 부담이 줄어든다",
+        "선택의 자유는 결정과 아무 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 선택지가 많을 때 결정이 어려워질 수 있다고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 110
+    },
+    {
+      "question_number": 31,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "남자: 도시 공원은 휴식 공간일 뿐만 아니라 여름철 주변 온도를 낮추고 비가 올 때 빗물을 흡수하는 역할도 합니다. 또 주민들이 자연스럽게 만나는 장소가 되기도 합니다.",
+      "options": [
+        "도시 공원은 환경적 기능과 사회적 기능을 함께 가진다",
+        "도시 공원은 휴식 외에는 기능이 없다",
+        "공원은 침수 피해를 더 키운다",
+        "주민들은 공원에서 만날 수 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "공원의 환경적 기능과 사회적 기능을 모두 설명하고 있습니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 110
+    },
+    {
+      "question_number": 32,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "여자: 일부 학교는 시험 점수뿐 아니라 학습 과정도 평가합니다. 학생이 어떤 자료를 찾고 어떤 방법을 시도했는지 보면 사고 과정과 성장 가능성을 알 수 있기 때문입니다.",
+      "options": [
+        "학습 과정 평가는 학생의 사고 과정을 보여 줄 수 있다",
+        "학습 과정 평가는 아무 의미가 없다",
+        "시험 점수만이 유일한 평가 기준이다",
+        "자료를 찾는 활동은 평가와 관계가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "학습 과정 평가가 사고 과정과 성장 가능성을 보여 준다고 했습니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 110
+    },
+    {
+      "question_number": 33,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 주장하는 것을 고르십시오.",
+      "audio_text": "남자: 기술 발전은 어떤 직업을 사라지게 할 수 있지만 새로운 직업을 만들기도 합니다. 중요한 것은 변화를 두려워하기보다 새로운 기술을 이해하고 활용하는 능력을 기르는 것입니다.",
+      "options": [
+        "새로운 기술을 이해하고 활용하는 능력이 필요하다",
+        "기술 발전은 반드시 막아야 한다",
+        "새로운 직업은 기술과 관계없이 생긴다",
+        "기술 변화는 두려워하기만 하면 된다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 기술 변화에 대응하는 능력의 필요성을 주장합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 34,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 주장하는 것을 고르십시오.",
+      "audio_text": "여자: 기록은 과거를 남기는 일에 그치지 않습니다. 소비 습관이나 운동 기록을 살펴보면 앞으로의 행동을 조정하는 데 도움이 됩니다.",
+      "options": [
+        "기록은 미래 행동을 조정하는 데 도움이 된다",
+        "기록은 과거를 잊기 위한 활동이다",
+        "소비 기록은 생활 개선과 관계가 없다",
+        "운동 기록은 시간이 지나면 가치가 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 기록이 앞으로의 행동을 조정하는 도구라고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 35,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 회의를 오래 한다고 해서 항상 좋은 결정이 나오는 것은 아닙니다. 회의 전에 자료를 공유하고 회의 시간에는 꼭 필요한 논의만 하는 편이 더 효율적입니다.",
+      "options": [
+        "효율적인 회의 방식을 긍정적으로 보고 있다",
+        "긴 회의가 항상 좋다고 믿고 있다",
+        "회의 자료 공유를 반대하고 있다",
+        "회의는 아무 준비 없이 해야 한다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 사전 자료 공유와 필요한 논의를 통한 효율적인 회의를 긍정적으로 봅니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 36,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "여자: 디지털 지도는 길을 찾는 데 매우 편리합니다. 하지만 지도 앱에 지나치게 의존하면 주변 환경을 스스로 관찰하고 기억하는 능력이 약해질 수 있습니다.",
+      "options": [
+        "편리함을 인정하면서도 과도한 의존을 우려한다",
+        "디지털 지도 사용을 완전히 금지해야 한다고 본다",
+        "지도 앱은 전혀 편리하지 않다고 본다",
+        "주변 환경을 기억하는 능력은 필요 없다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 디지털 지도의 편리함과 지나친 의존의 문제를 함께 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 37,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "남자: 농산물 직거래는 소비자가 신선한 농산물을 비교적 저렴하게 살 수 있고 생산자는 수익을 높일 수 있습니다. 다만 안정적인 배송과 품질 관리가 중요합니다.",
+      "options": [
+        "농산물 직거래는 장점이 있지만 배송과 품질 관리가 중요하다",
+        "직거래는 생산자에게만 손해가 된다",
+        "직거래에서는 신선도가 중요하지 않다",
+        "중간 유통 단계가 줄면 소비자는 항상 더 비싸게 산다"
+      ],
+      "correct_answer": "1",
+      "explanation": "직거래의 장점과 관리 조건을 함께 설명합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 38,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 주장하는 것을 고르십시오.",
+      "audio_text": "여자: 실패는 피해야 할 경험으로만 볼 필요가 없습니다. 원인을 분석하고 다음 행동을 바꾸면 실패도 성장의 계기가 될 수 있습니다.",
+      "options": [
+        "실패를 분석하고 다음 행동을 개선해야 한다",
+        "실패는 아무 가치가 없으므로 잊어야 한다",
+        "실패 후에는 다시 시도하지 않는 것이 좋다",
+        "실패 원인을 찾는 일은 성장을 방해한다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 실패 원인을 분석하고 행동을 개선해야 한다고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 115
+    },
+    {
+      "question_number": 39,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 중심 생각을 고르십시오.",
+      "audio_text": "남자: 작은 서점은 대형 서점과 가격 경쟁을 하기 어렵습니다. 그래서 작가와의 만남이나 독서 모임처럼 책을 매개로 한 경험을 제공하며 지역 문화 공간으로 역할을 넓히고 있습니다.",
+      "options": [
+        "작은 서점은 문화 경험을 제공하며 새로운 역할을 찾고 있다",
+        "작은 서점은 가격 경쟁에서 항상 유리하다",
+        "작가와의 만남은 서점과 관계가 없다",
+        "지역 서점은 문화 공간 역할을 포기하고 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "작은 서점이 문화 경험을 제공하며 역할을 넓히고 있다고 했습니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 40,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 중심 생각을 고르십시오.",
+      "audio_text": "여자: 환경 문제를 해결하려면 제도적 노력도 중요하지만 개인의 작은 실천도 의미가 있습니다. 텀블러 사용이나 분리배출이 주변 사람에게 영향을 주면 더 큰 변화로 이어질 수 있습니다.",
+      "options": [
+        "환경 문제 해결에는 개인의 작은 실천도 중요하다",
+        "환경 문제는 개인 행동과 전혀 관계가 없다",
+        "텀블러 사용은 주변에 영향을 주지 않는다",
+        "제도적 노력은 환경 문제 해결에 필요하지 않다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 제도적 노력과 개인의 작은 실천이 모두 중요하다고 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 41,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 인공지능 번역기는 외국어 문서를 빠르게 이해하는 데 도움을 줍니다. 하지만 문맥이나 문화적 표현을 항상 정확하게 반영하지는 못하므로 중요한 문서는 전문가의 확인이 필요합니다.",
+      "options": [
+        "기술의 장점을 인정하면서도 한계를 주의해야 한다고 본다",
+        "인공지능 번역은 모든 분야에서 완벽하다고 본다",
+        "번역기는 절대 사용하면 안 된다고 본다",
+        "전문가 확인은 어떤 경우에도 필요 없다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 번역기의 편리함과 한계를 함께 말합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 42,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 내용과 같은 것을 고르십시오.",
+      "audio_text": "여자: 도시 농업은 아파트 옥상이나 빈터에서 채소를 기르는 활동입니다. 직접 기른 식재료를 얻을 수 있고 이웃과 교류할 수 있으며 아이들에게 교육적 효과도 있습니다.",
+      "options": [
+        "도시 농업은 식재료 생산, 교류, 교육 효과를 가질 수 있다",
+        "도시 농업은 도시에서 불가능하다",
+        "도시 농업은 아이들 교육과 관계가 없다",
+        "도시 농업은 이웃과의 만남을 줄인다"
+      ],
+      "correct_answer": "1",
+      "explanation": "도시 농업의 세 가지 효과를 설명하고 있습니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 43,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자가 설명하는 여행 방식으로 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 요즘은 유명 관광지를 많이 방문하기보다 한 지역에 오래 머물며 현지 생활을 경험하려는 여행자가 늘고 있습니다. 이런 여행은 이동 시간을 줄이고 주민과의 교류를 늘릴 수 있습니다.",
+      "options": [
+        "한 지역에 오래 머물며 생활을 경험하는 여행",
+        "많은 도시를 빠르게 지나가는 여행",
+        "현지 주민과 만나지 않는 여행",
+        "이동 시간을 최대한 늘리는 여행"
+      ],
+      "correct_answer": "1",
+      "explanation": "한 지역에 오래 머물며 현지 생활을 경험하는 여행을 설명합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 44,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 주장하는 것을 고르십시오.",
+      "audio_text": "여자: 공공기관이 예산 사용과 사업 결정 기준을 공개하면 시민이 정책 과정을 더 잘 이해할 수 있습니다. 정보 공개는 시민 참여를 높이는 데 필요합니다.",
+      "options": [
+        "공공 정보 공개는 시민 참여를 높이는 데 필요하다",
+        "예산 정보는 시민에게 공개하면 안 된다",
+        "정책 결정 기준은 시민 참여와 관계없다",
+        "정보가 많아지면 시민은 의견을 낼 수 없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 정보 공개가 시민 참여를 높인다고 주장합니다.",
+      "difficulty": 4,
+      "time_limit_seconds": 120
+    },
+    {
+      "question_number": 45,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 중심 생각을 고르십시오.",
+      "audio_text": "남자: 문화유산을 보존한다는 것은 과거 모습을 그대로 멈추어 두는 것만을 뜻하지 않습니다. 사람들이 현재의 삶 속에서 그 가치를 이해하고 활용할 때 문화유산은 더 오래 이어질 수 있습니다.",
+      "options": [
+        "문화유산은 보존과 활용이 함께 이루어질 때 가치가 이어질 수 있다",
+        "문화유산은 어떤 방식으로도 활용해서는 안 된다",
+        "전통 건물은 교육 공간으로 사용할 수 없다",
+        "문화유산의 가치는 현재 사람들의 이해와 관계없다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 문화유산의 현재적 활용과 보존을 함께 강조합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    },
+    {
+      "question_number": 46,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 중심 생각을 고르십시오.",
+      "audio_text": "여자: 사회 문제는 한 번의 정책이나 캠페인으로 해결되기 어렵습니다. 작은 변화가 쌓이고 여러 집단의 협력이 이어질 때 지속 가능한 결과가 만들어집니다.",
+      "options": [
+        "복잡한 사회 문제는 지속적인 협력과 꾸준한 변화가 필요하다",
+        "사회 문제는 언제나 한 번의 캠페인으로 해결된다",
+        "문제 해결에서는 방향보다 속도가 항상 중요하다",
+        "여러 집단의 협력은 지속 가능한 결과를 방해한다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 지속적인 협력과 꾸준한 변화의 필요성을 말합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    },
+    {
+      "question_number": 47,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 태도로 가장 알맞은 것을 고르십시오.",
+      "audio_text": "남자: 재택근무는 출퇴근 시간을 줄여 주지만 동료와 자연스럽게 소통할 기회가 줄어들 수 있습니다. 그래서 정기적인 온라인 회의와 명확한 업무 공유가 필요합니다.",
+      "options": [
+        "재택근무의 장점과 보완할 점을 함께 보고 있다",
+        "재택근무는 아무 문제가 없다고만 보고 있다",
+        "온라인 회의는 반드시 없애야 한다고 본다",
+        "업무 공유는 재택근무와 관계없다고 본다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 재택근무의 장점과 소통 보완책을 함께 말합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    },
+    {
+      "question_number": 48,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자가 주장하는 것을 고르십시오.",
+      "audio_text": "여자: 지역 문제를 해결하려면 전문가의 의견도 필요하지만 주민의 경험도 중요합니다. 실제로 그 지역에서 생활하는 사람들이 불편을 가장 구체적으로 알고 있기 때문입니다.",
+      "options": [
+        "지역 문제 해결에는 주민의 경험도 중요하다",
+        "전문가 의견은 항상 필요하지 않다",
+        "주민은 지역 문제를 알 수 없다",
+        "지역 문제는 외부 사람만 해결할 수 있다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 지역 주민의 경험이 문제 해결에 중요하다고 말합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    },
+    {
+      "question_number": 49,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 남자의 중심 생각을 고르십시오.",
+      "audio_text": "남자: 건강 정보가 많아질수록 오히려 혼란을 느끼는 사람도 있습니다. 개인의 상태에 따라 필요한 정보가 다를 수 있으므로 무조건 따라 하기보다 전문가와 상담하는 태도가 필요합니다.",
+      "options": [
+        "건강 정보는 개인 상황에 맞게 신중하게 받아들여야 한다",
+        "모든 건강 정보는 누구에게나 똑같이 맞다",
+        "전문가 상담은 건강 관리에 필요하지 않다",
+        "건강 정보가 많으면 항상 좋은 결과만 생긴다"
+      ],
+      "correct_answer": "1",
+      "explanation": "남자는 개인 상황에 맞는 신중한 정보 활용을 강조합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    },
+    {
+      "question_number": 50,
+      "level": 5,
+      "question_type": "multiple_choice",
+      "prompt": "다음을 듣고 여자의 중심 생각을 고르십시오.",
+      "audio_text": "여자: 좋은 도시 디자인은 보기 좋은 건물을 만드는 데서 끝나지 않습니다. 아이, 노인, 장애인처럼 다양한 사람들이 안전하고 편리하게 이용할 수 있어야 합니다.",
+      "options": [
+        "도시 디자인은 다양한 사람이 안전하고 편리하게 이용할 수 있어야 한다",
+        "도시 디자인은 건물의 외관만 중요하다",
+        "노인과 장애인은 도시 디자인과 관계없다",
+        "안전성보다 화려한 디자인이 항상 우선이다"
+      ],
+      "correct_answer": "1",
+      "explanation": "여자는 도시 디자인의 접근성과 안전성을 강조합니다.",
+      "difficulty": 5,
+      "time_limit_seconds": 130
+    }
+  ]
+}

@@ -15,6 +15,10 @@ async function bootstrap() {
     prefix: '/test/photos/',
   });
 
+  app.useStaticAssets(join(process.cwd(), 'test/audio'), {
+    prefix: '/test/audio/',
+  });
+
   // 전역 유효성 검사 파이프 설정
   app.useGlobalPipes(
     new ValidationPipe({

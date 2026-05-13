@@ -15,6 +15,7 @@
     "seed:dev": "ts-node prisma/seed/dev-seed.ts",
     "seed:reading-photos": "ts-node prisma/seed/reading-photos-seed.ts",
     "import:reading-content": "ts-node prisma/seed/import-reading-content.ts",
+    "import:listening-content": "ts-node prisma/seed/import-listening-content.ts",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",

@@ -31,11 +31,11 @@ type JwtRequest = ExpressRequest & {
 @ApiTags('mock-exams')
 @ApiBearerAuth()
 @UseGuards(AuthGuard('jwt'))
-@Controller('mock-exams/sessions')
+@Controller('mock-exams')
 export class MockExamsController {
   constructor(private readonly mockExamsService: MockExamsService) {}
 
-  @Post()
+  @Post('sessions')
   @ApiOperation({ summary: 'Create a mock exam session' })
   @ApiResponse({ status: 201, description: 'Mock exam session created' })
   create(
@@ -48,19 +48,25 @@ export class MockExamsController {
     );
   }
 
-  @Get('active')
+  @Get('sessions/active')
   @ApiOperation({ summary: 'Get active mock exam session' })
   getActive(@Request() req: JwtRequest) {
     return this.mockExamsService.getActive(req.user.userId);
   }
 
-  @Get(':id')
+  @Get('catalog')
+  @ApiOperation({ summary: 'Get mock exam catalog' })
+  getCatalog(@Request() req: JwtRequest) {
+    return this.mockExamsService.getCatalog(req.user.userId);
+  }
+
+  @Get('sessions/:id')
   @ApiOperation({ summary: 'Get a mock exam session' })
   findOne(@Request() req: JwtRequest, @Param('id') id: string) {
     return this.mockExamsService.findOne(req.user.userId, id);
   }
 
-  @Patch(':id/progress')
+  @Patch('sessions/:id/progress')
   @ApiOperation({ summary: 'Update mock exam session progress' })
   updateProgress(
     @Request() req: JwtRequest,
@@ -74,7 +80,7 @@ export class MockExamsController {
     );
   }
 
-  @Post(':id/answers')
+  @Post('sessions/:id/answers')
   @ApiOperation({ summary: 'Save an answer for a mock exam session' })
   saveAnswer(
     @Request() req: JwtRequest,
@@ -88,13 +94,13 @@ export class MockExamsController {
     );
   }
 
-  @Post(':id/submit')
+  @Post('sessions/:id/submit')
   @ApiOperation({ summary: 'Submit a mock exam session' })
   submit(@Request() req: JwtRequest, @Param('id') id: string) {
     return this.mockExamsService.submit(req.user.userId, id);
   }
 
-  @Get(':id/result')
+  @Get('sessions/:id/result')
   @ApiOperation({ summary: 'Get mock exam session result' })
   getResult(@Request() req: JwtRequest, @Param('id') id: string) {
     return this.mockExamsService.getResult(req.user.userId, id);

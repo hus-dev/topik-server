@@ -1,5 +1,6 @@
 import {
   BadRequestException,
+  ConflictException,
   ForbiddenException,
   Injectable,
   NotFoundException,
@@ -92,6 +93,103 @@ export class MockExamsService {
     return answer?.trim().toLowerCase() ?? null;
   }
 
+  private formatDuration(seconds: number) {
+    const totalMinutes = Math.max(0, Math.floor(seconds / 60));
+    const remainingSeconds = Math.max(0, seconds % 60);
+    return `${totalMinutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+
+  private getQuestionCount(
+    set: { total_questions: number },
+    fallbackCount: number,
+  ) {
+    return set.total_questions > 0 ? set.total_questions : fallbackCount;
+  }
+
+  private mapQuestionSetCard(
+    set: {
+      id: string;
+      title: string | null;
+      section: string;
+      level: number;
+      exam_kind: string;
+      total_questions: number;
+      duration_seconds: number;
+      price: number;
+      is_free: number;
+      display_order: number;
+      _count?: { questions: number };
+    },
+    fallbackQuestionCount: number,
+  ) {
+    const totalQuestions = this.getQuestionCount(
+      set,
+      set._count?.questions ?? fallbackQuestionCount,
+    );
+    const durationSeconds =
+      set.duration_seconds > 0 ? set.duration_seconds : 4200;
+    const isFree = set.is_free === 1 || set.price === 0;
+
+    return {
+      id: set.id,
+      title: set.title,
+      section: set.section,
+      level: set.level,
+      exam_kind: set.exam_kind,
+      total_questions: totalQuestions,
+      duration_seconds: durationSeconds,
+      duration_label: this.formatDuration(durationSeconds),
+      price: set.price,
+      is_free: isFree,
+      price_label: isFree ? 'free' : set.price.toString(),
+      display_order: set.display_order,
+    };
+  }
+
+  private buildCatalogTabs(
+    questionSets: Array<{
+      id: string;
+      title: string | null;
+      section: string;
+      level: number;
+      exam_kind: string;
+      total_questions: number;
+      duration_seconds: number;
+      price: number;
+      is_free: number;
+      display_order: number;
+      _count?: { questions: number };
+    }>,
+  ) {
+    const readingMock = questionSets
+      .filter((set) => set.section === 'reading' && set.exam_kind === 'mock')
+      .sort((left, right) => left.display_order - right.display_order)
+      .map((set) => this.mapQuestionSetCard(set, 50));
+
+    const readingType = questionSets
+      .filter((set) => set.section === 'reading' && set.exam_kind === 'type')
+      .sort((left, right) => left.display_order - right.display_order)
+      .map((set) => this.mapQuestionSetCard(set, 30));
+
+    const listeningMock = questionSets
+      .filter((set) => set.section === 'listening' && set.exam_kind === 'mock')
+      .sort((left, right) => left.display_order - right.display_order)
+      .map((set) => this.mapQuestionSetCard(set, 50));
+
+    const listeningType = questionSets
+      .filter((set) => set.section === 'listening' && set.exam_kind === 'type')
+      .sort((left, right) => left.display_order - right.display_order)
+      .map((set) => this.mapQuestionSetCard(set, 10));
+
+    return {
+      reading_mock: readingMock,
+      reading_type: readingType,
+      listening_mock: listeningMock,
+      listening_type: listeningType,
+      difficulty_levels: [3, 4, 5, 6],
+    };
+  }
+
   private calculateIsCorrect(
     question: { correct_answer: string | null },
     dto: SaveMockExamAnswerDto,
@@ -109,6 +207,21 @@ export class MockExamsService {
   }
 
   async create(userId: string, dto: CreateMockExamSessionDto) {
+    const activeSession = await this.prisma.exam_sessions.findFirst({
+      where: {
+        user_id: userId,
+        mode: 'mock',
+        status: 'in_progress',
+      },
+      select: {
+        id: true,
+      },
+    });
+
+    if (activeSession) {
+      throw new ConflictException('Active mock exam session already exists');
+    }
+
     const set = await this.prisma.question_sets.findUnique({
       where: { id: dto.set_id },
     });
@@ -145,9 +258,15 @@ export class MockExamsService {
         mode: 'mock',
         section: set.section,
         set_id: set.id,
-        total_questions: questions.length,
+        total_questions: this.getQuestionCount(
+          {
+            total_questions: set.total_questions,
+          },
+          questions.length,
+        ),
         current_index: 0,
-        remaining_seconds: dto.remaining_seconds ?? 4200,
+        remaining_seconds:
+          dto.remaining_seconds ?? set.duration_seconds ?? 4200,
         status: 'in_progress',
         started_at: now,
         answers: {
@@ -164,7 +283,7 @@ export class MockExamsService {
     return this.serializeData({
       session,
       questions,
-    }) as Promise<unknown>;
+    });
   }
 
   async getActive(userId: string) {
@@ -193,7 +312,7 @@ export class MockExamsService {
       session,
       questions,
       answers,
-    }) as Promise<unknown>;
+    });
   }
 
   async findOne(userId: string, sessionId: string) {
@@ -210,7 +329,7 @@ export class MockExamsService {
       session,
       questions,
       answers,
-    }) as Promise<unknown>;
+    });
   }
 
   async updateProgress(
@@ -232,7 +351,7 @@ export class MockExamsService {
       },
     });
 
-    return this.serializeData(session) as Promise<unknown>;
+    return this.serializeData(session);
   }
 
   async saveAnswer(
@@ -295,7 +414,7 @@ export class MockExamsService {
       },
     });
 
-    return this.serializeData(answer) as Promise<unknown>;
+    return this.serializeData(answer);
   }
 
   async submit(userId: string, sessionId: string) {
@@ -357,6 +476,60 @@ export class MockExamsService {
         score_percent,
       },
       answers,
-    }) as Promise<unknown>;
+    });
+  }
+
+  async getCatalog(userId: string) {
+    const [activeSession, questionSets] = await Promise.all([
+      this.prisma.exam_sessions.findFirst({
+        where: {
+          user_id: userId,
+          mode: 'mock',
+          status: 'in_progress',
+        },
+        orderBy: { started_at: 'desc' },
+        include: {
+          question_sets: true,
+        },
+      }),
+      this.prisma.question_sets.findMany({
+        include: {
+          _count: {
+            select: {
+              questions: true,
+            },
+          },
+        },
+        orderBy: [
+          { section: 'asc' },
+          { exam_kind: 'asc' },
+          { display_order: 'asc' },
+        ],
+      }),
+    ]);
+
+    const active = activeSession
+      ? {
+          session_id: activeSession.id,
+          title: activeSession.question_sets?.title ?? '모의고사',
+          set_id: activeSession.set_id,
+          section: activeSession.section,
+          remaining_questions: Math.max(
+            activeSession.total_questions - activeSession.current_index,
+            0,
+          ),
+          total_questions: activeSession.total_questions,
+          remaining_seconds: activeSession.remaining_seconds,
+          remaining_time_label: this.formatDuration(
+            activeSession.remaining_seconds,
+          ),
+          current_index: activeSession.current_index,
+        }
+      : null;
+
+    return this.serializeData({
+      active_session: active,
+      tabs: this.buildCatalogTabs(questionSets),
+    });
   }
 }

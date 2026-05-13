@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
+import { OfflineModule } from '../offline/offline.module';
 import { PrismaModule } from '../prisma/prisma.module';
 import { VocabularyController } from './vocabulary.controller';
 import { VocabularyService } from './vocabulary.service';
 
 @Module({
-  imports: [PrismaModule],
+  imports: [PrismaModule, OfflineModule],
   controllers: [VocabularyController],
   providers: [VocabularyService],
   exports: [VocabularyService],

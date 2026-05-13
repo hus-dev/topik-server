@@ -55,16 +55,16 @@ export class VocabularyController {
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Mark vocabulary as downloaded' })
-  download(@Param('id') id: string) {
-    return this.vocabularyService.setDownloaded(id, true);
+  download(@Request() req: JwtRequest, @Param('id') id: string) {
+    return this.vocabularyService.setDownloaded(req.user.userId, id, true);
   }
 
   @Delete(':id/download')
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Remove vocabulary download marker' })
-  removeDownload(@Param('id') id: string) {
-    return this.vocabularyService.setDownloaded(id, false);
+  removeDownload(@Request() req: JwtRequest, @Param('id') id: string) {
+    return this.vocabularyService.setDownloaded(req.user.userId, id, false);
   }
 
   @Post()

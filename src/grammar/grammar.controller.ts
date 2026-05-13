@@ -55,16 +55,16 @@ export class GrammarController {
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Mark grammar item as downloaded' })
-  download(@Param('id') id: string) {
-    return this.grammarService.setDownloaded(id, true);
+  download(@Request() req: JwtRequest, @Param('id') id: string) {
+    return this.grammarService.setDownloaded(req.user.userId, id, true);
   }
 
   @Delete(':id/download')
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Remove grammar download marker' })
-  removeDownload(@Param('id') id: string) {
-    return this.grammarService.setDownloaded(id, false);
+  removeDownload(@Request() req: JwtRequest, @Param('id') id: string) {
+    return this.grammarService.setDownloaded(req.user.userId, id, false);
   }
 
   @Post()

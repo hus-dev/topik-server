@@ -11,6 +11,7 @@ import { BookmarksModule } from './bookmarks/bookmarks.module';
 import { VocabularyModule } from './vocabulary/vocabulary.module';
 import { GrammarModule } from './grammar/grammar.module';
 import { MockExamsModule } from './mock-exams/mock-exams.module';
+import { OfflineModule } from './offline/offline.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { MockExamsModule } from './mock-exams/mock-exams.module';
     BookmarksModule,
     VocabularyModule,
     GrammarModule,
+    OfflineModule,
   ],
   controllers: [AppController],
   providers: [AppService],

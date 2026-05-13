@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { OfflineService } from '../offline/offline.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateGrammarDto } from './dto/create-grammar.dto';
 import { GetGrammarQueryDto } from './dto/get-grammar-query.dto';
@@ -7,7 +8,10 @@ import { UpdateGrammarDto } from './dto/update-grammar.dto';
 
 @Injectable()
 export class GrammarService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly offlineService: OfflineService,
+  ) {}
 
   private serializeData(data: any): any {
     if (data === null || data === undefined) return data;
@@ -110,18 +114,13 @@ export class GrammarService {
     return this.serializeData(bookmark);
   }
 
-  async setDownloaded(id: string, downloaded: boolean) {
-    await this.ensureExists(id);
-
-    const grammar = await this.prisma.grammar_items.update({
-      where: { id },
-      data: {
-        is_downloaded: downloaded ? 1 : 0,
-        updated_at: BigInt(Date.now()),
-      },
-    });
-
-    return this.serializeData(grammar);
+  async setDownloaded(userId: string, id: string, downloaded: boolean) {
+    return this.offlineService.setDownloadStatus(
+      userId,
+      'grammar',
+      id,
+      downloaded,
+    );
   }
 
   async create(createGrammarDto: CreateGrammarDto) {

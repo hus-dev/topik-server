@@ -26,6 +26,7 @@ model users {
   updated_at         BigInt
   exam_sessions      exam_sessions[]
   sync_queue         sync_queue[]
+  user_downloads     user_downloads[]
   user_grammar_items user_grammar_items[]
   user_vocabulary    user_vocabulary[]
 
@@ -177,6 +178,21 @@ model sync_queue {
   users        users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "sync_queue_ibfk_1")
 
   @@index([user_id, status, created_at], map: "idx_sync_user_status_created")
+}
+
+model user_downloads {
+  id          String @id @default(uuid()) @db.VarChar(36)
+  user_id     String @db.VarChar(36)
+  entity_type String @db.VarChar(20)
+  entity_id   String @db.VarChar(36)
+  status      String @default("downloaded") @db.VarChar(20)
+  created_at  BigInt
+  updated_at  BigInt
+  users       users  @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_downloads_ibfk_1")
+
+  @@unique([user_id, entity_type, entity_id], map: "uq_user_downloads_user_entity")
+  @@index([user_id, status, updated_at], map: "idx_user_downloads_user_status_updated")
+  @@index([entity_type, entity_id], map: "idx_user_downloads_entity")
 }
 
 model user_grammar_items {

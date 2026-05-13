@@ -1,5 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
+import { OfflineService } from '../offline/offline.service';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateVocabularyDto } from './dto/create-vocabulary.dto';
 import { GetVocabularyQueryDto } from './dto/get-vocabulary-query.dto';
@@ -7,7 +8,10 @@ import { UpdateVocabularyDto } from './dto/update-vocabulary.dto';
 
 @Injectable()
 export class VocabularyService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly offlineService: OfflineService,
+  ) {}
 
   private serializeData(data: any): any {
     if (data === null || data === undefined) return data;
@@ -112,18 +116,13 @@ export class VocabularyService {
     return this.serializeData(bookmark);
   }
 
-  async setDownloaded(id: string, downloaded: boolean) {
-    await this.ensureExists(id);
-
-    const vocabulary = await this.prisma.vocabulary.update({
-      where: { id },
-      data: {
-        is_downloaded: downloaded ? 1 : 0,
-        updated_at: BigInt(Date.now()),
-      },
-    });
-
-    return this.serializeData(vocabulary);
+  async setDownloaded(userId: string, id: string, downloaded: boolean) {
+    return this.offlineService.setDownloadStatus(
+      userId,
+      'vocabulary',
+      id,
+      downloaded,
+    );
   }
 
   async create(createVocabularyDto: CreateVocabularyDto) {

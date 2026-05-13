@@ -158,7 +158,7 @@ function buildReadingQuestions(
       difficulty: set.level,
       time_limit_seconds: set.exam_kind === 'mock' ? 84 : 20,
       is_ai_generated: 0,
-      is_downloaded: 1,
+      is_downloaded: 0,
       created_at: timestamp(baseTime, questionNumber * 1000),
       updated_at: timestamp(baseTime, questionNumber * 1000),
     };
@@ -187,7 +187,7 @@ function buildListeningQuestions(
       difficulty: set.level,
       time_limit_seconds: set.exam_kind === 'mock' ? 42 : 25,
       is_ai_generated: 0,
-      is_downloaded: 1,
+      is_downloaded: 0,
       created_at: timestamp(baseTime, questionNumber * 1000),
       updated_at: timestamp(baseTime, questionNumber * 1000),
     };
@@ -470,6 +470,62 @@ async function main() {
       data: media,
     });
 
+    const vocabularyItems = [
+      {
+        id: 'vocab-1',
+        word: '학교',
+        meaning_ko: '학교',
+        meaning_user_lang: 'school',
+        level: 3,
+        tts_url: null,
+        is_downloaded: 0,
+        updated_at: timestamp(baseTime, 60_000),
+      },
+      {
+        id: 'vocab-2',
+        word: '도서관',
+        meaning_ko: '도서관',
+        meaning_user_lang: 'library',
+        level: 4,
+        tts_url: null,
+        is_downloaded: 0,
+        updated_at: timestamp(baseTime, 61_000),
+      },
+    ];
+
+    const grammarItems = [
+      {
+        id: 'grammar-1',
+        pattern: '-아/어 보다',
+        description: '경험을 표현할 때 사용하는 문법입니다.',
+        examples_json: ['한국에 가 봤어요.'],
+        tags_json: ['experience', 'verb'],
+        is_downloaded: 0,
+        updated_at: timestamp(baseTime, 62_000),
+      },
+      {
+        id: 'grammar-2',
+        pattern: '-기 때문에',
+        description: '이유를 설명할 때 사용하는 문법입니다.',
+        examples_json: ['비가 오기 때문에 집에 있었어요.'],
+        tags_json: ['reason', 'cause'],
+        is_downloaded: 0,
+        updated_at: timestamp(baseTime, 63_000),
+      },
+    ];
+
+    await prisma.vocabulary.createMany({
+      data: vocabularyItems.map((item) => ({
+        ...item,
+      })),
+    });
+
+    await prisma.grammar_items.createMany({
+      data: grammarItems.map((item) => ({
+        ...item,
+      })),
+    });
+
     const activeSet = sets.find((set) => set.id === 'rm1');
     if (!activeSet) {
       throw new Error('Active mock exam seed set was not found');
@@ -516,6 +572,35 @@ async function main() {
           updated_at: timestamp(baseTime, 50_000 + index * 1000),
         };
       }),
+    });
+
+    await prisma.user_downloads.createMany({
+      data: [
+        {
+          user_id: user.id,
+          entity_type: 'question',
+          entity_id: activeQuestions[0].id,
+          status: 'downloaded',
+          created_at: timestamp(baseTime, 80_000),
+          updated_at: timestamp(baseTime, 80_000),
+        },
+        {
+          user_id: user.id,
+          entity_type: 'vocabulary',
+          entity_id: 'vocab-1',
+          status: 'pending',
+          created_at: timestamp(baseTime, 81_000),
+          updated_at: timestamp(baseTime, 81_000),
+        },
+        {
+          user_id: user.id,
+          entity_type: 'grammar',
+          entity_id: 'grammar-1',
+          status: 'failed',
+          created_at: timestamp(baseTime, 82_000),
+          updated_at: timestamp(baseTime, 82_000),
+        },
+      ],
     });
 
     console.log('Seed completed.');

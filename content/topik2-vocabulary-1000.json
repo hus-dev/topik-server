@@ -1,0 +1,7015 @@
+{
+  "title": "TOPIK II Vocabulary 1000",
+  "section": "vocabulary",
+  "total": 1000,
+  "levels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "items": [
+    {
+      "word": "가게",
+      "meaning_ko": "store",
+      "meaning_user_lang": "물건을 파는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가격",
+      "meaning_ko": "price",
+      "meaning_user_lang": "물건의 값",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가구",
+      "meaning_ko": "furniture",
+      "meaning_user_lang": "책상이나 의자 같은 물건",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가깝다",
+      "meaning_ko": "to be close",
+      "meaning_user_lang": "거리나 관계가 멀지 않다",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가방",
+      "meaning_ko": "bag",
+      "meaning_user_lang": "물건을 넣어 들고 다니는 것",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가수",
+      "meaning_ko": "singer",
+      "meaning_user_lang": "노래하는 사람",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가족",
+      "meaning_ko": "family",
+      "meaning_user_lang": "부모, 형제 등 가까운 사람들",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "감기",
+      "meaning_ko": "cold",
+      "meaning_user_lang": "기침과 콧물이 나는 병",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "감사",
+      "meaning_ko": "thanks",
+      "meaning_user_lang": "고마운 마음",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "강아지",
+      "meaning_ko": "puppy",
+      "meaning_user_lang": "어린 개",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "개학",
+      "meaning_ko": "school opening",
+      "meaning_user_lang": "방학 후 학교가 시작됨",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "거실",
+      "meaning_ko": "living room",
+      "meaning_user_lang": "집에서 함께 지내는 방",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "건물",
+      "meaning_ko": "building",
+      "meaning_user_lang": "사람이 지은 큰 구조물",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "겨울",
+      "meaning_ko": "winter",
+      "meaning_user_lang": "일 년 중 추운 계절",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "결혼",
+      "meaning_ko": "marriage",
+      "meaning_user_lang": "두 사람이 부부가 됨",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "경기",
+      "meaning_ko": "game",
+      "meaning_user_lang": "운동이나 시합",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "고기",
+      "meaning_ko": "meat",
+      "meaning_user_lang": "동물의 살로 만든 음식",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "고향",
+      "meaning_ko": "hometown",
+      "meaning_user_lang": "태어나거나 자란 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "공원",
+      "meaning_ko": "park",
+      "meaning_user_lang": "사람들이 쉬거나 산책하는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "공항",
+      "meaning_ko": "airport",
+      "meaning_user_lang": "비행기를 타고 내리는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "과일",
+      "meaning_ko": "fruit",
+      "meaning_user_lang": "나무나 풀에서 나는 단 음식",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "교실",
+      "meaning_ko": "classroom",
+      "meaning_user_lang": "수업을 듣는 방",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "구두",
+      "meaning_ko": "dress shoes",
+      "meaning_user_lang": "격식을 갖춘 신발",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "기분",
+      "meaning_ko": "feeling",
+      "meaning_user_lang": "마음의 상태",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "기차",
+      "meaning_ko": "train",
+      "meaning_user_lang": "철길 위를 달리는 교통수단",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "꽃집",
+      "meaning_ko": "flower shop",
+      "meaning_user_lang": "꽃을 파는 가게",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "날씨",
+      "meaning_ko": "weather",
+      "meaning_user_lang": "하늘과 공기의 상태",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "냉장고",
+      "meaning_ko": "refrigerator",
+      "meaning_user_lang": "음식을 차갑게 보관하는 기계",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "노래",
+      "meaning_ko": "song",
+      "meaning_user_lang": "음에 맞추어 부르는 말",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "도서관",
+      "meaning_ko": "library",
+      "meaning_user_lang": "책을 읽거나 빌리는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "동생",
+      "meaning_ko": "younger sibling",
+      "meaning_user_lang": "나보다 어린 형제자매",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "문제",
+      "meaning_ko": "problem",
+      "meaning_user_lang": "풀거나 해결해야 하는 것",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "물건",
+      "meaning_ko": "thing",
+      "meaning_user_lang": "사용하거나 살 수 있는 것",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "바다",
+      "meaning_ko": "sea",
+      "meaning_user_lang": "넓고 짠물이 있는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "버스",
+      "meaning_ko": "bus",
+      "meaning_user_lang": "많은 사람이 함께 타는 차",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "병원",
+      "meaning_ko": "hospital",
+      "meaning_user_lang": "아픈 사람이 치료받는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "사진",
+      "meaning_ko": "photo",
+      "meaning_user_lang": "카메라로 찍은 그림",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "생일",
+      "meaning_ko": "birthday",
+      "meaning_user_lang": "태어난 날",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "선물",
+      "meaning_ko": "gift",
+      "meaning_user_lang": "다른 사람에게 주는 물건",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "수업",
+      "meaning_ko": "class",
+      "meaning_user_lang": "학교나 학원에서 배우는 시간",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "시장",
+      "meaning_ko": "market",
+      "meaning_user_lang": "물건을 사고파는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "식당",
+      "meaning_ko": "restaurant",
+      "meaning_user_lang": "음식을 사 먹는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "약속",
+      "meaning_ko": "appointment",
+      "meaning_user_lang": "만나거나 하기로 정한 일",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "여름",
+      "meaning_ko": "summer",
+      "meaning_user_lang": "일 년 중 더운 계절",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "여행",
+      "meaning_ko": "travel",
+      "meaning_user_lang": "다른 곳으로 가서 구경함",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "우산",
+      "meaning_ko": "umbrella",
+      "meaning_user_lang": "비를 막는 물건",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "운동",
+      "meaning_ko": "exercise",
+      "meaning_user_lang": "몸을 움직여 건강하게 하는 일",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "은행",
+      "meaning_ko": "bank",
+      "meaning_user_lang": "돈을 맡기거나 찾는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "의자",
+      "meaning_ko": "chair",
+      "meaning_user_lang": "앉는 데 쓰는 가구",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "이름",
+      "meaning_ko": "name",
+      "meaning_user_lang": "사람이나 물건을 부르는 말",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "자동차",
+      "meaning_ko": "car",
+      "meaning_user_lang": "길에서 달리는 교통수단",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "전화",
+      "meaning_ko": "phone call",
+      "meaning_user_lang": "멀리 있는 사람과 말하는 일",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "주말",
+      "meaning_ko": "weekend",
+      "meaning_user_lang": "토요일과 일요일",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "주소",
+      "meaning_ko": "address",
+      "meaning_user_lang": "사는 곳이나 있는 곳의 위치",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "지갑",
+      "meaning_ko": "wallet",
+      "meaning_user_lang": "돈과 카드를 넣는 물건",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "친구",
+      "meaning_ko": "friend",
+      "meaning_user_lang": "가깝게 지내는 사람",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "학교",
+      "meaning_ko": "school",
+      "meaning_user_lang": "학생들이 공부하는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "회사",
+      "meaning_ko": "company",
+      "meaning_user_lang": "사람들이 일하는 곳",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "회의",
+      "meaning_ko": "meeting",
+      "meaning_user_lang": "여러 사람이 모여 의논함",
+      "level": 1,
+      "tts_url": null
+    },
+    {
+      "word": "가볍다",
+      "meaning_ko": "to be light",
+      "meaning_user_lang": "무게가 적다",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "간단하다",
+      "meaning_ko": "to be simple",
+      "meaning_user_lang": "복잡하지 않다",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "간식",
+      "meaning_ko": "snack",
+      "meaning_user_lang": "식사 사이에 먹는 음식",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "건강",
+      "meaning_ko": "health",
+      "meaning_user_lang": "몸과 마음의 좋은 상태",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "계단",
+      "meaning_ko": "stairs",
+      "meaning_user_lang": "오르내릴 수 있게 만든 단",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "계획",
+      "meaning_ko": "plan",
+      "meaning_user_lang": "앞으로 할 일을 미리 정함",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "고객",
+      "meaning_ko": "customer",
+      "meaning_user_lang": "물건이나 서비스를 사는 사람",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "공연",
+      "meaning_ko": "performance",
+      "meaning_user_lang": "무대에서 보여 주는 예술 활동",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "관광",
+      "meaning_ko": "tourism",
+      "meaning_user_lang": "여행하며 구경하는 일",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "교통",
+      "meaning_ko": "transportation",
+      "meaning_user_lang": "사람이나 물건이 오가는 일",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "규칙",
+      "meaning_ko": "rule",
+      "meaning_user_lang": "지켜야 하는 정해진 법",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "기념일",
+      "meaning_ko": "anniversary",
+      "meaning_user_lang": "기억하고 축하하는 날",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "기회",
+      "meaning_ko": "opportunity",
+      "meaning_user_lang": "어떤 일을 할 수 있는 때",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "농구",
+      "meaning_ko": "basketball",
+      "meaning_user_lang": "공을 던져 골을 넣는 운동",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "대화",
+      "meaning_ko": "conversation",
+      "meaning_user_lang": "서로 주고받는 말",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "도착",
+      "meaning_ko": "arrival",
+      "meaning_user_lang": "목적지에 이름",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "동네",
+      "meaning_ko": "neighborhood",
+      "meaning_user_lang": "사는 곳 주변",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "등록",
+      "meaning_ko": "registration",
+      "meaning_user_lang": "이름이나 정보를 올림",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "마음",
+      "meaning_ko": "mind",
+      "meaning_user_lang": "생각이나 감정",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "물가",
+      "meaning_ko": "prices",
+      "meaning_user_lang": "여러 물건의 값 수준",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "방문",
+      "meaning_ko": "visit",
+      "meaning_user_lang": "어떤 곳에 찾아감",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "방법",
+      "meaning_ko": "method",
+      "meaning_user_lang": "일을 하는 방식",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "배달",
+      "meaning_ko": "delivery",
+      "meaning_user_lang": "물건을 가져다줌",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "변경",
+      "meaning_ko": "change",
+      "meaning_user_lang": "다르게 바꿈",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "부모",
+      "meaning_ko": "parents",
+      "meaning_user_lang": "아버지와 어머니",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "부탁",
+      "meaning_ko": "request",
+      "meaning_user_lang": "다른 사람에게 해 달라고 함",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "비교",
+      "meaning_ko": "comparison",
+      "meaning_user_lang": "둘 이상을 견주어 봄",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "사고",
+      "meaning_ko": "accident",
+      "meaning_user_lang": "뜻밖에 생긴 나쁜 일",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "생활",
+      "meaning_ko": "life",
+      "meaning_user_lang": "살아가는 일상",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "선택",
+      "meaning_ko": "choice",
+      "meaning_user_lang": "여럿 중 하나를 고름",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "설명하다",
+      "meaning_ko": "to explain",
+      "meaning_user_lang": "알기 쉽게 말하다",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "소식",
+      "meaning_ko": "news",
+      "meaning_user_lang": "새롭게 알려진 이야기",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "습관",
+      "meaning_ko": "habit",
+      "meaning_user_lang": "자주 해서 익숙해진 행동",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "신청",
+      "meaning_ko": "application",
+      "meaning_user_lang": "원하거나 필요해서 요청함",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "안내",
+      "meaning_ko": "guidance",
+      "meaning_user_lang": "알려 주거나 이끌어 줌",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "예약",
+      "meaning_ko": "reservation",
+      "meaning_user_lang": "미리 정해 둠",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "이용",
+      "meaning_ko": "use",
+      "meaning_user_lang": "필요에 따라 씀",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "이유",
+      "meaning_ko": "reason",
+      "meaning_user_lang": "어떤 일이 생긴 까닭",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "이해하다",
+      "meaning_ko": "to understand",
+      "meaning_user_lang": "뜻을 알다",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "인기",
+      "meaning_ko": "popularity",
+      "meaning_user_lang": "많은 사람이 좋아함",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "입장",
+      "meaning_ko": "entrance",
+      "meaning_user_lang": "안으로 들어감",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "장소",
+      "meaning_ko": "place",
+      "meaning_user_lang": "어떤 일이 있는 곳",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "전시",
+      "meaning_ko": "exhibition",
+      "meaning_user_lang": "물건이나 작품을 보여 줌",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "준비",
+      "meaning_ko": "preparation",
+      "meaning_user_lang": "미리 갖추는 일",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "직장",
+      "meaning_ko": "workplace",
+      "meaning_user_lang": "일하는 곳",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "참석",
+      "meaning_ko": "attendance",
+      "meaning_user_lang": "모임에 나감",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "취미",
+      "meaning_ko": "hobby",
+      "meaning_user_lang": "좋아해서 즐겨 하는 일",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "할인",
+      "meaning_ko": "discount",
+      "meaning_user_lang": "값을 깎아 줌",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "확인",
+      "meaning_ko": "confirmation",
+      "meaning_user_lang": "맞는지 알아봄",
+      "level": 2,
+      "tts_url": null
+    },
+    {
+      "word": "가족 감소",
+      "meaning_ko": "family decrease",
+      "meaning_user_lang": "가족 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 결과",
+      "meaning_ko": "family result",
+      "meaning_user_lang": "가족 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 문제",
+      "meaning_ko": "family problem",
+      "meaning_user_lang": "가족 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 발전",
+      "meaning_ko": "family development",
+      "meaning_user_lang": "가족 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 변화",
+      "meaning_ko": "family change",
+      "meaning_user_lang": "가족 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 보호",
+      "meaning_ko": "family protection",
+      "meaning_user_lang": "가족 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 역할",
+      "meaning_ko": "family role",
+      "meaning_user_lang": "가족 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 원인",
+      "meaning_ko": "family cause",
+      "meaning_user_lang": "가족 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 증가",
+      "meaning_ko": "family increase",
+      "meaning_user_lang": "가족 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 지원",
+      "meaning_ko": "family support",
+      "meaning_user_lang": "가족 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 참여",
+      "meaning_ko": "family participation",
+      "meaning_user_lang": "가족 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 감소",
+      "meaning_ko": "individual decrease",
+      "meaning_user_lang": "개인 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 결과",
+      "meaning_ko": "individual result",
+      "meaning_user_lang": "개인 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 문제",
+      "meaning_ko": "individual problem",
+      "meaning_user_lang": "개인 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 발전",
+      "meaning_ko": "individual development",
+      "meaning_user_lang": "개인 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 변화",
+      "meaning_ko": "individual change",
+      "meaning_user_lang": "개인 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 보호",
+      "meaning_ko": "individual protection",
+      "meaning_user_lang": "개인 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 역할",
+      "meaning_ko": "individual role",
+      "meaning_user_lang": "개인 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 원인",
+      "meaning_ko": "individual cause",
+      "meaning_user_lang": "개인 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 증가",
+      "meaning_ko": "individual increase",
+      "meaning_user_lang": "개인 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 지원",
+      "meaning_ko": "individual support",
+      "meaning_user_lang": "개인 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "개인 참여",
+      "meaning_ko": "individual participation",
+      "meaning_user_lang": "개인 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "거절하다",
+      "meaning_ko": "to refuse",
+      "meaning_user_lang": "받아들이지 않다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 감소",
+      "meaning_ko": "health decrease",
+      "meaning_user_lang": "건강 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 결과",
+      "meaning_ko": "health result",
+      "meaning_user_lang": "건강 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 문제",
+      "meaning_ko": "health problem",
+      "meaning_user_lang": "건강 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 발전",
+      "meaning_ko": "health development",
+      "meaning_user_lang": "건강 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 변화",
+      "meaning_ko": "health change",
+      "meaning_user_lang": "건강 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 보호",
+      "meaning_ko": "health protection",
+      "meaning_user_lang": "건강 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 역할",
+      "meaning_ko": "health role",
+      "meaning_user_lang": "건강 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 원인",
+      "meaning_ko": "health cause",
+      "meaning_user_lang": "건강 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 증가",
+      "meaning_ko": "health increase",
+      "meaning_user_lang": "건강 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 지원",
+      "meaning_ko": "health support",
+      "meaning_user_lang": "건강 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "건강 참여",
+      "meaning_ko": "health participation",
+      "meaning_user_lang": "건강 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "결정하다",
+      "meaning_ko": "to decide",
+      "meaning_user_lang": "하나로 정하다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "경험하다",
+      "meaning_ko": "to experience",
+      "meaning_user_lang": "직접 겪다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 감소",
+      "meaning_ko": "tourism decrease",
+      "meaning_user_lang": "관광 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 결과",
+      "meaning_ko": "tourism result",
+      "meaning_user_lang": "관광 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 문제",
+      "meaning_ko": "tourism problem",
+      "meaning_user_lang": "관광 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 발전",
+      "meaning_ko": "tourism development",
+      "meaning_user_lang": "관광 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 변화",
+      "meaning_ko": "tourism change",
+      "meaning_user_lang": "관광 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 보호",
+      "meaning_ko": "tourism protection",
+      "meaning_user_lang": "관광 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 역할",
+      "meaning_ko": "tourism role",
+      "meaning_user_lang": "관광 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 원인",
+      "meaning_ko": "tourism cause",
+      "meaning_user_lang": "관광 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 증가",
+      "meaning_ko": "tourism increase",
+      "meaning_user_lang": "관광 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 지원",
+      "meaning_ko": "tourism support",
+      "meaning_user_lang": "관광 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "관광 참여",
+      "meaning_ko": "tourism participation",
+      "meaning_user_lang": "관광 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 감소",
+      "meaning_ko": "education decrease",
+      "meaning_user_lang": "교육 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 결과",
+      "meaning_ko": "education result",
+      "meaning_user_lang": "교육 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 문제",
+      "meaning_ko": "education problem",
+      "meaning_user_lang": "교육 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 발전",
+      "meaning_ko": "education development",
+      "meaning_user_lang": "교육 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 변화",
+      "meaning_ko": "education change",
+      "meaning_user_lang": "교육 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 보호",
+      "meaning_ko": "education protection",
+      "meaning_user_lang": "교육 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 역할",
+      "meaning_ko": "education role",
+      "meaning_user_lang": "교육 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 원인",
+      "meaning_ko": "education cause",
+      "meaning_user_lang": "교육 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 증가",
+      "meaning_ko": "education increase",
+      "meaning_user_lang": "교육 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 지원",
+      "meaning_ko": "education support",
+      "meaning_user_lang": "교육 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교육 참여",
+      "meaning_ko": "education participation",
+      "meaning_user_lang": "교육 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 감소",
+      "meaning_ko": "transportation decrease",
+      "meaning_user_lang": "교통 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 결과",
+      "meaning_ko": "transportation result",
+      "meaning_user_lang": "교통 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 문제",
+      "meaning_ko": "transportation problem",
+      "meaning_user_lang": "교통 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 발전",
+      "meaning_ko": "transportation development",
+      "meaning_user_lang": "교통 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 변화",
+      "meaning_ko": "transportation change",
+      "meaning_user_lang": "교통 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 보호",
+      "meaning_ko": "transportation protection",
+      "meaning_user_lang": "교통 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 역할",
+      "meaning_ko": "transportation role",
+      "meaning_user_lang": "교통 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 원인",
+      "meaning_ko": "transportation cause",
+      "meaning_user_lang": "교통 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 증가",
+      "meaning_ko": "transportation increase",
+      "meaning_user_lang": "교통 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 지원",
+      "meaning_ko": "transportation support",
+      "meaning_user_lang": "교통 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "교통 참여",
+      "meaning_ko": "transportation participation",
+      "meaning_user_lang": "교통 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "기대하다",
+      "meaning_ko": "to expect",
+      "meaning_user_lang": "좋은 결과를 바라다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "나타나다",
+      "meaning_ko": "to appear",
+      "meaning_user_lang": "보이거나 생기다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 감소",
+      "meaning_ko": "city decrease",
+      "meaning_user_lang": "도시 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 결과",
+      "meaning_ko": "city result",
+      "meaning_user_lang": "도시 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 문제",
+      "meaning_ko": "city problem",
+      "meaning_user_lang": "도시 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 발전",
+      "meaning_ko": "city development",
+      "meaning_user_lang": "도시 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 변화",
+      "meaning_ko": "city change",
+      "meaning_user_lang": "도시 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 보호",
+      "meaning_ko": "city protection",
+      "meaning_user_lang": "도시 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 역할",
+      "meaning_ko": "city role",
+      "meaning_user_lang": "도시 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 원인",
+      "meaning_ko": "city cause",
+      "meaning_user_lang": "도시 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 증가",
+      "meaning_ko": "city increase",
+      "meaning_user_lang": "도시 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 지원",
+      "meaning_ko": "city support",
+      "meaning_user_lang": "도시 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "도시 참여",
+      "meaning_ko": "city participation",
+      "meaning_user_lang": "도시 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 감소",
+      "meaning_ko": "culture decrease",
+      "meaning_user_lang": "문화 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 결과",
+      "meaning_ko": "culture result",
+      "meaning_user_lang": "문화 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 문제",
+      "meaning_ko": "culture problem",
+      "meaning_user_lang": "문화 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 발전",
+      "meaning_ko": "culture development",
+      "meaning_user_lang": "문화 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 변화",
+      "meaning_ko": "culture change",
+      "meaning_user_lang": "문화 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 보호",
+      "meaning_ko": "culture protection",
+      "meaning_user_lang": "문화 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 역할",
+      "meaning_ko": "culture role",
+      "meaning_user_lang": "문화 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 원인",
+      "meaning_ko": "culture cause",
+      "meaning_user_lang": "문화 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 증가",
+      "meaning_ko": "culture increase",
+      "meaning_user_lang": "문화 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 지원",
+      "meaning_ko": "culture support",
+      "meaning_user_lang": "문화 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "문화 참여",
+      "meaning_ko": "culture participation",
+      "meaning_user_lang": "문화 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "발견하다",
+      "meaning_ko": "to discover",
+      "meaning_user_lang": "새로운 것을 찾아내다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 감소",
+      "meaning_ko": "society decrease",
+      "meaning_user_lang": "사회 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 결과",
+      "meaning_ko": "society result",
+      "meaning_user_lang": "사회 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 문제",
+      "meaning_ko": "society problem",
+      "meaning_user_lang": "사회 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 발전",
+      "meaning_ko": "society development",
+      "meaning_user_lang": "사회 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 변화",
+      "meaning_ko": "society change",
+      "meaning_user_lang": "사회 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 보호",
+      "meaning_ko": "society protection",
+      "meaning_user_lang": "사회 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 역할",
+      "meaning_ko": "society role",
+      "meaning_user_lang": "사회 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 원인",
+      "meaning_ko": "society cause",
+      "meaning_user_lang": "사회 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 증가",
+      "meaning_ko": "society increase",
+      "meaning_user_lang": "사회 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 지원",
+      "meaning_ko": "society support",
+      "meaning_user_lang": "사회 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "사회 참여",
+      "meaning_ko": "society participation",
+      "meaning_user_lang": "사회 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 감소",
+      "meaning_ko": "consumption decrease",
+      "meaning_user_lang": "소비 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 결과",
+      "meaning_ko": "consumption result",
+      "meaning_user_lang": "소비 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 문제",
+      "meaning_ko": "consumption problem",
+      "meaning_user_lang": "소비 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 발전",
+      "meaning_ko": "consumption development",
+      "meaning_user_lang": "소비 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 변화",
+      "meaning_ko": "consumption change",
+      "meaning_user_lang": "소비 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 보호",
+      "meaning_ko": "consumption protection",
+      "meaning_user_lang": "소비 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 역할",
+      "meaning_ko": "consumption role",
+      "meaning_user_lang": "소비 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 원인",
+      "meaning_ko": "consumption cause",
+      "meaning_user_lang": "소비 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 증가",
+      "meaning_ko": "consumption increase",
+      "meaning_user_lang": "소비 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 지원",
+      "meaning_ko": "consumption support",
+      "meaning_user_lang": "소비 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "소비 참여",
+      "meaning_ko": "consumption participation",
+      "meaning_user_lang": "소비 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 감소",
+      "meaning_ko": "food decrease",
+      "meaning_user_lang": "식품 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 결과",
+      "meaning_ko": "food result",
+      "meaning_user_lang": "식품 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 문제",
+      "meaning_ko": "food problem",
+      "meaning_user_lang": "식품 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 발전",
+      "meaning_ko": "food development",
+      "meaning_user_lang": "식품 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 변화",
+      "meaning_ko": "food change",
+      "meaning_user_lang": "식품 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 보호",
+      "meaning_ko": "food protection",
+      "meaning_user_lang": "식품 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 역할",
+      "meaning_ko": "food role",
+      "meaning_user_lang": "식품 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 원인",
+      "meaning_ko": "food cause",
+      "meaning_user_lang": "식품 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 증가",
+      "meaning_ko": "food increase",
+      "meaning_user_lang": "식품 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 지원",
+      "meaning_ko": "food support",
+      "meaning_user_lang": "식품 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "식품 참여",
+      "meaning_ko": "food participation",
+      "meaning_user_lang": "식품 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 감소",
+      "meaning_ko": "safety decrease",
+      "meaning_user_lang": "안전 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 결과",
+      "meaning_ko": "safety result",
+      "meaning_user_lang": "안전 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 문제",
+      "meaning_ko": "safety problem",
+      "meaning_user_lang": "안전 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 발전",
+      "meaning_ko": "safety development",
+      "meaning_user_lang": "안전 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 변화",
+      "meaning_ko": "safety change",
+      "meaning_user_lang": "안전 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 보호",
+      "meaning_ko": "safety protection",
+      "meaning_user_lang": "안전 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 역할",
+      "meaning_ko": "safety role",
+      "meaning_user_lang": "안전 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 원인",
+      "meaning_ko": "safety cause",
+      "meaning_user_lang": "안전 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 증가",
+      "meaning_ko": "safety increase",
+      "meaning_user_lang": "안전 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 지원",
+      "meaning_ko": "safety support",
+      "meaning_user_lang": "안전 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "안전 참여",
+      "meaning_ko": "safety participation",
+      "meaning_user_lang": "안전 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 감소",
+      "meaning_ko": "leisure decrease",
+      "meaning_user_lang": "여가 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 결과",
+      "meaning_ko": "leisure result",
+      "meaning_user_lang": "여가 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 문제",
+      "meaning_ko": "leisure problem",
+      "meaning_user_lang": "여가 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 발전",
+      "meaning_ko": "leisure development",
+      "meaning_user_lang": "여가 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 변화",
+      "meaning_ko": "leisure change",
+      "meaning_user_lang": "여가 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 보호",
+      "meaning_ko": "leisure protection",
+      "meaning_user_lang": "여가 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 역할",
+      "meaning_ko": "leisure role",
+      "meaning_user_lang": "여가 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 원인",
+      "meaning_ko": "leisure cause",
+      "meaning_user_lang": "여가 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 증가",
+      "meaning_ko": "leisure increase",
+      "meaning_user_lang": "여가 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 지원",
+      "meaning_ko": "leisure support",
+      "meaning_user_lang": "여가 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "여가 참여",
+      "meaning_ko": "leisure participation",
+      "meaning_user_lang": "여가 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 감소",
+      "meaning_ko": "internet decrease",
+      "meaning_user_lang": "인터넷 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 결과",
+      "meaning_ko": "internet result",
+      "meaning_user_lang": "인터넷 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 문제",
+      "meaning_ko": "internet problem",
+      "meaning_user_lang": "인터넷 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 발전",
+      "meaning_ko": "internet development",
+      "meaning_user_lang": "인터넷 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 변화",
+      "meaning_ko": "internet change",
+      "meaning_user_lang": "인터넷 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 보호",
+      "meaning_ko": "internet protection",
+      "meaning_user_lang": "인터넷 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 역할",
+      "meaning_ko": "internet role",
+      "meaning_user_lang": "인터넷 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 원인",
+      "meaning_ko": "internet cause",
+      "meaning_user_lang": "인터넷 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 증가",
+      "meaning_ko": "internet increase",
+      "meaning_user_lang": "인터넷 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 지원",
+      "meaning_ko": "internet support",
+      "meaning_user_lang": "인터넷 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 참여",
+      "meaning_ko": "internet participation",
+      "meaning_user_lang": "인터넷 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 감소",
+      "meaning_ko": "information decrease",
+      "meaning_user_lang": "정보 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 결과",
+      "meaning_ko": "information result",
+      "meaning_user_lang": "정보 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 문제",
+      "meaning_ko": "information problem",
+      "meaning_user_lang": "정보 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 발전",
+      "meaning_ko": "information development",
+      "meaning_user_lang": "정보 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 변화",
+      "meaning_ko": "information change",
+      "meaning_user_lang": "정보 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 보호",
+      "meaning_ko": "information protection",
+      "meaning_user_lang": "정보 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 역할",
+      "meaning_ko": "information role",
+      "meaning_user_lang": "정보 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 원인",
+      "meaning_ko": "information cause",
+      "meaning_user_lang": "정보 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 증가",
+      "meaning_ko": "information increase",
+      "meaning_user_lang": "정보 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 지원",
+      "meaning_ko": "information support",
+      "meaning_user_lang": "정보 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "정보 참여",
+      "meaning_ko": "information participation",
+      "meaning_user_lang": "정보 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "제공하다",
+      "meaning_ko": "to provide",
+      "meaning_user_lang": "필요한 것을 주다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 감소",
+      "meaning_ko": "region decrease",
+      "meaning_user_lang": "지역 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 결과",
+      "meaning_ko": "region result",
+      "meaning_user_lang": "지역 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 문제",
+      "meaning_ko": "region problem",
+      "meaning_user_lang": "지역 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 발전",
+      "meaning_ko": "region development",
+      "meaning_user_lang": "지역 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 변화",
+      "meaning_ko": "region change",
+      "meaning_user_lang": "지역 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 보호",
+      "meaning_ko": "region protection",
+      "meaning_user_lang": "지역 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 역할",
+      "meaning_ko": "region role",
+      "meaning_user_lang": "지역 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 원인",
+      "meaning_ko": "region cause",
+      "meaning_user_lang": "지역 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 증가",
+      "meaning_ko": "region increase",
+      "meaning_user_lang": "지역 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 지원",
+      "meaning_ko": "region support",
+      "meaning_user_lang": "지역 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "지역 참여",
+      "meaning_ko": "region participation",
+      "meaning_user_lang": "지역 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 감소",
+      "meaning_ko": "occupation decrease",
+      "meaning_user_lang": "직업 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 결과",
+      "meaning_ko": "occupation result",
+      "meaning_user_lang": "직업 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 문제",
+      "meaning_ko": "occupation problem",
+      "meaning_user_lang": "직업 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 발전",
+      "meaning_ko": "occupation development",
+      "meaning_user_lang": "직업 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 변화",
+      "meaning_ko": "occupation change",
+      "meaning_user_lang": "직업 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 보호",
+      "meaning_ko": "occupation protection",
+      "meaning_user_lang": "직업 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 역할",
+      "meaning_ko": "occupation role",
+      "meaning_user_lang": "직업 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 원인",
+      "meaning_ko": "occupation cause",
+      "meaning_user_lang": "직업 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 증가",
+      "meaning_ko": "occupation increase",
+      "meaning_user_lang": "직업 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 지원",
+      "meaning_ko": "occupation support",
+      "meaning_user_lang": "직업 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "직업 참여",
+      "meaning_ko": "occupation participation",
+      "meaning_user_lang": "직업 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "참여하다",
+      "meaning_ko": "to participate",
+      "meaning_user_lang": "어떤 일에 함께하다",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 감소",
+      "meaning_ko": "environment decrease",
+      "meaning_user_lang": "환경 관련 감소",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 결과",
+      "meaning_ko": "environment result",
+      "meaning_user_lang": "환경 관련 결과",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 문제",
+      "meaning_ko": "environment problem",
+      "meaning_user_lang": "환경 관련 문제",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 발전",
+      "meaning_ko": "environment development",
+      "meaning_user_lang": "환경 관련 발전",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 변화",
+      "meaning_ko": "environment change",
+      "meaning_user_lang": "환경 관련 변화",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 보호",
+      "meaning_ko": "environment protection",
+      "meaning_user_lang": "환경 관련 보호",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 역할",
+      "meaning_ko": "environment role",
+      "meaning_user_lang": "환경 관련 역할",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 원인",
+      "meaning_ko": "environment cause",
+      "meaning_user_lang": "환경 관련 원인",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 증가",
+      "meaning_ko": "environment increase",
+      "meaning_user_lang": "환경 관련 증가",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 지원",
+      "meaning_ko": "environment support",
+      "meaning_user_lang": "환경 관련 지원",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "환경 참여",
+      "meaning_ko": "environment participation",
+      "meaning_user_lang": "환경 관련 참여",
+      "level": 3,
+      "tts_url": null
+    },
+    {
+      "word": "가족 개선",
+      "meaning_ko": "family improvement",
+      "meaning_user_lang": "가족 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "가족 관리",
+      "meaning_ko": "family management",
+      "meaning_user_lang": "가족 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "가족 방안",
+      "meaning_ko": "family measure",
+      "meaning_user_lang": "가족 관련 방안",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "강조하다",
+      "meaning_ko": "to emphasize",
+      "meaning_user_lang": "중요하게 말하다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "개발하다",
+      "meaning_ko": "to develop",
+      "meaning_user_lang": "새롭게 만들거나 발전시키다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "개선하다",
+      "meaning_ko": "to improve",
+      "meaning_user_lang": "더 좋게 고치다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "개인 개선",
+      "meaning_ko": "individual improvement",
+      "meaning_user_lang": "개인 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "개인 관리",
+      "meaning_ko": "individual management",
+      "meaning_user_lang": "개인 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "건강 개선",
+      "meaning_ko": "health improvement",
+      "meaning_user_lang": "건강 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "건강 관리",
+      "meaning_ko": "health management",
+      "meaning_user_lang": "건강 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "건강 방안",
+      "meaning_ko": "health measure",
+      "meaning_user_lang": "건강 관련 방안",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 감소",
+      "meaning_ko": "economy decrease",
+      "meaning_user_lang": "경제 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 개선",
+      "meaning_ko": "economy improvement",
+      "meaning_user_lang": "경제 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 결과",
+      "meaning_ko": "economy result",
+      "meaning_user_lang": "경제 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 관리",
+      "meaning_ko": "economy management",
+      "meaning_user_lang": "경제 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 문제",
+      "meaning_ko": "economy problem",
+      "meaning_user_lang": "경제 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 발전",
+      "meaning_ko": "economy development",
+      "meaning_user_lang": "경제 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 변화",
+      "meaning_ko": "economy change",
+      "meaning_user_lang": "경제 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 보호",
+      "meaning_ko": "economy protection",
+      "meaning_user_lang": "경제 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 역할",
+      "meaning_ko": "economy role",
+      "meaning_user_lang": "경제 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 원인",
+      "meaning_ko": "economy cause",
+      "meaning_user_lang": "경제 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 증가",
+      "meaning_ko": "economy increase",
+      "meaning_user_lang": "경제 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 지원",
+      "meaning_ko": "economy support",
+      "meaning_user_lang": "경제 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "경제 참여",
+      "meaning_ko": "economy participation",
+      "meaning_user_lang": "경제 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "공유하다",
+      "meaning_ko": "to share",
+      "meaning_user_lang": "함께 쓰거나 나누다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 감소",
+      "meaning_ko": "science decrease",
+      "meaning_user_lang": "과학 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 개선",
+      "meaning_ko": "science improvement",
+      "meaning_user_lang": "과학 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 결과",
+      "meaning_ko": "science result",
+      "meaning_user_lang": "과학 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 관리",
+      "meaning_ko": "science management",
+      "meaning_user_lang": "과학 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 문제",
+      "meaning_ko": "science problem",
+      "meaning_user_lang": "과학 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 발전",
+      "meaning_ko": "science development",
+      "meaning_user_lang": "과학 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 변화",
+      "meaning_ko": "science change",
+      "meaning_user_lang": "과학 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 보호",
+      "meaning_ko": "science protection",
+      "meaning_user_lang": "과학 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 역할",
+      "meaning_ko": "science role",
+      "meaning_user_lang": "과학 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 원인",
+      "meaning_ko": "science cause",
+      "meaning_user_lang": "과학 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 증가",
+      "meaning_ko": "science increase",
+      "meaning_user_lang": "과학 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 지원",
+      "meaning_ko": "science support",
+      "meaning_user_lang": "과학 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "과학 참여",
+      "meaning_ko": "science participation",
+      "meaning_user_lang": "과학 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "관광 개선",
+      "meaning_ko": "tourism improvement",
+      "meaning_user_lang": "관광 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "관광 관리",
+      "meaning_ko": "tourism management",
+      "meaning_user_lang": "관광 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "관찰하다",
+      "meaning_ko": "to observe",
+      "meaning_user_lang": "자세히 보다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "교육 개선",
+      "meaning_ko": "education improvement",
+      "meaning_user_lang": "교육 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "교육 관리",
+      "meaning_ko": "education management",
+      "meaning_user_lang": "교육 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "교통 개선",
+      "meaning_ko": "transportation improvement",
+      "meaning_user_lang": "교통 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "교통 관리",
+      "meaning_ko": "transportation management",
+      "meaning_user_lang": "교통 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "구성하다",
+      "meaning_ko": "to compose",
+      "meaning_user_lang": "여러 부분으로 만들다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "극복하다",
+      "meaning_ko": "to overcome",
+      "meaning_user_lang": "어려움을 이겨 내다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 감소",
+      "meaning_ko": "technology decrease",
+      "meaning_user_lang": "기술 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 개선",
+      "meaning_ko": "technology improvement",
+      "meaning_user_lang": "기술 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 결과",
+      "meaning_ko": "technology result",
+      "meaning_user_lang": "기술 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 관리",
+      "meaning_ko": "technology management",
+      "meaning_user_lang": "기술 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 문제",
+      "meaning_ko": "technology problem",
+      "meaning_user_lang": "기술 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 발전",
+      "meaning_ko": "technology development",
+      "meaning_user_lang": "기술 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 변화",
+      "meaning_ko": "technology change",
+      "meaning_user_lang": "기술 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 보호",
+      "meaning_ko": "technology protection",
+      "meaning_user_lang": "기술 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 역할",
+      "meaning_ko": "technology role",
+      "meaning_user_lang": "기술 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 원인",
+      "meaning_ko": "technology cause",
+      "meaning_user_lang": "기술 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 증가",
+      "meaning_ko": "technology increase",
+      "meaning_user_lang": "기술 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 지원",
+      "meaning_ko": "technology support",
+      "meaning_user_lang": "기술 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기술 참여",
+      "meaning_ko": "technology participation",
+      "meaning_user_lang": "기술 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 감소",
+      "meaning_ko": "company decrease",
+      "meaning_user_lang": "기업 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 개선",
+      "meaning_ko": "company improvement",
+      "meaning_user_lang": "기업 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 결과",
+      "meaning_ko": "company result",
+      "meaning_user_lang": "기업 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 관리",
+      "meaning_ko": "company management",
+      "meaning_user_lang": "기업 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 문제",
+      "meaning_ko": "company problem",
+      "meaning_user_lang": "기업 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 발전",
+      "meaning_ko": "company development",
+      "meaning_user_lang": "기업 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 변화",
+      "meaning_ko": "company change",
+      "meaning_user_lang": "기업 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 보호",
+      "meaning_ko": "company protection",
+      "meaning_user_lang": "기업 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 역할",
+      "meaning_ko": "company role",
+      "meaning_user_lang": "기업 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 원인",
+      "meaning_ko": "company cause",
+      "meaning_user_lang": "기업 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 증가",
+      "meaning_ko": "company increase",
+      "meaning_user_lang": "기업 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 지원",
+      "meaning_ko": "company support",
+      "meaning_user_lang": "기업 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기업 참여",
+      "meaning_ko": "company participation",
+      "meaning_user_lang": "기업 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 감소",
+      "meaning_ko": "climate decrease",
+      "meaning_user_lang": "기후 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 개선",
+      "meaning_ko": "climate improvement",
+      "meaning_user_lang": "기후 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 결과",
+      "meaning_ko": "climate result",
+      "meaning_user_lang": "기후 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 관리",
+      "meaning_ko": "climate management",
+      "meaning_user_lang": "기후 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 문제",
+      "meaning_ko": "climate problem",
+      "meaning_user_lang": "기후 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 발전",
+      "meaning_ko": "climate development",
+      "meaning_user_lang": "기후 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 변화",
+      "meaning_ko": "climate change",
+      "meaning_user_lang": "기후 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 보호",
+      "meaning_ko": "climate protection",
+      "meaning_user_lang": "기후 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 역할",
+      "meaning_ko": "climate role",
+      "meaning_user_lang": "기후 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 원인",
+      "meaning_ko": "climate cause",
+      "meaning_user_lang": "기후 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 증가",
+      "meaning_ko": "climate increase",
+      "meaning_user_lang": "기후 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 지원",
+      "meaning_ko": "climate support",
+      "meaning_user_lang": "기후 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "기후 참여",
+      "meaning_ko": "climate participation",
+      "meaning_user_lang": "기후 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 감소",
+      "meaning_ko": "labor decrease",
+      "meaning_user_lang": "노동 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 개선",
+      "meaning_ko": "labor improvement",
+      "meaning_user_lang": "노동 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 결과",
+      "meaning_ko": "labor result",
+      "meaning_user_lang": "노동 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 관리",
+      "meaning_ko": "labor management",
+      "meaning_user_lang": "노동 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 문제",
+      "meaning_ko": "labor problem",
+      "meaning_user_lang": "노동 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 발전",
+      "meaning_ko": "labor development",
+      "meaning_user_lang": "노동 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 변화",
+      "meaning_ko": "labor change",
+      "meaning_user_lang": "노동 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 보호",
+      "meaning_ko": "labor protection",
+      "meaning_user_lang": "노동 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 역할",
+      "meaning_ko": "labor role",
+      "meaning_user_lang": "노동 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 원인",
+      "meaning_ko": "labor cause",
+      "meaning_user_lang": "노동 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 증가",
+      "meaning_ko": "labor increase",
+      "meaning_user_lang": "노동 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 지원",
+      "meaning_ko": "labor support",
+      "meaning_user_lang": "노동 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "노동 참여",
+      "meaning_ko": "labor participation",
+      "meaning_user_lang": "노동 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 감소",
+      "meaning_ko": "agriculture decrease",
+      "meaning_user_lang": "농업 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 개선",
+      "meaning_ko": "agriculture improvement",
+      "meaning_user_lang": "농업 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 결과",
+      "meaning_ko": "agriculture result",
+      "meaning_user_lang": "농업 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 관리",
+      "meaning_ko": "agriculture management",
+      "meaning_user_lang": "농업 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 문제",
+      "meaning_ko": "agriculture problem",
+      "meaning_user_lang": "농업 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 발전",
+      "meaning_ko": "agriculture development",
+      "meaning_user_lang": "농업 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 변화",
+      "meaning_ko": "agriculture change",
+      "meaning_user_lang": "농업 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 보호",
+      "meaning_ko": "agriculture protection",
+      "meaning_user_lang": "농업 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 역할",
+      "meaning_ko": "agriculture role",
+      "meaning_user_lang": "농업 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 원인",
+      "meaning_ko": "agriculture cause",
+      "meaning_user_lang": "농업 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 증가",
+      "meaning_ko": "agriculture increase",
+      "meaning_user_lang": "농업 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 지원",
+      "meaning_ko": "agriculture support",
+      "meaning_user_lang": "농업 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "농업 참여",
+      "meaning_ko": "agriculture participation",
+      "meaning_user_lang": "농업 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "달성하다",
+      "meaning_ko": "to achieve",
+      "meaning_user_lang": "목표를 이루다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "도시 개선",
+      "meaning_ko": "city improvement",
+      "meaning_user_lang": "도시 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "도시 관리",
+      "meaning_ko": "city management",
+      "meaning_user_lang": "도시 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 감소",
+      "meaning_ko": "digital technology decrease",
+      "meaning_user_lang": "디지털 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 개선",
+      "meaning_ko": "digital technology improvement",
+      "meaning_user_lang": "디지털 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 결과",
+      "meaning_ko": "digital technology result",
+      "meaning_user_lang": "디지털 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 관리",
+      "meaning_ko": "digital technology management",
+      "meaning_user_lang": "디지털 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 문제",
+      "meaning_ko": "digital technology problem",
+      "meaning_user_lang": "디지털 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 발전",
+      "meaning_ko": "digital technology development",
+      "meaning_user_lang": "디지털 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 변화",
+      "meaning_ko": "digital technology change",
+      "meaning_user_lang": "디지털 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 보호",
+      "meaning_ko": "digital technology protection",
+      "meaning_user_lang": "디지털 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 역할",
+      "meaning_ko": "digital technology role",
+      "meaning_user_lang": "디지털 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 원인",
+      "meaning_ko": "digital technology cause",
+      "meaning_user_lang": "디지털 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 증가",
+      "meaning_ko": "digital technology increase",
+      "meaning_user_lang": "디지털 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 지원",
+      "meaning_ko": "digital technology support",
+      "meaning_user_lang": "디지털 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 참여",
+      "meaning_ko": "digital technology participation",
+      "meaning_user_lang": "디지털 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "마련하다",
+      "meaning_ko": "to prepare",
+      "meaning_user_lang": "필요한 것을 갖추다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "문화 개선",
+      "meaning_ko": "culture improvement",
+      "meaning_user_lang": "문화 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "문화 관리",
+      "meaning_ko": "culture management",
+      "meaning_user_lang": "문화 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 감소",
+      "meaning_ko": "future decrease",
+      "meaning_user_lang": "미래 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 개선",
+      "meaning_ko": "future improvement",
+      "meaning_user_lang": "미래 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 결과",
+      "meaning_ko": "future result",
+      "meaning_user_lang": "미래 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 관리",
+      "meaning_ko": "future management",
+      "meaning_user_lang": "미래 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 문제",
+      "meaning_ko": "future problem",
+      "meaning_user_lang": "미래 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 발전",
+      "meaning_ko": "future development",
+      "meaning_user_lang": "미래 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 변화",
+      "meaning_ko": "future change",
+      "meaning_user_lang": "미래 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 보호",
+      "meaning_ko": "future protection",
+      "meaning_user_lang": "미래 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 역할",
+      "meaning_ko": "future role",
+      "meaning_user_lang": "미래 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 원인",
+      "meaning_ko": "future cause",
+      "meaning_user_lang": "미래 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 증가",
+      "meaning_ko": "future increase",
+      "meaning_user_lang": "미래 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 지원",
+      "meaning_ko": "future support",
+      "meaning_user_lang": "미래 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "미래 참여",
+      "meaning_ko": "future participation",
+      "meaning_user_lang": "미래 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "발생하다",
+      "meaning_ko": "to occur",
+      "meaning_user_lang": "일이 생기다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 감소",
+      "meaning_ko": "welfare decrease",
+      "meaning_user_lang": "복지 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 개선",
+      "meaning_ko": "welfare improvement",
+      "meaning_user_lang": "복지 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 결과",
+      "meaning_ko": "welfare result",
+      "meaning_user_lang": "복지 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 관리",
+      "meaning_ko": "welfare management",
+      "meaning_user_lang": "복지 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 문제",
+      "meaning_ko": "welfare problem",
+      "meaning_user_lang": "복지 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 발전",
+      "meaning_ko": "welfare development",
+      "meaning_user_lang": "복지 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 변화",
+      "meaning_ko": "welfare change",
+      "meaning_user_lang": "복지 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 보호",
+      "meaning_ko": "welfare protection",
+      "meaning_user_lang": "복지 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 역할",
+      "meaning_ko": "welfare role",
+      "meaning_user_lang": "복지 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 원인",
+      "meaning_ko": "welfare cause",
+      "meaning_user_lang": "복지 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 증가",
+      "meaning_ko": "welfare increase",
+      "meaning_user_lang": "복지 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 지원",
+      "meaning_ko": "welfare support",
+      "meaning_user_lang": "복지 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "복지 참여",
+      "meaning_ko": "welfare participation",
+      "meaning_user_lang": "복지 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "분석하다",
+      "meaning_ko": "to analyze",
+      "meaning_user_lang": "자세히 나누어 살피다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "사회 개선",
+      "meaning_ko": "society improvement",
+      "meaning_user_lang": "사회 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "사회 관리",
+      "meaning_ko": "society management",
+      "meaning_user_lang": "사회 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 감소",
+      "meaning_ko": "industry decrease",
+      "meaning_user_lang": "산업 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 개선",
+      "meaning_ko": "industry improvement",
+      "meaning_user_lang": "산업 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 결과",
+      "meaning_ko": "industry result",
+      "meaning_user_lang": "산업 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 관리",
+      "meaning_ko": "industry management",
+      "meaning_user_lang": "산업 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 문제",
+      "meaning_ko": "industry problem",
+      "meaning_user_lang": "산업 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 발전",
+      "meaning_ko": "industry development",
+      "meaning_user_lang": "산업 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 변화",
+      "meaning_ko": "industry change",
+      "meaning_user_lang": "산업 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 보호",
+      "meaning_ko": "industry protection",
+      "meaning_user_lang": "산업 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 역할",
+      "meaning_ko": "industry role",
+      "meaning_user_lang": "산업 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 원인",
+      "meaning_ko": "industry cause",
+      "meaning_user_lang": "산업 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 증가",
+      "meaning_ko": "industry increase",
+      "meaning_user_lang": "산업 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 지원",
+      "meaning_ko": "industry support",
+      "meaning_user_lang": "산업 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "산업 참여",
+      "meaning_ko": "industry participation",
+      "meaning_user_lang": "산업 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "상승하다",
+      "meaning_ko": "to rise",
+      "meaning_user_lang": "위로 올라가다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "선호하다",
+      "meaning_ko": "to prefer",
+      "meaning_user_lang": "더 좋아하다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 감소",
+      "meaning_ko": "world decrease",
+      "meaning_user_lang": "세계 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 개선",
+      "meaning_ko": "world improvement",
+      "meaning_user_lang": "세계 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 결과",
+      "meaning_ko": "world result",
+      "meaning_user_lang": "세계 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 관리",
+      "meaning_ko": "world management",
+      "meaning_user_lang": "세계 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 문제",
+      "meaning_ko": "world problem",
+      "meaning_user_lang": "세계 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 발전",
+      "meaning_ko": "world development",
+      "meaning_user_lang": "세계 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 변화",
+      "meaning_ko": "world change",
+      "meaning_user_lang": "세계 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 보호",
+      "meaning_ko": "world protection",
+      "meaning_user_lang": "세계 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 역할",
+      "meaning_ko": "world role",
+      "meaning_user_lang": "세계 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 원인",
+      "meaning_ko": "world cause",
+      "meaning_user_lang": "세계 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 증가",
+      "meaning_ko": "world increase",
+      "meaning_user_lang": "세계 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 지원",
+      "meaning_ko": "world support",
+      "meaning_user_lang": "세계 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "세계 참여",
+      "meaning_ko": "world participation",
+      "meaning_user_lang": "세계 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "소비 개선",
+      "meaning_ko": "consumption improvement",
+      "meaning_user_lang": "소비 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "소비 관리",
+      "meaning_ko": "consumption management",
+      "meaning_user_lang": "소비 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 감소",
+      "meaning_ko": "market decrease",
+      "meaning_user_lang": "시장 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 개선",
+      "meaning_ko": "market improvement",
+      "meaning_user_lang": "시장 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 결과",
+      "meaning_ko": "market result",
+      "meaning_user_lang": "시장 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 관리",
+      "meaning_ko": "market management",
+      "meaning_user_lang": "시장 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 문제",
+      "meaning_ko": "market problem",
+      "meaning_user_lang": "시장 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 발전",
+      "meaning_ko": "market development",
+      "meaning_user_lang": "시장 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 변화",
+      "meaning_ko": "market change",
+      "meaning_user_lang": "시장 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 보호",
+      "meaning_ko": "market protection",
+      "meaning_user_lang": "시장 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 역할",
+      "meaning_ko": "market role",
+      "meaning_user_lang": "시장 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 원인",
+      "meaning_ko": "market cause",
+      "meaning_user_lang": "시장 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 증가",
+      "meaning_ko": "market increase",
+      "meaning_user_lang": "시장 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 지원",
+      "meaning_ko": "market support",
+      "meaning_user_lang": "시장 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "시장 참여",
+      "meaning_ko": "market participation",
+      "meaning_user_lang": "시장 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "식품 개선",
+      "meaning_ko": "food improvement",
+      "meaning_user_lang": "식품 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "식품 관리",
+      "meaning_ko": "food management",
+      "meaning_user_lang": "식품 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "안전 개선",
+      "meaning_ko": "safety improvement",
+      "meaning_user_lang": "안전 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "안전 관리",
+      "meaning_ko": "safety management",
+      "meaning_user_lang": "안전 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 감소",
+      "meaning_ko": "energy decrease",
+      "meaning_user_lang": "에너지 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 개선",
+      "meaning_ko": "energy improvement",
+      "meaning_user_lang": "에너지 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 결과",
+      "meaning_ko": "energy result",
+      "meaning_user_lang": "에너지 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 관리",
+      "meaning_ko": "energy management",
+      "meaning_user_lang": "에너지 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 문제",
+      "meaning_ko": "energy problem",
+      "meaning_user_lang": "에너지 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 발전",
+      "meaning_ko": "energy development",
+      "meaning_user_lang": "에너지 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 변화",
+      "meaning_ko": "energy change",
+      "meaning_user_lang": "에너지 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 보호",
+      "meaning_ko": "energy protection",
+      "meaning_user_lang": "에너지 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 역할",
+      "meaning_ko": "energy role",
+      "meaning_user_lang": "에너지 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 원인",
+      "meaning_ko": "energy cause",
+      "meaning_user_lang": "에너지 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 증가",
+      "meaning_ko": "energy increase",
+      "meaning_user_lang": "에너지 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 지원",
+      "meaning_ko": "energy support",
+      "meaning_user_lang": "에너지 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 참여",
+      "meaning_ko": "energy participation",
+      "meaning_user_lang": "에너지 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "여가 개선",
+      "meaning_ko": "leisure improvement",
+      "meaning_user_lang": "여가 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "여가 관리",
+      "meaning_ko": "leisure management",
+      "meaning_user_lang": "여가 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 감소",
+      "meaning_ko": "history decrease",
+      "meaning_user_lang": "역사 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 개선",
+      "meaning_ko": "history improvement",
+      "meaning_user_lang": "역사 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 결과",
+      "meaning_ko": "history result",
+      "meaning_user_lang": "역사 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 관리",
+      "meaning_ko": "history management",
+      "meaning_user_lang": "역사 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 문제",
+      "meaning_ko": "history problem",
+      "meaning_user_lang": "역사 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 발전",
+      "meaning_ko": "history development",
+      "meaning_user_lang": "역사 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 변화",
+      "meaning_ko": "history change",
+      "meaning_user_lang": "역사 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 보호",
+      "meaning_ko": "history protection",
+      "meaning_user_lang": "역사 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 역할",
+      "meaning_ko": "history role",
+      "meaning_user_lang": "역사 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 원인",
+      "meaning_ko": "history cause",
+      "meaning_user_lang": "역사 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 증가",
+      "meaning_ko": "history increase",
+      "meaning_user_lang": "역사 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 지원",
+      "meaning_ko": "history support",
+      "meaning_user_lang": "역사 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "역사 참여",
+      "meaning_ko": "history participation",
+      "meaning_user_lang": "역사 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 감소",
+      "meaning_ko": "research decrease",
+      "meaning_user_lang": "연구 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 개선",
+      "meaning_ko": "research improvement",
+      "meaning_user_lang": "연구 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 결과",
+      "meaning_ko": "research result",
+      "meaning_user_lang": "연구 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 관리",
+      "meaning_ko": "research management",
+      "meaning_user_lang": "연구 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 문제",
+      "meaning_ko": "research problem",
+      "meaning_user_lang": "연구 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 발전",
+      "meaning_ko": "research development",
+      "meaning_user_lang": "연구 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 변화",
+      "meaning_ko": "research change",
+      "meaning_user_lang": "연구 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 보호",
+      "meaning_ko": "research protection",
+      "meaning_user_lang": "연구 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 역할",
+      "meaning_ko": "research role",
+      "meaning_user_lang": "연구 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 원인",
+      "meaning_ko": "research cause",
+      "meaning_user_lang": "연구 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 증가",
+      "meaning_ko": "research increase",
+      "meaning_user_lang": "연구 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 지원",
+      "meaning_ko": "research support",
+      "meaning_user_lang": "연구 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "연구 참여",
+      "meaning_ko": "research participation",
+      "meaning_user_lang": "연구 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 감소",
+      "meaning_ko": "art decrease",
+      "meaning_user_lang": "예술 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 개선",
+      "meaning_ko": "art improvement",
+      "meaning_user_lang": "예술 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 결과",
+      "meaning_ko": "art result",
+      "meaning_user_lang": "예술 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 관리",
+      "meaning_ko": "art management",
+      "meaning_user_lang": "예술 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 문제",
+      "meaning_ko": "art problem",
+      "meaning_user_lang": "예술 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 발전",
+      "meaning_ko": "art development",
+      "meaning_user_lang": "예술 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 변화",
+      "meaning_ko": "art change",
+      "meaning_user_lang": "예술 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 보호",
+      "meaning_ko": "art protection",
+      "meaning_user_lang": "예술 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 역할",
+      "meaning_ko": "art role",
+      "meaning_user_lang": "예술 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 원인",
+      "meaning_ko": "art cause",
+      "meaning_user_lang": "예술 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 증가",
+      "meaning_ko": "art increase",
+      "meaning_user_lang": "예술 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 지원",
+      "meaning_ko": "art support",
+      "meaning_user_lang": "예술 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "예술 참여",
+      "meaning_ko": "art participation",
+      "meaning_user_lang": "예술 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "유지하다",
+      "meaning_ko": "to maintain",
+      "meaning_user_lang": "상태를 계속 지키다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 감소",
+      "meaning_ko": "medical care decrease",
+      "meaning_user_lang": "의료 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 개선",
+      "meaning_ko": "medical care improvement",
+      "meaning_user_lang": "의료 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 결과",
+      "meaning_ko": "medical care result",
+      "meaning_user_lang": "의료 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 관리",
+      "meaning_ko": "medical care management",
+      "meaning_user_lang": "의료 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 문제",
+      "meaning_ko": "medical care problem",
+      "meaning_user_lang": "의료 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 발전",
+      "meaning_ko": "medical care development",
+      "meaning_user_lang": "의료 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 변화",
+      "meaning_ko": "medical care change",
+      "meaning_user_lang": "의료 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 보호",
+      "meaning_ko": "medical care protection",
+      "meaning_user_lang": "의료 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 역할",
+      "meaning_ko": "medical care role",
+      "meaning_user_lang": "의료 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 원인",
+      "meaning_ko": "medical care cause",
+      "meaning_user_lang": "의료 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 증가",
+      "meaning_ko": "medical care increase",
+      "meaning_user_lang": "의료 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 지원",
+      "meaning_ko": "medical care support",
+      "meaning_user_lang": "의료 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "의료 참여",
+      "meaning_ko": "medical care participation",
+      "meaning_user_lang": "의료 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 감소",
+      "meaning_ko": "population decrease",
+      "meaning_user_lang": "인구 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 개선",
+      "meaning_ko": "population improvement",
+      "meaning_user_lang": "인구 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 결과",
+      "meaning_ko": "population result",
+      "meaning_user_lang": "인구 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 관리",
+      "meaning_ko": "population management",
+      "meaning_user_lang": "인구 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 문제",
+      "meaning_ko": "population problem",
+      "meaning_user_lang": "인구 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 발전",
+      "meaning_ko": "population development",
+      "meaning_user_lang": "인구 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 변화",
+      "meaning_ko": "population change",
+      "meaning_user_lang": "인구 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 보호",
+      "meaning_ko": "population protection",
+      "meaning_user_lang": "인구 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 역할",
+      "meaning_ko": "population role",
+      "meaning_user_lang": "인구 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 원인",
+      "meaning_ko": "population cause",
+      "meaning_user_lang": "인구 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 증가",
+      "meaning_ko": "population increase",
+      "meaning_user_lang": "인구 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 지원",
+      "meaning_ko": "population support",
+      "meaning_user_lang": "인구 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인구 참여",
+      "meaning_ko": "population participation",
+      "meaning_user_lang": "인구 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인정하다",
+      "meaning_ko": "to admit",
+      "meaning_user_lang": "옳거나 사실이라고 받아들이다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 개선",
+      "meaning_ko": "internet improvement",
+      "meaning_user_lang": "인터넷 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 관리",
+      "meaning_ko": "internet management",
+      "meaning_user_lang": "인터넷 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 감소",
+      "meaning_ko": "resources decrease",
+      "meaning_user_lang": "자원 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 개선",
+      "meaning_ko": "resources improvement",
+      "meaning_user_lang": "자원 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 결과",
+      "meaning_ko": "resources result",
+      "meaning_user_lang": "자원 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 관리",
+      "meaning_ko": "resources management",
+      "meaning_user_lang": "자원 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 문제",
+      "meaning_ko": "resources problem",
+      "meaning_user_lang": "자원 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 발전",
+      "meaning_ko": "resources development",
+      "meaning_user_lang": "자원 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 변화",
+      "meaning_ko": "resources change",
+      "meaning_user_lang": "자원 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 보호",
+      "meaning_ko": "resources protection",
+      "meaning_user_lang": "자원 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 역할",
+      "meaning_ko": "resources role",
+      "meaning_user_lang": "자원 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 원인",
+      "meaning_ko": "resources cause",
+      "meaning_user_lang": "자원 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 증가",
+      "meaning_ko": "resources increase",
+      "meaning_user_lang": "자원 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 지원",
+      "meaning_ko": "resources support",
+      "meaning_user_lang": "자원 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "자원 참여",
+      "meaning_ko": "resources participation",
+      "meaning_user_lang": "자원 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "적용하다",
+      "meaning_ko": "to apply",
+      "meaning_user_lang": "어떤 일에 맞게 쓰다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 감소",
+      "meaning_ko": "tradition decrease",
+      "meaning_user_lang": "전통 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 개선",
+      "meaning_ko": "tradition improvement",
+      "meaning_user_lang": "전통 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 결과",
+      "meaning_ko": "tradition result",
+      "meaning_user_lang": "전통 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 관리",
+      "meaning_ko": "tradition management",
+      "meaning_user_lang": "전통 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 문제",
+      "meaning_ko": "tradition problem",
+      "meaning_user_lang": "전통 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 발전",
+      "meaning_ko": "tradition development",
+      "meaning_user_lang": "전통 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 변화",
+      "meaning_ko": "tradition change",
+      "meaning_user_lang": "전통 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 보호",
+      "meaning_ko": "tradition protection",
+      "meaning_user_lang": "전통 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 역할",
+      "meaning_ko": "tradition role",
+      "meaning_user_lang": "전통 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 원인",
+      "meaning_ko": "tradition cause",
+      "meaning_user_lang": "전통 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 증가",
+      "meaning_ko": "tradition increase",
+      "meaning_user_lang": "전통 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 지원",
+      "meaning_ko": "tradition support",
+      "meaning_user_lang": "전통 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "전통 참여",
+      "meaning_ko": "tradition participation",
+      "meaning_user_lang": "전통 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "정보 개선",
+      "meaning_ko": "information improvement",
+      "meaning_user_lang": "정보 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "정보 관리",
+      "meaning_ko": "information management",
+      "meaning_user_lang": "정보 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 감소",
+      "meaning_ko": "housing decrease",
+      "meaning_user_lang": "주거 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 개선",
+      "meaning_ko": "housing improvement",
+      "meaning_user_lang": "주거 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 결과",
+      "meaning_ko": "housing result",
+      "meaning_user_lang": "주거 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 관리",
+      "meaning_ko": "housing management",
+      "meaning_user_lang": "주거 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 문제",
+      "meaning_ko": "housing problem",
+      "meaning_user_lang": "주거 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 발전",
+      "meaning_ko": "housing development",
+      "meaning_user_lang": "주거 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 변화",
+      "meaning_ko": "housing change",
+      "meaning_user_lang": "주거 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 보호",
+      "meaning_ko": "housing protection",
+      "meaning_user_lang": "주거 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 역할",
+      "meaning_ko": "housing role",
+      "meaning_user_lang": "주거 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 원인",
+      "meaning_ko": "housing cause",
+      "meaning_user_lang": "주거 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 증가",
+      "meaning_ko": "housing increase",
+      "meaning_user_lang": "주거 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 지원",
+      "meaning_ko": "housing support",
+      "meaning_user_lang": "주거 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "주거 참여",
+      "meaning_ko": "housing participation",
+      "meaning_user_lang": "주거 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "지역 개선",
+      "meaning_ko": "region improvement",
+      "meaning_user_lang": "지역 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "지역 관리",
+      "meaning_ko": "region management",
+      "meaning_user_lang": "지역 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "직업 개선",
+      "meaning_ko": "occupation improvement",
+      "meaning_user_lang": "직업 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "직업 관리",
+      "meaning_ko": "occupation management",
+      "meaning_user_lang": "직업 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 감소",
+      "meaning_ko": "youth decrease",
+      "meaning_user_lang": "청년 관련 감소",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 개선",
+      "meaning_ko": "youth improvement",
+      "meaning_user_lang": "청년 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 결과",
+      "meaning_ko": "youth result",
+      "meaning_user_lang": "청년 관련 결과",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 관리",
+      "meaning_ko": "youth management",
+      "meaning_user_lang": "청년 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 문제",
+      "meaning_ko": "youth problem",
+      "meaning_user_lang": "청년 관련 문제",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 발전",
+      "meaning_ko": "youth development",
+      "meaning_user_lang": "청년 관련 발전",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 변화",
+      "meaning_ko": "youth change",
+      "meaning_user_lang": "청년 관련 변화",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 보호",
+      "meaning_ko": "youth protection",
+      "meaning_user_lang": "청년 관련 보호",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 역할",
+      "meaning_ko": "youth role",
+      "meaning_user_lang": "청년 관련 역할",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 원인",
+      "meaning_ko": "youth cause",
+      "meaning_user_lang": "청년 관련 원인",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 증가",
+      "meaning_ko": "youth increase",
+      "meaning_user_lang": "청년 관련 증가",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 지원",
+      "meaning_ko": "youth support",
+      "meaning_user_lang": "청년 관련 지원",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "청년 참여",
+      "meaning_ko": "youth participation",
+      "meaning_user_lang": "청년 관련 참여",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "확대하다",
+      "meaning_ko": "to expand",
+      "meaning_user_lang": "범위를 넓히다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "환경 개선",
+      "meaning_ko": "environment improvement",
+      "meaning_user_lang": "환경 관련 개선",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "환경 관리",
+      "meaning_ko": "environment management",
+      "meaning_user_lang": "환경 관련 관리",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "활용하다",
+      "meaning_ko": "to utilize",
+      "meaning_user_lang": "잘 이용하다",
+      "level": 4,
+      "tts_url": null
+    },
+    {
+      "word": "검토하다",
+      "meaning_ko": "to review",
+      "meaning_user_lang": "자세히 살펴보다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "고려하다",
+      "meaning_ko": "to consider",
+      "meaning_user_lang": "여러 가지를 생각하다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 감소",
+      "meaning_ko": "community decrease",
+      "meaning_user_lang": "공동체 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 개선",
+      "meaning_ko": "community improvement",
+      "meaning_user_lang": "공동체 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 결과",
+      "meaning_ko": "community result",
+      "meaning_user_lang": "공동체 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 관리",
+      "meaning_ko": "community management",
+      "meaning_user_lang": "공동체 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 문제",
+      "meaning_ko": "community problem",
+      "meaning_user_lang": "공동체 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 발전",
+      "meaning_ko": "community development",
+      "meaning_user_lang": "공동체 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 변화",
+      "meaning_ko": "community change",
+      "meaning_user_lang": "공동체 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 보호",
+      "meaning_ko": "community protection",
+      "meaning_user_lang": "공동체 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 역할",
+      "meaning_ko": "community role",
+      "meaning_user_lang": "공동체 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 원인",
+      "meaning_ko": "community cause",
+      "meaning_user_lang": "공동체 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 증가",
+      "meaning_ko": "community increase",
+      "meaning_user_lang": "공동체 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 지원",
+      "meaning_ko": "community support",
+      "meaning_user_lang": "공동체 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 참여",
+      "meaning_ko": "community participation",
+      "meaning_user_lang": "공동체 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 감소",
+      "meaning_ko": "international affairs decrease",
+      "meaning_user_lang": "국제 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 개선",
+      "meaning_ko": "international affairs improvement",
+      "meaning_user_lang": "국제 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 결과",
+      "meaning_ko": "international affairs result",
+      "meaning_user_lang": "국제 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 관리",
+      "meaning_ko": "international affairs management",
+      "meaning_user_lang": "국제 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 문제",
+      "meaning_ko": "international affairs problem",
+      "meaning_user_lang": "국제 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 발전",
+      "meaning_ko": "international affairs development",
+      "meaning_user_lang": "국제 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 변화",
+      "meaning_ko": "international affairs change",
+      "meaning_user_lang": "국제 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 보호",
+      "meaning_ko": "international affairs protection",
+      "meaning_user_lang": "국제 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 역할",
+      "meaning_ko": "international affairs role",
+      "meaning_user_lang": "국제 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 원인",
+      "meaning_ko": "international affairs cause",
+      "meaning_user_lang": "국제 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 증가",
+      "meaning_ko": "international affairs increase",
+      "meaning_user_lang": "국제 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 지원",
+      "meaning_ko": "international affairs support",
+      "meaning_user_lang": "국제 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "국제 참여",
+      "meaning_ko": "international affairs participation",
+      "meaning_user_lang": "국제 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 감소",
+      "meaning_ko": "finance decrease",
+      "meaning_user_lang": "금융 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 개선",
+      "meaning_ko": "finance improvement",
+      "meaning_user_lang": "금융 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 결과",
+      "meaning_ko": "finance result",
+      "meaning_user_lang": "금융 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 관리",
+      "meaning_ko": "finance management",
+      "meaning_user_lang": "금융 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 문제",
+      "meaning_ko": "finance problem",
+      "meaning_user_lang": "금융 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 발전",
+      "meaning_ko": "finance development",
+      "meaning_user_lang": "금융 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 변화",
+      "meaning_ko": "finance change",
+      "meaning_user_lang": "금융 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 보호",
+      "meaning_ko": "finance protection",
+      "meaning_user_lang": "금융 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 역할",
+      "meaning_ko": "finance role",
+      "meaning_user_lang": "금융 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 원인",
+      "meaning_ko": "finance cause",
+      "meaning_user_lang": "금융 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 증가",
+      "meaning_ko": "finance increase",
+      "meaning_user_lang": "금융 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 지원",
+      "meaning_ko": "finance support",
+      "meaning_user_lang": "금융 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "금융 참여",
+      "meaning_ko": "finance participation",
+      "meaning_user_lang": "금융 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "논의하다",
+      "meaning_ko": "to discuss",
+      "meaning_user_lang": "의견을 나누다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "대응하다",
+      "meaning_ko": "to respond",
+      "meaning_user_lang": "상황에 맞게 처리하다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "도입하다",
+      "meaning_ko": "to introduce",
+      "meaning_user_lang": "새 제도나 방법을 들여오다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 감소",
+      "meaning_ko": "law decrease",
+      "meaning_user_lang": "법률 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 개선",
+      "meaning_ko": "law improvement",
+      "meaning_user_lang": "법률 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 결과",
+      "meaning_ko": "law result",
+      "meaning_user_lang": "법률 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 관리",
+      "meaning_ko": "law management",
+      "meaning_user_lang": "법률 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 문제",
+      "meaning_ko": "law problem",
+      "meaning_user_lang": "법률 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 발전",
+      "meaning_ko": "law development",
+      "meaning_user_lang": "법률 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 변화",
+      "meaning_ko": "law change",
+      "meaning_user_lang": "법률 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 보호",
+      "meaning_ko": "law protection",
+      "meaning_user_lang": "법률 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 역할",
+      "meaning_ko": "law role",
+      "meaning_user_lang": "법률 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 원인",
+      "meaning_ko": "law cause",
+      "meaning_user_lang": "법률 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 증가",
+      "meaning_ko": "law increase",
+      "meaning_user_lang": "법률 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 지원",
+      "meaning_ko": "law support",
+      "meaning_user_lang": "법률 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "법률 참여",
+      "meaning_ko": "law participation",
+      "meaning_user_lang": "법률 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "보완하다",
+      "meaning_ko": "to supplement",
+      "meaning_user_lang": "부족한 부분을 채우다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "비판하다",
+      "meaning_ko": "to criticize",
+      "meaning_user_lang": "문제점을 지적하다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "수용하다",
+      "meaning_ko": "to accept",
+      "meaning_user_lang": "받아들이다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "실현하다",
+      "meaning_ko": "to realize",
+      "meaning_user_lang": "생각한 일을 실제로 이루다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 감소",
+      "meaning_ko": "psychology decrease",
+      "meaning_user_lang": "심리 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 개선",
+      "meaning_ko": "psychology improvement",
+      "meaning_user_lang": "심리 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 결과",
+      "meaning_ko": "psychology result",
+      "meaning_user_lang": "심리 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 관리",
+      "meaning_ko": "psychology management",
+      "meaning_user_lang": "심리 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 문제",
+      "meaning_ko": "psychology problem",
+      "meaning_user_lang": "심리 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 발전",
+      "meaning_ko": "psychology development",
+      "meaning_user_lang": "심리 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 변화",
+      "meaning_ko": "psychology change",
+      "meaning_user_lang": "심리 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 보호",
+      "meaning_ko": "psychology protection",
+      "meaning_user_lang": "심리 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 역할",
+      "meaning_ko": "psychology role",
+      "meaning_user_lang": "심리 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 원인",
+      "meaning_ko": "psychology cause",
+      "meaning_user_lang": "심리 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 증가",
+      "meaning_ko": "psychology increase",
+      "meaning_user_lang": "심리 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 지원",
+      "meaning_ko": "psychology support",
+      "meaning_user_lang": "심리 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "심리 참여",
+      "meaning_ko": "psychology participation",
+      "meaning_user_lang": "심리 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 감소",
+      "meaning_ko": "media decrease",
+      "meaning_user_lang": "언론 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 개선",
+      "meaning_ko": "media improvement",
+      "meaning_user_lang": "언론 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 결과",
+      "meaning_ko": "media result",
+      "meaning_user_lang": "언론 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 관리",
+      "meaning_ko": "media management",
+      "meaning_user_lang": "언론 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 문제",
+      "meaning_ko": "media problem",
+      "meaning_user_lang": "언론 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 발전",
+      "meaning_ko": "media development",
+      "meaning_user_lang": "언론 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 변화",
+      "meaning_ko": "media change",
+      "meaning_user_lang": "언론 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 보호",
+      "meaning_ko": "media protection",
+      "meaning_user_lang": "언론 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 역할",
+      "meaning_ko": "media role",
+      "meaning_user_lang": "언론 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 원인",
+      "meaning_ko": "media cause",
+      "meaning_user_lang": "언론 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 증가",
+      "meaning_ko": "media increase",
+      "meaning_user_lang": "언론 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 지원",
+      "meaning_ko": "media support",
+      "meaning_user_lang": "언론 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "언론 참여",
+      "meaning_ko": "media participation",
+      "meaning_user_lang": "언론 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "예측하다",
+      "meaning_ko": "to predict",
+      "meaning_user_lang": "앞일을 미리 생각하다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "의존하다",
+      "meaning_ko": "to depend on",
+      "meaning_user_lang": "다른 것에 기대다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 감소",
+      "meaning_ko": "policy decrease",
+      "meaning_user_lang": "정책 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 개선",
+      "meaning_ko": "policy improvement",
+      "meaning_user_lang": "정책 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 결과",
+      "meaning_ko": "policy result",
+      "meaning_user_lang": "정책 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 관리",
+      "meaning_ko": "policy management",
+      "meaning_user_lang": "정책 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 문제",
+      "meaning_ko": "policy problem",
+      "meaning_user_lang": "정책 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 발전",
+      "meaning_ko": "policy development",
+      "meaning_user_lang": "정책 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 변화",
+      "meaning_ko": "policy change",
+      "meaning_user_lang": "정책 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 보호",
+      "meaning_ko": "policy protection",
+      "meaning_user_lang": "정책 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 역할",
+      "meaning_ko": "policy role",
+      "meaning_user_lang": "정책 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 원인",
+      "meaning_ko": "policy cause",
+      "meaning_user_lang": "정책 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 증가",
+      "meaning_ko": "policy increase",
+      "meaning_user_lang": "정책 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 지원",
+      "meaning_ko": "policy support",
+      "meaning_user_lang": "정책 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정책 참여",
+      "meaning_ko": "policy participation",
+      "meaning_user_lang": "정책 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 감소",
+      "meaning_ko": "politics decrease",
+      "meaning_user_lang": "정치 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 개선",
+      "meaning_ko": "politics improvement",
+      "meaning_user_lang": "정치 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 결과",
+      "meaning_ko": "politics result",
+      "meaning_user_lang": "정치 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 관리",
+      "meaning_ko": "politics management",
+      "meaning_user_lang": "정치 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 문제",
+      "meaning_ko": "politics problem",
+      "meaning_user_lang": "정치 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 발전",
+      "meaning_ko": "politics development",
+      "meaning_user_lang": "정치 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 변화",
+      "meaning_ko": "politics change",
+      "meaning_user_lang": "정치 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 보호",
+      "meaning_ko": "politics protection",
+      "meaning_user_lang": "정치 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 역할",
+      "meaning_ko": "politics role",
+      "meaning_user_lang": "정치 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 원인",
+      "meaning_ko": "politics cause",
+      "meaning_user_lang": "정치 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 증가",
+      "meaning_ko": "politics increase",
+      "meaning_user_lang": "정치 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 지원",
+      "meaning_ko": "politics support",
+      "meaning_user_lang": "정치 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "정치 참여",
+      "meaning_ko": "politics participation",
+      "meaning_user_lang": "정치 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 감소",
+      "meaning_ko": "system decrease",
+      "meaning_user_lang": "제도 관련 감소",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 개선",
+      "meaning_ko": "system improvement",
+      "meaning_user_lang": "제도 관련 개선",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 결과",
+      "meaning_ko": "system result",
+      "meaning_user_lang": "제도 관련 결과",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 관리",
+      "meaning_ko": "system management",
+      "meaning_user_lang": "제도 관련 관리",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 문제",
+      "meaning_ko": "system problem",
+      "meaning_user_lang": "제도 관련 문제",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 발전",
+      "meaning_ko": "system development",
+      "meaning_user_lang": "제도 관련 발전",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 변화",
+      "meaning_ko": "system change",
+      "meaning_user_lang": "제도 관련 변화",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 보호",
+      "meaning_ko": "system protection",
+      "meaning_user_lang": "제도 관련 보호",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 역할",
+      "meaning_ko": "system role",
+      "meaning_user_lang": "제도 관련 역할",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 원인",
+      "meaning_ko": "system cause",
+      "meaning_user_lang": "제도 관련 원인",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 증가",
+      "meaning_ko": "system increase",
+      "meaning_user_lang": "제도 관련 증가",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 지원",
+      "meaning_ko": "system support",
+      "meaning_user_lang": "제도 관련 지원",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "제도 참여",
+      "meaning_ko": "system participation",
+      "meaning_user_lang": "제도 관련 참여",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "증명하다",
+      "meaning_ko": "to prove",
+      "meaning_user_lang": "사실임을 밝히다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "추진하다",
+      "meaning_ko": "to promote",
+      "meaning_user_lang": "일을 앞으로 밀고 나가다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "확보하다",
+      "meaning_ko": "to secure",
+      "meaning_user_lang": "필요한 것을 얻어 두다",
+      "level": 5,
+      "tts_url": null
+    },
+    {
+      "word": "가족 갈등",
+      "meaning_ko": "family conflict",
+      "meaning_user_lang": "가족 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "가족 영향",
+      "meaning_ko": "family influence",
+      "meaning_user_lang": "가족 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "가족 중요성",
+      "meaning_ko": "family importance",
+      "meaning_user_lang": "가족 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "가족 필요성",
+      "meaning_ko": "family necessity",
+      "meaning_user_lang": "가족 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "개인 갈등",
+      "meaning_ko": "individual conflict",
+      "meaning_user_lang": "개인 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "개인 영향",
+      "meaning_ko": "individual influence",
+      "meaning_user_lang": "개인 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "개인 중요성",
+      "meaning_ko": "individual importance",
+      "meaning_user_lang": "개인 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "개인 필요성",
+      "meaning_ko": "individual necessity",
+      "meaning_user_lang": "개인 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "건강 갈등",
+      "meaning_ko": "health conflict",
+      "meaning_user_lang": "건강 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "건강 영향",
+      "meaning_ko": "health influence",
+      "meaning_user_lang": "건강 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "건강 중요성",
+      "meaning_ko": "health importance",
+      "meaning_user_lang": "건강 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "건강 필요성",
+      "meaning_ko": "health necessity",
+      "meaning_user_lang": "건강 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "경제 갈등",
+      "meaning_ko": "economy conflict",
+      "meaning_user_lang": "경제 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "경제 영향",
+      "meaning_ko": "economy influence",
+      "meaning_user_lang": "경제 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "경제 중요성",
+      "meaning_ko": "economy importance",
+      "meaning_user_lang": "경제 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "경제 필요성",
+      "meaning_ko": "economy necessity",
+      "meaning_user_lang": "경제 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 갈등",
+      "meaning_ko": "community conflict",
+      "meaning_user_lang": "공동체 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 영향",
+      "meaning_ko": "community influence",
+      "meaning_user_lang": "공동체 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 중요성",
+      "meaning_ko": "community importance",
+      "meaning_user_lang": "공동체 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "공동체 필요성",
+      "meaning_ko": "community necessity",
+      "meaning_user_lang": "공동체 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "과학 갈등",
+      "meaning_ko": "science conflict",
+      "meaning_user_lang": "과학 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "과학 영향",
+      "meaning_ko": "science influence",
+      "meaning_user_lang": "과학 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "과학 중요성",
+      "meaning_ko": "science importance",
+      "meaning_user_lang": "과학 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "과학 필요성",
+      "meaning_ko": "science necessity",
+      "meaning_user_lang": "과학 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "관광 갈등",
+      "meaning_ko": "tourism conflict",
+      "meaning_user_lang": "관광 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "관광 영향",
+      "meaning_ko": "tourism influence",
+      "meaning_user_lang": "관광 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "관광 중요성",
+      "meaning_ko": "tourism importance",
+      "meaning_user_lang": "관광 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "관광 필요성",
+      "meaning_ko": "tourism necessity",
+      "meaning_user_lang": "관광 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교육 갈등",
+      "meaning_ko": "education conflict",
+      "meaning_user_lang": "교육 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교육 영향",
+      "meaning_ko": "education influence",
+      "meaning_user_lang": "교육 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교육 중요성",
+      "meaning_ko": "education importance",
+      "meaning_user_lang": "교육 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교육 필요성",
+      "meaning_ko": "education necessity",
+      "meaning_user_lang": "교육 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교통 갈등",
+      "meaning_ko": "transportation conflict",
+      "meaning_user_lang": "교통 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교통 영향",
+      "meaning_ko": "transportation influence",
+      "meaning_user_lang": "교통 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교통 중요성",
+      "meaning_ko": "transportation importance",
+      "meaning_user_lang": "교통 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "교통 필요성",
+      "meaning_ko": "transportation necessity",
+      "meaning_user_lang": "교통 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "국제 갈등",
+      "meaning_ko": "international affairs conflict",
+      "meaning_user_lang": "국제 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "국제 영향",
+      "meaning_ko": "international affairs influence",
+      "meaning_user_lang": "국제 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "국제 중요성",
+      "meaning_ko": "international affairs importance",
+      "meaning_user_lang": "국제 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "국제 필요성",
+      "meaning_ko": "international affairs necessity",
+      "meaning_user_lang": "국제 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "금융 갈등",
+      "meaning_ko": "finance conflict",
+      "meaning_user_lang": "금융 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "금융 영향",
+      "meaning_ko": "finance influence",
+      "meaning_user_lang": "금융 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "금융 중요성",
+      "meaning_ko": "finance importance",
+      "meaning_user_lang": "금융 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "금융 필요성",
+      "meaning_ko": "finance necessity",
+      "meaning_user_lang": "금융 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기술 갈등",
+      "meaning_ko": "technology conflict",
+      "meaning_user_lang": "기술 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기술 영향",
+      "meaning_ko": "technology influence",
+      "meaning_user_lang": "기술 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기술 중요성",
+      "meaning_ko": "technology importance",
+      "meaning_user_lang": "기술 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기술 필요성",
+      "meaning_ko": "technology necessity",
+      "meaning_user_lang": "기술 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기업 갈등",
+      "meaning_ko": "company conflict",
+      "meaning_user_lang": "기업 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기업 영향",
+      "meaning_ko": "company influence",
+      "meaning_user_lang": "기업 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기업 중요성",
+      "meaning_ko": "company importance",
+      "meaning_user_lang": "기업 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기업 필요성",
+      "meaning_ko": "company necessity",
+      "meaning_user_lang": "기업 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기후 갈등",
+      "meaning_ko": "climate conflict",
+      "meaning_user_lang": "기후 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기후 영향",
+      "meaning_ko": "climate influence",
+      "meaning_user_lang": "기후 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기후 중요성",
+      "meaning_ko": "climate importance",
+      "meaning_user_lang": "기후 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "기후 필요성",
+      "meaning_ko": "climate necessity",
+      "meaning_user_lang": "기후 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "노동 갈등",
+      "meaning_ko": "labor conflict",
+      "meaning_user_lang": "노동 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "노동 영향",
+      "meaning_ko": "labor influence",
+      "meaning_user_lang": "노동 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "노동 중요성",
+      "meaning_ko": "labor importance",
+      "meaning_user_lang": "노동 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "노동 필요성",
+      "meaning_ko": "labor necessity",
+      "meaning_user_lang": "노동 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "농업 갈등",
+      "meaning_ko": "agriculture conflict",
+      "meaning_user_lang": "농업 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "농업 영향",
+      "meaning_ko": "agriculture influence",
+      "meaning_user_lang": "농업 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "농업 중요성",
+      "meaning_ko": "agriculture importance",
+      "meaning_user_lang": "농업 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "농업 필요성",
+      "meaning_ko": "agriculture necessity",
+      "meaning_user_lang": "농업 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "도시 갈등",
+      "meaning_ko": "city conflict",
+      "meaning_user_lang": "도시 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "도시 영향",
+      "meaning_ko": "city influence",
+      "meaning_user_lang": "도시 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "도시 중요성",
+      "meaning_ko": "city importance",
+      "meaning_user_lang": "도시 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "도시 필요성",
+      "meaning_ko": "city necessity",
+      "meaning_user_lang": "도시 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 갈등",
+      "meaning_ko": "digital technology conflict",
+      "meaning_user_lang": "디지털 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 영향",
+      "meaning_ko": "digital technology influence",
+      "meaning_user_lang": "디지털 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 중요성",
+      "meaning_ko": "digital technology importance",
+      "meaning_user_lang": "디지털 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "디지털 필요성",
+      "meaning_ko": "digital technology necessity",
+      "meaning_user_lang": "디지털 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "문화 갈등",
+      "meaning_ko": "culture conflict",
+      "meaning_user_lang": "문화 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "문화 영향",
+      "meaning_ko": "culture influence",
+      "meaning_user_lang": "문화 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "문화 중요성",
+      "meaning_ko": "culture importance",
+      "meaning_user_lang": "문화 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "문화 필요성",
+      "meaning_ko": "culture necessity",
+      "meaning_user_lang": "문화 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "미래 갈등",
+      "meaning_ko": "future conflict",
+      "meaning_user_lang": "미래 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "미래 영향",
+      "meaning_ko": "future influence",
+      "meaning_user_lang": "미래 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "미래 중요성",
+      "meaning_ko": "future importance",
+      "meaning_user_lang": "미래 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "미래 필요성",
+      "meaning_ko": "future necessity",
+      "meaning_user_lang": "미래 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "법률 갈등",
+      "meaning_ko": "law conflict",
+      "meaning_user_lang": "법률 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "법률 영향",
+      "meaning_ko": "law influence",
+      "meaning_user_lang": "법률 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "법률 중요성",
+      "meaning_ko": "law importance",
+      "meaning_user_lang": "법률 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "법률 필요성",
+      "meaning_ko": "law necessity",
+      "meaning_user_lang": "법률 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "복지 갈등",
+      "meaning_ko": "welfare conflict",
+      "meaning_user_lang": "복지 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "복지 영향",
+      "meaning_ko": "welfare influence",
+      "meaning_user_lang": "복지 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "복지 중요성",
+      "meaning_ko": "welfare importance",
+      "meaning_user_lang": "복지 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "복지 필요성",
+      "meaning_ko": "welfare necessity",
+      "meaning_user_lang": "복지 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "사회 갈등",
+      "meaning_ko": "society conflict",
+      "meaning_user_lang": "사회 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "사회 영향",
+      "meaning_ko": "society influence",
+      "meaning_user_lang": "사회 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "사회 중요성",
+      "meaning_ko": "society importance",
+      "meaning_user_lang": "사회 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "사회 필요성",
+      "meaning_ko": "society necessity",
+      "meaning_user_lang": "사회 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "산업 갈등",
+      "meaning_ko": "industry conflict",
+      "meaning_user_lang": "산업 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "산업 영향",
+      "meaning_ko": "industry influence",
+      "meaning_user_lang": "산업 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "산업 중요성",
+      "meaning_ko": "industry importance",
+      "meaning_user_lang": "산업 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "산업 필요성",
+      "meaning_ko": "industry necessity",
+      "meaning_user_lang": "산업 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "세계 갈등",
+      "meaning_ko": "world conflict",
+      "meaning_user_lang": "세계 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "세계 영향",
+      "meaning_ko": "world influence",
+      "meaning_user_lang": "세계 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "세계 중요성",
+      "meaning_ko": "world importance",
+      "meaning_user_lang": "세계 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "세계 필요성",
+      "meaning_ko": "world necessity",
+      "meaning_user_lang": "세계 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "소비 갈등",
+      "meaning_ko": "consumption conflict",
+      "meaning_user_lang": "소비 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "소비 영향",
+      "meaning_ko": "consumption influence",
+      "meaning_user_lang": "소비 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "소비 중요성",
+      "meaning_ko": "consumption importance",
+      "meaning_user_lang": "소비 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "소비 필요성",
+      "meaning_ko": "consumption necessity",
+      "meaning_user_lang": "소비 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "시장 갈등",
+      "meaning_ko": "market conflict",
+      "meaning_user_lang": "시장 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "시장 영향",
+      "meaning_ko": "market influence",
+      "meaning_user_lang": "시장 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "시장 중요성",
+      "meaning_ko": "market importance",
+      "meaning_user_lang": "시장 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "시장 필요성",
+      "meaning_ko": "market necessity",
+      "meaning_user_lang": "시장 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "식품 갈등",
+      "meaning_ko": "food conflict",
+      "meaning_user_lang": "식품 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "식품 영향",
+      "meaning_ko": "food influence",
+      "meaning_user_lang": "식품 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "식품 중요성",
+      "meaning_ko": "food importance",
+      "meaning_user_lang": "식품 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "식품 필요성",
+      "meaning_ko": "food necessity",
+      "meaning_user_lang": "식품 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "심리 갈등",
+      "meaning_ko": "psychology conflict",
+      "meaning_user_lang": "심리 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "심리 영향",
+      "meaning_ko": "psychology influence",
+      "meaning_user_lang": "심리 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "심리 중요성",
+      "meaning_ko": "psychology importance",
+      "meaning_user_lang": "심리 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "심리 필요성",
+      "meaning_ko": "psychology necessity",
+      "meaning_user_lang": "심리 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "안전 갈등",
+      "meaning_ko": "safety conflict",
+      "meaning_user_lang": "안전 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "안전 영향",
+      "meaning_ko": "safety influence",
+      "meaning_user_lang": "안전 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "안전 중요성",
+      "meaning_ko": "safety importance",
+      "meaning_user_lang": "안전 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "안전 필요성",
+      "meaning_ko": "safety necessity",
+      "meaning_user_lang": "안전 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "언론 갈등",
+      "meaning_ko": "media conflict",
+      "meaning_user_lang": "언론 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "언론 영향",
+      "meaning_ko": "media influence",
+      "meaning_user_lang": "언론 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "언론 중요성",
+      "meaning_ko": "media importance",
+      "meaning_user_lang": "언론 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "언론 필요성",
+      "meaning_ko": "media necessity",
+      "meaning_user_lang": "언론 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 갈등",
+      "meaning_ko": "energy conflict",
+      "meaning_user_lang": "에너지 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 영향",
+      "meaning_ko": "energy influence",
+      "meaning_user_lang": "에너지 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 중요성",
+      "meaning_ko": "energy importance",
+      "meaning_user_lang": "에너지 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "에너지 필요성",
+      "meaning_ko": "energy necessity",
+      "meaning_user_lang": "에너지 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "여가 갈등",
+      "meaning_ko": "leisure conflict",
+      "meaning_user_lang": "여가 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "여가 영향",
+      "meaning_ko": "leisure influence",
+      "meaning_user_lang": "여가 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "여가 중요성",
+      "meaning_ko": "leisure importance",
+      "meaning_user_lang": "여가 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "여가 필요성",
+      "meaning_ko": "leisure necessity",
+      "meaning_user_lang": "여가 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "역사 갈등",
+      "meaning_ko": "history conflict",
+      "meaning_user_lang": "역사 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "역사 영향",
+      "meaning_ko": "history influence",
+      "meaning_user_lang": "역사 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "역사 중요성",
+      "meaning_ko": "history importance",
+      "meaning_user_lang": "역사 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "역사 필요성",
+      "meaning_ko": "history necessity",
+      "meaning_user_lang": "역사 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "연구 갈등",
+      "meaning_ko": "research conflict",
+      "meaning_user_lang": "연구 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "연구 영향",
+      "meaning_ko": "research influence",
+      "meaning_user_lang": "연구 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "연구 중요성",
+      "meaning_ko": "research importance",
+      "meaning_user_lang": "연구 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "연구 필요성",
+      "meaning_ko": "research necessity",
+      "meaning_user_lang": "연구 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "예술 갈등",
+      "meaning_ko": "art conflict",
+      "meaning_user_lang": "예술 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "예술 영향",
+      "meaning_ko": "art influence",
+      "meaning_user_lang": "예술 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "예술 중요성",
+      "meaning_ko": "art importance",
+      "meaning_user_lang": "예술 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "예술 필요성",
+      "meaning_ko": "art necessity",
+      "meaning_user_lang": "예술 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "의료 갈등",
+      "meaning_ko": "medical care conflict",
+      "meaning_user_lang": "의료 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "의료 영향",
+      "meaning_ko": "medical care influence",
+      "meaning_user_lang": "의료 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "의료 중요성",
+      "meaning_ko": "medical care importance",
+      "meaning_user_lang": "의료 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "의료 필요성",
+      "meaning_ko": "medical care necessity",
+      "meaning_user_lang": "의료 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인구 갈등",
+      "meaning_ko": "population conflict",
+      "meaning_user_lang": "인구 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인구 영향",
+      "meaning_ko": "population influence",
+      "meaning_user_lang": "인구 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인구 중요성",
+      "meaning_ko": "population importance",
+      "meaning_user_lang": "인구 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인구 필요성",
+      "meaning_ko": "population necessity",
+      "meaning_user_lang": "인구 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 갈등",
+      "meaning_ko": "internet conflict",
+      "meaning_user_lang": "인터넷 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 영향",
+      "meaning_ko": "internet influence",
+      "meaning_user_lang": "인터넷 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 중요성",
+      "meaning_ko": "internet importance",
+      "meaning_user_lang": "인터넷 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "인터넷 필요성",
+      "meaning_ko": "internet necessity",
+      "meaning_user_lang": "인터넷 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "자원 갈등",
+      "meaning_ko": "resources conflict",
+      "meaning_user_lang": "자원 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "자원 영향",
+      "meaning_ko": "resources influence",
+      "meaning_user_lang": "자원 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "자원 중요성",
+      "meaning_ko": "resources importance",
+      "meaning_user_lang": "자원 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "자원 필요성",
+      "meaning_ko": "resources necessity",
+      "meaning_user_lang": "자원 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "전통 갈등",
+      "meaning_ko": "tradition conflict",
+      "meaning_user_lang": "전통 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "전통 영향",
+      "meaning_ko": "tradition influence",
+      "meaning_user_lang": "전통 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "전통 중요성",
+      "meaning_ko": "tradition importance",
+      "meaning_user_lang": "전통 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "전통 필요성",
+      "meaning_ko": "tradition necessity",
+      "meaning_user_lang": "전통 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정보 갈등",
+      "meaning_ko": "information conflict",
+      "meaning_user_lang": "정보 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정보 영향",
+      "meaning_ko": "information influence",
+      "meaning_user_lang": "정보 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정보 중요성",
+      "meaning_ko": "information importance",
+      "meaning_user_lang": "정보 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정보 필요성",
+      "meaning_ko": "information necessity",
+      "meaning_user_lang": "정보 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정책 갈등",
+      "meaning_ko": "policy conflict",
+      "meaning_user_lang": "정책 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정책 영향",
+      "meaning_ko": "policy influence",
+      "meaning_user_lang": "정책 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정책 중요성",
+      "meaning_ko": "policy importance",
+      "meaning_user_lang": "정책 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정책 필요성",
+      "meaning_ko": "policy necessity",
+      "meaning_user_lang": "정책 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정치 갈등",
+      "meaning_ko": "politics conflict",
+      "meaning_user_lang": "정치 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정치 영향",
+      "meaning_ko": "politics influence",
+      "meaning_user_lang": "정치 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정치 중요성",
+      "meaning_ko": "politics importance",
+      "meaning_user_lang": "정치 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "정치 필요성",
+      "meaning_ko": "politics necessity",
+      "meaning_user_lang": "정치 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "제도 갈등",
+      "meaning_ko": "system conflict",
+      "meaning_user_lang": "제도 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "제도 영향",
+      "meaning_ko": "system influence",
+      "meaning_user_lang": "제도 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "제도 중요성",
+      "meaning_ko": "system importance",
+      "meaning_user_lang": "제도 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "제도 필요성",
+      "meaning_ko": "system necessity",
+      "meaning_user_lang": "제도 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "주거 갈등",
+      "meaning_ko": "housing conflict",
+      "meaning_user_lang": "주거 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "주거 영향",
+      "meaning_ko": "housing influence",
+      "meaning_user_lang": "주거 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "주거 중요성",
+      "meaning_ko": "housing importance",
+      "meaning_user_lang": "주거 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "주거 필요성",
+      "meaning_ko": "housing necessity",
+      "meaning_user_lang": "주거 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "지역 갈등",
+      "meaning_ko": "region conflict",
+      "meaning_user_lang": "지역 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "지역 영향",
+      "meaning_ko": "region influence",
+      "meaning_user_lang": "지역 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "지역 중요성",
+      "meaning_ko": "region importance",
+      "meaning_user_lang": "지역 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "지역 필요성",
+      "meaning_ko": "region necessity",
+      "meaning_user_lang": "지역 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "직업 갈등",
+      "meaning_ko": "occupation conflict",
+      "meaning_user_lang": "직업 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "직업 영향",
+      "meaning_ko": "occupation influence",
+      "meaning_user_lang": "직업 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "직업 중요성",
+      "meaning_ko": "occupation importance",
+      "meaning_user_lang": "직업 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "직업 필요성",
+      "meaning_ko": "occupation necessity",
+      "meaning_user_lang": "직업 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "청년 갈등",
+      "meaning_ko": "youth conflict",
+      "meaning_user_lang": "청년 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "청년 영향",
+      "meaning_ko": "youth influence",
+      "meaning_user_lang": "청년 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "청년 중요성",
+      "meaning_ko": "youth importance",
+      "meaning_user_lang": "청년 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "청년 필요성",
+      "meaning_ko": "youth necessity",
+      "meaning_user_lang": "청년 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "환경 갈등",
+      "meaning_ko": "environment conflict",
+      "meaning_user_lang": "환경 관련 갈등",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "환경 영향",
+      "meaning_ko": "environment influence",
+      "meaning_user_lang": "환경 관련 영향",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "환경 중요성",
+      "meaning_ko": "environment importance",
+      "meaning_user_lang": "환경 관련 중요성",
+      "level": 6,
+      "tts_url": null
+    },
+    {
+      "word": "환경 필요성",
+      "meaning_ko": "environment necessity",
+      "meaning_user_lang": "환경 관련 필요성",
+      "level": 6,
+      "tts_url": null
+    }
+  ]
+}

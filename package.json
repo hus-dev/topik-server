@@ -18,6 +18,8 @@
     "import:reading-content": "ts-node prisma/seed/import-reading-content.ts",
     "import:listening-content": "ts-node prisma/seed/import-listening-content.ts",
     "import:writing-content": "ts-node prisma/seed/import-writing-content.ts",
+    "import:vocabulary-content": "ts-node prisma/seed/import-vocabulary-content.ts",
+    "export:vocabulary-content": "ts-node prisma/seed/export-vocabulary-content.ts",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",

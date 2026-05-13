@@ -82,14 +82,20 @@ model grammar_items {
 }
 
 model question_sets {
-  id            String          @id @default(uuid()) @db.VarChar(36)
-  title         String?         @db.VarChar(255)
-  section       String          @db.VarChar(20)
-  level         Int             @db.TinyInt
-  created_at    BigInt
-  updated_at    BigInt
-  exam_sessions exam_sessions[]
-  questions     questions[]
+  id              String          @id @default(uuid()) @db.VarChar(36)
+  title           String?         @db.VarChar(255)
+  section         String          @db.VarChar(20)
+  level           Int             @db.TinyInt
+  exam_kind       String          @default("mock") @db.VarChar(20)
+  total_questions  Int             @default(0)
+  duration_seconds Int             @default(0)
+  price           Int             @default(0)
+  is_free         Int             @default(0) @db.TinyInt
+  display_order   Int             @default(0)
+  created_at      BigInt
+  updated_at      BigInt
+  exam_sessions   exam_sessions[]
+  questions       questions[]
 }
 
 model questions {

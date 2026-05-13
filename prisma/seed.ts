@@ -388,11 +388,17 @@ async function main() {
   try {
     await prisma.answers.deleteMany();
     await prisma.exam_sessions.deleteMany();
+    await prisma.user_downloads.deleteMany();
+    await prisma.user_vocabulary.deleteMany();
+    await prisma.user_grammar_items.deleteMany();
     await prisma.question_media.deleteMany();
     await prisma.question_options.deleteMany();
     await prisma.questions.deleteMany();
     await prisma.question_passages.deleteMany();
     await prisma.question_sets.deleteMany();
+    await prisma.vocabulary.deleteMany();
+    await prisma.grammar_items.deleteMany();
+    await prisma.topik_exam_schedules.deleteMany();
 
     await ensureSeedUser({
       prisma,
@@ -468,6 +474,41 @@ async function main() {
 
     await prisma.question_media.createMany({
       data: media,
+    });
+
+    await prisma.topik_exam_schedules.createMany({
+      data: [
+        {
+          id: 'topik-schedule-107',
+          exam_name: 'TOPIK Exam No. 107',
+          exam_date: timestamp(baseTime, 90 * 24 * 60 * 60 * 1000),
+          registration_start_at: timestamp(baseTime, 60 * 24 * 60 * 60 * 1000),
+          registration_end_at: timestamp(baseTime, 66 * 24 * 60 * 60 * 1000),
+          result_date: timestamp(baseTime, 120 * 24 * 60 * 60 * 1000),
+          location: 'Korea / Overseas',
+          fee: 55000,
+          registration_url: 'https://www.topik.go.kr/',
+          is_active: 1,
+          display_order: 1,
+          created_at: timestamp(baseTime, 70_000),
+          updated_at: timestamp(baseTime, 70_000),
+        },
+        {
+          id: 'topik-schedule-108',
+          exam_name: 'TOPIK Exam No. 108',
+          exam_date: timestamp(baseTime, 180 * 24 * 60 * 60 * 1000),
+          registration_start_at: timestamp(baseTime, 150 * 24 * 60 * 60 * 1000),
+          registration_end_at: timestamp(baseTime, 156 * 24 * 60 * 60 * 1000),
+          result_date: timestamp(baseTime, 210 * 24 * 60 * 60 * 1000),
+          location: 'Korea / Overseas',
+          fee: 55000,
+          registration_url: 'https://www.topik.go.kr/',
+          is_active: 1,
+          display_order: 2,
+          created_at: timestamp(baseTime, 71_000),
+          updated_at: timestamp(baseTime, 71_000),
+        },
+      ],
     });
 
     const vocabularyItems = [

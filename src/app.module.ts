@@ -12,6 +12,7 @@ import { VocabularyModule } from './vocabulary/vocabulary.module';
 import { GrammarModule } from './grammar/grammar.module';
 import { MockExamsModule } from './mock-exams/mock-exams.module';
 import { OfflineModule } from './offline/offline.module';
+import { TopikExamSchedulesModule } from './topik-exam-schedules/topik-exam-schedules.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { OfflineModule } from './offline/offline.module';
     VocabularyModule,
     GrammarModule,
     OfflineModule,
+    TopikExamSchedulesModule,
   ],
   controllers: [AppController],
   providers: [AppService],

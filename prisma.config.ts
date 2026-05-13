@@ -8,8 +8,12 @@ function getDatabaseUrl() {
   if (!connectionString) return undefined;
 
   const url = new URL(connectionString);
-  if (url.protocol === 'mysql:') {
-    url.protocol = 'mariadb:';
+  if (
+    url.hostname === 'localhost' ||
+    url.hostname === '::1' ||
+    url.hostname === '[::1]'
+  ) {
+    url.hostname = '127.0.0.1';
   }
 
   if (!url.searchParams.has('allowPublicKeyRetrieval')) {

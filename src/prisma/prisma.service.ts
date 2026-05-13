@@ -10,6 +10,14 @@ function normalizeMariaDbConnectionString(connectionString: string) {
     url.protocol = 'mariadb:';
   }
 
+  if (
+    url.hostname === 'localhost' ||
+    url.hostname === '::1' ||
+    url.hostname === '[::1]'
+  ) {
+    url.hostname = '127.0.0.1';
+  }
+
   if (!url.searchParams.has('allowPublicKeyRetrieval')) {
     url.searchParams.set('allowPublicKeyRetrieval', 'true');
   }
@@ -27,15 +35,12 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
 
     connectionString = normalizeMariaDbConnectionString(connectionString);
 
-    // Prisma v7 requires adapter/accelerateUrl in PrismaClientOptions.
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     super({
       adapter: new PrismaMariaDb(connectionString),
     });
   }
 
   async onModuleInit() {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-call
     await this.$connect();
   }
 }

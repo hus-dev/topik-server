@@ -83,20 +83,21 @@ model grammar_items {
 }
 
 model question_sets {
-  id               String          @id @default(uuid()) @db.VarChar(36)
-  title            String?         @db.VarChar(255)
-  section          String          @db.VarChar(20)
-  level            Int             @db.TinyInt
-  exam_kind        String          @default("mock") @db.VarChar(20)
-  total_questions  Int             @default(0)
-  duration_seconds Int             @default(0)
-  price            Int             @default(0)
-  is_free          Int             @default(0) @db.TinyInt
-  display_order    Int             @default(0)
-  created_at       BigInt
-  updated_at       BigInt
-  exam_sessions    exam_sessions[]
-  questions        questions[]
+  id                String               @id @default(uuid()) @db.VarChar(36)
+  title             String?              @db.VarChar(255)
+  section           String               @db.VarChar(20)
+  level             Int                  @db.TinyInt
+  exam_kind         String               @default("mock") @db.VarChar(20)
+  total_questions   Int                  @default(0)
+  duration_seconds  Int                  @default(0)
+  price             Int                  @default(0)
+  is_free           Int                  @default(0) @db.TinyInt
+  display_order     Int                  @default(0)
+  created_at        BigInt
+  updated_at        BigInt
+  exam_sessions     exam_sessions[]
+  questions         questions[]
+  explanationVideos explanation_videos[]
 }
 
 model topik_exam_schedules {
@@ -119,28 +120,29 @@ model topik_exam_schedules {
 }
 
 model questions {
-  id                 String             @id @default(uuid()) @db.VarChar(36)
-  set_id             String?            @db.VarChar(36)
-  passage_id         String?            @db.VarChar(36)
-  section            String             @db.VarChar(20)
-  question_type      String             @db.VarChar(50)
+  id                 String               @id @default(uuid()) @db.VarChar(36)
+  set_id             String?              @db.VarChar(36)
+  passage_id         String?              @db.VarChar(36)
+  section            String               @db.VarChar(20)
+  question_type      String               @db.VarChar(50)
   question_number    Int
-  level              Int?               @db.TinyInt
-  prompt             String             @db.VarChar(4000)
-  correct_answer     String?            @db.VarChar(1000)
-  explanation        String?            @db.VarChar(4000)
-  ai_explanation     String?            @db.VarChar(4000)
-  difficulty         Int?               @db.TinyInt
+  level              Int?                 @db.TinyInt
+  prompt             String               @db.VarChar(4000)
+  correct_answer     String?              @db.VarChar(1000)
+  explanation        String?              @db.VarChar(4000)
+  ai_explanation     String?              @db.VarChar(4000)
+  difficulty         Int?                 @db.TinyInt
   time_limit_seconds Int?
-  is_ai_generated    Int                @default(0) @db.TinyInt
-  is_downloaded      Int                @default(0) @db.TinyInt
+  is_ai_generated    Int                  @default(0) @db.TinyInt
+  is_downloaded      Int                  @default(0) @db.TinyInt
   created_at         BigInt
   updated_at         BigInt
   answers            answers[]
-  question_sets      question_sets?     @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
-  question_passages  question_passages? @relation(fields: [passage_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_2")
+  question_sets      question_sets?       @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
+  question_passages  question_passages?   @relation(fields: [passage_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_2")
   question_media     question_media[]
   question_options   question_options[]
+  explanationVideos  explanation_videos[]
 
   @@index([set_id], map: "set_id")
   @@index([passage_id], map: "passage_id")
@@ -181,6 +183,29 @@ model question_media {
   questions        questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "question_media_ibfk_1")
 
   @@index([question_id], map: "question_id")
+}
+
+model explanation_videos {
+  id             String         @id @default(uuid()) @db.VarChar(36)
+  title          String         @db.VarChar(255)
+  description    String         @db.Text
+  thumbnail_url  String?        @db.VarChar(500)
+  video_url      String         @db.VarChar(500)
+  question_id    String?        @db.VarChar(36)
+  set_id         String?        @db.VarChar(36)
+  section        String?        @db.VarChar(20)
+  level          Int?           @db.TinyInt
+  is_recommended Int            @default(0) @db.TinyInt
+  display_order  Int            @default(0)
+  created_at     BigInt
+  updated_at     BigInt
+  questions      questions?     @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "explanation_videos_ibfk_1")
+  question_sets  question_sets? @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "explanation_videos_ibfk_2")
+
+  @@index([is_recommended, display_order], map: "idx_explanation_videos_recommended_order")
+  @@index([section, level], map: "idx_explanation_videos_section_level")
+  @@index([question_id], map: "idx_explanation_videos_question_id")
+  @@index([set_id], map: "idx_explanation_videos_set_id")
 }
 
 model sync_queue {

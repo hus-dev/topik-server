@@ -65,6 +65,22 @@ type SeedMedia = {
   updated_at: bigint;
 };
 
+type SeedExplanationVideo = {
+  id: string;
+  title: string;
+  description: string;
+  thumbnail_url: string | null;
+  video_url: string;
+  question_id: string | null;
+  set_id: string | null;
+  section: 'reading' | 'listening' | 'writing' | null;
+  level: number | null;
+  is_recommended: number;
+  display_order: number;
+  created_at: bigint;
+  updated_at: bigint;
+};
+
 function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
@@ -391,6 +407,7 @@ async function main() {
     await prisma.user_downloads.deleteMany();
     await prisma.user_vocabulary.deleteMany();
     await prisma.user_grammar_items.deleteMany();
+    await prisma.explanation_videos.deleteMany();
     await prisma.question_media.deleteMany();
     await prisma.question_options.deleteMany();
     await prisma.questions.deleteMany();
@@ -474,6 +491,73 @@ async function main() {
 
     await prisma.question_media.createMany({
       data: media,
+    });
+
+    const explanationVideos: SeedExplanationVideo[] = [
+      {
+        id: 'video-rm1-q1',
+        title: 'How to solve Reading Question 1',
+        description: 'Step-by-step explanation for the first reading question.',
+        thumbnail_url: 'https://cdn.topik.local/explanations/rm1-q1.jpg',
+        video_url: 'https://cdn.topik.local/explanations/rm1-q1.mp4',
+        question_id: 'rm1-q1',
+        set_id: null,
+        section: 'reading',
+        level: 3,
+        is_recommended: 1,
+        display_order: 1,
+        created_at: timestamp(baseTime, 72_000),
+        updated_at: timestamp(baseTime, 72_000),
+      },
+      {
+        id: 'video-rm1-set',
+        title: 'Reading Mock Exam 1 overview',
+        description: 'Full explanation video for the entire reading mock exam.',
+        thumbnail_url: 'https://cdn.topik.local/explanations/rm1-set.jpg',
+        video_url: 'https://cdn.topik.local/explanations/rm1-set.mp4',
+        question_id: null,
+        set_id: 'rm1',
+        section: 'reading',
+        level: 3,
+        is_recommended: 1,
+        display_order: 2,
+        created_at: timestamp(baseTime, 73_000),
+        updated_at: timestamp(baseTime, 73_000),
+      },
+      {
+        id: 'video-lm1-q1',
+        title: 'How to solve Listening Question 1',
+        description: 'A short explanation for the first listening question.',
+        thumbnail_url: 'https://cdn.topik.local/explanations/lm1-q1.jpg',
+        video_url: 'https://cdn.topik.local/explanations/lm1-q1.mp4',
+        question_id: 'lm1-q1',
+        set_id: null,
+        section: 'listening',
+        level: 3,
+        is_recommended: 0,
+        display_order: 1,
+        created_at: timestamp(baseTime, 74_000),
+        updated_at: timestamp(baseTime, 74_000),
+      },
+      {
+        id: 'video-lm1-set',
+        title: 'Listening Mock Exam 1 overview',
+        description: 'Full explanation video for the listening mock exam.',
+        thumbnail_url: 'https://cdn.topik.local/explanations/lm1-set.jpg',
+        video_url: 'https://cdn.topik.local/explanations/lm1-set.mp4',
+        question_id: null,
+        set_id: 'lm1',
+        section: 'listening',
+        level: 3,
+        is_recommended: 0,
+        display_order: 2,
+        created_at: timestamp(baseTime, 75_000),
+        updated_at: timestamp(baseTime, 75_000),
+      },
+    ];
+
+    await prisma.explanation_videos.createMany({
+      data: explanationVideos,
     });
 
     await prisma.topik_exam_schedules.createMany({

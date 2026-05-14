@@ -13,6 +13,7 @@ import { GrammarModule } from './grammar/grammar.module';
 import { MockExamsModule } from './mock-exams/mock-exams.module';
 import { OfflineModule } from './offline/offline.module';
 import { TopikExamSchedulesModule } from './topik-exam-schedules/topik-exam-schedules.module';
+import { ExplanationVideosModule } from './explanation-videos/explanation-videos.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { TopikExamSchedulesModule } from './topik-exam-schedules/topik-exam-sche
     GrammarModule,
     OfflineModule,
     TopikExamSchedulesModule,
+    ExplanationVideosModule,
   ],
   controllers: [AppController],
   providers: [AppService],

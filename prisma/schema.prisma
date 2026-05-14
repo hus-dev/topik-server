@@ -13,7 +13,6 @@ model users {
   provider           String               @db.VarChar(20)
   provider_id        String?
   nickname           String               @db.VarChar(100)
-  role               String               @default("user") @db.VarChar(20)
   target_level       Int                  @db.TinyInt
   language_code      String               @db.VarChar(10)
   timezone           String               @db.VarChar(100)
@@ -24,6 +23,7 @@ model users {
   practice_layout    Int                  @default(1) @db.TinyInt
   created_at         BigInt
   updated_at         BigInt
+  role               String               @default("user") @db.VarChar(20)
   exam_sessions      exam_sessions[]
   sync_queue         sync_queue[]
   user_downloads     user_downloads[]
@@ -87,14 +87,14 @@ model question_sets {
   title             String?              @db.VarChar(255)
   section           String               @db.VarChar(20)
   level             Int                  @db.TinyInt
+  created_at        BigInt
+  updated_at        BigInt
   exam_kind         String               @default("mock") @db.VarChar(20)
   total_questions   Int                  @default(0)
   duration_seconds  Int                  @default(0)
   price             Int                  @default(0)
   is_free           Int                  @default(0) @db.TinyInt
   display_order     Int                  @default(0)
-  created_at        BigInt
-  updated_at        BigInt
   exam_sessions     exam_sessions[]
   questions         questions[]
   explanationVideos explanation_videos[]
@@ -138,10 +138,10 @@ model questions {
   created_at         BigInt
   updated_at         BigInt
   answers            answers[]
-  question_sets      question_sets?       @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
-  question_passages  question_passages?   @relation(fields: [passage_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_2")
   question_media     question_media[]
   question_options   question_options[]
+  question_sets      question_sets?       @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
+  question_passages  question_passages?   @relation(fields: [passage_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_2")
   explanationVideos  explanation_videos[]
 
   @@index([set_id], map: "set_id")

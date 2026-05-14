@@ -35,7 +35,7 @@ export class QuestionsService {
 
   async findAll(query: GetQuestionsQueryDto) {
     const page = query.page ?? 1;
-    const limit = query.limit ?? 20;
+    const limit = query.limit ?? 30;
     const skip = (page - 1) * limit;
 
     const where: Prisma.questionsWhereInput = {

@@ -9,6 +9,7 @@ import { UsersService } from '../users/users.service';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
+import { ChangePasswordDto } from './dto/change-password.dto';
 import * as bcrypt from 'bcrypt';
 
 @Injectable()
@@ -19,49 +20,29 @@ export class AuthService {
   ) {}
 
   async register(createUserDto: CreateUserDto) {
-    const { email, provider, provider_id } = createUserDto;
-    const password = (createUserDto as any).password;
-    const authProvider = provider || 'local';
+    const { email, nickname, password } = createUserDto;
 
-    if (authProvider === 'local' && !password) {
-      throw new BadRequestException('Password is required for local registration');
+    // 1. 이메일 중복 체크
+    const existingEmail = await this.usersService.findByEmail(email);
+    if (existingEmail) {
+      throw new ConflictException('User with this email already exists');
     }
 
-    // Check if user exists by email if provided
-    if (email) {
-      const existingEmail = await this.usersService.findByEmail(email);
-      if (existingEmail) {
-        throw new ConflictException('User with this email already exists');
-      }
-    }
+    // 2. 비밀번호 해싱
+    const salt = await bcrypt.genSalt();
+    const password_hash = await bcrypt.hash(password, salt);
 
-    // Check if user exists by provider
-    if (provider && provider_id) {
-      const existingProvider = await this.usersService.findByProvider(
-        provider,
-        provider_id,
-      );
-      if (existingProvider) {
-        throw new ConflictException('User with this provider and provider_id already exists');
-      }
-    }
-
-    // Hash password if provided
-    let password_hash: string | undefined;
-    if (password) {
-      const salt = await bcrypt.genSalt();
-      password_hash = await bcrypt.hash(password, salt);
-    }
-
-    if (authProvider === 'local' && !password_hash) {
-      throw new BadRequestException('Password hash could not be created');
-    }
-
-    // Create user
+    // 3. 사용자 생성 (기본 설정 포함)
     const user = await this.usersService.create({
-      ...createUserDto,
-      provider: authProvider,
+      email,
+      nickname,
       password_hash,
+      provider: 'local',
+      provider_id: null,
+      target_level: 1,
+      language_code: 'ko',
+      timezone: 'Asia/Seoul',
+      timer_mode: 'normal',
     });
 
     return this.buildAuthResponse(user);
@@ -69,7 +50,6 @@ export class AuthService {
 
   async login(loginDto: LoginDto) {
     const user = await this.usersService.findByEmail(loginDto.email);
-    // password_hash가 없는 사용자는 소셜 가입자일 수 있음
     if (!user || !user.password_hash) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -86,7 +66,6 @@ export class AuthService {
   }
 
   async socialSignIn(socialLoginDto: SocialLoginDto) {
-    // 1. 토큰 검증 및 소셜 정보 추출
     let providerId: string;
     let email: string | undefined;
     let nickname: string | undefined;
@@ -103,35 +82,32 @@ export class AuthService {
       nickname = kakaoUser.nickname;
     }
 
-    // 2. DB에서 사용자 조회
     let user = await this.usersService.findByProvider(
       socialLoginDto.provider,
       providerId,
     );
 
-    // 3. 같은 이메일의 로컬 계정이 있으면 소셜 정보를 연결하고 기존 password_hash를 보존
     if (!user && email) {
       const existingEmailUser = await this.usersService.findByEmail(email);
       if (existingEmailUser) {
         user = await this.usersService.update(existingEmailUser.id, {
           provider: socialLoginDto.provider,
           provider_id: providerId,
-        } as any);
+        });
       }
     }
 
-    // 4. 없으면 자동 가입 (UI UX에 맞춰 바로 가입 처리)
     if (!user) {
-      user = await this.usersService.create({
+      user = (await this.usersService.create({
         email: email || null,
         provider: socialLoginDto.provider,
         provider_id: providerId,
         nickname: nickname || `${socialLoginDto.provider}_user`,
-        target_level: 1, // 기본값
+        target_level: 1,
         language_code: 'ko',
         timezone: 'Asia/Seoul',
         timer_mode: 'normal',
-      } as any);
+      } as any)) as any;
     }
 
     return this.buildAuthResponse(user);
@@ -141,10 +117,12 @@ export class AuthService {
     return await this.usersService.findOne(payload.sub);
   }
 
-  async changePassword(userId: string, changePasswordDto: any) {
-    const user = (await this.usersService.findOne(userId)) as any;
-    // user는 이미 findOne에서 존재 여부가 확인됨 (비밀번호 없는 소셜 사용자는 password_hash가 null)
-    if (!user.password_hash) {
+  async changePassword(userId: string, changePasswordDto: ChangePasswordDto) {
+    const user = (await this.usersService.findByEmail(
+      ((await this.usersService.findOne(userId)) as any).email,
+    )) as any;
+
+    if (!user || !user.password_hash) {
       throw new UnauthorizedException(
         'Social accounts do not have a password. Please use social login.',
       );
@@ -166,7 +144,7 @@ export class AuthService {
 
     await this.usersService.update(userId, {
       password_hash: newPasswordHash,
-    } as any);
+    });
 
     return { message: 'Password changed successfully' };
   }
@@ -186,7 +164,7 @@ export class AuthService {
 
   private async verifyGoogleToken(token: string) {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const response = await fetch(
@@ -231,7 +209,7 @@ export class AuthService {
 
   private async verifyKakaoToken(token: string) {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
+    const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     try {
       const response = await fetch('https://kapi.kakao.com/v2/user/me', {

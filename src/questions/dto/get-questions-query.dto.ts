@@ -15,7 +15,10 @@ export class GetQuestionsQueryDto {
   @Min(1)
   level?: number;
 
-  @ApiPropertyOptional({ example: 'multiple_choice', description: 'Question type' })
+  @ApiPropertyOptional({
+    example: 'multiple_choice',
+    description: 'Question type',
+  })
   @IsOptional()
   @IsString()
   question_type?: string;

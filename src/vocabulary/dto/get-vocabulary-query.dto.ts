@@ -11,7 +11,10 @@ export class GetVocabularyQueryDto {
   @Max(6)
   level?: number;
 
-  @ApiPropertyOptional({ example: '학교', description: 'Search word or meaning' })
+  @ApiPropertyOptional({
+    example: '학교',
+    description: 'Search word or meaning',
+  })
   @IsOptional()
   @IsString()
   q?: string;

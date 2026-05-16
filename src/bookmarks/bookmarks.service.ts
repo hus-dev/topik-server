@@ -13,14 +13,15 @@ export class BookmarksService {
     }
 
     if (typeof data === 'object') {
-      const serialized: any = {};
+      const serialized: Record<string, any> = {};
       for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
+        const value = data[key];
+        if (typeof value === 'bigint') {
+          serialized[key] = value.toString();
+        } else if (value !== null && typeof value === 'object') {
+          serialized[key] = this.serializeData(value);
         } else {
-          serialized[key] = data[key];
+          serialized[key] = value;
         }
       }
       return serialized;
@@ -105,7 +106,7 @@ export class BookmarksService {
     return this.serializeData(
       bookmarks.map((b) => {
         const lastAnswer = b.questions.answers?.[0];
-        const { answers, ...questionData } = b.questions as any;
+        const { answers: _unused_answers, ...questionData } = b.questions;
         return {
           id: b.id,
           question_id: b.question_id,
@@ -121,7 +122,11 @@ export class BookmarksService {
     );
   }
 
-  async updateQuestion(userId: string, questionId: string, bookmarked: boolean) {
+  async updateQuestion(
+    userId: string,
+    questionId: string,
+    bookmarked: boolean,
+  ) {
     const question = await this.prisma.questions.findUnique({
       where: { id: questionId },
       select: {
@@ -199,7 +204,9 @@ export class BookmarksService {
     });
 
     if (!vocabulary) {
-      throw new NotFoundException(`Vocabulary with ID ${vocabularyId} not found`);
+      throw new NotFoundException(
+        `Vocabulary with ID ${vocabularyId} not found`,
+      );
     }
 
     const now = BigInt(Date.now());
@@ -249,7 +256,9 @@ export class BookmarksService {
     });
 
     if (!grammar) {
-      throw new NotFoundException(`Grammar item with ID ${grammarId} not found`);
+      throw new NotFoundException(
+        `Grammar item with ID ${grammarId} not found`,
+      );
     }
 
     const now = BigInt(Date.now());

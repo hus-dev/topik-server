@@ -44,7 +44,9 @@ export class PracticeSessionsService {
     });
 
     if (!session) {
-      throw new NotFoundException(`Practice session with ID ${sessionId} not found`);
+      throw new NotFoundException(
+        `Practice session with ID ${sessionId} not found`,
+      );
     }
 
     if (session.user_id !== userId) {
@@ -64,11 +66,14 @@ export class PracticeSessionsService {
     };
   }
 
-  private getSessionQuestions(sessionId: string, session: {
-    set_id: string | null;
-    section: string;
-    total_questions: number;
-  }) {
+  private getSessionQuestions(
+    sessionId: string,
+    session: {
+      set_id: string | null;
+      section: string;
+      total_questions: number;
+    },
+  ) {
     return this.prisma.questions.findMany({
       where: {
         answers: {
@@ -102,7 +107,9 @@ export class PracticeSessionsService {
   ) {
     if (!question.correct_answer) return null;
 
-    const submitted = this.normalizeAnswer(dto.selected_answer ?? dto.text_answer);
+    const submitted = this.normalizeAnswer(
+      dto.selected_answer ?? dto.text_answer,
+    );
     const correct = this.normalizeAnswer(question.correct_answer);
 
     if (!submitted || !correct) return null;
@@ -134,7 +141,9 @@ export class PracticeSessionsService {
     ]);
 
     if (totalMatching === 0) {
-      throw new BadRequestException('No questions found for this practice session');
+      throw new BadRequestException(
+        'No questions found for this practice session',
+      );
     }
 
     const now = BigInt(Date.now());
@@ -206,7 +215,11 @@ export class PracticeSessionsService {
     return this.serializeData(session);
   }
 
-  async saveAnswer(userId: string, sessionId: string, dto: SavePracticeAnswerDto) {
+  async saveAnswer(
+    userId: string,
+    sessionId: string,
+    dto: SavePracticeAnswerDto,
+  ) {
     const session = await this.findOwnedSession(userId, sessionId);
 
     if (session.status === 'submitted') {
@@ -224,15 +237,21 @@ export class PracticeSessionsService {
     });
 
     if (!question) {
-      throw new NotFoundException(`Question with ID ${dto.question_id} not found`);
+      throw new NotFoundException(
+        `Question with ID ${dto.question_id} not found`,
+      );
     }
 
     if (session.set_id && question.set_id !== session.set_id) {
-      throw new BadRequestException('Question does not belong to this session set');
+      throw new BadRequestException(
+        'Question does not belong to this session set',
+      );
     }
 
     if (!session.set_id && question.section !== session.section) {
-      throw new BadRequestException('Question does not belong to this session section');
+      throw new BadRequestException(
+        'Question does not belong to this session section',
+      );
     }
 
     const now = BigInt(Date.now());
@@ -325,8 +344,12 @@ export class PracticeSessionsService {
     const answered_count = answers.filter(
       (answer) => answer.selected_answer || answer.text_answer,
     ).length;
-    const correct_count = answers.filter((answer) => answer.is_correct === 1).length;
-    const incorrect_count = answers.filter((answer) => answer.is_correct === 0).length;
+    const correct_count = answers.filter(
+      (answer) => answer.is_correct === 1,
+    ).length;
+    const incorrect_count = answers.filter(
+      (answer) => answer.is_correct === 0,
+    ).length;
     const score_percent =
       session.total_questions > 0
         ? Math.round((correct_count / session.total_questions) * 100)

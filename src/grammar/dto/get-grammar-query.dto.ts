@@ -3,7 +3,10 @@ import { Type } from 'class-transformer';
 import { IsInt, IsOptional, IsString, Max, Min } from 'class-validator';
 
 export class GetGrammarQueryDto {
-  @ApiPropertyOptional({ example: 'progressive', description: 'Search pattern, description, or tags' })
+  @ApiPropertyOptional({
+    example: 'progressive',
+    description: 'Search pattern, description, or tags',
+  })
   @IsOptional()
   @IsString()
   q?: string;

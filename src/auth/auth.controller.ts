@@ -1,11 +1,29 @@
-import { Controller, Post, Body, Get, UseGuards, Request } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiBearerAuth } from '@nestjs/swagger';
+import {
+  Controller,
+  Post,
+  Body,
+  UseGuards,
+  Request,
+} from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiBearerAuth,
+} from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import { AuthGuard } from '@nestjs/passport';
+
+interface JwtRequest extends Request {
+  user: {
+    userId: string;
+    role?: string;
+  };
+}
 
 @ApiTags('auth')
 @Controller('auth')
@@ -29,7 +47,10 @@ export class AuthController {
 
   @Post('social-login')
   @ApiOperation({ summary: 'Social login with Google or Kakao token' })
-  @ApiResponse({ status: 200, description: 'Successfully logged in with social account' })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully logged in with social account',
+  })
   async socialLogin(@Body() socialLoginDto: SocialLoginDto) {
     return this.authService.socialSignIn(socialLoginDto);
   }
@@ -41,7 +62,7 @@ export class AuthController {
   @ApiResponse({ status: 200, description: 'Password changed successfully' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
   async changePassword(
-    @Request() req,
+    @Request() req: JwtRequest,
     @Body() changePasswordDto: ChangePasswordDto,
   ) {
     return this.authService.changePassword(req.user.userId, changePasswordDto);
@@ -53,7 +74,7 @@ export class AuthController {
   @ApiOperation({ summary: 'Logout user' })
   @ApiResponse({ status: 200, description: 'Successfully logged out' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  async logout() {
+  logout() {
     // JWT는 상태가 없으므로 서버에서는 성공 메시지만 반환하고,
     // 실제 토큰 삭제는 클라이언트(앱)에서 수행합니다.
     return { message: 'Logged out successfully' };

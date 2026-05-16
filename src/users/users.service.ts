@@ -1,4 +1,8 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -7,40 +11,51 @@ import { UpdateUserDto } from './dto/update-user.dto';
 export class UsersService {
   constructor(private prisma: PrismaService) {}
 
-  // BigInt를 JSON으로 직렬화할 때 발생하는 문제를 해결하기 위한 헬퍼 함수
   private serializeUser(user: any) {
     if (!user) return null;
     const { password_hash, ...safeUser } = user;
-    
-    // Iterate through properties and convert BigInt to string
+
     for (const key in safeUser) {
       if (typeof safeUser[key] === 'bigint') {
         safeUser[key] = safeUser[key].toString();
       }
     }
-    
+
     return safeUser;
   }
 
-  async create(createUserDto: CreateUserDto & { password_hash?: string }) {
+  async create(
+    createUserDto: Partial<CreateUserDto> & {
+      email?: string | null;
+      nickname: string;
+      password_hash?: string | null;
+      provider?: string;
+      provider_id?: string | null;
+      target_level?: number;
+      language_code?: string;
+      timezone?: string;
+      timer_mode?: string;
+    },
+  ) {
     const now = BigInt(Date.now());
-    const { password, password_hash, ...userData } = createUserDto as any;
-    const provider = userData.provider || 'local';
+    const provider = createUserDto.provider || 'local';
 
-    if (provider === 'local' && !password_hash) {
+    if (provider === 'local' && !createUserDto.password_hash) {
       throw new BadRequestException('Local users require password_hash');
     }
-    
+
     const user = await this.prisma.users.create({
       data: {
-        ...userData,
+        email: createUserDto.email || null,
+        nickname: createUserDto.nickname,
+        password_hash: createUserDto.password_hash || null,
         provider,
+        provider_id: createUserDto.provider_id || null,
         role: 'user',
-        target_level: userData.target_level || 1,
-        language_code: userData.language_code || 'ko',
-        timezone: userData.timezone || 'Asia/Seoul',
-        timer_mode: userData.timer_mode || 'normal',
-        password_hash: password_hash,
+        target_level: createUserDto.target_level || 1,
+        language_code: createUserDto.language_code || 'ko',
+        timezone: createUserDto.timezone || 'Asia/Seoul',
+        timer_mode: createUserDto.timer_mode || 'normal',
         created_at: now,
         updated_at: now,
       },
@@ -59,14 +74,13 @@ export class UsersService {
   }
 
   async findByEmail(email: string) {
-    const user = await this.prisma.users.findUnique({
+    return this.prisma.users.findUnique({
       where: { email },
     });
-    return user;
   }
 
   async findByProvider(provider: string, providerId: string) {
-    const user = await this.prisma.users.findUnique({
+    return this.prisma.users.findUnique({
       where: {
         provider_provider_id: {
           provider,
@@ -74,10 +88,9 @@ export class UsersService {
         },
       },
     });
-    return user;
   }
 
-  async update(id: string, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: UpdateUserDto | any) {
     try {
       const now = BigInt(Date.now());
       const user = await this.prisma.users.update({

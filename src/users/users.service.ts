@@ -59,17 +59,19 @@ export class UsersService {
   }
 
   async findByEmail(email: string) {
-    const user = await this.prisma.users.findFirst({
+    const user = await this.prisma.users.findUnique({
       where: { email },
     });
     return user;
   }
 
   async findByProvider(provider: string, providerId: string) {
-    const user = await this.prisma.users.findFirst({
+    const user = await this.prisma.users.findUnique({
       where: {
-        provider,
-        provider_id: providerId,
+        provider_provider_id: {
+          provider,
+          provider_id: providerId,
+        },
       },
     });
     return user;

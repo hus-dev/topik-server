@@ -360,11 +360,29 @@ async function buildQuestionsFromContent(
     const q = sourceQuestions[index % sourceQuestions.length];
     const questionNumber = index + 1;
     const questionId = `${set.id}-q${questionNumber}`;
+    let passageId = q.passage_id || null;
+
+    // 지문(Passage) 생성 로직 고도화
+    // 1. passage 필드가 직접 있는 경우
+    // 2. passage가 없지만 question_text가 있는 경우 (단문/순서맞추기 유형 대응)
+    const passageContent = q.passage || q.question_text;
+    
+    if (passageContent && !passageId) {
+      passageId = `${questionId}-p`;
+      passages.push({
+        id: passageId,
+        title: `${set.title} - Question ${questionNumber} Passage`,
+        content: passageContent,
+        translation: '',
+        created_at: timestamp(baseTime, index * 1000),
+        updated_at: timestamp(baseTime, index * 1000),
+      });
+    }
     
     questions.push({
       id: questionId,
       set_id: set.id,
-      passage_id: q.passage_id || null,
+      passage_id: passageId,
       section: set.section as any,
       question_type: q.question_type || 'multiple_choice',
       question_number: questionNumber,
@@ -614,6 +632,7 @@ async function main() {
   ];
 
   try {
+    await prisma.user_questions.deleteMany();
     await prisma.answers.deleteMany();
     await prisma.exam_sessions.deleteMany();
     await prisma.user_downloads.deleteMany();

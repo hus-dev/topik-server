@@ -185,64 +185,92 @@ export class AuthService {
   }
 
   private async verifyGoogleToken(token: string) {
-    const response = await fetch(
-      `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(token)}`,
-    );
-    if (!response.ok) {
-      throw new UnauthorizedException('Invalid Google token');
-    }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
-    const data = (await response.json()) as { 
-      sub?: string; 
-      aud?: string; 
-      email?: string; 
-      name?: string 
-    };
-    const expectedAudience = process.env.GOOGLE_CLIENT_ID;
-    
-    if (!data.sub) {
-      throw new UnauthorizedException('Invalid Google token payload');
-    }
-    
-    if (expectedAudience && data.aud !== expectedAudience) {
-      throw new UnauthorizedException('Google token audience mismatch');
-    }
+    try {
+      const response = await fetch(
+        `https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(token)}`,
+        { signal: controller.signal },
+      );
 
-    return {
-      sub: data.sub,
-      email: data.email,
-      name: data.name,
-    };
+      if (!response.ok) {
+        throw new UnauthorizedException('Invalid Google token');
+      }
+
+      const data = (await response.json()) as {
+        sub?: string;
+        aud?: string;
+        email?: string;
+        name?: string;
+      };
+      const expectedAudience = process.env.GOOGLE_CLIENT_ID;
+
+      if (!data.sub) {
+        throw new UnauthorizedException('Invalid Google token payload');
+      }
+
+      if (expectedAudience && data.aud !== expectedAudience) {
+        throw new UnauthorizedException('Google token audience mismatch');
+      }
+
+      return {
+        sub: data.sub,
+        email: data.email,
+        name: data.name,
+      };
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        throw new UnauthorizedException('Google token verification timed out');
+      }
+      throw error;
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }
 
   private async verifyKakaoToken(token: string) {
-    const response = await fetch('https://kapi.kakao.com/v2/user/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-    if (!response.ok) {
-      throw new UnauthorizedException('Invalid Kakao token');
-    }
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10s timeout
 
-    const data = (await response.json()) as { 
-      id?: number | string;
-      kakao_account?: {
-        email?: string;
-        profile?: {
-          nickname?: string;
+    try {
+      const response = await fetch('https://kapi.kakao.com/v2/user/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        signal: controller.signal,
+      });
+
+      if (!response.ok) {
+        throw new UnauthorizedException('Invalid Kakao token');
+      }
+
+      const data = (await response.json()) as {
+        id?: number | string;
+        kakao_account?: {
+          email?: string;
+          profile?: {
+            nickname?: string;
+          };
         };
       };
-    };
-    
-    if (!data.id) {
-      throw new UnauthorizedException('Invalid Kakao token payload');
-    }
 
-    return {
-      id: String(data.id),
-      email: data.kakao_account?.email,
-      nickname: data.kakao_account?.profile?.nickname,
-    };
+      if (!data.id) {
+        throw new UnauthorizedException('Invalid Kakao token payload');
+      }
+
+      return {
+        id: String(data.id),
+        email: data.kakao_account?.email,
+        nickname: data.kakao_account?.profile?.nickname,
+      };
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        throw new UnauthorizedException('Kakao token verification timed out');
+      }
+      throw error;
+    } finally {
+      clearTimeout(timeoutId);
+    }
   }
 }

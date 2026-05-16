@@ -4,6 +4,20 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { ValidationPipe } from '@nestjs/common';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { join } from 'path';
+import { networkInterfaces } from 'os';
+
+function getLanIp() {
+  const nets = networkInterfaces();
+  for (const interfaces of Object.values(nets)) {
+    if (!interfaces) continue;
+    for (const net of interfaces) {
+      if (net.family === 'IPv4' && !net.internal) {
+        return net.address;
+      }
+    }
+  }
+  return null;
+}
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
@@ -37,6 +51,14 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
 
-  await app.listen(process.env.PORT ?? 3000);
+  const port = Number(process.env.PORT ?? 3000);
+  const host = process.env.HOST ?? '0.0.0.0';
+  await app.listen(port, host);
+
+  const lanIp = getLanIp();
+  console.log(`Server listening on http://${host}:${port}`);
+  if (lanIp) {
+    console.log(`LAN access URL: http://${lanIp}:${port}`);
+  }
 }
 bootstrap();

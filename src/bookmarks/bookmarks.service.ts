@@ -31,12 +31,10 @@ export class BookmarksService {
 
   async getSummary(userId: string) {
     const [questions, vocabulary, grammar] = await this.prisma.$transaction([
-      this.prisma.answers.count({
+      this.prisma.user_questions.count({
         where: {
-          bookmarked: 1,
-          exam_sessions: {
-            user_id: userId,
-          },
+          user_id: userId,
+          is_bookmarked: 1,
         },
       }),
       this.prisma.user_vocabulary.count({
@@ -61,12 +59,10 @@ export class BookmarksService {
   }
 
   async getQuestions(userId: string) {
-    const bookmarks = await this.prisma.answers.findMany({
+    const bookmarks = await this.prisma.user_questions.findMany({
       where: {
-        bookmarked: 1,
-        exam_sessions: {
-          user_id: userId,
-        },
+        user_id: userId,
+        is_bookmarked: 1,
       },
       include: {
         questions: {
@@ -79,23 +75,50 @@ export class BookmarksService {
             },
             question_passages: true,
             question_sets: true,
-          },
-        },
-        exam_sessions: {
-          select: {
-            id: true,
-            mode: true,
-            section: true,
-            status: true,
-            started_at: true,
-            submitted_at: true,
+            answers: {
+              where: {
+                exam_sessions: {
+                  user_id: userId,
+                },
+              },
+              orderBy: { updated_at: 'desc' },
+              take: 1,
+              include: {
+                exam_sessions: {
+                  select: {
+                    id: true,
+                    mode: true,
+                    section: true,
+                    status: true,
+                    started_at: true,
+                    submitted_at: true,
+                  },
+                },
+              },
+            },
           },
         },
       },
       orderBy: { updated_at: 'desc' },
     });
 
-    return this.serializeData(bookmarks);
+    return this.serializeData(
+      bookmarks.map((b) => {
+        const lastAnswer = b.questions.answers?.[0];
+        const { answers, ...questionData } = b.questions as any;
+        return {
+          id: b.id,
+          question_id: b.question_id,
+          bookmarked: b.is_bookmarked,
+          updated_at: b.updated_at,
+          questions: questionData,
+          session_id: lastAnswer?.session_id || null,
+          selected_answer: lastAnswer?.selected_answer || null,
+          is_correct: lastAnswer?.is_correct || null,
+          exam_sessions: lastAnswer?.exam_sessions || null,
+        };
+      }),
+    );
   }
 
   async updateQuestion(userId: string, questionId: string, bookmarked: boolean) {
@@ -110,31 +133,42 @@ export class BookmarksService {
       throw new NotFoundException(`Question with ID ${questionId} not found`);
     }
 
-    const existingAnswer = await this.prisma.answers.findFirst({
+    const now = BigInt(Date.now());
+    const bookmark = await this.prisma.user_questions.upsert({
+      where: {
+        user_id_question_id: {
+          user_id: userId,
+          question_id: questionId,
+        },
+      },
+      create: {
+        user_id: userId,
+        question_id: questionId,
+        is_bookmarked: bookmarked ? 1 : 0,
+        updated_at: now,
+      },
+      update: {
+        is_bookmarked: bookmarked ? 1 : 0,
+        updated_at: now,
+      },
+    });
+
+    // Also update any existing answers to keep them in sync if necessary,
+    // though user_questions is now the source of truth for the list.
+    await this.prisma.answers.updateMany({
       where: {
         question_id: questionId,
         exam_sessions: {
           user_id: userId,
         },
       },
-      orderBy: { updated_at: 'desc' },
-    });
-
-    if (!existingAnswer) {
-      throw new NotFoundException(
-        'Question bookmark requires an existing practice answer for this user',
-      );
-    }
-
-    const answer = await this.prisma.answers.update({
-      where: { id: existingAnswer.id },
       data: {
         bookmarked: bookmarked ? 1 : 0,
-        updated_at: BigInt(Date.now()),
+        updated_at: now,
       },
     });
 
-    return this.serializeData(answer);
+    return this.serializeData(bookmark);
   }
 
   async getVocabulary(userId: string) {

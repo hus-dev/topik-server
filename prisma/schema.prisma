@@ -8,7 +8,7 @@ datasource db {
 
 model users {
   id                 String               @id @default(uuid()) @db.VarChar(36)
-  email              String?              @db.VarChar(255)
+  email              String?              @unique @db.VarChar(255)
   password_hash      String?              @db.VarChar(255)
   provider           String               @db.VarChar(20)
   provider_id        String?
@@ -29,6 +29,7 @@ model users {
   user_downloads     user_downloads[]
   user_grammar_items user_grammar_items[]
   user_vocabulary    user_vocabulary[]
+  user_questions     user_questions[]
 
   @@unique([provider, provider_id], map: "uq_users_provider_pid")
   @@index([email], map: "idx_users_email")
@@ -138,6 +139,7 @@ model questions {
   created_at         BigInt
   updated_at         BigInt
   answers            answers[]
+  user_questions     user_questions[]
   question_media     question_media[]
   question_options   question_options[]
   question_sets      question_sets?       @relation(fields: [set_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "questions_ibfk_1")
@@ -263,6 +265,19 @@ model user_vocabulary {
 
   @@unique([user_id, vocabulary_id], map: "uq_user_vocabulary_user_vocab")
   @@index([vocabulary_id], map: "vocabulary_id")
+}
+
+model user_questions {
+  id            String     @id @default(uuid()) @db.VarChar(36)
+  user_id       String     @db.VarChar(36)
+  question_id   String     @db.VarChar(36)
+  is_bookmarked Int        @default(0) @db.TinyInt
+  updated_at    BigInt
+  users         users      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_1")
+  questions     questions  @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_2")
+
+  @@unique([user_id, question_id], map: "uq_user_questions_user_question")
+  @@index([question_id], map: "question_id")
 }
 
 model vocabulary {

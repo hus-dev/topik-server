@@ -414,6 +414,27 @@ export class MockExamsService {
       },
     });
 
+    if (dto.bookmarked !== undefined) {
+      await this.prisma.user_questions.upsert({
+        where: {
+          user_id_question_id: {
+            user_id: userId,
+            question_id: dto.question_id,
+          },
+        },
+        create: {
+          user_id: userId,
+          question_id: dto.question_id,
+          is_bookmarked: dto.bookmarked,
+          updated_at: now,
+        },
+        update: {
+          is_bookmarked: dto.bookmarked,
+          updated_at: now,
+        },
+      });
+    }
+
     return this.serializeData(answer);
   }
 

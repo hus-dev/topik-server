@@ -1,5 +1,4 @@
 import {
-  BadRequestException,
   ConflictException,
   Injectable,
   UnauthorizedException,
@@ -11,6 +10,12 @@ import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import * as bcrypt from 'bcrypt';
+
+interface JwtPayload {
+  email: string | null;
+  sub: string;
+  role: string;
+}
 
 @Injectable()
 export class AuthService {
@@ -33,7 +38,7 @@ export class AuthService {
     const password_hash = await bcrypt.hash(password, salt);
 
     // 3. 사용자 생성 (기본 설정 포함)
-    const user = await this.usersService.create({
+    const user = (await this.usersService.create({
       email,
       nickname,
       password_hash,
@@ -43,13 +48,13 @@ export class AuthService {
       language_code: 'ko',
       timezone: 'Asia/Seoul',
       timer_mode: 'normal',
-    });
+    })) as any;
 
     return this.buildAuthResponse(user);
   }
 
   async login(loginDto: LoginDto) {
-    const user = await this.usersService.findByEmail(loginDto.email);
+    const user = (await this.usersService.findByEmail(loginDto.email)) as any;
     if (!user || !user.password_hash) {
       throw new UnauthorizedException('Invalid credentials');
     }
@@ -82,23 +87,25 @@ export class AuthService {
       nickname = kakaoUser.nickname;
     }
 
-    let user = await this.usersService.findByProvider(
+    let user = (await this.usersService.findByProvider(
       socialLoginDto.provider,
       providerId,
-    );
+    )) as any;
 
     if (!user && email) {
-      const existingEmailUser = await this.usersService.findByEmail(email);
+      const existingEmailUser = (await this.usersService.findByEmail(
+        email,
+      )) as any;
       if (existingEmailUser) {
-        user = await this.usersService.update(existingEmailUser.id, {
+        user = (await this.usersService.update(existingEmailUser.id, {
           provider: socialLoginDto.provider,
           provider_id: providerId,
-        });
+        })) as any;
       }
     }
 
     if (!user) {
-      user = await this.usersService.create({
+      user = (await this.usersService.create({
         email: email || null,
         provider: socialLoginDto.provider,
         provider_id: providerId,
@@ -107,20 +114,23 @@ export class AuthService {
         language_code: 'ko',
         timezone: 'Asia/Seoul',
         timer_mode: 'normal',
-      } as any);
+      } as any)) as any;
     }
 
     return this.buildAuthResponse(user);
   }
 
-  async validateUser(payload: any) {
+  async validateUser(payload: JwtPayload) {
     return await this.usersService.findOne(payload.sub);
   }
 
   async changePassword(userId: string, changePasswordDto: ChangePasswordDto) {
-    const user = (await this.usersService.findByEmail(
-      (await this.usersService.findOne(userId)).email,
-    )) as any;
+    const userProfile = (await this.usersService.findOne(userId)) as any;
+    if (!userProfile || !userProfile.email) {
+      throw new UnauthorizedException('User profile not found');
+    }
+
+    const user = (await this.usersService.findByEmail(userProfile.email)) as any;
 
     if (!user || !user.password_hash) {
       throw new UnauthorizedException(
@@ -149,8 +159,17 @@ export class AuthService {
     return { message: 'Password changed successfully' };
   }
 
-  private buildAuthResponse(user: any) {
-    const payload = { email: user.email, sub: user.id, role: user.role };
+  private buildAuthResponse(user: {
+    email: string | null;
+    id: string;
+    role: string;
+    nickname: string;
+  }) {
+    const payload: JwtPayload = {
+      email: user.email,
+      sub: user.id,
+      role: user.role,
+    };
     return {
       access_token: this.jwtService.sign(payload),
       user: {
@@ -197,7 +216,7 @@ export class AuthService {
         email: data.email,
         name: data.name,
       };
-    } catch (error) {
+    } catch (error: any) {
       if (error.name === 'AbortError') {
         throw new UnauthorizedException('Google token verification timed out');
       }
@@ -242,7 +261,7 @@ export class AuthService {
         email: data.kakao_account?.email,
         nickname: data.kakao_account?.profile?.nickname,
       };
-    } catch (error) {
+    } catch (error: any) {
       if (error.name === 'AbortError') {
         throw new UnauthorizedException('Kakao token verification timed out');
       }

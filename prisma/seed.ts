@@ -3,743 +3,177 @@ import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 import * as bcrypt from 'bcrypt';
 
-type SeedSet = {
-  id: string;
-  title: string;
-  section: 'reading' | 'listening';
-  level: number;
-  exam_kind: 'mock' | 'type';
-  total_questions: number;
-  duration_seconds: number;
-  price: number;
-  is_free: number;
-  display_order: number;
-};
-
-type SeedPassage = {
-  id: string;
-  title: string;
-  content: string;
-  translation: string;
-  created_at: bigint;
-  updated_at: bigint;
-};
-
-type SeedQuestion = {
-  id: string;
-  set_id: string;
-  passage_id: string | null;
-  section: 'reading' | 'listening';
-  question_type: string;
-  question_number: number;
-  level: number;
-  prompt: string;
-  correct_answer: string;
-  explanation: string;
-  ai_explanation: string;
-  difficulty: number;
-  time_limit_seconds: number;
-  is_ai_generated: number;
-  is_downloaded: number;
-  created_at: bigint;
-  updated_at: bigint;
-};
-
-type SeedOption = {
-  id: string;
-  question_id: string;
-  option_number: number;
-  content: string;
-  is_correct: number;
-};
-
-type SeedMedia = {
-  id: string;
-  question_id: string;
-  media_type: string;
-  url: string;
-  duration_seconds: number;
-  transcript: string;
-  sort_order: number;
-  created_at: bigint;
-  updated_at: bigint;
-};
-
-type SeedExplanationVideo = {
-  id: string;
-  title: string;
-  description: string;
-  thumbnail_url: string | null;
-  video_url: string;
-  question_id: string | null;
-  set_id: string | null;
-  section: 'reading' | 'listening' | 'writing' | null;
-  level: number | null;
-  is_recommended: number;
-  display_order: number;
-  created_at: bigint;
-  updated_at: bigint;
-};
-
 function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
-  if (!connectionString) {
-    throw new Error('DATABASE_URL is not set');
-  }
-
+  if (!connectionString) throw new Error('DATABASE_URL is not set');
   const url = new URL(connectionString);
-
-  if (url.protocol === 'mysql:') {
-    url.protocol = 'mariadb:';
-  }
-
-  if (
-    url.hostname === 'localhost' ||
-    url.hostname === '::1' ||
-    url.hostname === '[::1]'
-  ) {
-    url.hostname = '127.0.0.1';
-  }
-
-  if (!url.searchParams.has('allowPublicKeyRetrieval')) {
-    url.searchParams.set('allowPublicKeyRetrieval', 'true');
-  }
-
+  if (url.protocol === 'mysql:') url.protocol = 'mariadb:';
+  if (url.hostname === 'localhost' || url.hostname === '::1') url.hostname = '127.0.0.1';
+  if (!url.searchParams.has('allowPublicKeyRetrieval')) url.searchParams.set('allowPublicKeyRetrieval', 'true');
   return url.toString();
 }
 
 function createPrismaClient() {
-  return new PrismaClient({
-    adapter: new PrismaMariaDb(getDatabaseUrl()),
-  });
-}
-
-function timestamp(base: bigint, offset: number) {
-  return base + BigInt(offset);
-}
-
-function buildOptions(question: SeedQuestion): SeedOption[] {
-  const correctNumber = Number(question.correct_answer);
-
-  return Array.from({ length: 4 }, (_, index) => {
-    const optionNumber = index + 1;
-    return {
-      id: `${question.id}-o${optionNumber}`,
-      question_id: question.id,
-      option_number: optionNumber,
-      content: `보기 ${optionNumber}`,
-      is_correct: optionNumber === correctNumber ? 1 : 0,
-    };
-  });
-}
-
-function buildReadingPassages(set: SeedSet, baseTime: bigint): SeedPassage[] {
-  const passageCount = set.total_questions / 5;
-
-  return Array.from({ length: passageCount }, (_, index) => {
-    const passageNumber = index + 1;
-    return {
-      id: `${set.id}-p${passageNumber}`,
-      title: `${set.title} 지문 ${passageNumber}`,
-      content: `${set.title}의 ${passageNumber}번째 지문입니다. 모의고사 화면과 API를 확인하기 위한 예시 문단입니다. 문장은 짧고 단순하지만 지문-문제 관계를 검증하기에는 충분합니다.`,
-      translation: `This is passage ${passageNumber} for ${set.title}.`,
-      created_at: timestamp(baseTime, passageNumber * 1000),
-      updated_at: timestamp(baseTime, passageNumber * 1000),
-    };
-  });
-}
-
-function buildReadingQuestions(
-  set: SeedSet,
-  passages: SeedPassage[],
-  baseTime: bigint,
-): SeedQuestion[] {
-  return Array.from({ length: set.total_questions }, (_, index) => {
-    const questionNumber = index + 1;
-    const passageIndex = Math.floor(index / 5);
-    const correctAnswer = String((index % 4) + 1);
-
-    return {
-      id: `${set.id}-q${questionNumber}`,
-      set_id: set.id,
-      passage_id: passages[passageIndex]?.id ?? null,
-      section: 'reading' as const,
-      question_type: 'multiple_choice',
-      question_number: questionNumber,
-      level: set.level,
-      prompt: `${set.title} ${questionNumber}번. 다음 글을 읽고 물음에 답하십시오.`,
-      correct_answer: correctAnswer,
-      explanation: `정답은 ${correctAnswer}번입니다.`,
-      ai_explanation: `이 문항은 ${set.title}의 ${questionNumber}번 예시입니다.`,
-      difficulty: set.level,
-      time_limit_seconds: set.exam_kind === 'mock' ? 84 : 20,
-      is_ai_generated: 0,
-      is_downloaded: 0,
-      created_at: timestamp(baseTime, questionNumber * 1000),
-      updated_at: timestamp(baseTime, questionNumber * 1000),
-    };
-  });
-}
-
-function buildListeningQuestions(
-  set: SeedSet,
-  baseTime: bigint,
-): { questions: SeedQuestion[]; media: SeedMedia[] } {
-  const questions = Array.from({ length: set.total_questions }, (_, index) => {
-    const questionNumber = index + 1;
-    const correctAnswer = String((index % 4) + 1);
-    return {
-      id: `${set.id}-q${questionNumber}`,
-      set_id: set.id,
-      passage_id: null,
-      section: 'listening' as const,
-      question_type: 'multiple_choice',
-      question_number: questionNumber,
-      level: set.level,
-      prompt: `${set.title} ${questionNumber}번. 다음을 듣고 물음에 답하십시오.`,
-      correct_answer: correctAnswer,
-      explanation: `정답은 ${correctAnswer}번입니다.`,
-      ai_explanation: `이 문항은 ${set.title}의 ${questionNumber}번 듣기 예시입니다.`,
-      difficulty: set.level,
-      time_limit_seconds: set.exam_kind === 'mock' ? 42 : 25,
-      is_ai_generated: 0,
-      is_downloaded: 0,
-      created_at: timestamp(baseTime, questionNumber * 1000),
-      updated_at: timestamp(baseTime, questionNumber * 1000),
-    };
-  });
-
-  const media = questions.map((question, index) => ({
-    id: `${set.id}-m${index + 1}`,
-    question_id: question.id,
-    media_type: 'audio',
-    url: `https://cdn.topik.local/mock-exams/${set.id}/${index + 1}.mp3`,
-    duration_seconds: 30 + ((index + 1) % 6) * 3,
-    transcript: `${set.title} ${index + 1}번 듣기 예시입니다.`,
-    sort_order: 1,
-    created_at: timestamp(baseTime, (index + 1) * 1000),
-    updated_at: timestamp(baseTime, (index + 1) * 1000),
-  }));
-
-  return { questions, media };
-}
-
-async function ensureSeedUser(params: {
-  prisma: PrismaClient;
-  email: string;
-  provider_id: string;
-  nickname: string;
-  role: 'user' | 'admin';
-  password: string;
-}) {
-  const { prisma, email, provider_id, nickname, role, password } = params;
-  const now = BigInt(Date.now());
-  const password_hash = await bcrypt.hash(password, 10);
-
-  const existing = await prisma.users.findFirst({
-    where: {
-      provider: 'local',
-      provider_id,
-    },
-  });
-
-  if (existing) {
-    return prisma.users.update({
-      where: { id: existing.id },
-      data: {
-        email,
-        nickname,
-        role,
-        password_hash,
-        updated_at: now,
-      },
-    });
-  }
-
-  return prisma.users.create({
-    data: {
-      email,
-      password_hash,
-      provider: 'local',
-      provider_id,
-      nickname,
-      role,
-      target_level: 3,
-      language_code: 'ko',
-      timezone: 'Asia/Seoul',
-      timer_mode: 'countdown',
-      created_at: now,
-      updated_at: now,
-    },
-  });
+  return new PrismaClient({ adapter: new PrismaMariaDb(getDatabaseUrl()) });
 }
 
 async function main() {
   const prisma = createPrismaClient();
   const baseTime = BigInt(Date.now());
 
-  const sets: SeedSet[] = [
-    {
-      id: 'rm1',
-      title: '모의고사 1',
-      section: 'reading',
-      level: 3,
-      exam_kind: 'mock',
-      total_questions: 50,
-      duration_seconds: 4200,
-      price: 0,
-      is_free: 1,
-      display_order: 1,
-    },
-    {
-      id: 'rm2',
-      title: '모의고사 2',
-      section: 'reading',
-      level: 4,
-      exam_kind: 'mock',
-      total_questions: 50,
-      duration_seconds: 4200,
-      price: 50,
-      is_free: 0,
-      display_order: 2,
-    },
-    {
-      id: 'rt12',
-      title: '1-2번',
-      section: 'reading',
-      level: 3,
-      exam_kind: 'type',
-      total_questions: 30,
-      duration_seconds: 600,
-      price: 0,
-      is_free: 1,
-      display_order: 1,
-    },
-    {
-      id: 'rt34',
-      title: '3-4번',
-      section: 'reading',
-      level: 4,
-      exam_kind: 'type',
-      total_questions: 30,
-      duration_seconds: 600,
-      price: 30,
-      is_free: 0,
-      display_order: 2,
-    },
-    {
-      id: 'rt58',
-      title: '5-8번',
-      section: 'reading',
-      level: 5,
-      exam_kind: 'type',
-      total_questions: 30,
-      duration_seconds: 750,
-      price: 30,
-      is_free: 0,
-      display_order: 3,
-    },
-    {
-      id: 'rt910',
-      title: '9-10번',
-      section: 'reading',
-      level: 6,
-      exam_kind: 'type',
-      total_questions: 30,
-      duration_seconds: 1800,
-      price: 30,
-      is_free: 0,
-      display_order: 4,
-    },
-    {
-      id: 'lm1',
-      title: '모의고사 1',
-      section: 'listening',
-      level: 3,
-      exam_kind: 'mock',
-      total_questions: 50,
-      duration_seconds: 4200,
-      price: 0,
-      is_free: 1,
-      display_order: 1,
-    },
-    {
-      id: 'lm2',
-      title: '모의고사 2',
-      section: 'listening',
-      level: 4,
-      exam_kind: 'mock',
-      total_questions: 50,
-      duration_seconds: 4200,
-      price: 50,
-      is_free: 0,
-      display_order: 2,
-    },
-    {
-      id: 'lt12',
-      title: '1-2번',
-      section: 'listening',
-      level: 3,
-      exam_kind: 'type',
-      total_questions: 10,
-      duration_seconds: 600,
-      price: 30,
-      is_free: 0,
-      display_order: 1,
-    },
-    {
-      id: 'lt34',
-      title: '3-4번',
-      section: 'listening',
-      level: 4,
-      exam_kind: 'type',
-      total_questions: 10,
-      duration_seconds: 600,
-      price: 30,
-      is_free: 0,
-      display_order: 2,
-    },
-  ];
-
   try {
-    await prisma.answers.deleteMany();
-    await prisma.exam_sessions.deleteMany();
-    await prisma.user_downloads.deleteMany();
-    await prisma.user_vocabulary.deleteMany();
-    await prisma.user_grammar_items.deleteMany();
-    await prisma.explanation_videos.deleteMany();
-    await prisma.question_media.deleteMany();
-    await prisma.question_options.deleteMany();
-    await prisma.questions.deleteMany();
-    await prisma.question_passages.deleteMany();
-    await prisma.question_sets.deleteMany();
-    await prisma.vocabulary.deleteMany();
-    await prisma.grammar_items.deleteMany();
-    await prisma.topik_exam_schedules.deleteMany();
+    console.log('🚀 Starting Full Database Seeding (TOPIK II 102nd Exam)...');
 
-    await ensureSeedUser({
-      prisma,
-      email: 'mock-admin@topik.local',
-      provider_id: 'mock-seed-admin',
-      nickname: 'Mock Admin',
-      role: 'admin',
-      password: 'Admin1234!',
-    });
-
-    const user = await ensureSeedUser({
-      prisma,
-      email: 'mock-user@topik.local',
-      provider_id: 'mock-seed-user',
-      nickname: 'Mock User',
-      role: 'user',
-      password: 'User1234!',
-    });
-
-    await prisma.question_sets.createMany({
-      data: sets.map((set) => ({
-        id: set.id,
-        title: set.title,
-        section: set.section,
-        level: set.level,
-        exam_kind: set.exam_kind,
-        total_questions: set.total_questions,
-        duration_seconds: set.duration_seconds,
-        price: set.price,
-        is_free: set.is_free,
-        display_order: set.display_order,
-        created_at: timestamp(baseTime, set.display_order * 1000),
-        updated_at: timestamp(baseTime, set.display_order * 1000),
-      })),
-    });
-
-    const passages: SeedPassage[] = [];
-    const questions: SeedQuestion[] = [];
-    const options: SeedOption[] = [];
-    const media: SeedMedia[] = [];
-
-    for (const set of sets.filter((item) => item.section === 'reading')) {
-      const setPassages = buildReadingPassages(set, baseTime);
-      const setQuestions = buildReadingQuestions(set, setPassages, baseTime);
-      passages.push(...setPassages);
-      questions.push(...setQuestions);
-      setQuestions.forEach((question) => {
-        options.push(...buildOptions(question));
-      });
-    }
-
-    for (const set of sets.filter((item) => item.section === 'listening')) {
-      const { questions: setQuestions, media: setMedia } =
-        buildListeningQuestions(set, baseTime);
-      questions.push(...setQuestions);
-      media.push(...setMedia);
-      setQuestions.forEach((question) => {
-        options.push(...buildOptions(question));
-      });
-    }
-
-    await prisma.question_passages.createMany({
-      data: passages,
-    });
-
-    await prisma.questions.createMany({
-      data: questions,
-    });
-
-    await prisma.question_options.createMany({
-      data: options,
-    });
-
-    await prisma.question_media.createMany({
-      data: media,
-    });
-
-    const explanationVideos: SeedExplanationVideo[] = [
-      {
-        id: 'video-rm1-q1',
-        title: 'How to solve Reading Question 1',
-        description: 'Step-by-step explanation for the first reading question.',
-        thumbnail_url: 'https://cdn.topik.local/explanations/rm1-q1.jpg',
-        video_url: 'https://cdn.topik.local/explanations/rm1-q1.mp4',
-        question_id: 'rm1-q1',
-        set_id: null,
-        section: 'reading',
-        level: 3,
-        is_recommended: 1,
-        display_order: 1,
-        created_at: timestamp(baseTime, 72_000),
-        updated_at: timestamp(baseTime, 72_000),
-      },
-      {
-        id: 'video-rm1-set',
-        title: 'Reading Mock Exam 1 overview',
-        description: 'Full explanation video for the entire reading mock exam.',
-        thumbnail_url: 'https://cdn.topik.local/explanations/rm1-set.jpg',
-        video_url: 'https://cdn.topik.local/explanations/rm1-set.mp4',
-        question_id: null,
-        set_id: 'rm1',
-        section: 'reading',
-        level: 3,
-        is_recommended: 1,
-        display_order: 2,
-        created_at: timestamp(baseTime, 73_000),
-        updated_at: timestamp(baseTime, 73_000),
-      },
-      {
-        id: 'video-lm1-q1',
-        title: 'How to solve Listening Question 1',
-        description: 'A short explanation for the first listening question.',
-        thumbnail_url: 'https://cdn.topik.local/explanations/lm1-q1.jpg',
-        video_url: 'https://cdn.topik.local/explanations/lm1-q1.mp4',
-        question_id: 'lm1-q1',
-        set_id: null,
-        section: 'listening',
-        level: 3,
-        is_recommended: 0,
-        display_order: 1,
-        created_at: timestamp(baseTime, 74_000),
-        updated_at: timestamp(baseTime, 74_000),
-      },
-      {
-        id: 'video-lm1-set',
-        title: 'Listening Mock Exam 1 overview',
-        description: 'Full explanation video for the listening mock exam.',
-        thumbnail_url: 'https://cdn.topik.local/explanations/lm1-set.jpg',
-        video_url: 'https://cdn.topik.local/explanations/lm1-set.mp4',
-        question_id: null,
-        set_id: 'lm1',
-        section: 'listening',
-        level: 3,
-        is_recommended: 0,
-        display_order: 2,
-        created_at: timestamp(baseTime, 75_000),
-        updated_at: timestamp(baseTime, 75_000),
-      },
+    // 1. CLEANUP (Using a safer MariaDB cleanup method)
+    console.log('🧹 Clearing existing data...');
+    
+    // List tables in correct dependency order (children first)
+    const tables = [
+      'answers',
+      'user_downloads',
+      'user_vocabulary',
+      'user_grammar_items',
+      'sync_queue',
+      'exam_sessions',
+      'question_media',
+      'question_options',
+      'explanation_videos',
+      'questions',
+      'question_passages',
+      'question_sets',
+      'topik_exam_schedules',
+      'users'
     ];
 
-    await prisma.explanation_videos.createMany({
-      data: explanationVideos,
-    });
-
-    await prisma.topik_exam_schedules.createMany({
-      data: [
-        {
-          id: 'topik-schedule-107',
-          exam_name: 'TOPIK Exam No. 107',
-          exam_date: timestamp(baseTime, 90 * 24 * 60 * 60 * 1000),
-          registration_start_at: timestamp(baseTime, 60 * 24 * 60 * 60 * 1000),
-          registration_end_at: timestamp(baseTime, 66 * 24 * 60 * 60 * 1000),
-          result_date: timestamp(baseTime, 120 * 24 * 60 * 60 * 1000),
-          location: 'Korea / Overseas',
-          fee: 55000,
-          registration_url: 'https://www.topik.go.kr/',
-          is_active: 1,
-          display_order: 1,
-          created_at: timestamp(baseTime, 70_000),
-          updated_at: timestamp(baseTime, 70_000),
-        },
-        {
-          id: 'topik-schedule-108',
-          exam_name: 'TOPIK Exam No. 108',
-          exam_date: timestamp(baseTime, 180 * 24 * 60 * 60 * 1000),
-          registration_start_at: timestamp(baseTime, 150 * 24 * 60 * 60 * 1000),
-          registration_end_at: timestamp(baseTime, 156 * 24 * 60 * 60 * 1000),
-          result_date: timestamp(baseTime, 210 * 24 * 60 * 60 * 1000),
-          location: 'Korea / Overseas',
-          fee: 55000,
-          registration_url: 'https://www.topik.go.kr/',
-          is_active: 1,
-          display_order: 2,
-          created_at: timestamp(baseTime, 71_000),
-          updated_at: timestamp(baseTime, 71_000),
-        },
-      ],
-    });
-
-    const vocabularyItems = [
-      {
-        id: 'vocab-1',
-        word: '학교',
-        meaning_ko: '학교',
-        meaning_user_lang: 'school',
-        level: 3,
-        tts_url: null,
-        is_downloaded: 0,
-        updated_at: timestamp(baseTime, 60_000),
-      },
-      {
-        id: 'vocab-2',
-        word: '도서관',
-        meaning_ko: '도서관',
-        meaning_user_lang: 'library',
-        level: 4,
-        tts_url: null,
-        is_downloaded: 0,
-        updated_at: timestamp(baseTime, 61_000),
-      },
-    ];
-
-    const grammarItems = [
-      {
-        id: 'grammar-1',
-        pattern: '-아/어 보다',
-        description: '경험을 표현할 때 사용하는 문법입니다.',
-        examples_json: ['한국에 가 봤어요.'],
-        tags_json: ['experience', 'verb'],
-        is_downloaded: 0,
-        updated_at: timestamp(baseTime, 62_000),
-      },
-      {
-        id: 'grammar-2',
-        pattern: '-기 때문에',
-        description: '이유를 설명할 때 사용하는 문법입니다.',
-        examples_json: ['비가 오기 때문에 집에 있었어요.'],
-        tags_json: ['reason', 'cause'],
-        is_downloaded: 0,
-        updated_at: timestamp(baseTime, 63_000),
-      },
-    ];
-
-    await prisma.vocabulary.createMany({
-      data: vocabularyItems.map((item) => ({
-        ...item,
-      })),
-    });
-
-    await prisma.grammar_items.createMany({
-      data: grammarItems.map((item) => ({
-        ...item,
-      })),
-    });
-
-    const activeSet = sets.find((set) => set.id === 'rm1');
-    if (!activeSet) {
-      throw new Error('Active mock exam seed set was not found');
+    for (const table of tables) {
+      try {
+        await prisma.$executeRawUnsafe(`DELETE FROM \`${table}\`;`);
+      } catch (e) {
+        console.warn(`⚠️ Could not clear table ${table}, attempting to force...`);
+        await prisma.$executeRawUnsafe('SET FOREIGN_KEY_CHECKS = 0;');
+        await prisma.$executeRawUnsafe(`DELETE FROM \`${table}\`;`);
+        await prisma.$executeRawUnsafe('SET FOREIGN_KEY_CHECKS = 1;');
+      }
     }
 
-    const activeQuestions = await prisma.questions.findMany({
-      where: { set_id: activeSet.id },
-      orderBy: { question_number: 'asc' },
-    });
+    // 2. CREATE ADMIN & USER
+    console.log('👤 Creating test users...');
+    const adminPassword = await bcrypt.hash('Admin1234!', 10);
+    const userPassword = await bcrypt.hash('User1234!', 10);
 
-    const sessionStartedAt = timestamp(baseTime, -42_000);
-    const session = await prisma.exam_sessions.create({
+    await prisma.users.create({
       data: {
-        user_id: user.id,
-        mode: 'mock',
-        section: activeSet.section,
-        set_id: activeSet.id,
-        total_questions: activeSet.total_questions,
-        current_index: 4,
-        remaining_seconds: 4158,
-        status: 'in_progress',
-        started_at: sessionStartedAt,
+        id: 'admin-id',
+        email: 'mock-admin@topik.local',
+        nickname: 'AdminMaster',
+        password_hash: adminPassword,
+        role: 'admin',
+        provider: 'local',
+        target_level: 6,
+        language_code: 'ko',
+        timezone: 'Asia/Seoul',
+        timer_mode: 'normal',
+        created_at: baseTime,
+        updated_at: baseTime,
+      }
+    });
+
+    await prisma.users.create({
+      data: {
+        id: 'user-id',
+        email: 'mock-user@topik.local',
+        nickname: 'TopikLearner',
+        password_hash: userPassword,
+        role: 'user',
+        provider: 'local',
+        target_level: 4,
+        language_code: 'ko',
+        timezone: 'Asia/Seoul',
+        timer_mode: 'normal',
+        created_at: baseTime,
+        updated_at: baseTime,
+      }
+    });
+
+    // 3. SEED TOPIK II READING (102nd)
+    const readingSetId = 'topik2-102-reading';
+    console.log('📚 Seeding Reading Section...');
+    await prisma.question_sets.create({
+      data: {
+        id: readingSetId,
+        title: '제 102회 TOPIK II 읽기',
+        section: 'reading',
+        level: 4,
+        exam_kind: 'past',
+        total_questions: 50,
+        duration_seconds: 4200,
+        display_order: 1021,
+        created_at: baseTime,
+        updated_at: baseTime,
       },
     });
 
-    await prisma.answers.createMany({
-      data: activeQuestions.map((question, index) => {
-        const answered = index < 4;
-        const selectedAnswer = answered ? String((index % 4) + 1) : null;
-        const isCorrect = answered
-          ? selectedAnswer === question.correct_answer
-            ? 1
-            : 0
-          : null;
+    const readingData = [
+      { number: 1, prompt: '( )에 들어갈 가장 알맞은 것을 고르십시오.', content: '이 동네로 이사를 ( ) 일 년이 됐다.', options: ['온 지', '올 때', '오거나', '오다가'], answer: '1' },
+      { number: 5, prompt: '다음은 무엇에 대한 글인지 고르십시오.', content: '걸을 때 발이 편하게~ 가볍고 디자인도 예뻐요.', options: ['구두', '우산', '자전거', '선풍기'], answer: '1' },
+      { number: 13, prompt: '순서대로 알맞게 나열한 것을 고르십시오.', content: '(가) 그래서 껍질째 먹기도 편하고 식감도 좋다.\n(나) 신비 복숭아는 2017년에 한국에 처음 소개된 여름 과일이다.\n(다) 다른 복숭아에 비해 이른 시기에 먹을 수 있다는 것도 장점이다.\n(라) 껍질이 얇은 복숭아와 속이 부드러운 복숭아의 장점을 결합해 만들었다.', options: ['나-라-가-다', '나-가-다-라', '라-나-다-가', '라-다-가-나'], answer: '1' },
+      { number: 44, prompt: '( )에 들어갈 말로 가장 알맞은 것을 고르십시오.', content: '르네상스 시대에 꽃을 피운 해부학은 인체의 내부를 파악할 수 있게 해... (중략) ... 이전의 그림에서는 ( ) 알지 못해 사람의 발이 떠 있는 것처럼 어색하게 그렸다.', options: ['질병이 언제 발생하는지', '근육이 어떻게 움직이는지', '인체의 구조가 왜 단순해지는지', '해부학이 어떤 식으로 분류되는지'], answer: '2' },
+    ];
 
-        return {
-          session_id: session.id,
-          question_id: question.id,
-          selected_answer: selectedAnswer,
-          text_answer: null,
-          is_correct: isCorrect,
-          spent_seconds: answered ? 11 + index : 0,
-          bookmarked: 0,
-          updated_at: timestamp(baseTime, 50_000 + index * 1000),
-        };
-      }),
+    for (const q of readingData) {
+      const passage = await prisma.question_passages.create({
+        data: { id: `${readingSetId}-q${q.number}-p`, content: q.content, created_at: baseTime, updated_at: baseTime }
+      });
+      await prisma.questions.create({
+        data: {
+          id: `${readingSetId}-q${q.number}`, set_id: readingSetId, passage_id: passage.id, section: 'reading', question_type: 'multiple_choice',
+          question_number: q.number, level: 4, prompt: q.prompt, correct_answer: q.answer, created_at: baseTime, updated_at: baseTime,
+          question_options: { create: q.options.map((opt, idx) => ({ option_number: idx + 1, content: opt, is_correct: idx + 1 === parseInt(q.answer) ? 1 : 0 })) }
+        }
+      });
+    }
+
+    // 4. SEED TOPIK II LISTENING (102nd)
+    const listeningSetId = 'topik2-102-listening';
+    console.log('🎧 Seeding Listening Section...');
+    await prisma.question_sets.create({
+      data: {
+        id: listeningSetId,
+        title: '제 102회 TOPIK II 듣기',
+        section: 'listening',
+        level: 4,
+        exam_kind: 'past',
+        total_questions: 50,
+        duration_seconds: 3600,
+        display_order: 1022,
+        created_at: baseTime,
+        updated_at: baseTime,
+      },
     });
 
-    await prisma.user_downloads.createMany({
-      data: [
-        {
-          user_id: user.id,
-          entity_type: 'question',
-          entity_id: activeQuestions[0].id,
-          status: 'downloaded',
-          created_at: timestamp(baseTime, 80_000),
-          updated_at: timestamp(baseTime, 80_000),
-        },
-        {
-          user_id: user.id,
-          entity_type: 'vocabulary',
-          entity_id: 'vocab-1',
-          status: 'pending',
-          created_at: timestamp(baseTime, 81_000),
-          updated_at: timestamp(baseTime, 81_000),
-        },
-        {
-          user_id: user.id,
-          entity_type: 'grammar',
-          entity_id: 'grammar-1',
-          status: 'failed',
-          created_at: timestamp(baseTime, 82_000),
-          updated_at: timestamp(baseTime, 82_000),
-        },
-      ],
-    });
+    const listeningData = [
+      { number: 1, prompt: '가장 알맞은 그림을 고르십시오.', transcript: '남자: 이 책을 소포로 보내고 싶은데요. 소포 상자 살 수 있지요?', options: ['그림 1: 카운터', '그림 2: 상자 선택', '그림 3: 포장', '그림 4: 접수'], answer: '2', audio: '2-01.mp3' },
+      { number: 4, prompt: '이어질 수 있는 말로 알맞은 것을 고르십시오.', transcript: '남자: 우리 차 한잔할까? 저 카페 어때?', options: ['카페를 찾고 있어.', '같이 들어가 보자.', '벌써 만난 것 같아.', '차를 마시기로 했어.'], answer: '2', audio: '2-04.mp3' },
+      { number: 31, prompt: '남자의 중심 생각으로 알맞은 것을 고르십시오.', transcript: '남자: 휴일이나 야간에 문을 여는 약국이 점점 줄고 있습니다. 편의점에서 더 많은 의약품을 판매하도록 해야 합니다.', options: ['편의점 판매 실태 조사', '사용 교육 필요', '판매 품목 확대', '정부 관리 필요'], answer: '3', audio: '2-31.mp3' },
+    ];
 
-    console.log('Seed completed.');
-    console.log(`Admin login: mock-admin@topik.local / Admin1234!`);
-    console.log(`User login: mock-user@topik.local / User1234!`);
-    console.log(
-      `Active mock exam seeded for ${user.nickname} in session ${session.id}`,
-    );
+    for (const q of listeningData) {
+      await prisma.questions.create({
+        data: {
+          id: `${listeningSetId}-q${q.number}`, set_id: listeningSetId, section: 'listening', question_type: 'multiple_choice',
+          question_number: q.number, level: 4, prompt: q.prompt, correct_answer: q.answer, created_at: baseTime, updated_at: baseTime,
+          question_options: { create: q.options.map((opt, idx) => ({ option_number: idx + 1, content: opt, is_correct: idx + 1 === parseInt(q.answer) ? 1 : 0 })) },
+          question_media: { create: { media_type: 'audio', url: `/topik_data/제102회 TOPIK2 듣기파일/${q.audio}`, transcript: q.transcript, created_at: baseTime, updated_at: baseTime } }
+        }
+      });
+    }
+
+    console.log('✅ Full Seeding Completed Successfully!');
+  } catch (error) {
+    console.error('❌ Seeding Failed:', error);
   } finally {
     await prisma.$disconnect();
   }
 }
 
-main().catch((error: unknown) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+main();

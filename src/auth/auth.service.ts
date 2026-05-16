@@ -98,7 +98,7 @@ export class AuthService {
     }
 
     if (!user) {
-      user = (await this.usersService.create({
+      user = await this.usersService.create({
         email: email || null,
         provider: socialLoginDto.provider,
         provider_id: providerId,
@@ -107,7 +107,7 @@ export class AuthService {
         language_code: 'ko',
         timezone: 'Asia/Seoul',
         timer_mode: 'normal',
-      } as any)) as any;
+      } as any);
     }
 
     return this.buildAuthResponse(user);
@@ -119,7 +119,7 @@ export class AuthService {
 
   async changePassword(userId: string, changePasswordDto: ChangePasswordDto) {
     const user = (await this.usersService.findByEmail(
-      ((await this.usersService.findOne(userId)) as any).email,
+      (await this.usersService.findOne(userId)).email,
     )) as any;
 
     if (!user || !user.password_hash) {

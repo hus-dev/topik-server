@@ -33,6 +33,10 @@ async function bootstrap() {
     prefix: '/test/audio/',
   });
 
+  app.useStaticAssets(join(process.cwd(), 'topik_data'), {
+    prefix: '/topik-data/',
+  });
+
   // 전역 유효성 검사 파이프 설정
   app.useGlobalPipes(
     new ValidationPipe({

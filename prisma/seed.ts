@@ -84,7 +84,7 @@ async function main() {
             title: `TOPIK II ${section.toUpperCase()} - Level ${level}`,
             section: section,
             level: level,
-            exam_kind: 'mock',
+            exam_kind: 'practice',
             total_questions: 30, // 무조건 30개로 고정
             duration_seconds: 3600,
             display_order: level,
@@ -93,12 +93,24 @@ async function main() {
           }
         });
 
-        // 해당 급수 소스 문제 필터링 (없으면 전체에서 가져옴)
+        // 해당 급수 소스 문제 필터링
         let sourceQuestions = allSourceQuestions.filter((q: any) => q.level === level);
-        if (sourceQuestions.length === 0) {
-          // 6급 데이터가 없을 경우 5급이나 가장 비슷한 데이터를 빌려와서 변환
-          sourceQuestions = allSourceQuestions.filter((q: any) => q.level === (level - 1)) || allSourceQuestions;
+        
+        // 시니어의 특급 처방: 데이터가 부족한 급수(특히 4급, 6급) 보충 로직
+        if (sourceQuestions.length < 30) {
+          if (level === 4) {
+            // 4급이 부족하면 3급 중 어려운 문제(뒤쪽 번호)를 추가해서 풍성하게 만듦
+            const highLvl3 = allSourceQuestions.filter((q: any) => q.level === 3).slice(-15);
+            sourceQuestions = [...sourceQuestions, ...highLvl3];
+          } else if (level === 6) {
+            // 6급이 부족하면 5급 전체를 소스로 활용
+            const allLvl5 = allSourceQuestions.filter((q: any) => q.level === 5);
+            sourceQuestions = [...sourceQuestions, ...allLvl5];
+          }
         }
+        
+        // 최종적으로도 부족하면 전체 데이터에서 보충 (안정장치)
+        if (sourceQuestions.length === 0) sourceQuestions = allSourceQuestions;
 
         for (let i = 0; i < 30; i++) {
           const q = sourceQuestions[i % sourceQuestions.length];

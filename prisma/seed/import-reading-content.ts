@@ -234,6 +234,7 @@ async function importContent(content: ReadingContentFile) {
       title: content.set.title,
       section: 'reading',
       level: content.set.level,
+      exam_kind: 'practice',
       created_at: timestamp,
       updated_at: timestamp,
     },

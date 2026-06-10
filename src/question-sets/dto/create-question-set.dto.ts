@@ -5,8 +5,10 @@ import {
   IsNumber,
   IsNotEmpty,
   IsInt,
+  IsIn,
   Min,
 } from 'class-validator';
+import { EXAM_KINDS, EXAM_KIND } from '../../common/exam-kind';
 
 export class CreateQuestionSetDto {
   @ApiProperty({
@@ -31,12 +33,13 @@ export class CreateQuestionSetDto {
   level: number;
 
   @ApiPropertyOptional({
-    example: 'mock',
-    description: 'Exam kind (mock or type)',
+    example: 'practice',
+    description: 'Exam kind (practice, mock, or type)',
   })
   @IsOptional()
   @IsString()
-  exam_kind?: string;
+  @IsIn(EXAM_KINDS)
+  exam_kind?: string = EXAM_KIND.PRACTICE;
 
   @ApiPropertyOptional({ example: 50, description: 'Total questions' })
   @IsOptional()

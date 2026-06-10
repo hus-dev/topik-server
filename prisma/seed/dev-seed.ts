@@ -113,6 +113,7 @@ async function createQuestionSet(input: {
       title: input.title,
       section: input.section,
       level: input.level,
+      exam_kind: 'practice',
       created_at: timestamp,
       updated_at: timestamp,
     },
@@ -315,31 +316,50 @@ async function seedGrammar() {
     {
       pattern: '-고 있다',
       description: 'Used to express an action currently in progress.',
-      examples_json: [{ ko: '한국어를 공부하고 있어요.', en: 'I am studying Korean.' }],
+      examples_json: [
+        { ko: '한국어를 공부하고 있어요.', en: 'I am studying Korean.' },
+      ],
       tags_json: ['progressive', 'TOPIK'],
     },
     {
       pattern: '-기 때문에',
       description: 'Used to express a reason or cause.',
-      examples_json: [{ ko: '비가 오기 때문에 집에 있어요.', en: 'Because it is raining, I stay home.' }],
+      examples_json: [
+        {
+          ko: '비가 오기 때문에 집에 있어요.',
+          en: 'Because it is raining, I stay home.',
+        },
+      ],
       tags_json: ['reason', 'TOPIK II'],
     },
     {
       pattern: '-아/어도',
       description: 'Used to express concession.',
-      examples_json: [{ ko: '바빠도 운동을 해요.', en: 'Even if I am busy, I exercise.' }],
+      examples_json: [
+        { ko: '바빠도 운동을 해요.', en: 'Even if I am busy, I exercise.' },
+      ],
       tags_json: ['concession', 'TOPIK II'],
     },
     {
       pattern: '-는 대신에',
       description: 'Used to express replacement or compensation.',
-      examples_json: [{ ko: '커피를 마시는 대신에 차를 마셔요.', en: 'Instead of coffee, I drink tea.' }],
+      examples_json: [
+        {
+          ko: '커피를 마시는 대신에 차를 마셔요.',
+          en: 'Instead of coffee, I drink tea.',
+        },
+      ],
       tags_json: ['replacement', 'TOPIK II'],
     },
     {
       pattern: '-도록',
       description: 'Used to express purpose or result.',
-      examples_json: [{ ko: '잘 들리도록 크게 말해 주세요.', en: 'Please speak loudly so it can be heard well.' }],
+      examples_json: [
+        {
+          ko: '잘 들리도록 크게 말해 주세요.',
+          en: 'Please speak loudly so it can be heard well.',
+        },
+      ],
       tags_json: ['purpose', 'TOPIK II'],
     },
   ];

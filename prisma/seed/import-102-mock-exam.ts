@@ -218,10 +218,7 @@ async function cleanupExistingData() {
     });
     await prisma.explanation_videos.deleteMany({
       where: {
-        OR: [
-          { question_id: { in: questionIds } },
-          { set_id: { in: setIds } },
-        ],
+        OR: [{ question_id: { in: questionIds } }, { set_id: { in: setIds } }],
       },
     });
     await prisma.questions.deleteMany({
@@ -368,12 +365,12 @@ function findGroupInstructionStart(
     if (!line.startsWith('※')) continue;
 
     const range = parseQuestionRange(line);
-    if (
-      range &&
-      range.start <= questionNumber &&
-      questionNumber <= range.end
-    ) {
-      const firstQuestionStart = findQuestionStart(lines, range.start, index + 1);
+    if (range && range.start <= questionNumber && questionNumber <= range.end) {
+      const firstQuestionStart = findQuestionStart(
+        lines,
+        range.start,
+        index + 1,
+      );
       const instructionEnd = findInstructionEnd(lines, index);
 
       if (
@@ -452,7 +449,11 @@ function questionChunk(
         ]
       : lines.slice(start, end);
 
-  return normalizeQuestionChunk(chunkLines.join('\n').trim(), questionNumber, section);
+  return normalizeQuestionChunk(
+    chunkLines.join('\n').trim(),
+    questionNumber,
+    section,
+  );
 }
 
 function normalizeQuestionChunk(
@@ -488,7 +489,10 @@ function textPreview(text: string, maxLength: number) {
   return `${text.slice(0, maxLength - 3)}...`;
 }
 
-function manualOptions(section: 'reading' | 'listening', questionNumber: number) {
+function manualOptions(
+  section: 'reading' | 'listening',
+  questionNumber: number,
+) {
   if (section === 'listening' && questionNumber >= 1 && questionNumber <= 3) {
     return new Map([
       ['1', '1'],
@@ -499,16 +503,26 @@ function manualOptions(section: 'reading' | 'listening', questionNumber: number)
   }
 
   if (section === 'reading') {
-    const optionsByQuestion = new Map<number, [string, string, string, string]>([
-      [1, ['온 지', '올 때', '오거나', '오다가']],
-      [2, ['변해 간다', '변할 뻔했다', '변한 척했다', '변하면 된다']],
-      [3, ['늦는 셈이다', '늦어도 된다', '늦을 리가 없다', '늦을 수도 있다']],
-      [4, ['예상한 탓에', '예상하는 동안에', '예상하기만 하면', '예상한 것과 같이']],
-      [5, ['구두', '우산', '자전거', '선풍기']],
-      [6, ['은행', '시장', '세탁소', '가구점']],
-      [7, ['전기 절약', '건강 관리', '생활 예절', '환경 보호']],
-      [8, ['예매 방법', '행사 소개', '등록 문의', '교환 순서']],
-    ]);
+    const optionsByQuestion = new Map<number, [string, string, string, string]>(
+      [
+        [1, ['온 지', '올 때', '오거나', '오다가']],
+        [2, ['변해 간다', '변할 뻔했다', '변한 척했다', '변하면 된다']],
+        [3, ['늦는 셈이다', '늦어도 된다', '늦을 리가 없다', '늦을 수도 있다']],
+        [
+          4,
+          [
+            '예상한 탓에',
+            '예상하는 동안에',
+            '예상하기만 하면',
+            '예상한 것과 같이',
+          ],
+        ],
+        [5, ['구두', '우산', '자전거', '선풍기']],
+        [6, ['은행', '시장', '세탁소', '가구점']],
+        [7, ['전기 절약', '건강 관리', '생활 예절', '환경 보호']],
+        [8, ['예매 방법', '행사 소개', '등록 문의', '교환 순서']],
+      ],
+    );
     const options = optionsByQuestion.get(questionNumber);
 
     if (options) {
@@ -521,7 +535,10 @@ function manualOptions(section: 'reading' | 'listening', questionNumber: number)
   return null;
 }
 
-function manualPassage(section: 'reading' | 'listening', questionNumber: number) {
+function manualPassage(
+  section: 'reading' | 'listening',
+  questionNumber: number,
+) {
   if (section === 'listening') {
     const listeningPassages = new Map<number, string>([
       [
@@ -551,7 +568,7 @@ function manualPassage(section: 'reading' | 'listening', questionNumber: number)
           '3.',
           '남자: 안전한 먹거리에 대한 소비자들의 관심이 높아지면서 최근 1년간',
           '친환경 농산물을 구매한 적이 있다는 응답이 76%로 나타났습니다.',
-          "친환경 농산물 구매 이유로는 건강을 위해서가 1위를 차지했으며,",
+          '친환경 농산물 구매 이유로는 건강을 위해서가 1위를 차지했으며,',
           "'환경 보호를 위해서', 품질이 좋아서가 그 뒤를 이었습니다.",
         ].join('\n'),
       ],
@@ -800,7 +817,9 @@ function extractOptionContent(
     const optionNumber = match[1];
     const start = (match.index ?? 0) + match[0].length;
     const end =
-      index + 1 < matches.length ? matches[index + 1].index ?? normalized.length : normalized.length;
+      index + 1 < matches.length
+        ? (matches[index + 1].index ?? normalized.length)
+        : normalized.length;
     const content = normalized
       .slice(start, end)
       .split('\n')
@@ -870,7 +889,8 @@ function questionPassageContent(
   }
 
   if (section === 'listening' && questionNumber === 3) {
-    const endPhrase = "'환경 보호를 위해서', 품질이 좋아서 가 그 뒤를 이었습니다.";
+    const endPhrase =
+      "'환경 보호를 위해서', 품질이 좋아서 가 그 뒤를 이었습니다.";
     const endIndex = content.indexOf(endPhrase);
     if (endIndex >= 0) {
       content = content.slice(0, endIndex + endPhrase.length).trim();
@@ -893,6 +913,10 @@ function optionRows(
     content: ocrOptions.get(option) ?? option,
     is_correct: option === correctAnswer ? 1 : 0,
   }));
+}
+
+function answerExplanation(correctAnswer: string) {
+  return `정답은 ${correctAnswer}번입니다.`;
 }
 
 async function createReadingSet(now: bigint, readingOcrLines: string[]) {
@@ -941,7 +965,7 @@ async function createReadingSet(now: bigint, readingOcrLines: string[]) {
         level: 4,
         prompt: '',
         correct_answer: readingAnswers[questionNumber - 1],
-        explanation: `정답은 ${readingAnswers[questionNumber - 1]}번입니다. 원문 문제지는 question_media의 PDF를 확인하십시오. 정답표: ${answerPdfUrl}`,
+        explanation: answerExplanation(readingAnswers[questionNumber - 1]),
         difficulty: 3,
         time_limit_seconds: 84,
         is_ai_generated: 0,
@@ -1020,7 +1044,7 @@ async function createListeningSet(now: bigint, listeningOcrLines: string[]) {
         level: 4,
         prompt: '',
         correct_answer: listeningAnswers[questionNumber - 1],
-        explanation: `정답은 ${listeningAnswers[questionNumber - 1]}번입니다. 문제지는 question_media의 PDF를 확인하십시오. 정답표: ${answerPdfUrl}`,
+        explanation: answerExplanation(listeningAnswers[questionNumber - 1]),
         difficulty: 3,
         time_limit_seconds: 72,
         is_ai_generated: 0,
@@ -1048,7 +1072,7 @@ async function createListeningSet(now: bigint, listeningOcrLines: string[]) {
             {
               media_type: 'document',
               url: listeningPdfUrl,
-              transcript: '제102회 TOPIK II 듣기 통합 PDF 원문',
+              transcript: `제102회 TOPIK II 듣기 통합 PDF 원문. 정답표: ${answerPdfUrl}`,
               sort_order: 2,
               created_at: now,
               updated_at: now,

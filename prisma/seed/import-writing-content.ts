@@ -230,7 +230,7 @@ async function importContent(content: WritingContentFile) {
       title: content.set.title,
       section: 'writing',
       level: content.set.level,
-      exam_kind: 'mock',
+      exam_kind: 'practice',
       total_questions: content.questions.length,
       duration_seconds: content.questions.reduce(
         (total, question) => total + question.time_limit_seconds,

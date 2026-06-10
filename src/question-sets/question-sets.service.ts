@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateQuestionSetDto } from './dto/create-question-set.dto';
 import { UpdateQuestionSetDto } from './dto/update-question-set.dto';
+import { EXAM_KIND } from '../common/exam-kind';
 
 @Injectable()
 export class QuestionSetsService {
@@ -36,6 +37,7 @@ export class QuestionSetsService {
     const set = await this.prisma.question_sets.create({
       data: {
         ...createQuestionSetDto,
+        exam_kind: createQuestionSetDto.exam_kind ?? EXAM_KIND.PRACTICE,
         created_at: now,
         updated_at: now,
       },

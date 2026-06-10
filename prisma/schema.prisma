@@ -90,7 +90,7 @@ model question_sets {
   level             Int                  @db.TinyInt
   created_at        BigInt
   updated_at        BigInt
-  exam_kind         String               @default("mock") @db.VarChar(20)
+  exam_kind         String               @default("practice") @db.VarChar(20)
   total_questions   Int                  @default(0)
   duration_seconds  Int                  @default(0)
   price             Int                  @default(0)
@@ -268,13 +268,13 @@ model user_vocabulary {
 }
 
 model user_questions {
-  id            String     @id @default(uuid()) @db.VarChar(36)
-  user_id       String     @db.VarChar(36)
-  question_id   String     @db.VarChar(36)
-  is_bookmarked Int        @default(0) @db.TinyInt
+  id            String    @id @default(uuid()) @db.VarChar(36)
+  user_id       String    @db.VarChar(36)
+  question_id   String    @db.VarChar(36)
+  is_bookmarked Int       @default(0) @db.TinyInt
   updated_at    BigInt
-  users         users      @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_1")
-  questions     questions  @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_2")
+  users         users     @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_1")
+  questions     questions @relation(fields: [question_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "user_questions_ibfk_2")
 
   @@unique([user_id, question_id], map: "uq_user_questions_user_question")
   @@index([question_id], map: "question_id")

@@ -43,6 +43,13 @@ export class QuestionsService {
       ...(query.level !== undefined ? { level: query.level } : {}),
       ...(query.question_type ? { question_type: query.question_type } : {}),
       ...(query.set_id ? { set_id: query.set_id } : {}),
+      ...(!query.set_id && query.level !== undefined
+        ? {
+            question_sets: {
+              exam_kind: 'practice',
+            },
+          }
+        : {}),
     };
 
     const [items, total] = await this.prisma.$transaction([

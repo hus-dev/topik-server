@@ -61,7 +61,14 @@ export class PracticeSessionsService {
   ): Prisma.questionsWhereInput {
     return {
       ...(dto.set_id ? { set_id: dto.set_id } : {}),
-      ...(!dto.set_id ? { section: dto.section } : {}),
+      ...(!dto.set_id
+        ? {
+            section: dto.section,
+            question_sets: {
+              exam_kind: 'practice',
+            },
+          }
+        : {}),
       ...(dto.level !== undefined ? { level: dto.level } : {}),
     };
   }

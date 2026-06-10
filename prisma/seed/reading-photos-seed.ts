@@ -92,6 +92,7 @@ async function main() {
       title: questionSetTitle,
       section: 'reading',
       level: 3,
+      exam_kind: 'practice',
       created_at: timestamp,
       updated_at: timestamp,
     },

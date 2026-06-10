@@ -9,6 +9,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { CreateMockExamSessionDto } from './dto/create-mock-exam-session.dto';
 import { SaveMockExamAnswerDto } from './dto/save-mock-exam-answer.dto';
 import { UpdateMockExamProgressDto } from './dto/update-mock-exam-progress.dto';
+import { EXAM_KIND } from '../common/exam-kind';
 
 @Injectable()
 export class MockExamsService {
@@ -162,22 +163,32 @@ export class MockExamsService {
     }>,
   ) {
     const readingMock = questionSets
-      .filter((set) => set.section === 'reading' && set.exam_kind === 'mock')
+      .filter(
+        (set) => set.section === 'reading' && set.exam_kind === EXAM_KIND.MOCK,
+      )
       .sort((left, right) => left.display_order - right.display_order)
       .map((set) => this.mapQuestionSetCard(set, 50));
 
     const readingType = questionSets
-      .filter((set) => set.section === 'reading' && set.exam_kind === 'type')
+      .filter(
+        (set) => set.section === 'reading' && set.exam_kind === EXAM_KIND.TYPE,
+      )
       .sort((left, right) => left.display_order - right.display_order)
       .map((set) => this.mapQuestionSetCard(set, 30));
 
     const listeningMock = questionSets
-      .filter((set) => set.section === 'listening' && set.exam_kind === 'mock')
+      .filter(
+        (set) =>
+          set.section === 'listening' && set.exam_kind === EXAM_KIND.MOCK,
+      )
       .sort((left, right) => left.display_order - right.display_order)
       .map((set) => this.mapQuestionSetCard(set, 50));
 
     const listeningType = questionSets
-      .filter((set) => set.section === 'listening' && set.exam_kind === 'type')
+      .filter(
+        (set) =>
+          set.section === 'listening' && set.exam_kind === EXAM_KIND.TYPE,
+      )
       .sort((left, right) => left.display_order - right.display_order)
       .map((set) => this.mapQuestionSetCard(set, 10));
 
@@ -229,6 +240,12 @@ export class MockExamsService {
     if (!set) {
       throw new NotFoundException(
         `QuestionSet with ID ${dto.set_id} not found`,
+      );
+    }
+
+    if (set.exam_kind !== EXAM_KIND.MOCK) {
+      throw new BadRequestException(
+        `QuestionSet ${dto.set_id} is not a mock exam set`,
       );
     }
 
@@ -514,6 +531,11 @@ export class MockExamsService {
         },
       }),
       this.prisma.question_sets.findMany({
+        where: {
+          exam_kind: {
+            in: [EXAM_KIND.MOCK, EXAM_KIND.TYPE],
+          },
+        },
         include: {
           _count: {
             select: {

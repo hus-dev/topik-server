@@ -9,7 +9,6 @@ function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) throw new Error('DATABASE_URL is not set');
   const url = new URL(connectionString);
-  if (url.protocol === 'mysql:') url.protocol = 'mariadb:';
   if (url.hostname === 'localhost' || url.hostname === '::1') url.hostname = '127.0.0.1';
   if (!url.searchParams.has('allowPublicKeyRetrieval')) url.searchParams.set('allowPublicKeyRetrieval', 'true');
   return url.toString();

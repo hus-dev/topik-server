@@ -11,9 +11,6 @@ function getConnectionString() {
   }
 
   const url = new URL(connectionString);
-  if (url.protocol === 'mysql:') {
-    url.protocol = 'mariadb:';
-  }
 
   if (!url.searchParams.has('allowPublicKeyRetrieval')) {
     url.searchParams.set('allowPublicKeyRetrieval', 'true');

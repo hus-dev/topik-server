@@ -15,9 +15,6 @@ function getDatabaseUrl() {
   }
 
   const url = new URL(connectionString);
-  if (url.protocol === 'mysql:') {
-    url.protocol = 'mariadb:';
-  }
   if (url.hostname === 'localhost' || url.hostname === '::1') {
     url.hostname = '127.0.0.1';
   }

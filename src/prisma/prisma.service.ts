@@ -3,12 +3,8 @@ import { Injectable, OnModuleInit } from '@nestjs/common';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
-function normalizeMariaDbConnectionString(connectionString: string) {
+function normalizeMysqlConnectionString(connectionString: string) {
   const url = new URL(connectionString);
-
-  if (url.protocol === 'mysql:') {
-    url.protocol = 'mariadb:';
-  }
 
   if (
     url.hostname === 'localhost' ||
@@ -33,7 +29,7 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
       throw new Error('DATABASE_URL is not set');
     }
 
-    connectionString = normalizeMariaDbConnectionString(connectionString);
+    connectionString = normalizeMysqlConnectionString(connectionString);
 
     super({
       adapter: new PrismaMariaDb(connectionString),

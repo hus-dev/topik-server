@@ -44,6 +44,45 @@ $ yarn run start:dev
 $ yarn run start:prod
 ```
 
+## Run with Docker
+
+The local Docker setup starts the NestJS API and a MySQL 8 database.
+Copy `.env.docker.example` to `.env.docker` and change the local secrets before starting the stack.
+
+```bash
+$ docker compose --env-file .env.docker up --build
+```
+
+API:
+
+```text
+http://localhost:3000
+```
+
+Swagger:
+
+```text
+http://localhost:3000/api
+```
+
+MySQL is exposed on host port `3307`:
+
+```text
+mysql://topik_user:topik_password@localhost:3307/topik_smart_academy
+```
+
+Stop containers:
+
+```bash
+$ docker compose --env-file .env.docker down
+```
+
+Remove local database data too:
+
+```bash
+$ docker compose --env-file .env.docker down -v
+```
+
 ## Run tests
 
 ```bash

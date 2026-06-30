@@ -14,9 +14,15 @@ import { MockExamsModule } from './mock-exams/mock-exams.module';
 import { OfflineModule } from './offline/offline.module';
 import { TopikExamSchedulesModule } from './topik-exam-schedules/topik-exam-schedules.module';
 import { ExplanationVideosModule } from './explanation-videos/explanation-videos.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+      cache: true,
+    }),
+
     PrismaModule,
     UsersModule,
     AuthModule,

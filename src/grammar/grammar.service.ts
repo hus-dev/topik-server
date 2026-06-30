@@ -13,23 +13,23 @@ export class GrammarService {
     private readonly offlineService: OfflineService,
   ) {}
 
-  private serializeData(data: any): any {
+  private serializeData(data: unknown): unknown {
     if (data === null || data === undefined) return data;
 
     if (Array.isArray(data)) {
       return data.map((item) => this.serializeData(item));
     }
 
+    if (typeof data === 'bigint') {
+      return data.toString();
+    }
+
     if (typeof data === 'object') {
-      const serialized: any = {};
-      for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
-        } else {
-          serialized[key] = data[key];
-        }
+      const serialized: Record<string, unknown> = {};
+      for (const [key, value] of Object.entries(
+        data as Record<string, unknown>,
+      )) {
+        serialized[key] = this.serializeData(value);
       }
       return serialized;
     }

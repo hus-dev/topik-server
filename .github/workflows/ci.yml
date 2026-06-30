@@ -1,16 +1,28 @@
-name: My First CI
+name: NestJS CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  hello:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - run: pwd
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-      - run: ls
+      - name: Install Dependencies
+        run: npm install
 
-      - run: uname -a
+      - name: Run Tests
+        run: npm test
+
+      - name: Build Project
+        run: npm run build

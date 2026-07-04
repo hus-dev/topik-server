@@ -22,7 +22,10 @@ function normalizeMysqlConnectionString(connectionString: string) {
 }
 
 @Injectable()
-export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
+export class PrismaService
+  extends PrismaClient
+  implements OnModuleInit, OnModuleDestroy
+{
   constructor() {
     let connectionString = process.env.DATABASE_URL;
     if (!connectionString) {

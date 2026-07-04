@@ -3,11 +3,8 @@ services:
     image: mysql:8.0
     container_name: topik-mysql
     restart: unless-stopped
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    env_file:
+      - .env.docker
     ports:
       - "3307:3306"
     volumes:
@@ -42,13 +39,11 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
+    env_file:
+      - .env.docker
     environment:
       HOST: 0.0.0.0
       PORT: 3000
-      JWT_SECRET: ${JWT_SECRET}
-      DATABASE_URL: mysql://${MYSQL_USER}:${MYSQL_PASSWORD}@mysql:3306/${MYSQL_DATABASE}
-      REDIS_HOST: redis
-      REDIS_PORT: 6379
     ports:
       - "3000:3000"
 

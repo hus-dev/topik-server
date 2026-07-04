@@ -50,7 +50,7 @@ The local Docker setup starts the NestJS API and a MySQL 8 database.
 Copy `.env.docker.example` to `.env.docker` and change the local secrets before starting the stack.
 
 ```bash
-$ docker compose --env-file .env.docker up --build
+$ docker compose up --build
 ```
 
 API:
@@ -74,13 +74,13 @@ mysql://topik_user:topik_password@localhost:3307/topik_smart_academy
 Stop containers:
 
 ```bash
-$ docker compose --env-file .env.docker down
+$ docker compose down
 ```
 
 Remove local database data too:
 
 ```bash
-$ docker compose --env-file .env.docker down -v
+$ docker compose down -v
 ```
 
 ## Run tests

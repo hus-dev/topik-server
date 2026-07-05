@@ -44,4 +44,44 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
   async del(key: string): Promise<void> {
     await this.client.del(key);
   }
+
+  // Cache-aside pattern helpers
+  async getOrSet<T>(
+    key: string,
+    fetchFn: () => Promise<T>,
+    ttlSeconds: number = 300,
+  ): Promise<T> {
+    const cached = await this.get(key);
+    if (cached) {
+      return JSON.parse(cached) as T;
+    }
+    const data = await fetchFn();
+    await this.set(key, JSON.stringify(data), ttlSeconds);
+    return data;
+  }
+
+  async getOrSetMany<T>(keys: string[]): Promise<(T | null)[]> {
+    if (keys.length === 0) return [];
+    const results = await this.client.mget(...keys);
+    return results.map((r) => (r ? JSON.parse(r) : null));
+  }
+
+  async setMany(keyValues: Record<string, unknown>, ttlSeconds?: number): Promise<void> {
+    const pipeline = this.client.pipeline();
+    for (const [key, value] of Object.entries(keyValues)) {
+      if (ttlSeconds) {
+        pipeline.set(key, JSON.stringify(value), 'EX', ttlSeconds);
+      } else {
+        pipeline.set(key, JSON.stringify(value));
+      }
+    }
+    await pipeline.exec();
+  }
+
+  async invalidatePattern(pattern: string): Promise<void> {
+    const keys = await this.client.keys(pattern);
+    if (keys.length > 0) {
+      await this.client.del(...keys);
+    }
+  }
 }

@@ -1,13 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../redis/redis.service';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { GetQuestionsQueryDto } from './dto/get-questions-query.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 
 @Injectable()
 export class QuestionsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly redis: RedisService,
+  ) {}
 
   private serializeData(data: any): any {
     if (data === null || data === undefined) return data;
@@ -52,12 +56,44 @@ export class QuestionsService {
         : {}),
     };
 
-    const [items, total] = await this.prisma.$transaction([
-      this.prisma.questions.findMany({
-        where,
-        skip,
-        take: limit,
-        orderBy: [{ section: 'asc' }, { question_number: 'asc' }],
+    const cacheKey = `questions:list:${JSON.stringify({ ...query, skip, limit })}`;
+
+    return this.redis.getOrSet(cacheKey, async () => {
+      const [items, total] = await this.prisma.$transaction([
+        this.prisma.questions.findMany({
+          where,
+          skip,
+          take: limit,
+          orderBy: [{ section: 'asc' }, { question_number: 'asc' }],
+          include: {
+            question_options: {
+              orderBy: { option_number: 'asc' },
+            },
+            question_media: {
+              orderBy: { sort_order: 'asc' },
+            },
+            question_passages: true,
+            question_sets: true,
+          },
+        }),
+        this.prisma.questions.count({ where }),
+      ]);
+
+      return {
+        items: this.serializeData(items),
+        page,
+        limit,
+        total,
+      };
+    }, 300); // 5 minute cache
+  }
+
+  async findOne(id: string) {
+    const cacheKey = `questions:${id}`;
+
+    const question = await this.redis.getOrSet(cacheKey, async () => {
+      const q = await this.prisma.questions.findUnique({
+        where: { id },
         include: {
           question_options: {
             orderBy: { option_number: 'asc' },
@@ -68,38 +104,16 @@ export class QuestionsService {
           question_passages: true,
           question_sets: true,
         },
-      }),
-      this.prisma.questions.count({ where }),
-    ]);
+      });
 
-    return {
-      items: this.serializeData(items),
-      page,
-      limit,
-      total,
-    };
-  }
+      if (!q) {
+        throw new NotFoundException(`Question with ID ${id} not found`);
+      }
 
-  async findOne(id: string) {
-    const question = await this.prisma.questions.findUnique({
-      where: { id },
-      include: {
-        question_options: {
-          orderBy: { option_number: 'asc' },
-        },
-        question_media: {
-          orderBy: { sort_order: 'asc' },
-        },
-        question_passages: true,
-        question_sets: true,
-      },
-    });
+      return this.serializeData(q);
+    }, 600); // 10 minute cache
 
-    if (!question) {
-      throw new NotFoundException(`Question with ID ${id} not found`);
-    }
-
-    return this.serializeData(question);
+    return question;
   }
 
   private async validateQuestionRelations(data: {
@@ -180,11 +194,16 @@ export class QuestionsService {
       },
     });
 
+    // Invalidate list cache when new question is created
+    await this.redis.invalidatePattern('questions:list:*');
+
     return this.serializeData(question);
   }
 
   async update(id: string, updateQuestionDto: UpdateQuestionDto) {
-    await this.findOne(id);
+    // Invalidate cache before update
+    await this.redis.del(`questions:${id}`);
+    await this.redis.invalidatePattern('questions:list:*');
 
     const { question_options, question_media, ...questionData } =
       updateQuestionDto;
@@ -250,9 +269,19 @@ export class QuestionsService {
   }
 
   async remove(id: string) {
-    await this.findOne(id);
+    // Check existence and invalidate cache
+    const existing = await this.prisma.questions.findUnique({
+      where: { id },
+    });
+    if (!existing) {
+      throw new NotFoundException(`Question with ID ${id} not found`);
+    }
 
-    const question = await this.prisma.$transaction(async (tx) => {
+    // Invalidate cache
+    await this.redis.del(`questions:${id}`);
+    await this.redis.invalidatePattern('questions:list:*');
+
+    const deleted = await this.prisma.$transaction(async (tx) => {
       await tx.question_options.deleteMany({
         where: { question_id: id },
       });
@@ -265,6 +294,6 @@ export class QuestionsService {
       });
     });
 
-    return this.serializeData(question);
+    return this.serializeData(deleted);
   }
 }

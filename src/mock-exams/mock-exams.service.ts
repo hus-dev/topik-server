@@ -6,6 +6,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../redis/redis.service';
 import { CreateMockExamSessionDto } from './dto/create-mock-exam-session.dto';
 import { SaveMockExamAnswerDto } from './dto/save-mock-exam-answer.dto';
 import { UpdateMockExamProgressDto } from './dto/update-mock-exam-progress.dto';
@@ -13,7 +14,10 @@ import { EXAM_KIND } from '../common/exam-kind';
 
 @Injectable()
 export class MockExamsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly redis: RedisService,
+  ) {}
 
   private serializeData(data: unknown): unknown {
     if (data === null || data === undefined) return data;
@@ -518,19 +522,9 @@ export class MockExamsService {
   }
 
   async getCatalog(userId: string) {
-    const [activeSession, questionSets] = await Promise.all([
-      this.prisma.exam_sessions.findFirst({
-        where: {
-          user_id: userId,
-          mode: 'mock',
-          status: 'in_progress',
-        },
-        orderBy: { started_at: 'desc' },
-        include: {
-          question_sets: true,
-        },
-      }),
-      this.prisma.question_sets.findMany({
+    // Cache the question sets catalog (shared across users)
+    const questionSets = await this.redis.getOrSet('mock-exams:catalog:sets', async () => {
+      return this.prisma.question_sets.findMany({
         where: {
           exam_kind: {
             in: [EXAM_KIND.MOCK, EXAM_KIND.TYPE],
@@ -548,8 +542,21 @@ export class MockExamsService {
           { exam_kind: 'asc' },
           { display_order: 'asc' },
         ],
-      }),
-    ]);
+      });
+    }, 600); // 10 minute cache
+
+    // Active session is user-specific, not cached
+    const activeSession = await this.prisma.exam_sessions.findFirst({
+      where: {
+        user_id: userId,
+        mode: 'mock',
+        status: 'in_progress',
+      },
+      orderBy: { started_at: 'desc' },
+      include: {
+        question_sets: true,
+      },
+    });
 
     const active = activeSession
       ? {

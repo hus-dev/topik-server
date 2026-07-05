@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 import { OfflineService } from '../offline/offline.service';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../redis/redis.service';
 import { CreateVocabularyDto } from './dto/create-vocabulary.dto';
 import { GetVocabularyQueryDto } from './dto/get-vocabulary-query.dto';
 import { UpdateVocabularyDto } from './dto/update-vocabulary.dto';
@@ -11,6 +12,7 @@ export class VocabularyService {
   constructor(
     private readonly prisma: PrismaService,
     private readonly offlineService: OfflineService,
+    private readonly redis: RedisService,
   ) {}
 
   private serializeData(data: any): any {
@@ -67,27 +69,35 @@ export class VocabularyService {
         : {}),
     };
 
-    const [items, total] = await this.prisma.$transaction([
-      this.prisma.vocabulary.findMany({
-        where,
-        skip,
-        take: limit,
-        orderBy: [{ level: 'asc' }, { word: 'asc' }],
-      }),
-      this.prisma.vocabulary.count({ where }),
-    ]);
+    const cacheKey = `vocabulary:list:${JSON.stringify({ ...query, skip, limit })}`;
 
-    return this.serializeData({
-      items,
-      page,
-      limit,
-      total,
-    });
+    return this.redis.getOrSet(cacheKey, async () => {
+      const [items, total] = await this.prisma.$transaction([
+        this.prisma.vocabulary.findMany({
+          where,
+          skip,
+          take: limit,
+          orderBy: [{ level: 'asc' }, { word: 'asc' }],
+        }),
+        this.prisma.vocabulary.count({ where }),
+      ]);
+
+      return this.serializeData({
+        items,
+        page,
+        limit,
+        total,
+      });
+    }, 300); // 5 minute cache
   }
 
   async findOne(id: string) {
-    const vocabulary = await this.ensureExists(id);
-    return this.serializeData(vocabulary);
+    const cacheKey = `vocabulary:${id}`;
+
+    return this.redis.getOrSet(cacheKey, async () => {
+      const vocabulary = await this.ensureExists(id);
+      return this.serializeData(vocabulary);
+    }, 600); // 10 minute cache
   }
 
   async setBookmark(userId: string, vocabularyId: string, bookmarked: boolean) {
@@ -133,11 +143,16 @@ export class VocabularyService {
       },
     });
 
+    // Invalidate list cache when new vocabulary is created
+    await this.redis.invalidatePattern('vocabulary:list:*');
+
     return this.serializeData(vocabulary);
   }
 
   async update(id: string, updateVocabularyDto: UpdateVocabularyDto) {
-    await this.ensureExists(id);
+    // Invalidate cache before update
+    await this.redis.del(`vocabulary:${id}`);
+    await this.redis.invalidatePattern('vocabulary:list:*');
 
     const vocabulary = await this.prisma.vocabulary.update({
       where: { id },
@@ -151,7 +166,17 @@ export class VocabularyService {
   }
 
   async remove(id: string) {
-    await this.ensureExists(id);
+    // Check existence and invalidate cache
+    const existing = await this.prisma.vocabulary.findUnique({
+      where: { id },
+    });
+    if (!existing) {
+      throw new NotFoundException(`Vocabulary with ID ${id} not found`);
+    }
+
+    // Invalidate cache
+    await this.redis.del(`vocabulary:${id}`);
+    await this.redis.invalidatePattern('vocabulary:list:*');
 
     const vocabulary = await this.prisma.vocabulary.delete({
       where: { id },

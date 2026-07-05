@@ -1,12 +1,16 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../redis/redis.service';
 import { CreateQuestionSetDto } from './dto/create-question-set.dto';
 import { UpdateQuestionSetDto } from './dto/update-question-set.dto';
 import { EXAM_KIND } from '../common/exam-kind';
 
 @Injectable()
 export class QuestionSetsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    private prisma: PrismaService,
+    private readonly redis: RedisService,
+  ) {}
 
   private serializeData(data: any): any {
     if (data === null || data === undefined) return data;
@@ -42,36 +46,54 @@ export class QuestionSetsService {
         updated_at: now,
       },
     });
+
+    // Invalidate list cache when new question set is created
+    void this.redis.del('question-sets:list');
+
     return this.serializeData(set);
   }
 
   async findAll() {
-    const sets = await this.prisma.question_sets.findMany({
-      orderBy: { created_at: 'desc' },
-    });
-    return sets.map((set) => this.serializeData(set));
+    const cacheKey = 'question-sets:list';
+
+    return this.redis.getOrSet(cacheKey, async () => {
+      const sets = await this.prisma.question_sets.findMany({
+        orderBy: { created_at: 'desc' },
+      });
+      return sets.map((set) => this.serializeData(set));
+    }, 600); // 10 minute cache
   }
 
   async findOne(id: string) {
-    const set = await this.prisma.question_sets.findUnique({
-      where: { id },
-      include: {
-        questions: {
-          include: {
-            question_options: true,
-            question_media: true,
-            question_passages: true,
+    const cacheKey = `question-sets:${id}`;
+
+    const set = await this.redis.getOrSet(cacheKey, async () => {
+      const s = await this.prisma.question_sets.findUnique({
+        where: { id },
+        include: {
+          questions: {
+            include: {
+              question_options: true,
+              question_media: true,
+              question_passages: true,
+            },
           },
         },
-      },
-    });
-    if (!set) {
-      throw new NotFoundException(`QuestionSet with ID ${id} not found`);
-    }
-    return this.serializeData(set);
+      });
+      if (!s) {
+        throw new NotFoundException(`QuestionSet with ID ${id} not found`);
+      }
+      return this.serializeData(s);
+    }, 600); // 10 minute cache
+
+    return set;
   }
 
   async update(id: string, updateQuestionSetDto: UpdateQuestionSetDto) {
+    // Invalidate cache before update
+    void this.redis.del(`question-sets:${id}`);
+    void this.redis.del('question-sets:list');
+
     try {
       const now = BigInt(Date.now());
       const set = await this.prisma.question_sets.update({
@@ -88,13 +110,22 @@ export class QuestionSetsService {
   }
 
   async remove(id: string) {
-    try {
-      const set = await this.prisma.question_sets.delete({
-        where: { id },
-      });
-      return this.serializeData(set);
-    } catch (error) {
+    // Check existence and invalidate cache
+    const existing = await this.prisma.question_sets.findUnique({
+      where: { id },
+    });
+    if (!existing) {
       throw new NotFoundException(`QuestionSet with ID ${id} not found`);
     }
+
+    // Invalidate cache
+    void this.redis.del(`question-sets:${id}`);
+    void this.redis.del('question-sets:list');
+
+    const set = await this.prisma.question_sets.delete({
+      where: { id },
+    });
+
+    return this.serializeData(set);
   }
 }

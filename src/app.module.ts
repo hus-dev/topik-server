@@ -15,6 +15,7 @@ import { OfflineModule } from './offline/offline.module';
 import { TopikExamSchedulesModule } from './topik-exam-schedules/topik-exam-schedules.module';
 import { ExplanationVideosModule } from './explanation-videos/explanation-videos.module';
 import { ConfigModule } from '@nestjs/config';
+import { RedisModule } from './redis/redis.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { ConfigModule } from '@nestjs/config';
       cache: true,
     }),
 
+    RedisModule,
     PrismaModule,
     UsersModule,
     AuthModule,

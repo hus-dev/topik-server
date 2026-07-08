@@ -56,35 +56,43 @@ export class QuestionSetsService {
   async findAll() {
     const cacheKey = 'question-sets:list';
 
-    return this.redis.getOrSet(cacheKey, async () => {
-      const sets = await this.prisma.question_sets.findMany({
-        orderBy: { created_at: 'desc' },
-      });
-      return sets.map((set) => this.serializeData(set));
-    }, 600); // 10 minute cache
+    return this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const sets = await this.prisma.question_sets.findMany({
+          orderBy: { created_at: 'desc' },
+        });
+        return sets.map((set) => this.serializeData(set));
+      },
+      600,
+    ); // 10 minute cache
   }
 
   async findOne(id: string) {
     const cacheKey = `question-sets:${id}`;
 
-    const set = await this.redis.getOrSet(cacheKey, async () => {
-      const s = await this.prisma.question_sets.findUnique({
-        where: { id },
-        include: {
-          questions: {
-            include: {
-              question_options: true,
-              question_media: true,
-              question_passages: true,
+    const set = await this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const s = await this.prisma.question_sets.findUnique({
+          where: { id },
+          include: {
+            questions: {
+              include: {
+                question_options: true,
+                question_media: true,
+                question_passages: true,
+              },
             },
           },
-        },
-      });
-      if (!s) {
-        throw new NotFoundException(`QuestionSet with ID ${id} not found`);
-      }
-      return this.serializeData(s);
-    }, 600); // 10 minute cache
+        });
+        if (!s) {
+          throw new NotFoundException(`QuestionSet with ID ${id} not found`);
+        }
+        return this.serializeData(s);
+      },
+      600,
+    ); // 10 minute cache
 
     return set;
   }

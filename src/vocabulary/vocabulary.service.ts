@@ -71,33 +71,41 @@ export class VocabularyService {
 
     const cacheKey = `vocabulary:list:${JSON.stringify({ ...query, skip, limit })}`;
 
-    return this.redis.getOrSet(cacheKey, async () => {
-      const [items, total] = await this.prisma.$transaction([
-        this.prisma.vocabulary.findMany({
-          where,
-          skip,
-          take: limit,
-          orderBy: [{ level: 'asc' }, { word: 'asc' }],
-        }),
-        this.prisma.vocabulary.count({ where }),
-      ]);
+    return this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const [items, total] = await this.prisma.$transaction([
+          this.prisma.vocabulary.findMany({
+            where,
+            skip,
+            take: limit,
+            orderBy: [{ level: 'asc' }, { word: 'asc' }],
+          }),
+          this.prisma.vocabulary.count({ where }),
+        ]);
 
-      return this.serializeData({
-        items,
-        page,
-        limit,
-        total,
-      });
-    }, 300); // 5 minute cache
+        return this.serializeData({
+          items,
+          page,
+          limit,
+          total,
+        });
+      },
+      300,
+    ); // 5 minute cache
   }
 
   async findOne(id: string) {
     const cacheKey = `vocabulary:${id}`;
 
-    return this.redis.getOrSet(cacheKey, async () => {
-      const vocabulary = await this.ensureExists(id);
-      return this.serializeData(vocabulary);
-    }, 600); // 10 minute cache
+    return this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const vocabulary = await this.ensureExists(id);
+        return this.serializeData(vocabulary);
+      },
+      600,
+    ); // 10 minute cache
   }
 
   async setBookmark(userId: string, vocabularyId: string, bookmarked: boolean) {

@@ -523,27 +523,31 @@ export class MockExamsService {
 
   async getCatalog(userId: string) {
     // Cache the question sets catalog (shared across users)
-    const questionSets = await this.redis.getOrSet('mock-exams:catalog:sets', async () => {
-      return this.prisma.question_sets.findMany({
-        where: {
-          exam_kind: {
-            in: [EXAM_KIND.MOCK, EXAM_KIND.TYPE],
-          },
-        },
-        include: {
-          _count: {
-            select: {
-              questions: true,
+    const questionSets = await this.redis.getOrSet(
+      'mock-exams:catalog:sets',
+      async () => {
+        return this.prisma.question_sets.findMany({
+          where: {
+            exam_kind: {
+              in: [EXAM_KIND.MOCK, EXAM_KIND.TYPE],
             },
           },
-        },
-        orderBy: [
-          { section: 'asc' },
-          { exam_kind: 'asc' },
-          { display_order: 'asc' },
-        ],
-      });
-    }, 600); // 10 minute cache
+          include: {
+            _count: {
+              select: {
+                questions: true,
+              },
+            },
+          },
+          orderBy: [
+            { section: 'asc' },
+            { exam_kind: 'asc' },
+            { display_order: 'asc' },
+          ],
+        });
+      },
+      600,
+    ); // 10 minute cache
 
     // Active session is user-specific, not cached
     const activeSession = await this.prisma.exam_sessions.findFirst({

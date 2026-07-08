@@ -38,7 +38,7 @@ export class AuthService {
     const password_hash = await bcrypt.hash(password, salt);
 
     // 3. 사용자 생성 (기본 설정 포함)
-    const user = (await this.usersService.create({
+    const user = await this.usersService.create({
       email,
       nickname,
       password_hash,
@@ -48,7 +48,7 @@ export class AuthService {
       language_code: 'ko',
       timezone: 'Asia/Seoul',
       timer_mode: 'normal',
-    })) as any;
+    });
 
     return this.buildAuthResponse(user);
   }
@@ -97,15 +97,15 @@ export class AuthService {
         email,
       )) as any;
       if (existingEmailUser) {
-        user = (await this.usersService.update(existingEmailUser.id, {
+        user = await this.usersService.update(existingEmailUser.id, {
           provider: socialLoginDto.provider,
           provider_id: providerId,
-        })) as any;
+        });
       }
     }
 
     if (!user) {
-      user = (await this.usersService.create({
+      user = await this.usersService.create({
         email: email || null,
         provider: socialLoginDto.provider,
         provider_id: providerId,
@@ -114,7 +114,7 @@ export class AuthService {
         language_code: 'ko',
         timezone: 'Asia/Seoul',
         timer_mode: 'normal',
-      } as any)) as any;
+      } as any);
     }
 
     return this.buildAuthResponse(user);
@@ -125,12 +125,14 @@ export class AuthService {
   }
 
   async changePassword(userId: string, changePasswordDto: ChangePasswordDto) {
-    const userProfile = (await this.usersService.findOne(userId)) as any;
+    const userProfile = await this.usersService.findOne(userId);
     if (!userProfile || !userProfile.email) {
       throw new UnauthorizedException('User profile not found');
     }
 
-    const user = (await this.usersService.findByEmail(userProfile.email)) as any;
+    const user = (await this.usersService.findByEmail(
+      userProfile.email,
+    )) as any;
 
     if (!user || !user.password_hash) {
       throw new UnauthorizedException(

@@ -58,13 +58,48 @@ export class QuestionsService {
 
     const cacheKey = `questions:list:${JSON.stringify({ ...query, skip, limit })}`;
 
-    return this.redis.getOrSet(cacheKey, async () => {
-      const [items, total] = await this.prisma.$transaction([
-        this.prisma.questions.findMany({
-          where,
-          skip,
-          take: limit,
-          orderBy: [{ section: 'asc' }, { question_number: 'asc' }],
+    return this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const [items, total] = await this.prisma.$transaction([
+          this.prisma.questions.findMany({
+            where,
+            skip,
+            take: limit,
+            orderBy: [{ section: 'asc' }, { question_number: 'asc' }],
+            include: {
+              question_options: {
+                orderBy: { option_number: 'asc' },
+              },
+              question_media: {
+                orderBy: { sort_order: 'asc' },
+              },
+              question_passages: true,
+              question_sets: true,
+            },
+          }),
+          this.prisma.questions.count({ where }),
+        ]);
+
+        return {
+          items: this.serializeData(items),
+          page,
+          limit,
+          total,
+        };
+      },
+      300,
+    ); // 5 minute cache
+  }
+
+  async findOne(id: string) {
+    const cacheKey = `questions:${id}`;
+
+    const question = await this.redis.getOrSet(
+      cacheKey,
+      async () => {
+        const q = await this.prisma.questions.findUnique({
+          where: { id },
           include: {
             question_options: {
               orderBy: { option_number: 'asc' },
@@ -75,43 +110,16 @@ export class QuestionsService {
             question_passages: true,
             question_sets: true,
           },
-        }),
-        this.prisma.questions.count({ where }),
-      ]);
+        });
 
-      return {
-        items: this.serializeData(items),
-        page,
-        limit,
-        total,
-      };
-    }, 300); // 5 minute cache
-  }
+        if (!q) {
+          throw new NotFoundException(`Question with ID ${id} not found`);
+        }
 
-  async findOne(id: string) {
-    const cacheKey = `questions:${id}`;
-
-    const question = await this.redis.getOrSet(cacheKey, async () => {
-      const q = await this.prisma.questions.findUnique({
-        where: { id },
-        include: {
-          question_options: {
-            orderBy: { option_number: 'asc' },
-          },
-          question_media: {
-            orderBy: { sort_order: 'asc' },
-          },
-          question_passages: true,
-          question_sets: true,
-        },
-      });
-
-      if (!q) {
-        throw new NotFoundException(`Question with ID ${id} not found`);
-      }
-
-      return this.serializeData(q);
-    }, 600); // 10 minute cache
+        return this.serializeData(q);
+      },
+      600,
+    ); // 10 minute cache
 
     return question;
   }

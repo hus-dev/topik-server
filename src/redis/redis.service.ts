@@ -66,7 +66,10 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
     return results.map((r) => (r ? JSON.parse(r) : null));
   }
 
-  async setMany(keyValues: Record<string, unknown>, ttlSeconds?: number): Promise<void> {
+  async setMany(
+    keyValues: Record<string, unknown>,
+    ttlSeconds?: number,
+  ): Promise<void> {
     const pipeline = this.client.pipeline();
     for (const [key, value] of Object.entries(keyValues)) {
       if (ttlSeconds) {

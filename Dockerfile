@@ -27,7 +27,6 @@ COPY --from=build /app/prisma ./prisma
 COPY --from=build /app/prisma.config.ts ./prisma.config.ts
 COPY --from=build /app/content ./content
 COPY --from=build /app/test ./test
-COPY --from=build /app/topik_data ./topik_data
 
 EXPOSE 3000
 

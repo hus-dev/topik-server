@@ -532,7 +532,17 @@ export class MockExamsService {
               in: [EXAM_KIND.MOCK, EXAM_KIND.TYPE],
             },
           },
-          include: {
+          select: {
+            id: true,
+            title: true,
+            section: true,
+            level: true,
+            exam_kind: true,
+            total_questions: true,
+            duration_seconds: true,
+            price: true,
+            is_free: true,
+            display_order: true,
             _count: {
               select: {
                 questions: true,

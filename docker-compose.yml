@@ -46,6 +46,8 @@ services:
       PORT: 3000
     ports:
       - "3000:3000"
+    volumes:
+      - ./test/audio:/app/test/audio
 
 volumes:
   mysql_data:

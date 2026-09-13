@@ -13,30 +13,6 @@ export class GrammarService {
     private readonly offlineService: OfflineService,
   ) {}
 
-  private serializeData(data: unknown): unknown {
-    if (data === null || data === undefined) return data;
-
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'bigint') {
-      return data.toString();
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-        data as Record<string, unknown>,
-      )) {
-        serialized[key] = this.serializeData(value);
-      }
-      return serialized;
-    }
-
-    return data;
-  }
-
   private async ensureExists(id: string) {
     const grammar = await this.prisma.grammar_items.findUnique({
       where: { id },
@@ -75,17 +51,17 @@ export class GrammarService {
       this.prisma.grammar_items.count({ where }),
     ]);
 
-    return this.serializeData({
+    return {
       items,
       page,
       limit,
       total,
-    });
+    };
   }
 
   async findOne(id: string) {
     const grammar = await this.ensureExists(id);
-    return this.serializeData(grammar);
+    return grammar;
   }
 
   async setBookmark(userId: string, grammarId: string, bookmarked: boolean) {
@@ -111,7 +87,7 @@ export class GrammarService {
       },
     });
 
-    return this.serializeData(bookmark);
+    return bookmark;
   }
 
   async setDownloaded(userId: string, id: string, downloaded: boolean) {
@@ -132,7 +108,7 @@ export class GrammarService {
       },
     });
 
-    return this.serializeData(grammar);
+    return grammar;
   }
 
   async update(id: string, updateGrammarDto: UpdateGrammarDto) {
@@ -146,7 +122,7 @@ export class GrammarService {
       },
     });
 
-    return this.serializeData(grammar);
+    return grammar;
   }
 
   async remove(id: string) {
@@ -156,6 +132,6 @@ export class GrammarService {
       where: { id },
     });
 
-    return this.serializeData(grammar);
+    return grammar;
   }
 }

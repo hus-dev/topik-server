@@ -53,6 +53,7 @@ services:
     volumes:
       - ./content:/app/content
       - ./topik_data:/app/topik_data
+      - ./test/audio:/app/test/audio
 
 volumes:
   mysql_data:

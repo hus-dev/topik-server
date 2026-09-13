@@ -36,7 +36,7 @@
    # 4. Copy the compiled app code and static assets
    COPY --from=build /app/dist ./dist
    COPY --from=build /app/content ./content
-   # Note: Removed /app/test completely since tests aren't run in production!
+   COPY --from=build /app/test ./test
    
    EXPOSE 3000
    

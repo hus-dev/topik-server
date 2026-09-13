@@ -14,29 +14,7 @@ import { UpdatePracticeProgressDto } from './dto/update-practice-progress.dto';
 export class PracticeSessionsService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private serializeData(data: any): any {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'object') {
-      const serialized: any = {};
-      for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
-        } else {
-          serialized[key] = data[key];
-        }
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   private async findOwnedSession(userId: string, sessionId: string) {
     const session = await this.prisma.exam_sessions.findUnique({
@@ -176,11 +154,11 @@ export class PracticeSessionsService {
       },
     });
 
-    return this.serializeData({
+    return {
       session,
       questions,
       total_matching_questions: totalMatching,
-    });
+    };
   }
 
   async findOne(userId: string, sessionId: string) {
@@ -193,11 +171,11 @@ export class PracticeSessionsService {
       this.getSessionQuestions(sessionId, session),
     ]);
 
-    return this.serializeData({
+    return {
       session,
       questions,
       answers,
-    });
+    };
   }
 
   async updateProgress(
@@ -219,7 +197,7 @@ export class PracticeSessionsService {
       },
     });
 
-    return this.serializeData(session);
+    return session;
   }
 
   async saveAnswer(
@@ -310,7 +288,7 @@ export class PracticeSessionsService {
       });
     }
 
-    return this.serializeData(answer);
+    return answer;
   }
 
   async submit(userId: string, sessionId: string) {
@@ -362,7 +340,7 @@ export class PracticeSessionsService {
         ? Math.round((correct_count / session.total_questions) * 100)
         : 0;
 
-    return this.serializeData({
+    return {
       session,
       summary: {
         total_questions: session.total_questions,
@@ -372,6 +350,6 @@ export class PracticeSessionsService {
         score_percent,
       },
       answers,
-    });
+    };
   }
 }

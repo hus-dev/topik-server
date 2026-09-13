@@ -5,30 +5,7 @@ import { PrismaService } from '../prisma/prisma.service';
 export class BookmarksService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private serializeData(data: any): any {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, any> = {};
-      for (const key in data) {
-        const value = data[key];
-        if (typeof value === 'bigint') {
-          serialized[key] = value.toString();
-        } else if (value !== null && typeof value === 'object') {
-          serialized[key] = this.serializeData(value);
-        } else {
-          serialized[key] = value;
-        }
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   async getSummary(userId: string) {
     const [questions, vocabulary, grammar] = await this.prisma.$transaction([
@@ -103,23 +80,21 @@ export class BookmarksService {
       orderBy: { updated_at: 'desc' },
     });
 
-    return this.serializeData(
-      bookmarks.map((b) => {
-        const lastAnswer = b.questions.answers?.[0];
-        const { answers: _unused_answers, ...questionData } = b.questions;
-        return {
-          id: b.id,
-          question_id: b.question_id,
-          bookmarked: b.is_bookmarked,
-          updated_at: b.updated_at,
-          questions: questionData,
-          session_id: lastAnswer?.session_id || null,
-          selected_answer: lastAnswer?.selected_answer || null,
-          is_correct: lastAnswer?.is_correct || null,
-          exam_sessions: lastAnswer?.exam_sessions || null,
-        };
-      }),
-    );
+    return bookmarks.map((b) => {
+      const lastAnswer = b.questions.answers?.[0];
+      const { answers: _unused_answers, ...questionData } = b.questions;
+      return {
+        id: b.id,
+        question_id: b.question_id,
+        bookmarked: b.is_bookmarked,
+        updated_at: b.updated_at,
+        questions: questionData,
+        session_id: lastAnswer?.session_id || null,
+        selected_answer: lastAnswer?.selected_answer || null,
+        is_correct: lastAnswer?.is_correct || null,
+        exam_sessions: lastAnswer?.exam_sessions || null,
+      };
+    });
   }
 
   async updateQuestion(
@@ -173,7 +148,7 @@ export class BookmarksService {
       },
     });
 
-    return this.serializeData(bookmark);
+    return bookmark;
   }
 
   async getVocabulary(userId: string) {
@@ -188,7 +163,7 @@ export class BookmarksService {
       orderBy: { updated_at: 'desc' },
     });
 
-    return this.serializeData(bookmarks);
+    return bookmarks;
   }
 
   async updateVocabulary(
@@ -229,7 +204,7 @@ export class BookmarksService {
       },
     });
 
-    return this.serializeData(bookmark);
+    return bookmark;
   }
 
   async getGrammar(userId: string) {
@@ -244,7 +219,7 @@ export class BookmarksService {
       orderBy: { updated_at: 'desc' },
     });
 
-    return this.serializeData(bookmarks);
+    return bookmarks;
   }
 
   async updateGrammar(userId: string, grammarId: string, bookmarked: boolean) {
@@ -281,6 +256,6 @@ export class BookmarksService {
       },
     });
 
-    return this.serializeData(bookmark);
+    return bookmark;
   }
 }

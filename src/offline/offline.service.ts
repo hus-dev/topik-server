@@ -12,29 +12,7 @@ type OfflineStatus = 'downloaded' | 'pending' | 'failed';
 export class OfflineService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private serializeData(data: unknown): unknown {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'bigint') {
-      return data.toString();
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-        data as Record<string, unknown>,
-      )) {
-        serialized[key] = this.serializeData(value);
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   private now() {
     return BigInt(Date.now());
@@ -155,12 +133,12 @@ export class OfflineService {
         },
       });
 
-      return this.serializeData({
+      return {
         entity_type: entityType,
         entity_id: entityId,
         status: 'removed',
         removed_count: removed.count,
-      });
+      };
     }
 
     const record = await this.prisma.user_downloads.upsert({
@@ -185,7 +163,7 @@ export class OfflineService {
       },
     });
 
-    return this.serializeData(record);
+    return record;
   }
 
   async getSummary(userId: string) {
@@ -273,12 +251,12 @@ export class OfflineService {
       };
     });
 
-    return this.serializeData({
+    return {
       items: itemsWithContent,
       page,
       limit,
       total,
-    });
+    };
   }
 
   async sync(userId: string, dto: SyncOfflineDto) {
@@ -377,10 +355,10 @@ export class OfflineService {
       }
     });
 
-    return this.serializeData({
+    return {
       synced: uniqueItems.size,
       replace: dto.replace ?? false,
-    });
+    };
   }
 
   async getSyncStatus(userId: string) {
@@ -400,7 +378,7 @@ export class OfflineService {
           ? 'needs_attention'
           : 'synced';
 
-    return this.serializeData({
+    return {
       status,
       last_synced_at: lastRecord?.updated_at ?? null,
       total_items: summary.total,
@@ -408,6 +386,6 @@ export class OfflineService {
       pending: summary.pending,
       failed: summary.failed,
       by_entity_type: summary.by_entity_type,
-    });
+    };
   }
 }

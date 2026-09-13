@@ -1,5 +1,6 @@
 import {
   ConflictException,
+  InternalServerErrorException,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
@@ -184,6 +185,13 @@ export class AuthService {
   }
 
   private async verifyGoogleToken(token: string) {
+    const allowedAudiences = this.getGoogleClientIds();
+    if (allowedAudiences.length === 0) {
+      throw new InternalServerErrorException(
+        'Google login is not configured. Set GOOGLE_CLIENT_ID or GOOGLE_CLIENT_IDS.',
+      );
+    }
+
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
@@ -200,17 +208,30 @@ export class AuthService {
       const data = (await response.json()) as {
         sub?: string;
         aud?: string;
+        iss?: string;
         email?: string;
         name?: string;
+        email_verified?: string;
       };
-      const expectedAudience = process.env.GOOGLE_CLIENT_ID;
 
       if (!data.sub) {
         throw new UnauthorizedException('Invalid Google token payload');
       }
 
-      if (expectedAudience && data.aud !== expectedAudience) {
+      if (!data.aud || !allowedAudiences.includes(data.aud)) {
         throw new UnauthorizedException('Google token audience mismatch');
+      }
+
+      if (
+        data.iss &&
+        data.iss !== 'accounts.google.com' &&
+        data.iss !== 'https://accounts.google.com'
+      ) {
+        throw new UnauthorizedException('Invalid Google token issuer');
+      }
+
+      if (data.email_verified === 'false') {
+        throw new UnauthorizedException('Google account email is not verified');
       }
 
       return {
@@ -226,6 +247,16 @@ export class AuthService {
     } finally {
       clearTimeout(timeoutId);
     }
+  }
+
+  private getGoogleClientIds() {
+    const rawValue =
+      process.env.GOOGLE_CLIENT_IDS ?? process.env.GOOGLE_CLIENT_ID ?? '';
+
+    return rawValue
+      .split(',')
+      .map((clientId) => clientId.trim())
+      .filter(Boolean);
   }
 
   private async verifyKakaoToken(token: string) {

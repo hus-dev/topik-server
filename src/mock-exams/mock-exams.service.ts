@@ -19,29 +19,7 @@ export class MockExamsService {
     private readonly redis: RedisService,
   ) {}
 
-  private serializeData(data: unknown): unknown {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'bigint') {
-      return data.toString();
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-        data as Record<string, unknown>,
-      )) {
-        serialized[key] = this.serializeData(value);
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   private async findOwnedSession(userId: string, sessionId: string) {
     const session = await this.prisma.exam_sessions.findFirst({
@@ -301,10 +279,10 @@ export class MockExamsService {
       },
     });
 
-    return this.serializeData({
+    return {
       session,
       questions,
-    });
+    };
   }
 
   async getActive(userId: string) {
@@ -329,11 +307,11 @@ export class MockExamsService {
       }),
     ]);
 
-    return this.serializeData({
+    return {
       session,
       questions,
       answers,
-    });
+    };
   }
 
   async findOne(userId: string, sessionId: string) {
@@ -346,11 +324,11 @@ export class MockExamsService {
       }),
     ]);
 
-    return this.serializeData({
+    return {
       session,
       questions,
       answers,
-    });
+    };
   }
 
   async updateProgress(
@@ -372,7 +350,7 @@ export class MockExamsService {
       },
     });
 
-    return this.serializeData(session);
+    return session;
   }
 
   async saveAnswer(
@@ -456,7 +434,7 @@ export class MockExamsService {
       });
     }
 
-    return this.serializeData(answer);
+    return answer;
   }
 
   async submit(userId: string, sessionId: string) {
@@ -508,7 +486,7 @@ export class MockExamsService {
         ? Math.round((correct_count / session.total_questions) * 100)
         : 0;
 
-    return this.serializeData({
+    return {
       session,
       summary: {
         total_questions: session.total_questions,
@@ -518,7 +496,7 @@ export class MockExamsService {
         score_percent,
       },
       answers,
-    });
+    };
   }
 
   async getCatalog(userId: string) {
@@ -591,9 +569,9 @@ export class MockExamsService {
         }
       : null;
 
-    return this.serializeData({
+    return {
       active_session: active,
       tabs: this.buildCatalogTabs(questionSets),
-    });
+    };
   }
 }

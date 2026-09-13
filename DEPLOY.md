@@ -75,6 +75,7 @@ nano .env.ec2
 - `MYSQL_ROOT_PASSWORD` - Use a strong password
 - `MYSQL_PASSWORD` - Use a strong password  
 - `JWT_SECRET` - Generate with: `openssl rand -base64 32`
+- `GOOGLE_CLIENT_ID` (or `GOOGLE_CLIENT_IDS`) - Required for Google social login
 
 ### 6. Deploy
 

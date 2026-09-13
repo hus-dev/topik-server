@@ -13,7 +13,8 @@ export class SocialLoginDto {
 
   @ApiProperty({
     example: 'eyJhbGciOiJSUzI1NiIsImtpZCI6Ij...',
-    description: 'Google ID token or Kakao access token',
+    description:
+      'Google ID token (credential) or Kakao access token. For Google, send the ID token from Google Sign-In response.',
   })
   @IsString()
   @IsNotEmpty()

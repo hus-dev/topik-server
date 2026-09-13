@@ -14,13 +14,6 @@ export class UsersService {
   private serializeUser(user: any) {
     if (!user) return null;
     const { password_hash, ...safeUser } = user;
-
-    for (const key in safeUser) {
-      if (typeof safeUser[key] === 'bigint') {
-        safeUser[key] = safeUser[key].toString();
-      }
-    }
-
     return safeUser;
   }
 

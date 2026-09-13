@@ -13,29 +13,7 @@ export class QuestionsService {
     private readonly redis: RedisService,
   ) {}
 
-  private serializeData(data: any): any {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'object') {
-      const serialized: any = {};
-      for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
-        } else {
-          serialized[key] = data[key];
-        }
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   async findAll(query: GetQuestionsQueryDto) {
     const page = query.page ?? 1;
@@ -82,7 +60,7 @@ export class QuestionsService {
         ]);
 
         return {
-          items: this.serializeData(items),
+          items,
           page,
           limit,
           total,
@@ -116,7 +94,7 @@ export class QuestionsService {
           throw new NotFoundException(`Question with ID ${id} not found`);
         }
 
-        return this.serializeData(q);
+        return q;
       },
       600,
     ); // 10 minute cache
@@ -205,7 +183,7 @@ export class QuestionsService {
     // Invalidate list cache when new question is created
     await this.redis.invalidatePattern('questions:list:*');
 
-    return this.serializeData(question);
+    return question;
   }
 
   async update(id: string, updateQuestionDto: UpdateQuestionDto) {
@@ -273,7 +251,7 @@ export class QuestionsService {
       });
     });
 
-    return this.serializeData(question);
+    return question;
   }
 
   async remove(id: string) {
@@ -302,6 +280,6 @@ export class QuestionsService {
       });
     });
 
-    return this.serializeData(deleted);
+    return deleted;
   }
 }

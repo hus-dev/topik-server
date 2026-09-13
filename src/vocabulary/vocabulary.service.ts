@@ -15,30 +15,6 @@ export class VocabularyService {
     private readonly redis: RedisService,
   ) {}
 
-  private serializeData(data: any): any {
-    if (data === null || data === undefined) return data;
-
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'object') {
-      const serialized: any = {};
-      for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
-        } else {
-          serialized[key] = data[key];
-        }
-      }
-      return serialized;
-    }
-
-    return data;
-  }
-
   private async ensureExists(id: string) {
     const vocabulary = await this.prisma.vocabulary.findUnique({
       where: { id },
@@ -84,12 +60,12 @@ export class VocabularyService {
           this.prisma.vocabulary.count({ where }),
         ]);
 
-        return this.serializeData({
+        return {
           items,
           page,
           limit,
           total,
-        });
+        };
       },
       300,
     ); // 5 minute cache
@@ -102,7 +78,7 @@ export class VocabularyService {
       cacheKey,
       async () => {
         const vocabulary = await this.ensureExists(id);
-        return this.serializeData(vocabulary);
+        return vocabulary;
       },
       600,
     ); // 10 minute cache
@@ -131,7 +107,7 @@ export class VocabularyService {
       },
     });
 
-    return this.serializeData(bookmark);
+    return bookmark;
   }
 
   async setDownloaded(userId: string, id: string, downloaded: boolean) {
@@ -154,7 +130,7 @@ export class VocabularyService {
     // Invalidate list cache when new vocabulary is created
     await this.redis.invalidatePattern('vocabulary:list:*');
 
-    return this.serializeData(vocabulary);
+    return vocabulary;
   }
 
   async update(id: string, updateVocabularyDto: UpdateVocabularyDto) {
@@ -170,7 +146,7 @@ export class VocabularyService {
       },
     });
 
-    return this.serializeData(vocabulary);
+    return vocabulary;
   }
 
   async remove(id: string) {
@@ -190,6 +166,6 @@ export class VocabularyService {
       where: { id },
     });
 
-    return this.serializeData(vocabulary);
+    return vocabulary;
   }
 }

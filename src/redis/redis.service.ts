@@ -82,9 +82,26 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
   }
 
   async invalidatePattern(pattern: string): Promise<void> {
-    const keys = await this.client.keys(pattern);
-    if (keys.length > 0) {
-      await this.client.del(...keys);
+    const stream = this.client.scanStream({
+      match: pattern,
+      count: 100,
+    });
+
+    let keysToDelete: string[] = [];
+
+    for await (const resultKeys of stream) {
+      const keys = resultKeys as string[];
+      if (Array.isArray(keys) && keys.length > 0) {
+        keysToDelete.push(...keys);
+        if (keysToDelete.length >= 500) {
+          await this.client.del(...keysToDelete);
+          keysToDelete = [];
+        }
+      }
+    }
+
+    if (keysToDelete.length > 0) {
+      await this.client.del(...keysToDelete);
     }
   }
 }

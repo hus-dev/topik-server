@@ -42,29 +42,7 @@ type ExplanationVideoRecord = {
 export class ExplanationVideosService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private serializeData(data: unknown): unknown {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'bigint') {
-      return data.toString();
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-        data as Record<string, unknown>,
-      )) {
-        serialized[key] = this.serializeData(value);
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   private now() {
     return BigInt(Date.now());
@@ -172,12 +150,12 @@ export class ExplanationVideosService {
       this.prisma.explanation_videos.count({ where }),
     ]);
 
-    return this.serializeData({
+    return {
       items: items.map((item) => this.withComputedFields(item)),
       page,
       limit,
       total,
-    });
+    };
   }
 
   async findRecommended() {
@@ -206,9 +184,7 @@ export class ExplanationVideosService {
       },
     });
 
-    return this.serializeData(
-      items.map((item) => this.withComputedFields(item)),
-    );
+    return items.map((item) => this.withComputedFields(item));
   }
 
   async findOne(id: string) {
@@ -240,7 +216,7 @@ export class ExplanationVideosService {
       throw new NotFoundException(`Explanation video with ID ${id} not found`);
     }
 
-    return this.serializeData(this.withComputedFields(video));
+    return this.withComputedFields(video);
   }
 
   async create(createDto: CreateExplanationVideoDto) {
@@ -314,7 +290,7 @@ export class ExplanationVideosService {
       },
     });
 
-    return this.serializeData(this.withComputedFields(video));
+    return this.withComputedFields(video);
   }
 
   async remove(id: string) {
@@ -351,6 +327,6 @@ export class ExplanationVideosService {
       },
     });
 
-    return this.serializeData(this.withComputedFields(video));
+    return this.withComputedFields(video);
   }
 }

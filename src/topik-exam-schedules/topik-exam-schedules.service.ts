@@ -23,29 +23,7 @@ type ScheduleRecord = {
 export class TopikExamSchedulesService {
   constructor(private readonly prisma: PrismaService) {}
 
-  private serializeData(data: unknown): unknown {
-    if (data === null || data === undefined) return data;
 
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'bigint') {
-      return data.toString();
-    }
-
-    if (typeof data === 'object') {
-      const serialized: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(
-        data as Record<string, unknown>,
-      )) {
-        serialized[key] = this.serializeData(value);
-      }
-      return serialized;
-    }
-
-    return data;
-  }
 
   private toTimestamp(value: string) {
     return BigInt(new Date(value).getTime());
@@ -87,9 +65,7 @@ export class TopikExamSchedulesService {
       orderBy: [{ exam_date: 'asc' }, { display_order: 'asc' }],
     });
 
-    return this.serializeData(
-      schedules.map((schedule) => this.withComputedFields(schedule)),
-    );
+    return schedules.map((schedule) => this.withComputedFields(schedule));
   }
 
   async findNext() {
@@ -108,7 +84,7 @@ export class TopikExamSchedulesService {
       return null;
     }
 
-    return this.serializeData(this.withComputedFields(schedule));
+    return this.withComputedFields(schedule);
   }
 
   async create(createDto: CreateTopikExamScheduleDto) {
@@ -132,7 +108,7 @@ export class TopikExamSchedulesService {
       },
     });
 
-    return this.serializeData(this.withComputedFields(schedule));
+    return this.withComputedFields(schedule);
   }
 
   async update(id: string, updateDto: UpdateTopikExamScheduleDto) {
@@ -189,7 +165,7 @@ export class TopikExamSchedulesService {
       },
     });
 
-    return this.serializeData(this.withComputedFields(schedule));
+    return this.withComputedFields(schedule);
   }
 
   async remove(id: string) {
@@ -207,6 +183,6 @@ export class TopikExamSchedulesService {
       where: { id },
     });
 
-    return this.serializeData(this.withComputedFields(schedule));
+    return this.withComputedFields(schedule);
   }
 }

@@ -12,30 +12,6 @@ export class QuestionSetsService {
     private readonly redis: RedisService,
   ) {}
 
-  private serializeData(data: any): any {
-    if (data === null || data === undefined) return data;
-
-    if (Array.isArray(data)) {
-      return data.map((item) => this.serializeData(item));
-    }
-
-    if (typeof data === 'object') {
-      const serialized: any = {};
-      for (const key in data) {
-        if (typeof data[key] === 'bigint') {
-          serialized[key] = data[key].toString();
-        } else if (typeof data[key] === 'object') {
-          serialized[key] = this.serializeData(data[key]);
-        } else {
-          serialized[key] = data[key];
-        }
-      }
-      return serialized;
-    }
-
-    return data;
-  }
-
   async create(createQuestionSetDto: CreateQuestionSetDto) {
     const now = BigInt(Date.now());
     const set = await this.prisma.question_sets.create({
@@ -50,7 +26,7 @@ export class QuestionSetsService {
     // Invalidate list cache when new question set is created
     void this.redis.del('question-sets:list');
 
-    return this.serializeData(set);
+    return set;
   }
 
   async findAll() {
@@ -62,7 +38,7 @@ export class QuestionSetsService {
         const sets = await this.prisma.question_sets.findMany({
           orderBy: { created_at: 'desc' },
         });
-        return sets.map((set) => this.serializeData(set));
+        return sets;
       },
       600,
     ); // 10 minute cache
@@ -89,7 +65,7 @@ export class QuestionSetsService {
         if (!s) {
           throw new NotFoundException(`QuestionSet with ID ${id} not found`);
         }
-        return this.serializeData(s);
+        return s;
       },
       600,
     ); // 10 minute cache
@@ -111,7 +87,7 @@ export class QuestionSetsService {
           updated_at: now,
         },
       });
-      return this.serializeData(set);
+      return set;
     } catch (error) {
       throw new NotFoundException(`QuestionSet with ID ${id} not found`);
     }
@@ -134,6 +110,6 @@ export class QuestionSetsService {
       where: { id },
     });
 
-    return this.serializeData(set);
+    return set;
   }
 }

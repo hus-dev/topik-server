@@ -1,0 +1,31 @@
+# 1. 의존성, 빌드 및 자동 생성 폴더 (토큰 폭탄 방지)
+node_modules/
+dist/
+generated/
+package-lock.json
+yarn.lock
+
+# 2. 서버 미디어 및 대용량 정적 데이터 폴더 (AI 읽기 차단)
+photos/
+topik_data/
+content/
+
+# 3. 환경 변수 및 보안 (비밀번호/키 유출 방지)
+.env
+.env.*
+!.env.docker.example
+!.env.ec2.example
+
+# 4. 정적 파일 및 미디어
+*.png
+*.jpg
+*.jpeg
+*.svg
+*.pdf
+*.webp
+*.zip
+
+# 5. 로그 및 테스트 커버리지
+*.log
+coverage/
+.DS_Store

@@ -1,0 +1,15 @@
+# NestJS & Prisma Server Roo Code Rules
+
+## Architecture & Code Style
+1. NestJS Standards: Follow modular architecture (Controller -> Service -> Repository/Prisma). Keep business logic in Services and routing/request handling in Controllers.
+2. DTO & Validation: Always define DTOs for request payloads using `class-validator` and `class-transformer`. Enforce strict TypeScript typing (avoid `any`).
+3. Prisma ORM: Place database access methods inside services. Ensure queries respect `prisma/schema.prisma`.
+
+## Token & Cost Optimization
+1. Targeted Diffs: Modify only the specific lines or methods needed. Never rewrite entire files or unchanged modules.
+2. Concise Output: Provide direct, minimal code edits and answers. Avoid conversational filler or introductions.
+3. Primary Scope: Focus file scans strictly within `src/` and `prisma/`. Do not inspect `deploy/`, `topik_data/`, or `photos/` unless explicitly instructed.
+
+## Terminal & Execution
+1. Minimal Commands: Do not execute `npm run build` or `nest start` after minor code edits. Run `npx prisma generate` only when `prisma/schema.prisma` is modified.
+2. Efficient Debugging: Carefully analyze NestJS Dependency Injection (DI) errors or Prisma query exceptions from the error stack trace before attempting code edits.

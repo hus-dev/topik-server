@@ -19,6 +19,7 @@
     "import:listening-content": "ts-node prisma/seed/import-listening-content.ts",
     "import:writing-content": "ts-node prisma/seed/import-writing-content.ts",
     "import:102-mock-exam": "ts-node prisma/seed/import-102-mock-exam.ts",
+    "import:topik-exam": "ts-node prisma/seed/import-topik-exam.ts",
     "import:vocabulary-content": "ts-node prisma/seed/import-vocabulary-content.ts",
     "import:grammar-content": "ts-node prisma/seed/import-grammar-content.ts",
     "import:explanation-videos": "ts-node prisma/seed/import-explanation-videos.ts",

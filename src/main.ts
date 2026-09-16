@@ -34,6 +34,13 @@ async function bootstrap() {
     prefix: '/test/audio/',
   });
 
+  // Legacy alias: older seed data stored listening audio under `/audio/...`
+  // instead of `/test/audio/...`. Serve the same directory on both prefixes so
+  // existing listening questions keep playing without a full re-seed.
+  app.useStaticAssets(join(process.cwd(), 'test/audio'), {
+    prefix: '/audio/',
+  });
+
   app.useStaticAssets(join(process.cwd(), 'topik_data'), {
     prefix: '/topik-data/',
   });

@@ -10,6 +10,7 @@ import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { AuthGuard } from '@nestjs/passport';
 
 interface JwtRequest extends Request {
@@ -49,6 +50,14 @@ export class AuthController {
     return this.authService.socialSignIn(socialLoginDto);
   }
 
+  @Post('refresh')
+  @ApiOperation({ summary: 'Refresh Access Token using Refresh Token' })
+  @ApiResponse({ status: 200, description: 'Successfully refreshed token' })
+  @ApiResponse({ status: 401, description: 'Invalid or expired refresh token' })
+  async refresh(@Body() refreshTokenDto: RefreshTokenDto) {
+    return this.authService.refreshTokens(refreshTokenDto.refreshToken);
+  }
+
   @Post('change-password')
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
@@ -65,12 +74,10 @@ export class AuthController {
   @Post('logout')
   @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
-  @ApiOperation({ summary: 'Logout user' })
+  @ApiOperation({ summary: 'Logout user and invalidate refresh token' })
   @ApiResponse({ status: 200, description: 'Successfully logged out' })
   @ApiResponse({ status: 401, description: 'Unauthorized' })
-  logout() {
-    // JWT는 상태가 없으므로 서버에서는 성공 메시지만 반환하고,
-    // 실제 토큰 삭제는 클라이언트(앱)에서 수행합니다.
-    return { message: 'Logged out successfully' };
+  async logout(@Body() body?: { refreshToken?: string }) {
+    return this.authService.logout(body?.refreshToken);
   }
 }

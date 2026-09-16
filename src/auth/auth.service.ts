@@ -211,10 +211,10 @@ export class AuthService {
         iss?: string;
         email?: string;
         name?: string;
-        email_verified?: string;
+        email_verified?: boolean | string;
       };
 
-      if (!data.sub) {
+      if (!data.sub || !data.email) {
         throw new UnauthorizedException('Invalid Google token payload');
       }
 
@@ -223,14 +223,14 @@ export class AuthService {
       }
 
       if (
-        data.iss &&
-        data.iss !== 'accounts.google.com' &&
-        data.iss !== 'https://accounts.google.com'
+        !data.iss ||
+        (data.iss !== 'accounts.google.com' &&
+          data.iss !== 'https://accounts.google.com')
       ) {
         throw new UnauthorizedException('Invalid Google token issuer');
       }
 
-      if (data.email_verified === 'false') {
+      if (String(data.email_verified) !== 'true') {
         throw new UnauthorizedException('Google account email is not verified');
       }
 

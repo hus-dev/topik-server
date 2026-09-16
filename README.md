@@ -79,27 +79,6 @@ $ yarn run build
 $ yarn run start:prod
 ```
 
-## ⚙️ 환경 변수 설정 (Environment Variables)
-
-프로젝트 루트에 `.env` 파일을 생성하고 다음 변수들을 설정해야 합니다:
-
-```env
-# Database (Prisma)
-DATABASE_URL="mysql://topik_user:topik_password@localhost:3307/topik_smart_academy"
-
-# Redis
-REDIS_HOST="localhost"
-REDIS_PORT=6379
-REDIS_PASSWORD=""
-
-# JWT Auth
-JWT_SECRET="your_jwt_secret_key_here"
-
-# Social Login (Google)
-GOOGLE_CLIENT_ID="your_google_client_id"
-GOOGLE_CLIENT_IDS="your_google_client_id_1,your_google_client_id_2"
-```
-
 ## 📚 API 문서 (API Documentation)
 
 서버가 실행된 후, 아래 URL에 접속하여 Swagger UI를 통해 모든 API 명세를 확인하고 테스트할 수 있습니다.

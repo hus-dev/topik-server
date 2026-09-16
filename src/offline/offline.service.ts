@@ -260,7 +260,8 @@ export class OfflineService {
   }
 
   async sync(userId: string, dto: SyncOfflineDto) {
-    if (dto.items.length === 0) {
+    const items = dto.items ?? [];
+    if (items.length === 0) {
       return {
         synced: 0,
         message: 'No offline items were provided',
@@ -271,7 +272,7 @@ export class OfflineService {
       string,
       { entityType: OfflineEntityType; entityId: string; status: OfflineStatus }
     >();
-    for (const item of dto.items) {
+    for (const item of items) {
       const key = `${item.entity_type}:${item.entity_id}`;
       uniqueItems.set(key, {
         entityType: item.entity_type,

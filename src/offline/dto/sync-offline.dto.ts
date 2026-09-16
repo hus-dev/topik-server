@@ -4,14 +4,15 @@ import { IsArray, IsOptional, ValidateNested } from 'class-validator';
 import { SyncOfflineItemDto } from './sync-offline-item.dto';
 
 export class SyncOfflineDto {
-  @ApiProperty({
+  @ApiPropertyOptional({
     type: [SyncOfflineItemDto],
     description: 'Offline items to sync',
   })
+  @IsOptional()
   @IsArray()
   @ValidateNested({ each: true })
   @Type(() => SyncOfflineItemDto)
-  items: SyncOfflineItemDto[];
+  items?: SyncOfflineItemDto[] = [];
 
   @ApiPropertyOptional({
     example: false,

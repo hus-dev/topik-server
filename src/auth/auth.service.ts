@@ -6,11 +6,13 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { UsersService } from '../users/users.service';
+import { RedisService } from '../redis/redis.service';
 import { LoginDto } from './dto/login.dto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { SocialLoginDto } from './dto/social-login.dto';
 import { ChangePasswordDto } from './dto/change-password.dto';
 import * as bcrypt from 'bcrypt';
+import * as crypto from 'crypto';
 
 interface JwtPayload {
   email: string | null;
@@ -23,6 +25,7 @@ export class AuthService {
   constructor(
     private readonly usersService: UsersService,
     private readonly jwtService: JwtService,
+    private readonly redisService: RedisService,
   ) {}
 
   async register(createUserDto: CreateUserDto) {
@@ -162,7 +165,35 @@ export class AuthService {
     return { message: 'Password changed successfully' };
   }
 
-  private buildAuthResponse(user: {
+  async refreshTokens(refreshToken: string) {
+    if (!refreshToken) {
+      throw new UnauthorizedException('Refresh token is required');
+    }
+
+    const userId = await this.redisService.get(`refresh_token:${refreshToken}`);
+    if (!userId) {
+      throw new UnauthorizedException('Invalid or expired refresh token');
+    }
+
+    const user = await this.usersService.findOne(userId);
+    if (!user) {
+      throw new UnauthorizedException('User no longer exists');
+    }
+
+    // Delete used refresh token (Token Rotation)
+    await this.redisService.del(`refresh_token:${refreshToken}`);
+
+    return this.buildAuthResponse(user as any);
+  }
+
+  async logout(refreshToken?: string) {
+    if (refreshToken) {
+      await this.redisService.del(`refresh_token:${refreshToken}`);
+    }
+    return { message: 'Logged out successfully' };
+  }
+
+  private async buildAuthResponse(user: {
     email: string | null;
     id: string;
     role: string;
@@ -173,8 +204,20 @@ export class AuthService {
       sub: user.id,
       role: user.role,
     };
+    const accessToken = this.jwtService.sign(payload, { expiresIn: '1h' });
+    const refreshToken = crypto.randomUUID();
+
+    // Store in Redis (14 days)
+    const REFRESH_TOKEN_TTL = 14 * 24 * 60 * 60;
+    await this.redisService.set(
+      `refresh_token:${refreshToken}`,
+      user.id,
+      REFRESH_TOKEN_TTL,
+    );
+
     return {
-      access_token: this.jwtService.sign(payload),
+      access_token: accessToken,
+      refresh_token: refreshToken,
       user: {
         id: user.id,
         email: user.email,
@@ -211,10 +254,10 @@ export class AuthService {
         iss?: string;
         email?: string;
         name?: string;
-        email_verified?: string;
+        email_verified?: boolean | string;
       };
 
-      if (!data.sub) {
+      if (!data.sub || !data.email) {
         throw new UnauthorizedException('Invalid Google token payload');
       }
 
@@ -223,14 +266,14 @@ export class AuthService {
       }
 
       if (
-        data.iss &&
-        data.iss !== 'accounts.google.com' &&
-        data.iss !== 'https://accounts.google.com'
+        !data.iss ||
+        (data.iss !== 'accounts.google.com' &&
+          data.iss !== 'https://accounts.google.com')
       ) {
         throw new UnauthorizedException('Invalid Google token issuer');
       }
 
-      if (data.email_verified === 'false') {
+      if (String(data.email_verified) !== 'true') {
         throw new UnauthorizedException('Google account email is not verified');
       }
 

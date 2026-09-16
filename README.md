@@ -1,137 +1,90 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# TopikGo - Backend Server (topik-server)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+TopikGo 애플리케이션의 백엔드 서버입니다. NestJS 기반의 RESTful API를 제공하며, MySQL과 Redis를 활용하여 효율적이고 확장 가능한 아키텍처를 구성하고 있습니다.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🛠 기술 스택 (Tech Stack)
 
-## Description
+- **Framework**: [NestJS](https://nestjs.com/) (Node.js / TypeScript)
+- **Database**: MySQL 8.0
+- **ORM**: [Prisma](https://www.prisma.io/)
+- **Caching & Session**: Redis
+- **Authentication**: JWT (JSON Web Token), OAuth (Google, Kakao)
+- **API Documentation**: Swagger (OpenAPI)
+- **Infrastructure**: Docker & Docker Compose
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🏗 아키텍처 (Architecture)
 
-## Project setup
+TopikGo 백엔드는 전형적인 Controller-Service-Repository 패턴(Prisma)을 따르고 있습니다.
 
+- **Controller**: 클라이언트(Flutter 앱)의 HTTP 요청을 처리하고 응답을 반환합니다.
+- **Service**: 비즈니스 로직을 담당하며, 데이터베이스나 외부 API(Social Login 등)와 통신합니다.
+- **Prisma**: MySQL 데이터베이스와의 상호작용을 담당합니다.
+- **Redis**: 캐싱, Refresh Token 관리, 임시 데이터 저장 등에 사용됩니다.
+
+## ✨ 주요 기능 (Key Features)
+
+1. **인증 및 인가 (Auth)**
+   - 이메일/비밀번호 기반 로컬 로그인 및 회원가입
+   - Google 및 Kakao 소셜 로그인 연동
+   - JWT 기반의 Access Token 및 Refresh Token 관리 (보안 강화)
+
+2. **사용자 관리 (Users)**
+   - 사용자 프로필 조회 및 수정
+   - 비밀번호 변경 기능
+
+3. **TOPIK 학습 콘텐츠 제공**
+   - 사용자 레벨(Target Level)에 맞춘 학습 모드 지원
+
+4. **성능 최적화**
+   - Redis를 활용한 빈번한 데이터 조회 캐싱 (`scanStream` 기반의 안전한 키 관리 적용)
+   - BigInt 직렬화 처리 등 안전한 데이터 핸들링
+
+## 💾 데이터베이스 구조 (Database Schema)
+
+Prisma ORM을 통해 아래와 같은 주요 엔티티를 관리합니다 (상세 스키마는 `prisma/schema.prisma` 참고):
+
+- **User**: 사용자 인증 정보, 프로필, 설정 (학습 레벨, 언어, 타임존 등)
+
+## 🚀 설치 및 실행 방법 (Installation & Running)
+
+### 1. 패키지 설치
 ```bash
 $ yarn install
 ```
 
-## Compile and run the project
-
+### 2. Docker를 이용한 인프라 실행 (MySQL, Redis 등)
+로컬 개발 환경에서는 Docker Compose를 사용하여 데이터베이스와 캐시 서버를 쉽게 띄울 수 있습니다.
 ```bash
-# development
-$ yarn run start
+# .env.docker.example 파일을 참고하여 환경변수 파일 생성
+$ cp .env.docker.example .env.docker
 
-# watch mode
+# Docker 컨테이너 실행
+$ docker compose up -d
+```
+
+### 3. Prisma 마이그레이션 적용
+```bash
+# 데이터베이스 스키마 동기화 및 Prisma Client 생성
+$ yarn prisma migrate dev
+$ yarn prisma generate
+```
+
+### 4. 서버 실행
+```bash
+# 개발 모드 (코드가 변경되면 자동 재시작)
 $ yarn run start:dev
 
-# production mode
+# 프로덕션 모드 빌드 및 실행
+$ yarn run build
 $ yarn run start:prod
 ```
 
-## Run with Docker
+## 📚 API 문서 (API Documentation)
 
-The local Docker setup starts the NestJS API and a MySQL 8 database.
-Copy `.env.docker.example` to `.env.docker` and change the local secrets before starting the stack.
+서버가 실행된 후, 아래 URL에 접속하여 Swagger UI를 통해 모든 API 명세를 확인하고 테스트할 수 있습니다.
 
-```bash
-$ docker compose up --build
-```
+- **Swagger UI**: `http://localhost:3000/api`
+- **Base URL**: `http://localhost:3000`
 
-API:
-
-```text
-http://localhost:3000
-```
-
-Swagger:
-
-```text
-http://localhost:3000/api
-```
-
-MySQL is exposed on host port `3307`:
-
-```text
-mysql://topik_user:topik_password@localhost:3307/topik_smart_academy
-```
-
-Stop containers:
-
-```bash
-$ docker compose down
-```
-
-Remove local database data too:
-
-```bash
-$ docker compose down -v
-```
-
-## Run tests
-
-```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
-
-```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
-```
-
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
-
-## Resources
-
-Check out a few resources that may come in handy when working with NestJS:
-
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+---
+*이 프로젝트는 TopikGo 모바일 앱과 통신하기 위한 백엔드 서비스입니다.*

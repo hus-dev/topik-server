@@ -3,6 +3,7 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync, readdirSync, statSyn
 import { join } from 'path';
 import { Prisma, PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { buildMediaUrl } from './media-url';
 import Redis from 'ioredis';
 
 /**
@@ -229,7 +230,9 @@ async function main() {
       const media: Prisma.question_mediaCreateWithoutQuestionsInput[] = [
         {
           media_type: 'audio',
-          url: `${publicAudioPrefix}/listening-q${q.toString().padStart(2, '0')}.mp3`,
+          url: buildMediaUrl(
+            `${publicAudioPrefix}/listening-q${q.toString().padStart(2, '0')}.mp3`,
+          ),
           transcript: `제${round}회 TOPIK II 듣기 ${q}번 공식 MP3`,
           sort_order: 1,
           created_at: ts,
@@ -239,7 +242,7 @@ async function main() {
       if (pdfUrl) {
         media.push({
           media_type: 'document',
-          url: pdfUrl,
+          url: buildMediaUrl(pdfUrl),
           transcript: `제${round}회 TOPIK II 듣기 문제지 PDF 원문`,
           sort_order: 2,
           created_at: ts,
@@ -290,7 +293,7 @@ async function main() {
   console.log(`✅ 제${round}회 TOPIK II 듣기 기출을 급수별 연습 세트에 반영 완료`);
   console.log(`   3급 +${totals[3]} / 4급 +${totals[4]} / 5급 +${totals[5]} / 6급 +${totals[6]}`);
   if (pdfUrl) {
-    console.log(`   문제지 PDF: ${pdfUrl}`);
+    console.log(`   문제지 PDF: ${buildMediaUrl(pdfUrl)}`);
   } else {
     console.log('   ⚠ 문제지 PDF를 찾지 못했습니다. (선택 사항)');
   }

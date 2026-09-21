@@ -10,6 +10,7 @@ import {
 import { join } from 'path';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { buildMediaUrl } from './media-url';
 
 type ListeningContentFile = {
   set: {
@@ -397,7 +398,7 @@ async function importContent(content: ListeningContentFile) {
         question_media: {
           create: {
             media_type: 'audio',
-            url: audioUrl,
+            url: buildMediaUrl(audioUrl),
             transcript: question.audio_text,
             sort_order: 1,
             created_at: questionTimestamp,

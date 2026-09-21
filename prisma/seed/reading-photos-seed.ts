@@ -3,6 +3,7 @@ import { existsSync, readdirSync } from 'fs';
 import { join } from 'path';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { buildMediaUrl } from './media-url';
 
 function getConnectionString() {
   const connectionString = process.env.DATABASE_URL;
@@ -28,7 +29,7 @@ const questionSetTitle = 'DEV TOPIK II Reading Photo Set';
 const readingsDir = join(process.cwd(), 'test/photos/readings');
 
 function toMediaUrl(fileName: string) {
-  return `/test/photos/readings/${encodeURIComponent(fileName)}`;
+  return buildMediaUrl(`/test/photos/readings/${encodeURIComponent(fileName)}`);
 }
 
 async function clearExistingSet() {

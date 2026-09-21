@@ -4,6 +4,7 @@ import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 import * as bcrypt from 'bcrypt';
 import { readFileSync, existsSync } from 'fs';
 import * as path from 'path';
+import { buildMediaUrl } from './seed/media-url';
 
 function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
@@ -156,7 +157,7 @@ async function main() {
               question_media: section === 'listening' ? {
                 create: {
                   media_type: 'audio',
-                  url: `/test/audio/listening/seed-lm1-q${questionNumber.toString().padStart(2, '0')}.wav`,
+                  url: buildMediaUrl(`/test/audio/listening/seed-lm1-q${questionNumber.toString().padStart(2, '0')}.wav`),
                   transcript: q.audio_text || q.passage || '',
                   created_at: baseTime,
                   updated_at: baseTime

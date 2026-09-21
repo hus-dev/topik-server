@@ -26,24 +26,29 @@ async function bootstrap() {
   // CORS 활성화
   app.enableCors();
 
-  app.useStaticAssets(join(process.cwd(), 'test/photos'), {
-    prefix: '/test/photos/',
-  });
+  // S3 + CloudFront로 미디어를 서빙하는 환경(EC2 프로덕션)에서는
+  // SERVE_LOCAL_MEDIA=false 로 설정해 Node.js 정적 서빙을 완전히 끕니다.
+  // 로컬 개발(기본값 true)에서는 파일 시스템에서 그대로 서빙합니다.
+  if (process.env.SERVE_LOCAL_MEDIA !== 'false') {
+    app.useStaticAssets(join(process.cwd(), 'test/photos'), {
+      prefix: '/test/photos/',
+    });
 
-  app.useStaticAssets(join(process.cwd(), 'test/audio'), {
-    prefix: '/test/audio/',
-  });
+    app.useStaticAssets(join(process.cwd(), 'test/audio'), {
+      prefix: '/test/audio/',
+    });
 
-  // Legacy alias: older seed data stored listening audio under `/audio/...`
-  // instead of `/test/audio/...`. Serve the same directory on both prefixes so
-  // existing listening questions keep playing without a full re-seed.
-  app.useStaticAssets(join(process.cwd(), 'test/audio'), {
-    prefix: '/audio/',
-  });
+    // Legacy alias: older seed data stored listening audio under `/audio/...`
+    // instead of `/test/audio/...`. Serve the same directory on both prefixes so
+    // existing listening questions keep playing without a full re-seed.
+    app.useStaticAssets(join(process.cwd(), 'test/audio'), {
+      prefix: '/audio/',
+    });
 
-  app.useStaticAssets(join(process.cwd(), 'topik_data'), {
-    prefix: '/topik-data/',
-  });
+    app.useStaticAssets(join(process.cwd(), 'topik_data'), {
+      prefix: '/topik-data/',
+    });
+  }
 
   // 전역 유효성 검사 파이프 설정
   app.useGlobalPipes(

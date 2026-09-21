@@ -4,6 +4,7 @@ import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 import * as bcrypt from 'bcrypt';
 import { readFileSync, existsSync } from 'fs';
 import * as path from 'path';
+import { buildMediaUrl } from './seed/media-url';
 
 function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
@@ -60,8 +61,8 @@ async function main() {
       ]
     });
 
-    // 3. SEED LOGIC: 30 Questions per Level (3, 4, 5, 6)
-    const sections = ['reading', 'listening'];
+    // 3. SEED LOGIC: Reading, Listening, Writing per Level (3, 4, 5, 6)
+    const sections = ['reading', 'listening', 'writing'];
     const levels = [3, 4, 5, 6];
 
     for (const section of sections) {
@@ -72,11 +73,27 @@ async function main() {
       if (!existsSync(filePath)) continue;
       const rawContent = JSON.parse(readFileSync(filePath, 'utf8'));
       const allSourceQuestions = rawContent.questions;
+      const isWriting = section === 'writing';
 
       for (const level of levels) {
-        console.log(`   └─ Seeding Level ${level}: Ensuring 30 questions...`);
+        console.log(`   └─ Seeding Level ${level}...`);
         const setId = `practice-${section}-lvl${level}`;
-        
+
+        // 해당 급수 소스 문제 필터링 (급수별 실제 문항만 사용)
+        let sourceQuestions = isWriting
+          ? allSourceQuestions
+          : allSourceQuestions.filter((q: any) => q.level === level);
+
+        // 6급 전용 콘텐츠가 아직 없어 5급 문제로 채워 3~6급 학습이 가능하게 한다.
+        if (!isWriting && sourceQuestions.length === 0 && level === 6) {
+          sourceQuestions = allSourceQuestions.filter((q: any) => q.level === 5);
+        }
+
+        if (sourceQuestions.length === 0) {
+          console.log(`   └─ Skipping Level ${level}: no source questions`);
+          continue;
+        }
+
         await prisma.question_sets.create({
           data: {
             id: setId,
@@ -84,36 +101,17 @@ async function main() {
             section: section,
             level: level,
             exam_kind: 'practice',
-            total_questions: 30, // 무조건 30개로 고정
-            duration_seconds: 3600,
+            total_questions: sourceQuestions.length,
+            duration_seconds: isWriting ? 3000 : 3600,
             display_order: level,
             created_at: baseTime,
             updated_at: baseTime,
           }
         });
 
-        // 해당 급수 소스 문제 필터링
-        let sourceQuestions = allSourceQuestions.filter((q: any) => q.level === level);
-        
-        // 시니어의 특급 처방: 데이터가 부족한 급수(특히 4급, 6급) 보충 로직
-        if (sourceQuestions.length < 30) {
-          if (level === 4) {
-            // 4급이 부족하면 3급 중 어려운 문제(뒤쪽 번호)를 추가해서 풍성하게 만듦
-            const highLvl3 = allSourceQuestions.filter((q: any) => q.level === 3).slice(-15);
-            sourceQuestions = [...sourceQuestions, ...highLvl3];
-          } else if (level === 6) {
-            // 6급이 부족하면 5급 전체를 소스로 활용
-            const allLvl5 = allSourceQuestions.filter((q: any) => q.level === 5);
-            sourceQuestions = [...sourceQuestions, ...allLvl5];
-          }
-        }
-        
-        // 최종적으로도 부족하면 전체 데이터에서 보충 (안정장치)
-        if (sourceQuestions.length === 0) sourceQuestions = allSourceQuestions;
-
-        for (let i = 0; i < 30; i++) {
-          const q = sourceQuestions[i % sourceQuestions.length];
-          const questionNumber = i + 1;
+        for (let i = 0; i < sourceQuestions.length; i++) {
+          const q = sourceQuestions[i];
+          const questionNumber = q.question_number || (i + 1);
           const questionId = `${setId}-q${questionNumber}`;
           
           let passageId: string | null = null;
@@ -131,34 +129,36 @@ async function main() {
             });
           }
 
+          const hasOptions = Array.isArray(q.options) && q.options.length > 0;
+
           await prisma.questions.create({
             data: {
               id: questionId,
               set_id: setId,
               passage_id: passageId,
               section: section,
-              question_type: q.question_type || 'multiple_choice',
+              question_type: q.question_type || (isWriting ? 'writing_short_completion' : 'multiple_choice'),
               question_number: questionNumber,
-              level: level, // 강제로 해당 급수로 지정
+              level: level,
               prompt: q.prompt,
-              correct_answer: q.correct_answer,
-              explanation: q.explanation || `이 문제는 ${level}급 수준의 정답 ${q.correct_answer}번에 대한 해설입니다.`,
+              correct_answer: q.correct_answer || q.sample_answer || null,
+              explanation: q.explanation ? (q.sample_answer ? `${q.explanation}\n\n[모범 답안]\n${q.sample_answer}` : q.explanation) : `이 문제는 ${level}급 수준 해설입니다.`,
               difficulty: level,
-              time_limit_seconds: 60,
+              time_limit_seconds: q.time_limit_seconds || 60,
               created_at: baseTime,
               updated_at: baseTime,
-              question_options: {
+              question_options: hasOptions ? {
                 create: q.options.map((opt: string, idx: number) => ({
                   option_number: idx + 1,
                   content: opt,
                   is_correct: (idx + 1).toString() === q.correct_answer ? 1 : 0
                 }))
-              },
+              } : undefined,
               question_media: section === 'listening' ? {
                 create: {
                   media_type: 'audio',
-                  url: `/audio/listening/seed-lm1-q${((i % 28) + 1).toString().padStart(2, '0')}.wav`,
-                  transcript: q.passage || '',
+                  url: buildMediaUrl(`/test/audio/listening/seed-lm1-q${questionNumber.toString().padStart(2, '0')}.wav`),
+                  transcript: q.audio_text || q.passage || '',
                   created_at: baseTime,
                   updated_at: baseTime
                 }
@@ -169,7 +169,7 @@ async function main() {
       }
     }
 
-    console.log('✅ Final Report: Reading & Listening (Lv 3-6) all have exactly 30 questions now!');
+    console.log('✅ Final Report: Reading, Listening & Writing (Lv 3-6) seeded successfully!');
   } catch (error) {
     console.error('❌ Strategic Seeding Failed:', error);
   } finally {

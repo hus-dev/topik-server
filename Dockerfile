@@ -33,10 +33,10 @@
    # 3. Re-generate runtime-only Prisma client modules
    RUN npx prisma generate
    
-   # 4. Copy the compiled app code and static assets
+   # 4. Copy the compiled app code and content
+   # (media files are served from S3 + CloudFront, so `test/` is not bundled)
    COPY --from=build /app/dist ./dist
    COPY --from=build /app/content ./content
-   COPY --from=build /app/test ./test
    
    EXPOSE 3000
    

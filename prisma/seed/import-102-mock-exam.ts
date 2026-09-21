@@ -3,6 +3,7 @@ import { copyFileSync, existsSync, mkdirSync, readFileSync } from 'fs';
 import { join } from 'path';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
+import { buildMediaUrl } from './media-url';
 
 const readingSetId = 'topik2-102-reading';
 const listeningSetId = 'topik2-102-listening';
@@ -980,7 +981,7 @@ async function createReadingSet(now: bigint, readingOcrLines: string[]) {
         question_media: {
           create: {
             media_type: 'document',
-            url: readingPdfUrl,
+            url: buildMediaUrl(readingPdfUrl),
             transcript: `제102회 TOPIK II 읽기 PDF 원문`,
             sort_order: 1,
             created_at: now,
@@ -1060,7 +1061,7 @@ async function createListeningSet(now: bigint, listeningOcrLines: string[]) {
           create: [
             {
               media_type: 'audio',
-              url: `${publicAudioPrefix}/${audioName}`,
+              url: buildMediaUrl(`${publicAudioPrefix}/${audioName}`),
               transcript: `제102회 TOPIK II 듣기 ${questionNumber}번 공식 MP3`,
               sort_order: 1,
               created_at: now,
@@ -1068,8 +1069,8 @@ async function createListeningSet(now: bigint, listeningOcrLines: string[]) {
             },
             {
               media_type: 'document',
-              url: listeningPdfUrl,
-              transcript: `제102회 TOPIK II 듣기 통합 PDF 원문. 정답표: ${answerPdfUrl}`,
+              url: buildMediaUrl(listeningPdfUrl),
+              transcript: `제102회 TOPIK II 듣기 통합 PDF 원문. 정답표: ${buildMediaUrl(answerPdfUrl)}`,
               sort_order: 2,
               created_at: now,
               updated_at: now,
@@ -1109,9 +1110,9 @@ async function main() {
         listening_set_id: listeningSetId,
         reading_questions: 50,
         listening_questions: 50,
-        audio_url_example: `${publicAudioPrefix}/listening-q01.mp3`,
-        reading_pdf_url: readingPdfUrl,
-        listening_pdf_url: listeningPdfUrl,
+        audio_url_example: buildMediaUrl(`${publicAudioPrefix}/listening-q01.mp3`),
+        reading_pdf_url: buildMediaUrl(readingPdfUrl),
+        listening_pdf_url: buildMediaUrl(listeningPdfUrl),
       },
       null,
       2,

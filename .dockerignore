@@ -5,6 +5,7 @@ coverage
 .github
 .env
 .env.*
+.env.ec2
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

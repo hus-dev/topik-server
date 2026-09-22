@@ -106,6 +106,8 @@ After deployment, seed the database:
 ```bash
 # Enter the API container
 docker exec -it topik-api sh
+# 기본 시드 실행
+docker exec -it topik-api node dist/prisma/seed.js
 
 # Run seed
 npm run db:seed
@@ -117,6 +119,12 @@ npm run import:listening-content
 npm run import:writing-content
 npm run import:vocabulary-content
 npm run import:grammar-content
+# 개별 콘텐츠 시드 실행
+docker exec -it topik-api node dist/prisma/seed/import-reading-content.js
+docker exec -it topik-api node dist/prisma/seed/import-listening-content.js
+docker exec -it topik-api node dist/prisma/seed/import-writing-content.js
+docker exec -it topik-api node dist/prisma/seed/import-vocabulary-content.js
+docker exec -it topik-api node dist/prisma/seed/import-grammar-content.js
 ```
 
 ## Accessing the API

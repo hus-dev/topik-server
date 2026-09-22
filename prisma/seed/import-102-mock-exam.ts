@@ -9,7 +9,6 @@ const readingSetId = 'topik2-102-reading';
 const listeningSetId = 'topik2-102-listening';
 const setIds = [readingSetId, listeningSetId];
 
-const topikDataDir = join(process.cwd(), 'topik_data');
 const topikDataDir = existsSync(join(process.cwd(), 'topik_data', 'topik2-102'))
   ? join(process.cwd(), 'topik_data', 'topik2-102')
   : join(process.cwd(), 'topik_data');
@@ -21,9 +20,6 @@ const readingPdfName = '제102회_문제지 TOPIK2_2교시_읽기_탑재용.pdf'
 const listeningPdfName = '제102회_문제지_TOPIK2_1교시_듣기 통합_탑재용.pdf';
 const answerPdfName = '제102회_정답 및 배점표_TOPIK2_탑재용.pdf';
 
-const readingPdfUrl = `/topik-data/${encodeURIComponent(readingPdfName)}`;
-const listeningPdfUrl = `/topik-data/${encodeURIComponent(listeningPdfName)}`;
-const answerPdfUrl = `/topik-data/${encodeURIComponent(answerPdfName)}`;
 const pdfPrefix = existsSync(join(process.cwd(), 'topik_data', 'topik2-102'))
   ? '/topik-data/topik2-102'
   : '/topik-data';
@@ -451,9 +447,9 @@ function questionChunk(
   const chunkLines =
     group && group.instructionStart < start
       ? [
-          ...lines.slice(group.instructionStart, group.firstQuestionStart),
-          ...lines.slice(start, end),
-        ]
+        ...lines.slice(group.instructionStart, group.firstQuestionStart),
+        ...lines.slice(start, end),
+      ]
       : lines.slice(start, end);
 
   return normalizeQuestionChunk(

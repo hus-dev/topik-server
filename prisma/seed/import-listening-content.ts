@@ -243,6 +243,18 @@ function ensureAudioFile(question: ListeningQuestionInput) {
 
   const fileName = audioFileName(question.question_number);
   const filePath = join(audioDir, fileName);
+
+  if (existsSync(filePath)) {
+    return `${audioUrlPrefix}/${fileName}`;
+  }
+
+  if (process.platform !== 'darwin') {
+    console.warn(
+      `[Audio] Skipping local TTS generation on non-macOS environment for question ${question.question_number}`,
+    );
+    return `${audioUrlPrefix}/${fileName}`;
+  }
+
   const baseName = fileName.replace(/\.wav$/, '');
   const segments = parseAudioSegments(question.audio_text);
   const pcmParts: Buffer[] = [createSilence(450)];

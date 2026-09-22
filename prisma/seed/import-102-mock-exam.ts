@@ -10,6 +10,9 @@ const listeningSetId = 'topik2-102-listening';
 const setIds = [readingSetId, listeningSetId];
 
 const topikDataDir = join(process.cwd(), 'topik_data');
+const topikDataDir = existsSync(join(process.cwd(), 'topik_data', 'topik2-102'))
+  ? join(process.cwd(), 'topik_data', 'topik2-102')
+  : join(process.cwd(), 'topik_data');
 const sourceAudioDir = join(topikDataDir, '제102회 TOPIK2 듣기파일');
 const publicAudioDir = join(process.cwd(), 'test/audio/topik2-102');
 const publicAudioPrefix = '/test/audio/topik2-102';
@@ -21,6 +24,12 @@ const answerPdfName = '제102회_정답 및 배점표_TOPIK2_탑재용.pdf';
 const readingPdfUrl = `/topik-data/${encodeURIComponent(readingPdfName)}`;
 const listeningPdfUrl = `/topik-data/${encodeURIComponent(listeningPdfName)}`;
 const answerPdfUrl = `/topik-data/${encodeURIComponent(answerPdfName)}`;
+const pdfPrefix = existsSync(join(process.cwd(), 'topik_data', 'topik2-102'))
+  ? '/topik-data/topik2-102'
+  : '/topik-data';
+const readingPdfUrl = `${pdfPrefix}/${encodeURIComponent(readingPdfName)}`;
+const listeningPdfUrl = `${pdfPrefix}/${encodeURIComponent(listeningPdfName)}`;
+const answerPdfUrl = `${pdfPrefix}/${encodeURIComponent(answerPdfName)}`;
 const readingOcrPath = join(
   process.cwd(),
   'content/topik2-102/reading-ocr.txt',

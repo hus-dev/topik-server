@@ -31,6 +31,15 @@ describe('AuthService', () => {
             sign: jest.fn().mockReturnValue('mocked_jwt_token'),
           },
         },
+        {
+          provide: require('../redis/redis.service').RedisService,
+          useValue: {
+            get: jest.fn(),
+            set: jest.fn(),
+            del: jest.fn(),
+            getOrSet: jest.fn((k, fn) => fn()),
+          },
+        },
       ],
     }).compile();
 

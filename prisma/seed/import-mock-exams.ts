@@ -20,6 +20,19 @@ type ExamQuestionJson = {
   image_url?: string | null;
 };
 
+function getQuestionLevel(section: string, questionNumber: number): number {
+  if (section === 'writing') {
+    if (questionNumber <= 52) return 4;
+    if (questionNumber === 53) return 4;
+    return 5;
+  }
+  // listening & reading (1~50)
+  if (questionNumber <= 20) return 3;
+  if (questionNumber <= 36) return 4;
+  if (questionNumber <= 45) return 5;
+  return 6;
+}
+
 function getDatabaseUrl() {
   const connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
@@ -158,6 +171,8 @@ async function importExamSet(config: {
 
     const qType = q.question_type ?? (config.section === 'writing' ? (q.question_number <= 52 ? 'writing_short_completion' : (q.question_number === 53 ? 'writing_graph_description' : 'writing_essay')) : 'multiple_choice');
 
+    const qLevel = getQuestionLevel(config.section, q.question_number);
+
     const questionRecord = await prisma.questions.create({
       data: {
         id: questionId,
@@ -166,7 +181,7 @@ async function importExamSet(config: {
         section: config.section,
         question_type: qType,
         question_number: q.question_number,
-        level: 4,
+        level: qLevel,
         prompt: q.prompt,
         correct_answer: q.correct_answer,
         explanation: q.explanation,

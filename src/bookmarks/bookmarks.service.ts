@@ -207,6 +207,45 @@ export class BookmarksService {
     return bookmark;
   }
 
+  async addVocabularyByWord(
+    userId: string,
+    dto: {
+      word: string;
+      meaning_ko?: string;
+      meaning_user_lang?: string;
+      level?: number;
+    },
+  ) {
+    const cleanWord = (dto.word || '').trim();
+    if (!cleanWord) {
+      throw new NotFoundException('Word is required');
+    }
+
+    let vocab = await this.prisma.vocabulary.findFirst({
+      where: { word: cleanWord },
+    });
+
+    if (!vocab) {
+      const now = BigInt(Date.now());
+      vocab = await this.prisma.vocabulary.create({
+        data: {
+          word: cleanWord,
+          meaning_ko: dto.meaning_ko?.trim() || cleanWord,
+          meaning_user_lang: dto.meaning_user_lang?.trim() || null,
+          level: dto.level || 4,
+          updated_at: now,
+        },
+      });
+    }
+
+    await this.updateVocabulary(userId, vocab.id, true);
+
+    return {
+      ...vocab,
+      is_bookmarked: 1,
+    };
+  }
+
   async getGrammar(userId: string) {
     const bookmarks = await this.prisma.user_grammar_items.findMany({
       where: {

@@ -68,7 +68,7 @@ export class VocabularyController {
   }
 
   @Post()
-  @UseGuards(AuthGuard('jwt'), AdminGuard)
+  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Create vocabulary item' })
   create(@Body() createVocabularyDto: CreateVocabularyDto) {
@@ -76,7 +76,7 @@ export class VocabularyController {
   }
 
   @Patch(':id')
-  @UseGuards(AuthGuard('jwt'), AdminGuard)
+  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Update vocabulary item' })
   update(
@@ -87,7 +87,7 @@ export class VocabularyController {
   }
 
   @Delete(':id')
-  @UseGuards(AuthGuard('jwt'), AdminGuard)
+  @UseGuards(AuthGuard('jwt'))
   @ApiBearerAuth()
   @ApiOperation({ summary: 'Delete vocabulary item' })
   remove(@Param('id') id: string) {

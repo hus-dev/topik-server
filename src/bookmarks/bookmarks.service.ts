@@ -170,6 +170,7 @@ export class BookmarksService {
     userId: string,
     vocabularyId: string,
     bookmarked: boolean,
+    meaningUserLang?: string,
   ) {
     const vocabulary = await this.prisma.vocabulary.findUnique({
       where: { id: vocabularyId },
@@ -185,6 +186,16 @@ export class BookmarksService {
     }
 
     const now = BigInt(Date.now());
+    if (meaningUserLang && meaningUserLang.trim().length > 0) {
+      await this.prisma.vocabulary.update({
+        where: { id: vocabularyId },
+        data: {
+          meaning_user_lang: meaningUserLang.trim(),
+          updated_at: now,
+        },
+      });
+    }
+
     const bookmark = await this.prisma.user_vocabulary.upsert({
       where: {
         user_id_vocabulary_id: {
@@ -225,14 +236,22 @@ export class BookmarksService {
       where: { word: cleanWord },
     });
 
+    const now = BigInt(Date.now());
     if (!vocab) {
-      const now = BigInt(Date.now());
       vocab = await this.prisma.vocabulary.create({
         data: {
           word: cleanWord,
           meaning_ko: dto.meaning_ko?.trim() || cleanWord,
           meaning_user_lang: dto.meaning_user_lang?.trim() || null,
           level: dto.level || 4,
+          updated_at: now,
+        },
+      });
+    } else if (dto.meaning_user_lang && dto.meaning_user_lang.trim().length > 0) {
+      vocab = await this.prisma.vocabulary.update({
+        where: { id: vocab.id },
+        data: {
+          meaning_user_lang: dto.meaning_user_lang.trim(),
           updated_at: now,
         },
       });

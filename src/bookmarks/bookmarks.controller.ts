@@ -86,6 +86,7 @@ export class BookmarksController {
       req.user.userId,
       vocabularyId,
       updateBookmarkDto.bookmarked,
+      updateBookmarkDto.meaning_user_lang,
     );
   }
 

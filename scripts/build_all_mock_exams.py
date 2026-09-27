@@ -4,7 +4,7 @@ import pymupdf
 def clean_noise(text):
     text = re.sub(r'TOPIK\s*제?\d*회?.*', '', text)
     text = re.sub(r'제\d+회\s*한국어능력시험.*', '', text)
-    text = re.sub(r'Test\s*of\s*Proficiency\s*in\s*Korean.*', '', text, flags=re.I)
+    text = re.sub(r'Test\s+.*', '', text, flags=re.I)
     text = re.sub(r'홀수형.*', '', text)
     text = re.sub(r'짝수형.*', '', text)
     text = re.sub(r'듣기\s*통합.*', '', text)
@@ -70,6 +70,30 @@ def get_listening_prompt(q):
     if q == 49: return "※ [49～50] 다음을 듣고 물음에 답하십시오. (각 2점)\n49. 어떤 이야기인지 가장 알맞은 것을 고르십시오."
     return "※ [49～50] 다음을 듣고 물음에 답하십시오. (각 2점)\n50. 들은 내용으로 맞는 것을 고르십시오."
 
+def extract_four_options(opt_chunk):
+    markers = ['①', '②', '③', '④']
+    opt_chunk = re.sub(r'(?:\n|^)\s*[l1]\s+', '\n① ', opt_chunk)
+    positions = []
+    for m in markers:
+        match = re.search(rf'(?:\n|^|\s){m}\s*', opt_chunk)
+        if match:
+            positions.append((m, match.start(), match.end()))
+    positions.sort(key=lambda x: x[1])
+    opts_map = {}
+    for i in range(len(positions)):
+        m, start, end = positions[i]
+        next_start = positions[i+1][1] if i + 1 < len(positions) else len(opt_chunk)
+        text = opt_chunk[end:next_start].strip()
+        text = re.sub(r'---\s*PAGE\s*\d+\s*---', '', text)
+        text = re.sub(r'※\s*\[\s*\d+.*', '', text)
+        text = re.sub(r'Test\s*o[tlfd]\s*Pr.*', '', text, flags=re.I)
+        text = re.sub(r'제\s*\d+\s*회\s*한국어능력시험.*', '', text)
+        text = re.sub(r'TOPIK\s*.*', '', text)
+        text = re.sub(r'\n\s*\d+\.\s+.*', '', text)
+        text = re.sub(r'\s+', ' ', text).strip()
+        opts_map[m] = text
+    return [opts_map.get(m, f'보기 {idx+1}') for idx, m in enumerate(markers)]
+
 def build_listening(round_num):
     print(f"Building {round_num} listening...")
     with open(f'content/topik2-{round_num}/answers.json') as f:
@@ -81,66 +105,59 @@ def build_listening(round_num):
     else:
         with open('content/topik2-102/listening-ocr.txt') as f:
             raw_text = f.read()
-        # Fix Q1 marker in 102
-        if not re.search(r'(?:^|\n)\s*1\.\s*', raw_text):
-            raw_text = raw_text.replace('남자 : 이 책을 소포로 보내고', '1.\n남자 : 이 책을 소포로 보내고')
 
-    # Split by questions
-    positions = []
-    for q in range(1, 51):
-        m = re.search(rf'(?:^|\n)\s*{q}\.\s*', raw_text)
-        if m: positions.append((q, m.start()))
-    positions.sort(key=lambda x: x[1])
-    
+    # Scripts for all 50
+    scripts = {}
+    for p1 in range(21, 50, 2):
+        p2 = p1 + 1
+        m = re.search(rf'※\s*\[\s*{p1}\s*[～~-]\s*{p2}\s*\].*?(?={p1}\.)', raw_text, re.DOTALL)
+        if m:
+            sc = clean_noise(m.group(0))
+            sc = re.sub(r'※\s*\[\s*\d+.*', '', sc)
+            sc = re.sub(r'^\s*[①②③④\d\s\.\)]+$', '', sc, flags=re.MULTILINE)
+            scripts[p1] = sc.strip()
+            scripts[p2] = sc.strip()
+
+    for q in range(1, 21):
+        next_pat = rf'(?:\n\s*){q+1}\.' if q < 20 else r'※\s*\[21'
+        if round_num == 102 and q == 1:
+            s_idx = raw_text.find('남자 : 이 책을 소포로 보내고')
+            m_next = re.search(next_pat, raw_text)
+            chunk = raw_text[s_idx:m_next.start()]
+        else:
+            m = re.search(rf'(?:^|\n)\s*{q}\.\s*(.*?)(?={next_pat})', raw_text, re.DOTALL)
+            chunk = m.group(1) if m else ''
+        opt_m = re.search(r'(?:\n\s*)[①l]\s*', chunk)
+        sc = chunk[:opt_m.start()] if opt_m else chunk
+        sc = clean_noise(sc)
+        sc = re.sub(r'※\s*\[\s*\d+.*', '', sc)
+        sc = re.sub(r'^\s*[①②③④\d\s\.\)]+$', '', sc, flags=re.MULTILINE)
+        scripts[q] = sc.strip()
+
     questions = []
-    for i in range(len(positions)):
-        q, start = positions[i]
-        end = positions[i+1][1] if i + 1 < len(positions) else len(raw_text)
-        chunk = raw_text[start:end]
-        
-        prompt = get_listening_prompt(q)
+    for q in range(1, 51):
         ans = answers[q - 1]
         audio = f"/test/audio/topik2-{round_num}/listening-q{q:02d}.mp3"
+        prompt = get_listening_prompt(q)
+        script = scripts.get(q, '')
         
         if q <= 3:
             img = f"/test/photos/mock-exams/topik2-{round_num}/q{q:02d}.png"
             opts = ["①", "②", "③", "④"]
-            script = re.sub(rf'^\s*{q}\.\s*', '', chunk.split('①')[0]).strip()
-            script = clean_noise(script)
         else:
             img = None
-            opt_start_match = re.search(r'[①1lI]\s*', chunk)
-            if opt_start_match:
-                script = clean_noise(chunk[:opt_start_match.start()])
-                script = re.sub(rf'^\s*{q}\.\s*', '', script).strip()
-                opt_chunk = chunk[opt_start_match.start():]
-            else:
-                script = ""
-                opt_chunk = chunk
-                
-            opts = []
-            for o_idx in range(1, 5):
-                m1 = ['①', '②', '③', '④'][o_idx - 1]
-                m2 = ['②', '③', '④', None][o_idx - 1]
-                if m2:
-                    p = re.search(rf'{m1}\s*(.*?)(?={m2})', opt_chunk, re.DOTALL)
-                else:
-                    p = re.search(rf'{m1}\s*(.*?)(?:\n\s*\d+\.|\Z)', opt_chunk, re.DOTALL)
-                val = p.group(1).strip() if p else ''
-                val = clean_opt(val)
-                val = re.sub(r'\s+', ' ', val).strip()
-                opts.append(val)
-                
-            for idx in range(4):
-                if not opts[idx]: opts[idx] = f"보기 {idx+1}"
-                
+            next_pat = rf'(?:\n\s*){q+1}\.' if q < 50 else r'\Z'
+            m = re.search(rf'(?:^|\n)\s*{q}\.\s*(.*?)(?={next_pat}|※\s*\[|\Z)', raw_text, re.DOTALL)
+            chunk = m.group(1) if m else ''
+            opts = extract_four_options(chunk)
+            
         explanation = f"[듣기 대본]\n{script}\n\n[정답 해설] 정답은 {ans}번입니다." if script else f"[정답 해설] 정답은 {ans}번입니다."
         questions.append({
             "question_number": q,
             "section": "listening",
             "prompt": prompt,
             "question_text": None,
-            "passage": None, # Script never displayed during exam!
+            "passage": None,
             "options": opts,
             "correct_answer": ans,
             "explanation": explanation,

@@ -4,6 +4,7 @@ import {
   Get,
   Param,
   Patch,
+  Post,
   Request,
   UseGuards,
 } from '@nestjs/common';
@@ -57,6 +58,21 @@ export class BookmarksController {
   @ApiOperation({ summary: 'Get bookmarked vocabulary' })
   getVocabulary(@Request() req: JwtRequest) {
     return this.bookmarksService.getVocabulary(req.user.userId);
+  }
+
+  @Post('vocabulary')
+  @ApiOperation({ summary: 'Add word to vocabulary bookmarks (find or create)' })
+  addVocabulary(
+    @Request() req: JwtRequest,
+    @Body()
+    dto: {
+      word: string;
+      meaning_ko?: string;
+      meaning_user_lang?: string;
+      level?: number;
+    },
+  ) {
+    return this.bookmarksService.addVocabularyByWord(req.user.userId, dto);
   }
 
   @Patch('vocabulary/:vocabularyId')

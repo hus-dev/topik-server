@@ -31,11 +31,18 @@ export class GrammarService {
     const skip = (page - 1) * limit;
 
     const where: Prisma.grammar_itemsWhereInput = {
+      ...(query.level ? { level: query.level } : {}),
+      ...(query.category ? { category: { contains: query.category } } : {}),
       ...(query.q
         ? {
             OR: [
               { pattern: { contains: query.q } },
               { description: { contains: query.q } },
+              { meaning_ko: { contains: query.q } },
+              { meaning_uz: { contains: query.q } },
+              { meaning_ru: { contains: query.q } },
+              { meaning_en: { contains: query.q } },
+              { category: { contains: query.q } },
             ],
           }
         : {}),
@@ -46,7 +53,7 @@ export class GrammarService {
         where,
         skip,
         take: limit,
-        orderBy: { updated_at: 'desc' },
+        orderBy: [{ level: 'asc' }, { pattern: 'asc' }],
       }),
       this.prisma.grammar_items.count({ where }),
     ]);

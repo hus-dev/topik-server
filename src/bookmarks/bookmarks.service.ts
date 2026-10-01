@@ -1,9 +1,13 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
+import { RedisService } from '../redis/redis.service';
 
 @Injectable()
 export class BookmarksService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly redis: RedisService,
+  ) {}
 
 
 
@@ -247,6 +251,9 @@ export class BookmarksService {
           updated_at: now,
         },
       });
+      try {
+        await this.redis.invalidatePattern('vocabulary:list:*');
+      } catch (_) {}
     } else if (dto.meaning_user_lang && dto.meaning_user_lang.trim().length > 0) {
       vocab = await this.prisma.vocabulary.update({
         where: { id: vocab.id },
@@ -255,6 +262,10 @@ export class BookmarksService {
           updated_at: now,
         },
       });
+      try {
+        await this.redis.del(`vocabulary:${vocab.id}`);
+        await this.redis.invalidatePattern('vocabulary:list:*');
+      } catch (_) {}
     }
 
     await this.updateVocabulary(userId, vocab.id, true);

@@ -268,7 +268,12 @@ export class BookmarksService {
       } catch (_) {}
     }
 
-    await this.updateVocabulary(userId, vocab.id, true);
+    await this.updateVocabulary(
+      userId,
+      vocab.id,
+      true,
+      dto.meaning_user_lang,
+    );
 
     return {
       ...vocab,

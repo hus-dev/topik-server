@@ -1,11 +1,27 @@
 import 'dotenv/config';
+import * as fs from 'fs';
+import * as path from 'path';
 import { PrismaClient } from '@prisma/client';
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
 type GrammarItem = {
+  id?: string;
   pattern: string;
   description: string;
-  examples_json: Array<{ ko: string; en: string }>;
+  level?: number;
+  category?: string;
+  meaning_ko?: string;
+  meaning_uz?: string;
+  meaning_ru?: string;
+  meaning_en?: string;
+  explanation_ko?: string;
+  explanation_uz?: string;
+  explanation_ru?: string;
+  explanation_en?: string;
+  conjugation_rule?: string;
+  comparisons_json?: any;
+  examples_json: any;
+  quizzes_json?: any;
   tags_json: string[];
 };
 
@@ -331,7 +347,45 @@ function chunk<T>(items: T[], size: number): T[][] {
 }
 
 async function importGrammar() {
-  const selectedGrammarItems = buildGrammarItems();
+  const candidates = [
+    path.join(__dirname, 'master-grammar-dataset.json'),
+    path.join(process.cwd(), 'prisma/seed/master-grammar-dataset.json'),
+    path.join(__dirname, '../../../prisma/seed/master-grammar-dataset.json'),
+    '/app/prisma/seed/master-grammar-dataset.json',
+  ];
+  const masterDatasetPath = candidates.find((c) => fs.existsSync(c)) || '';
+  let masterItems: GrammarItem[] = [];
+  if (masterDatasetPath && fs.existsSync(masterDatasetPath)) {
+    const raw = fs.readFileSync(masterDatasetPath, 'utf-8');
+    masterItems = JSON.parse(raw);
+  }
+
+  // Merge: masterItems take priority for their patterns
+  const masterPatternSet = new Set(masterItems.map((m) => m.pattern));
+  const otherItems = buildGrammarItems().filter(
+    (item) => !masterPatternSet.has(item.pattern),
+  );
+
+  const selectedGrammarItems: GrammarItem[] = [
+    ...masterItems,
+    ...otherItems.map((item) => {
+      const isTopik1 = item.tags_json.some(
+        (t) => t.includes('TOPIK I') && !t.includes('TOPIK II'),
+      );
+      const level = isTopik1 ? 2 : 4;
+      const category =
+        item.tags_json.find((t) => !t.startsWith('TOPIK')) || '기타';
+      return {
+        ...item,
+        level,
+        category,
+        meaning_ko: item.description,
+        meaning_en: item.description,
+        explanation_ko: item.description,
+        conjugation_rule: item.pattern,
+      };
+    }),
+  ];
 
   const patterns = selectedGrammarItems.map((item) => item.pattern);
   const now = BigInt(Date.now());
@@ -363,10 +417,24 @@ async function importGrammar() {
   for (const itemChunk of chunk(selectedGrammarItems, 50)) {
     await prisma.grammar_items.createMany({
       data: itemChunk.map((item) => ({
+        id: item.id || undefined,
         pattern: item.pattern,
-        description: item.description,
-        examples_json: item.examples_json,
-        tags_json: item.tags_json,
+        description: item.description || item.meaning_ko || '',
+        level: item.level ?? 1,
+        category: item.category ?? '기타',
+        meaning_ko: item.meaning_ko ?? item.description ?? '',
+        meaning_uz: item.meaning_uz ?? null,
+        meaning_ru: item.meaning_ru ?? null,
+        meaning_en: item.meaning_en ?? item.description ?? null,
+        explanation_ko: item.explanation_ko ?? item.description ?? '',
+        explanation_uz: item.explanation_uz ?? null,
+        explanation_ru: item.explanation_ru ?? null,
+        explanation_en: item.explanation_en ?? null,
+        conjugation_rule: item.conjugation_rule ?? '',
+        comparisons_json: item.comparisons_json ?? [],
+        examples_json: item.examples_json ?? [],
+        quizzes_json: item.quizzes_json ?? [],
+        tags_json: item.tags_json ?? [],
         is_downloaded: 0,
         updated_at: now,
       })),

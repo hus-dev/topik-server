@@ -76,7 +76,20 @@ model grammar_items {
   id                 String               @id @default(uuid()) @db.VarChar(36)
   pattern            String               @db.VarChar(255)
   description        String               @db.VarChar(4000)
+  level              Int?                 @db.TinyInt
+  category           String?              @db.VarChar(100)
+  meaning_ko         String?              @db.VarChar(1000)
+  meaning_uz         String?              @db.VarChar(1000)
+  meaning_ru         String?              @db.VarChar(1000)
+  meaning_en         String?              @db.VarChar(1000)
+  explanation_ko     String?              @db.Text
+  explanation_uz     String?              @db.Text
+  explanation_ru     String?              @db.Text
+  explanation_en     String?              @db.Text
+  conjugation_rule   String?              @db.VarChar(1000)
+  comparisons_json   Json?
   examples_json      Json
+  quizzes_json       Json?
   tags_json          Json
   is_downloaded      Int                  @default(0) @db.TinyInt
   updated_at         BigInt

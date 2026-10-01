@@ -1,0 +1,1210 @@
+[
+  {
+    "id": "g_go_itda",
+    "pattern": "-고 있다",
+    "level": 1,
+    "category": "시간·순서",
+    "description": "어떤 동작이 현재 계속 진행되고 있음을 나타냄",
+    "meaning_ko": "어떤 동작이 현재 계속 진행되고 있음을 나타냄",
+    "meaning_uz": "Harakat ayni damda davom etayotganini bildiradi (davomli zamon)",
+    "meaning_ru": "Выражает действие, происходящее в данный момент (настоящее длительное)",
+    "meaning_en": "Expresses an action currently in progress (-ing)",
+    "explanation_ko": "말하는 시점에 주어가 어떤 행동을 계속하고 있음을 나타냅니다. 입다, 신다, 쓰다 등의 착용 동사와 결합하면 착용한 상태가 유지됨을 뜻하기도 합니다.",
+    "explanation_uz": "Gapirayotgan paytda harakat davom etayotganini bildiradi. Kiyinish fe'llari (kiyish, taqish) bilan kelsa, kiyilgan holat saqlanib turganini bildiradi.",
+    "explanation_ru": "Указывает на процесс действия в момент речи. С глаголами надевания означает сохранение состояния ношения.",
+    "explanation_en": "Indicates that the subject is currently performing an action. When used with clothing verbs, it can also describe wearing an item.",
+    "conjugation_rule": "동사 어간 + 고 있다 (받침 유무 무관)",
+    "comparisons_json": [
+      {
+        "target_pattern": "-고 있다",
+        "comparison_pattern": "-아/어 있다",
+        "difference_ko": "-고 있다는 주어가 능동적으로 행동하는 동작의 진행이고, -아/어 있다는 행동의 결과가 지속되는 상태를 나타냅니다.",
+        "difference_uz": "-고 있다 harakatning davom etishini, -아/어 있다 esa natijaning saqlanib turgan holatini ifodalaydi.",
+        "difference_ru": "-고 있다 выражает процесс действия, а -아/어 있다 — сохранение состояния после действия.",
+        "difference_en": "-고 있다 focuses on active ongoing action, while -아/어 있다 focuses on the resulting continuous state."
+      }
+    ],
+    "examples_json": [
+      {
+        "korean": "지금 도서관에서 한국어 시험공부를 하고 있어요.",
+        "uzbek": "Hozir kutubxonada koreys tili imtihoniga tayyorlanyapman.",
+        "russian": "Сейчас в библиотеке готовлюсь к экзамену по корейскому языку.",
+        "english": "I am currently studying for the Korean exam at the library.",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "친구가 밖에서 비를 맞으며 버스를 기다리고 있습니다.",
+        "uzbek": "Do'stim tashqarida yomg'ir ostida avtobus kutyapti.",
+        "russian": "Друг на улице под дождем ждет автобус.",
+        "english": "My friend is waiting for the bus outside in the rain.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "민수 씨는 지금 무엇을 ______ 있어요?",
+        "options": [
+          "하",
+          "해",
+          "한",
+          "할"
+        ],
+        "correct_index": 0,
+        "explanation_ko": "동사 어간 '하-'에 바로 '-고 있다'가 결합하여 '하고 있어요'가 됩니다.",
+        "explanation_uz": "Fe'l o'zagi '하-'ga to'g'ridan-to'g'ri '-고 있다' qo'shilib '하고 있어요' bo'ladi.",
+        "explanation_ru": "К основе глагола '하-' напрямую присоединяется '-고 있다', получается '하고 있어요'.",
+        "explanation_en": "Directly attaches to verb stem '하-', resulting in '하고 있어요'."
+      }
+    ],
+    "tags_json": [
+      "진행",
+      "현재",
+      "시제"
+    ]
+  },
+  {
+    "id": "g_eul_su_itda",
+    "pattern": "-(으)ㄹ 수 있다/없다",
+    "level": 1,
+    "category": "기타·조사",
+    "description": "어떤 일을 할 수 있는 능력이나 가능성(불가능)을 나타냄",
+    "meaning_ko": "어떤 일을 할 수 있는 능력이나 가능성(불가능)을 나타냄",
+    "meaning_uz": "Biror ishni bajara olish qobiliyati yoki imkoniyatini (imkonsizligini) bildiradi",
+    "meaning_ru": "Выражает способность или возможность (невозможность) совершить действие",
+    "meaning_en": "Expresses ability, possibility, or impossibility (can / cannot)",
+    "explanation_ko": "주어가 어떤 행동을 할 수 있는 기술이나 능력이 있거나, 외적 상황상 가능한지를 나타냅니다. 불가능할 때는 '없다'를 씁니다.",
+    "explanation_uz": "Subyektning biror ishni bajara olish kuchi, bilimi yoki vaziyat imkon berishini bildiradi. Qila olmaslikda '없다' ishlatiladi.",
+    "explanation_ru": "Показывает умение, навык или внешнюю возможность выполнить действие. В отрицании используется '없다'.",
+    "explanation_en": "Describes having the ability, skill, or circumstance to do something. Use '없다' for inability or impossibility.",
+    "conjugation_rule": "동사 어간 + -(으)ㄹ 수 있다/없다 (받침 O: -을 수 있다, 받침 X/ㄹ: -ㄹ 수 있다)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "저는 한국어로 간단한 일상 대화를 할 수 있어요.",
+        "uzbek": "Men koreys tilida oddiy kundalik suhbat qila olaman.",
+        "russian": "Я могу вести простой разговор на корейском языке.",
+        "english": "I can have simple everyday conversations in Korean.",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "감기에 심하게 걸려서 오늘 모임에 갈 수 없습니다.",
+        "uzbek": "Qattiq shamollab qolganim sababli bugun yig'ilishga bora olmayman.",
+        "russian": "Из-за сильной простуды я не могу пойти сегодня на встречу.",
+        "english": "Because I caught a bad cold, I cannot go to the meeting today.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "운전면허가 있어서 차를 ______ 수 있어요.",
+        "options": [
+          "운전하",
+          "운전할",
+          "운전한",
+          "운전해"
+        ],
+        "correct_index": 1,
+        "explanation_ko": "받침이 없는 '운전하-' 뒤에는 '-ㄹ 수 있다'가 결합합니다.",
+        "explanation_uz": "Undosh bilan tugamagan '운전하-' fe'liga '-ㄹ 수 있다' qo'shiladi.",
+        "explanation_ru": "К основе без патчима '운전하-' присоединяется '-ㄹ 수 있다'.",
+        "explanation_en": "'-ㄹ 수 있다' attaches to vowel-ending stem '운전하-'."
+      }
+    ],
+    "tags_json": [
+      "능력",
+      "가능",
+      "불가능"
+    ]
+  },
+  {
+    "id": "g_aseo_eoseo",
+    "pattern": "-아서/어서",
+    "level": 1,
+    "category": "이유·원인",
+    "description": "앞 절이 뒤 절의 일반적인 원인이나 이유, 또는 시간적 선후 관계를 나타냄",
+    "meaning_ko": "앞 절이 뒤 절의 일반적인 원인이나 이유, 또는 시간적 선후 관계를 나타냄",
+    "meaning_uz": "Oldingi gap sabab yoki ketma-ket harakatni ifodalaydi",
+    "meaning_ru": "Выражает причину или последовательность двух тесно связанных действий",
+    "meaning_en": "Connects clauses to show a natural cause/reason or sequential actions",
+    "explanation_ko": "1) 원인·이유: 자연스러운 원인을 나타내며, 뒤 절에 명령형(-으십시오)이나 청유형(-ㅂ시다)을 쓸 수 없습니다. 2) 순차: 앞 동작을 하고 그 상태로 뒤 동작을 함.",
+    "explanation_uz": "1) Sabab: Tabiiy sababni bildiradi. Orqa gapda buyruq va taklif shakllari kelmaydi. 2) Ketma-ketlik: Oldingi ishni qilib, o'sha holatda keyingisini bajarish.",
+    "explanation_ru": "1) Причина: естественная причина (нельзя использовать повеление и предложение). 2) Последовательность: тесная связь двух действий во времени.",
+    "explanation_en": "1) Cause/Reason: Natural reason. Cannot be used with imperative or propositive endings. 2) Sequence: Doing the first action and then the second in connection.",
+    "conjugation_rule": "양성 모음(ㅏ, ㅗ) ➔ -아서, 음성 모음(ㅓ, ㅜ, ㅣ 등) ➔ -어서, 하다 ➔ 해서",
+    "comparisons_json": [
+      {
+        "target_pattern": "-아서/어서",
+        "comparison_pattern": "-(으)니까",
+        "difference_ko": "-아서/어서 뒤에는 명령형이나 청유형을 쓸 수 없지만, -(으)니까 뒤에는 명령(-으세요)과 청유(-ㅂ시다)를 쓸 수 있습니다.",
+        "difference_uz": "-아서/어서 dan keyin buyruq yoki taklif kelmaydi, lekin -(으)니까 dan keyin buyruq va taklif kelishi mumkin.",
+        "difference_ru": "После -아서/어서 нельзя использовать повеление/предложение, а после -(으)니까 — можно.",
+        "difference_en": "Imperatives/suggestions cannot follow -아서/어서, but they are natural after -(으)니까."
+      }
+    ],
+    "examples_json": [
+      {
+        "korean": "배가 너무 아파서 병원에 다녀왔어요.",
+        "uzbek": "Qornim juda og'riganligi sababli shifoxonaga borib keldim.",
+        "russian": "Живот сильно болел, поэтому я сходил в больницу.",
+        "english": "My stomach hurt so much that I went to the hospital.",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "어제 늦게 자서 아침에 일어나기 힘들었습니다.",
+        "uzbek": "Kecha kech yotganim sababli ertalab turish qiyin bo'ldi.",
+        "russian": "Вчера поздно лег спать, поэтому утром было тяжело вставать.",
+        "english": "Because I went to bed late yesterday, it was hard to wake up this morning.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "날씨가 춥____ 따뜻한 옷을 입으세요.",
+        "options": [
+          "어서",
+          "니까",
+          "지만",
+          "는데"
+        ],
+        "correct_index": 1,
+        "explanation_ko": "뒤에 명령형 '입으세요'가 오므로 '-아서/어서'는 쓸 수 없고 '-(으)니까'를 써야 합니다.",
+        "explanation_uz": "Orqada buyruq shakli '입으세요' kelgani uchun '-아서/어서' emas, '-(으)니까' tanlanadi.",
+        "explanation_ru": "Поскольку далее идет повеление '입으세요', нужно использовать '-(으)니까', а не '-아서/어서'.",
+        "explanation_en": "Because an imperative follows, '-(으)니까' must be used instead of '-아서/어서'."
+      }
+    ],
+    "tags_json": [
+      "이유",
+      "원인",
+      "순서"
+    ]
+  },
+  {
+    "id": "g_gi_ttaemune",
+    "pattern": "-기 때문에",
+    "level": 2,
+    "category": "이유·원인",
+    "description": "앞의 내용이 뒤의 내용에 대한 명확한 이유나 원인이 됨을 나타냄",
+    "meaning_ko": "앞의 내용이 뒤의 내용에 대한 명확한 이유나 원인이 됨을 나타냄",
+    "meaning_uz": "Oldingi gap keyingi gap uchun aniq sabab yoki asos ekanligini bildiradi",
+    "meaning_ru": "Указывает на четкую причину или обоснование последующего действия",
+    "meaning_en": "Indicates a clear reason or cause for the following clause",
+    "explanation_ko": "명확하고 객관적인 원인을 서술할 때 주로 쓰이며, 공식적인 자리나 글말에서도 널리 쓰입니다. 뒤 절에 명령형이나 청유형을 쓸 수 없다는 점에서 '-아서/어서'와 유사하나, 과거 시제(-았/었-)와 자유롭게 결합할 수 있는 점이 다릅니다.",
+    "explanation_uz": "Aniq va obyektiv sababni ifodalashda qo'llaniladi. Orqa gapda buyruq va taklif kelmaydi. '-아서/어서'dan farqli o'laroq o'tgan zamon (-았/었-) bilan birikishi mumkin.",
+    "explanation_ru": "Используется для четкого и объективного обоснования. Не употребляется с повелением/предложением. В отличие от -아서/어서, может сочетаться с прошедшим временем.",
+    "explanation_en": "Expresses a clear, objective cause or reason. Often used in formal speech and writing. Unlike -아서/어서, it can freely combine with the past tense suffix (-았/었-).",
+    "conjugation_rule": "동사/형용사 어간 + 기 때문에, 명사 + (이)기 때문에, 과거형: -았/었기 때문에",
+    "comparisons_json": [
+      {
+        "target_pattern": "-기 때문에",
+        "comparison_pattern": "-아서/어서",
+        "difference_ko": "-아서/어서는 과거 시제(-았/었-)와 함께 쓸 수 없지만, -기 때문에는 '비가 왔기 때문에'처럼 과거 시제와 함께 쓸 수 있습니다.",
+        "difference_uz": "-아서/어서 o'tgan zamon (-았/었-) bilan qo'llanmaydi, ammo -기 때문에 o'tgan zamon bilan erkin qo'llaniladi.",
+        "difference_ru": "-아서/어서 не используется с прошедшим временем, а -기 때문에 свободно сочетается: '비가 왔기 때문에'.",
+        "difference_en": "-아서/어서 cannot combine with past tense markers, whereas -기 때문에 can (e.g. 비가 왔기 때문에)."
+      },
+      {
+        "target_pattern": "-기 때문에",
+        "comparison_pattern": "-(으)니까",
+        "difference_ko": "-기 때문에 뒤에는 명령·청유형이 올 수 없지만, -(으)니까 뒤에는 '비가 오니까 우산을 쓰세요'처럼 명령·청유형이 올 수 있습니다.",
+        "difference_uz": "-기 때문에 dan keyin buyruq/taklif kelmaydi, -(으)니까 dan keyin esa buyruq/taklif qo'llanadi.",
+        "difference_ru": "После -기 때문에 нельзя использовать повеление/предложение, а после -(으)니까 можно.",
+        "difference_en": "-기 때문에 cannot be used with commands or suggestions, while -(으)니까 can."
+      }
+    ],
+    "examples_json": [
+      {
+        "korean": "오늘은 주말이기 때문에 도서관 문을 열지 않습니다.",
+        "uzbek": "Bugun dam olish kuni bo'lganligi sababli kutubxona ochilmaydi.",
+        "russian": "Поскольку сегодня выходной, библиотека закрыта.",
+        "english": "Because today is the weekend, the library is not open.",
+        "tag": "공식 안내"
+      },
+      {
+        "korean": "어제 과식을 했기 때문에 배가 아직도 더부룩해요.",
+        "uzbek": "Kecha ko'p ovqat yeb qo'yganim sababli qornim haligacha og'riyapti.",
+        "russian": "Так как вчера переел, в животе до сих пор тяжесть.",
+        "english": "Because I overate yesterday, my stomach still feels bloated.",
+        "tag": "일상 대화"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "비가 많이 ______ 옷이 다 젖었습니다.",
+        "options": [
+          "왔기 때문에",
+          "와서",
+          "오느라고",
+          "오더라도"
+        ],
+        "correct_index": 0,
+        "explanation_ko": "과거 시제(-았-)와 결합할 수 있는 형태는 '-았기 때문에'입니다.",
+        "explanation_uz": "O'tgan zamon (-았-) bilan birika oladigan shakl '-았기 때문에'dir.",
+        "explanation_ru": "С прошедшим временем сочетается форма '-았기 때문에'.",
+        "explanation_en": "The form that can combine with past tense (-았-) is '-았기 때문에'."
+      }
+    ],
+    "tags_json": [
+      "이유",
+      "원인",
+      "TOPIK 2급"
+    ]
+  },
+  {
+    "id": "g_eunikka",
+    "pattern": "-(으)니까",
+    "level": 1,
+    "category": "이유·원인",
+    "description": "화자의 주관적인 판단, 이유 또는 앞 행동을 한 후 새로운 사실을 발견함을 나타냄",
+    "meaning_ko": "화자의 주관적인 판단, 이유 또는 앞 행동을 한 후 새로운 사실을 발견함을 나타냄",
+    "meaning_uz": "So'zlovchining subyektiv sababi yoki harakatdan keyin yangi faktni bilish",
+    "meaning_ru": "Субъективная причина или обнаружение нового факта после действия",
+    "meaning_en": "Expresses a subjective reason or discovering a fact after an action",
+    "explanation_ko": "명령문이나 청유문의 이유로 자주 쓰입니다. 또한 앞 절의 행동을 하고 나서 새로운 상황을 알게 되었을 때도 쓰입니다.",
+    "explanation_uz": "Buyruq va taklif gaplarda sabab sifatida keng qo'llaniladi. Shuningdek, biror ishni qilgach yangi holatni anglaganda ham ishlatiladi.",
+    "explanation_ru": "Часто используется для обоснования просьб и предложений. Также выражает обнаружение чего-либо после совершенного действия.",
+    "explanation_en": "Often provides the reason for commands or suggestions. Also denotes finding out something new after taking an action.",
+    "conjugation_rule": "동사/형용사 + -(으)니까 (받침 O: -으니까, 받침 X/ㄹ: -니까)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "비가 오니까 우산을 꼭 챙겨 가세요.",
+        "uzbek": "Yomg'ir yog'yapti, shuning uchun albatta soyabon olib keting.",
+        "russian": "Идет дождь, поэтому обязательно возьмите зонт.",
+        "english": "It is raining, so please make sure to take an umbrella.",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "집에 도착하니까 가족들이 이미 저녁을 먹고 있었어요.",
+        "uzbek": "Uyga yetib borganimda, oilam allaqachon kechki ovqatni yeyayotgan ekan.",
+        "russian": "Когда я пришел домой, семья уже ужинала.",
+        "english": "When I arrived home, I discovered my family was already having dinner.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "이유",
+      "발견",
+      "청유명령"
+    ]
+  },
+  {
+    "id": "g_jiman",
+    "pattern": "-지만",
+    "level": 1,
+    "category": "대조·양보",
+    "description": "앞 절과 뒤 절의 내용이 상반되거나 대조됨을 나타냄",
+    "meaning_ko": "앞 절과 뒤 절의 내용이 상반되거나 대조됨을 나타냄",
+    "meaning_uz": "Oldingi va keyingi gap mazmuni bir-biriga zid yoki qarama-qarshi ekanligini bildiradi (lekin, ammo)",
+    "meaning_ru": "Противопоставляет содержание двух предложений (но, однако)",
+    "meaning_en": "Connects two contrasting statements (but, although)",
+    "explanation_ko": "가장 기본적인 대조 연결 어미입니다. 앞 절에 과거 시제(-았/었-)를 붙여서 쓸 수 있습니다.",
+    "explanation_uz": "Eng asosiy zidlovchi bog'lovchi qo'shimcha. O'tgan zamon shakli (-았/었-) bilan ham erkin birikadi.",
+    "explanation_ru": "Основное противопоставительное окончание. Может присоединяться к прошедшему времени.",
+    "explanation_en": "The primary contrasting connective. Can freely attach to past tense forms.",
+    "conjugation_rule": "동사/형용사/명사이다 + 지만 (받침 유무 무관, 시제 결합 가능)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "한국어 공부는 어렵지만 정말 재미있어요.",
+        "uzbek": "Koreys tilini o'rganish qiyin, lekin juda qiziqarli.",
+        "russian": "Изучать корейский язык трудно, но очень интересно.",
+        "english": "Studying Korean is difficult, but it is really fun.",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "가격은 조금 비싸지만 품질이 아주 우수합니다.",
+        "uzbek": "Narxi biroz qimmat, ammo sifati juda a'lo.",
+        "russian": "Цена немного высокая, но качество отличное.",
+        "english": "The price is a bit high, but the quality is very superior.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "대조",
+      "접속",
+      "기초"
+    ]
+  },
+  {
+    "id": "g_eumyeon",
+    "pattern": "-(으)면",
+    "level": 1,
+    "category": "조건·가정",
+    "description": "어떤 일이 일어나기 위한 조건이나 가정을 나타냄",
+    "meaning_ko": "어떤 일이 일어나기 위한 조건이나 가정을 나타냄",
+    "meaning_uz": "Biror ish yuz berishi uchun shart yoki farazni bildiradi (agar ...sa)",
+    "meaning_ru": "Выражает условие или предположение (если, когда)",
+    "meaning_en": "Expresses a condition or hypothetical situation (if, when)",
+    "explanation_ko": "어떤 결과가 생기기 위한 필수 조건이나 미래의 불확실한 가정을 나타냅니다.",
+    "explanation_uz": "Natija yuzaga kelishi uchun zaruriy shart yoki kelajakdagi noaniq farazni bildiradi.",
+    "explanation_ru": "Обозначает условие, необходимое для наступления действия, либо предположение.",
+    "explanation_en": "Sets up a condition required for the following clause, or a future hypothesis.",
+    "conjugation_rule": "동사/형용사 + -(으)면 (받침 O: -으면, 받침 X/ㄹ: -면)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "주말에 시간이 있으면 같이 영화를 볼까요?",
+        "uzbek": "Dam olish kunida vaqtingiz bo'lsa, birga kino ko'ramizmi?",
+        "russian": "Если на выходных будет время, посмотрим вместе фильм?",
+        "english": "If you have time this weekend, shall we watch a movie together?",
+        "tag": "기본 회화"
+      },
+      {
+        "korean": "모르는 단어가 나오면 사전을 찾아보세요.",
+        "uzbek": "Noma'lum so'z uchrasa, lug'atdan qidiring.",
+        "russian": "Если встретится незнакомое слово, посмотрите в словаре.",
+        "english": "If you come across an unfamiliar word, look it up in the dictionary.",
+        "tag": "TOPIK 기초"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "조건",
+      "가정",
+      "기초"
+    ]
+  },
+  {
+    "id": "g_euryeogo_hada",
+    "pattern": "-(으)려고 하다",
+    "level": 1,
+    "category": "목적·의도",
+    "description": "어떤 일을 하려는 의도나 계획을 가지고 있음을 나타냄",
+    "meaning_ko": "어떤 일을 하려는 의도나 계획을 가지고 있음을 나타냄",
+    "meaning_uz": "Biror ishni qilish niyati yoki rejasi borligini bildiradi (...moqchi bo'lmoq)",
+    "meaning_ru": "Выражает намерение или план совершить действие (собираться делать)",
+    "meaning_en": "Expresses an intention or plan to do something (plan to, intend to)",
+    "explanation_ko": "주어의 주관적인 결심이나 계획을 나타냅니다. 과거형 '-(으)려고 했다'는 의도는 있었으나 실행하지 못했음을 뜻할 때가 많습니다.",
+    "explanation_uz": "Subyektning niyati yoki rejasini bildiradi. O'tgan zamonda kelsa, niyat qilib lekin qila olmaganlikni bildiradi.",
+    "explanation_ru": "Показывает намерение субъекта. В прошедшем времени часто означает, что намерение не было осуществлено.",
+    "explanation_en": "Indicates subjective plan or intention. In past tense, often implies that the intention was not carried out.",
+    "conjugation_rule": "동사 어간 + -(으)려고 하다 (받침 O: -으려고 하다, 받침 X/ㄹ: -려고 하다)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "이번 방학에는 한국 문화 체험 여행을 가려고 해요.",
+        "uzbek": "Bu ta'tilda koreys madaniyatini o'rganish sayohatiga bormoqchiman.",
+        "russian": "На этих каникулах я собираюсь поехать в путешествие для знакомства с культурой Кореи.",
+        "english": "I plan to go on a trip to experience Korean culture during this vacation.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "의도",
+      "계획",
+      "목적"
+    ]
+  },
+  {
+    "id": "g_eureo_gada",
+    "pattern": "-(으)러 가다/오다",
+    "level": 1,
+    "category": "목적·의도",
+    "description": "어떤 목적을 위해 이동함을 나타냄",
+    "meaning_ko": "어떤 목적을 위해 이동함을 나타냄",
+    "meaning_uz": "Biror maqsad bilan harakatlanish/borish/kelishni bildiradi",
+    "meaning_ru": "Выражает цель перемещения (идти/ехать, чтобы сделать что-то)",
+    "meaning_en": "Expresses the purpose of going or coming to a place",
+    "explanation_ko": "뒤 절에는 반드시 가다, 오다, 다니다 같은 이동 동사만 결합할 수 있습니다.",
+    "explanation_uz": "Orqa gapda faqat borish, kelish kabi harakat fe'llari kelishi shart.",
+    "explanation_ru": "В главной части используются исключительно глаголы движения (идти, приходить).",
+    "explanation_en": "Can only be followed by verbs of movement such as go, come, attend.",
+    "conjugation_rule": "동사 어간 + -(으)러 가다/오다 (받침 O: -으러, 받침 X/ㄹ: -러)",
+    "comparisons_json": [
+      {
+        "target_pattern": "-(으)러",
+        "comparison_pattern": "-(으)려고",
+        "difference_ko": "-(으)러 뒤에는 이동 동사(가다/오다)만 오지만, -(으)려고 뒤에는 일반 동사가 모두 올 수 있습니다.",
+        "difference_uz": "-(으)러 dan keyin faqat borish/kelish fe'llari, -(으)려고 dan keyin esa barcha fe'llar kelishi mumkin.",
+        "difference_ru": "После -(으)러 идут только глаголы движения, а после -(으)려고 — любые глаголы.",
+        "difference_en": "-(으)러 only pairs with movement verbs, whereas -(으)려고 pairs with any action verbs."
+      }
+    ],
+    "examples_json": [
+      {
+        "korean": "점심을 먹으러 학생 식당에 갔어요.",
+        "uzbek": "Tushlik qilish uchun talabalar oshxonasiga bordim.",
+        "russian": "Пошел в студенческую столовую, чтобы пообедать.",
+        "english": "I went to the student cafeteria to eat lunch.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "목적",
+      "이동"
+    ]
+  },
+  {
+    "id": "g_a_eo_juda",
+    "pattern": "-아/어 주다",
+    "level": 1,
+    "category": "기타·조사",
+    "description": "다른 사람을 위해 어떤 행동을 하거나 부탁함을 나타냄",
+    "meaning_ko": "다른 사람을 위해 어떤 행동을 하거나 부탁함을 나타냄",
+    "meaning_uz": "Boshqa shaxs uchun ish bajarish yoki iltimos qilishni bildiradi",
+    "meaning_ru": "Выражает действие в пользу другого лица или просьбу (сделайте для меня)",
+    "meaning_en": "Expresses doing something for someone else or requesting a favor",
+    "explanation_ko": "남을 도울 때 쓰며, 부탁할 때는 '-아/어 주세요' 형태로 가장 많이 쓰입니다.",
+    "explanation_uz": "Boshqalarga yordam berganda yoki iltimos qilganda '-아/어 주세요' shaklida keng ishlatiladi.",
+    "explanation_ru": "Употребляется при оказании помощи или вежливой просьбе в форме '-아/어 주세요'.",
+    "explanation_en": "Used when helping others or politely requesting assistance in the form of '-아/어 주세요'.",
+    "conjugation_rule": "모음 조화에 따라 -아/어 주다, 하다 ➔ 해 주다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "사진 좀 한 장 찍어 주시겠어요?",
+        "uzbek": "Bir dona rasmga tushirib bera olasizmi?",
+        "russian": "Не могли бы вы меня сфотографировать?",
+        "english": "Could you please take a picture for me?",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "요청",
+      "도움"
+    ]
+  },
+  {
+    "id": "g_a_eo_boda",
+    "pattern": "-아/어 보다",
+    "level": 1,
+    "category": "기타·조사",
+    "description": "어떤 일을 경험했거나 시도해 봄을 나타냄",
+    "meaning_ko": "어떤 일을 경험했거나 시도해 봄을 나타냄",
+    "meaning_uz": "Biror ishni tajriba qilib ko'rganlik yoki sinab ko'rishni bildiradi",
+    "meaning_ru": "Означает попытку или наличие жизненного опыта (пробовать сделать)",
+    "meaning_en": "Expresses trying an action or experiencing something in life",
+    "explanation_ko": "1) 경험: 과거형 '-아/어 봤다'로 인생 경험을 표현. 2) 시도: 권유할 때 '-아/어 보세요'로 추천.",
+    "explanation_uz": "1) Tajriba: O'tgan zamonda '-아/어 봤다' orqali hayotiy tajribani aytish. 2) Sinab ko'rish: '-아/어 보세요' orqali tavsiya qilish.",
+    "explanation_ru": "1) Опыт: в прошедшем времени выражает жизненный опыт. 2) Попытка: выражает предложение попробовать.",
+    "explanation_en": "1) Experience: Past tense conveys life experience. 2) Attempt: Suggests trying something out.",
+    "conjugation_rule": "모음 조화에 따라 -아/어 보다, 하다 ➔ 해 보다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "한국의 전통 음식인 불고기를 먹어 본 적이 있어요.",
+        "uzbek": "Koreyaning an'anaviy taomi bo'lgan bulgogini yeb ko'rgan tajribam bor.",
+        "russian": "У меня есть опыт: я пробовал традиционное корейское блюдо пулькоги.",
+        "english": "I have tried eating Bulgogi, a traditional Korean dish.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "경험",
+      "시도"
+    ]
+  },
+  {
+    "id": "g_a_eoya_hada",
+    "pattern": "-아/어야 하다",
+    "level": 1,
+    "category": "기타·조사",
+    "description": "어떤 일을 반드시 해야 하는 의무나 필요성을 나타냄",
+    "meaning_ko": "어떤 일을 반드시 해야 하는 의무나 필요성을 나타냄",
+    "meaning_uz": "Biror ishni bajarish shart yoki zarurligini bildiradi (...ishi kerak/shart)",
+    "meaning_ru": "Выражает обязанность или необходимость (должен, нужно)",
+    "meaning_en": "Expresses obligation or necessity (must, have to)",
+    "explanation_ko": "당위성이나 규칙, 법적 의무 등을 표현합니다. 구어에서는 '-아/어야 되다'도 동의어로 매우 흔하게 쓰입니다.",
+    "explanation_uz": "Qonuniy majburiyat yoki zaruratni bildiradi. Og'zaki nutqda '-아/어야 되다' ham sinonim sifatida keng ishlatiladi.",
+    "explanation_ru": "Обозначает обязанность, правила или необходимость. В разговорной речи часто заменяется на '-아/어야 되다'.",
+    "explanation_en": "Denotes obligation, rules, or necessity. Synonymous with '-아/어야 되다' in spoken language.",
+    "conjugation_rule": "양성 모음 ➔ -아야 하다, 음성 모음 ➔ -어야 하다, 하다 ➔ 해야 하다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "내일 아침 일찍 비행기를 타야 해서 일찍 잘 거예요.",
+        "uzbek": "Ertaga ertalab samolyotga chiqishim kerak bo'lgani uchun ertaroq uxlayman.",
+        "russian": "Завтра рано утром нужно сесть на самолет, поэтому я лягу спать пораньше.",
+        "english": "I have to take a flight early tomorrow morning, so I will sleep early.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "의무",
+      "당위",
+      "필요"
+    ]
+  },
+  {
+    "id": "g_neun_barame",
+    "pattern": "-는 바람에",
+    "level": 3,
+    "category": "이유·원인",
+    "description": "예상치 못한 일로 부정적인 결과를 초래함",
+    "meaning_ko": "예상치 못한 일로 부정적인 결과를 초래함",
+    "meaning_uz": "Kutilmagan hodisa sababli salbiy oqibat yuz berishi",
+    "meaning_ru": "Из-за непредвиденного обстоятельства возник негативный результат",
+    "meaning_en": "Because of / As a negative consequence of an unexpected event",
+    "explanation_ko": "어떤 일의 부정적이거나 불만족스러운 원인을 나타내며, 뒤 절에는 청유형(-ㅂ시다)이나 명령형(-으십시오)을 쓸 수 없습니다. 반드시 동사에만 결합하며, 과거 시제와 결합하지 않습니다.",
+    "explanation_uz": "Kutilmagan salbiy oqibatning sababini bildiradi. Orqa gapda buyruq yoki taklif kelishi mumkin emas. Faqat fe'llarga qo'shiladi va o'tgan zamon olmaydi.",
+    "explanation_ru": "Указывает на непредвиденную причину отрицательного последствия. В главной части нельзя использовать повелительное или пригласительное наклонение.",
+    "explanation_en": "Indicates an unexpected cause that resulted in an undesirable outcome. Cannot be followed by commands or suggestions, and only attaches to verbs without past tense.",
+    "conjugation_rule": "동사 어간 + 는 바람에 (과거형 불가, 형용사 불가)",
+    "comparisons_json": [
+      {
+        "target_pattern": "-는 바람에",
+        "comparison_pattern": "-느라고",
+        "difference_ko": "-는 바람에는 통제 불가능한 외적 사건(비, 사고 등)이 원인이고, -느라고는 주어가 시간과 노력을 쏟은 의도적 행위가 원인입니다.",
+        "difference_uz": "-는 바람에 tashqi kutilmagan voqea (yomg'ir, avariya), -느라고 esa insonning o'z kuchi va vaqtini sarflagan harakati sabab bo'ladi.",
+        "difference_ru": "-는 바람에 — внешнее неконтролируемое событие, а -느라고 — намеренное действие самого субъекта.",
+        "difference_en": "-는 바람에 refers to an uncontrollable external event, whereas -느라고 refers to an intentional time-consuming action by the subject."
+      },
+      {
+        "target_pattern": "-는 바람에",
+        "comparison_pattern": "-탓에",
+        "difference_ko": "-는 바람에는 주로 돌발적·일회성 사건에 쓰이고, -탓에는 자책이나 지속적인 결점·원인 탓을 할 때 폭넓게 쓰입니다.",
+        "difference_uz": "-는 바람에 to'satdan yuz bergan bir martalik voqeada, -탓에 esa kamchilik yoki aybni yuklashda ishlatiladi.",
+        "difference_ru": "-는 바람에 обычно описывает внезапные инциденты, а -탓에 — упрек или постоянный недостаток.",
+        "difference_en": "-는 바람에 usually describes sudden one-off events, while -탓에 blames a continuing flaw or fault."
+      }
+    ],
+    "examples_json": [
+      {
+        "korean": "갑자기 폭우가 쏟아지는 바람에 야외 행사가 전면 취소되었습니다.",
+        "uzbek": "Kutilmaganda kuchli yomg'ir yog'ib ketishi sababli ochiq havodagi tadbir butunlay bekor qilindi.",
+        "russian": "Из-за внезапно хлынувшего ливня мероприятие на открытом воздухе было полностью отменено.",
+        "english": "Because of a sudden torrential downpour, the outdoor event was completely canceled.",
+        "tag": "TOPIK 실전"
+      },
+      {
+        "korean": "출근길 지하철이 고장 나는 바람에 중요한 회의에 지각했어요.",
+        "uzbek": "Ishga borish yo'lida metro buzilib qolgani sababli muhim majlisga kechikdim.",
+        "russian": "Из-за поломки метро по дороге на работу я опоздал на важное совещание.",
+        "english": "I was late for an important meeting because the subway broke down on my way to work.",
+        "tag": "일상 대화"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "길이 너무 미끄러운 ______ 길에서 넘어질 뻔했다.",
+        "options": [
+          "바람에",
+          "탓에",
+          "느라고",
+          "덕분에"
+        ],
+        "correct_index": 1,
+        "explanation_ko": "'미끄럽다'는 형용사이므로 '-는 바람에'는 결합할 수 없으며, 형용사 뒤에는 '-ㄴ 탓에'가 자연스럽습니다.",
+        "explanation_uz": "'미끄럽다' sifat bo'lgani uchun '-는 바람에' birika olmaydi, sifat ortidan '-ㄴ 탓에' to'g'ri keladi.",
+        "explanation_ru": "Слово '미끄럽다' — прилагательное, поэтому '-는 바람에' не подходит, правильно: '미끄러운 탓에'.",
+        "explanation_en": "'미끄럽다' is an adjective, so '-는 바람에' cannot attach; '-ㄴ 탓에' is grammatically correct."
+      }
+    ],
+    "tags_json": [
+      "이유",
+      "부정적결과",
+      "TOPIK 3급"
+    ]
+  },
+  {
+    "id": "g_neurago",
+    "pattern": "-느라고",
+    "level": 3,
+    "category": "이유·원인",
+    "description": "앞선 행동에 집중하느라 뒤의 일을 못하거나 부정적인 결과가 초래됨",
+    "meaning_ko": "앞선 행동에 집중하느라 뒤의 일을 못하거나 부정적인 결과가 초래됨",
+    "meaning_uz": "Biror ish bilan ovora bo'lib boshqa ishni bajara olmaslik yoki salbiy oqibat kelib chiqishi",
+    "meaning_ru": "Из-за того, что был занят одним делом, возник отрицательный результат",
+    "meaning_en": "Because of / As a result of spending time and effort doing one action",
+    "explanation_ko": "앞 절의 행동에 시간과 에너지가 소모되어 뒤의 행동을 하지 못했을 때 쓰는 이유 표현입니다. 앞뒤 절의 주어가 반드시 같아야 합니다.",
+    "explanation_uz": "Biror harakatga vaqt va kuch sarflab boshqa ishni bajara olmaganlik sababini bildiradi. Har ikki gapda ega bir xil bo'lishi shart.",
+    "explanation_ru": "Показывает, что время и силы ушли на первое действие, из-за чего второе не удалось сделать. Подлежащее должно быть одинаковым.",
+    "explanation_en": "Indicates that time and effort spent on the first action caused a negative outcome or prevented another. Subject of both clauses must be identical.",
+    "conjugation_rule": "동사 어간 + 느라고 (형용사 불가, 앞뒤 주어 일치 필수)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "어젯밤에 기말시험 공부를 하느라고 잠을 한숨도 못 잤어요.",
+        "uzbek": "Kecha tunda yakuniy imtihonga tayyorlanish bilan ovora bo'lib bir daqiqa ham uxlay olmadim.",
+        "russian": "Из-за подготовки к сессии прошлой ночью я не сомкнул глаз ни на минуту.",
+        "english": "I could not sleep a wink because I was up all night studying for my final exams.",
+        "tag": "일상 대화"
+      },
+      {
+        "korean": "새로운 프로젝트 기획안을 준비하느라고 퇴근이 많이 늦어졌습니다.",
+        "uzbek": "Yangi loyiha rejasini tayyorlash bilan band bo'lib, ishdan ancha kech qaytdim.",
+        "russian": "Из-за подготовки плана нового проекта я сильно задержался на работе.",
+        "english": "I left work very late because I was occupied with preparing the new project proposal.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [
+      {
+        "question": "친구와 전화로 이야기______ 버스를 놓쳤어요.",
+        "options": [
+          "하느라고",
+          "하는 바람에",
+          "하므로",
+          "하길래"
+        ],
+        "correct_index": 0,
+        "explanation_ko": "주어가 시간과 노력을 들여 행동에 몰두한 결과이므로 '-느라고'가 가장 적절합니다.",
+        "explanation_uz": "Subyekt vaqt sarflab suhbatlashgani sababli '-느라고' eng to'g'ri javobdir.",
+        "explanation_ru": "Действие отняло время субъекта, поэтому правильно: '하느라고'.",
+        "explanation_en": "The subject spent time on the action causing the missed bus, so '-느라고' is best."
+      }
+    ],
+    "tags_json": [
+      "이유",
+      "주어일치",
+      "시간소모"
+    ]
+  },
+  {
+    "id": "g_eul_ppunman_anira",
+    "pattern": "-(으)ㄹ 뿐만 아니라",
+    "level": 3,
+    "category": "정도·강조",
+    "description": "앞의 사실에 더하여 다른 사실도 그러함을 나타냄 (뿐만 아니라)",
+    "meaning_ko": "앞의 사실에 더하여 다른 사실도 그러함을 나타냄 (뿐만 아니라)",
+    "meaning_uz": "Nafaqat ..., balki ... ham (qo'shimcha ma'lumot qo'shish)",
+    "meaning_ru": "Не только ..., но и ... (добавление факта)",
+    "meaning_en": "Not only ..., but also ...",
+    "explanation_ko": "앞 문장의 사실에 더해 다른 좋은 점이나 나쁜 점이 덧붙여질 때 사용하며, 긍정 뒤에는 긍정, 부정 뒤에는 부정이 이어집니다.",
+    "explanation_uz": "Oldingi faktga qo'shimcha ravishda boshqa bir yaxshi yoki yomon holat ham mavjudligini bildiradi.",
+    "explanation_ru": "Выражает добавление факта. Если первая часть положительная, вторая тоже должна быть положительной.",
+    "explanation_en": "Indicates that in addition to the first fact, another fact applies. Tone (positive/negative) must be consistent.",
+    "conjugation_rule": "동사/형용사 + -(으)ㄹ 뿐만 아니라 (받침 O: -을, 받침 X/ㄹ: -ㄹ), 명사 + 일 뿐만 아니라",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "이 스마트폰은 디자인이 세련되었을 뿐만 아니라 배터리 성능도 뛰어납니다.",
+        "uzbek": "Bu smartfon nafaqat bejirim dizaynga ega, balki batareya quvvati ham juda yuqori.",
+        "russian": "Этот смартфон не только обладает стильным дизайном, но и отличным аккумулятором.",
+        "english": "This smartphone not only has a sleek design, but also boasts outstanding battery life.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "첨가",
+      "강조",
+      "TOPIK 3급"
+    ]
+  },
+  {
+    "id": "g_neun_daesine",
+    "pattern": "-(으)ㄴ/는 대신에",
+    "level": 3,
+    "category": "대조·양보",
+    "description": "앞의 일 대신 다른 것으로 대체하거나 상반되는 대가를 치름",
+    "meaning_ko": "앞의 일 대신 다른 것으로 대체하거나 상반되는 대가를 치름",
+    "meaning_uz": "Biror ish o'rniga boshqa ishni bajarish yoki biror narsaning evaziga",
+    "meaning_ru": "Вместо того чтобы... / Взамен чего-то",
+    "meaning_en": "Instead of / In return for / In compensation for",
+    "explanation_ko": "1) 행동의 대체: 어떤 행동을 하지 않고 다른 것으로 바꿈. 2) 대가·상쇄: 장점이 있는 반면 상반되는 단점이 있음을 나타냄.",
+    "explanation_uz": "1) O'rniga: bir ishni boshqasiga almashtirish. 2) Evaziga: biror afzallik evaziga kamchilik mavjudligi.",
+    "explanation_ru": "1) Замена действия другим. 2) Компенсация одного свойства противоположным.",
+    "explanation_en": "1) Substituting one action for another. 2) Compensating a benefit with a drawback.",
+    "conjugation_rule": "동사 현재: -는 대신에 (과거 -(으)ㄴ 대신에), 형용사: -(으)ㄴ 대신에, 명사: 대신에",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "제가 커피를 사는 대신에 점심은 네가 사 줘.",
+        "uzbek": "Men qahva olib berishim evaziga, tushlikni sen olib ber.",
+        "russian": "Вместо того чтобы платить за все, я куплю кофе, а ты угостишь обедом.",
+        "english": "In return for me buying the coffee, you treat me to lunch.",
+        "tag": "일상 대화"
+      },
+      {
+        "korean": "이 아파트는 시내 중심에 있어 편리한 대신에 월세가 꽤 비싼 편입니다.",
+        "uzbek": "Bu kvartira shahar markazida joylashgani uchun qulay bo'lishi evaziga, oylik ijarasi ancha qimmat.",
+        "russian": "Эта квартира удобна тем, что находится в центре, но взамен арендная плата довольно высока.",
+        "english": "This apartment is convenient being downtown, but in return the rent is quite expensive.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "대체",
+      "대가",
+      "대조"
+    ]
+  },
+  {
+    "id": "g_neun_banmyeone",
+    "pattern": "-(으)ㄴ/는 반면에",
+    "level": 3,
+    "category": "대조·양보",
+    "description": "두 가지 사실이 상반되거나 대조적임을 나타냄",
+    "meaning_ko": "두 가지 사실이 상반되거나 대조적임을 나타냄",
+    "meaning_uz": "Ikki xil fakt yoki xususiyatning bir-biriga qarama-qarshi ekanligini ifodalaydi",
+    "meaning_ru": "В то время как... / С другой стороны (сопоставление противоположностей)",
+    "meaning_en": "While / On the other hand / In contrast",
+    "explanation_ko": "어떤 대상의 긍정적인 면과 부정적인 면을 명확하게 대조할 때 씁니다.",
+    "explanation_uz": "Biror narsaning ijobiy va salbiy tomonlarini yaqqol qiyoslaganda qo'llaniladi.",
+    "explanation_ru": "Используется для четкого сопоставления положительных и отрицательных сторон.",
+    "explanation_en": "Used to clearly contrast opposing aspects, such as pros and cons.",
+    "conjugation_rule": "동사: -는 반면에 (과거 -(으)ㄴ 반면에), 형용사: -(으)ㄴ 반면에",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "온라인 쇼핑은 시간과 비용을 절약할 수 있는 반면에 실물을 직접 확인하기 어렵습니다.",
+        "uzbek": "Onlayn xarid vaqt va xarajatni tejashi mumkin bo'lgan holda, mahsulotni ko'z bilan ko'rish qiyin.",
+        "russian": "Онлайн-покупки экономят время, в то время как товар нельзя увидеть вживую.",
+        "english": "While online shopping saves time and money, on the other hand it is hard to inspect items in person.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "대조",
+      "비교",
+      "TOPIK 3급"
+    ]
+  },
+  {
+    "id": "g_eul_tende",
+    "pattern": "-(으)ㄹ 텐데",
+    "level": 3,
+    "category": "추측·양태",
+    "description": "화자의 강한 추측이나 상황을 전제로 제시하며 뒤에 조언이나 질문이 이어짐",
+    "meaning_ko": "화자의 강한 추측이나 상황을 전제로 제시하며 뒤에 조언이나 질문이 이어짐",
+    "meaning_uz": "Kuchli taxmin yoki vaziyatni asos qilib keltirib, orqadan maslahat yoki taklif berish",
+    "meaning_ru": "Наверное... / Должно быть... (предпосылка для совета или предложения)",
+    "meaning_en": "It is expected that... so / Must be... so (context for advice or request)",
+    "explanation_ko": "앞 절에서 강한 추측(-을 터이다)을 배경으로 깔고, 뒤 절에서 배려, 권유, 제안을 표현합니다.",
+    "explanation_uz": "Oldingi gapda kuchli taxminni fon sifatida keltirib, orqa gapda maslahat yoki taklif beriladi.",
+    "explanation_ru": "Выражает сильное предположение как фон для последующего совета или вопроса.",
+    "explanation_en": "Establishes a strong assumption as context before giving advice, suggestion, or question.",
+    "conjugation_rule": "동사/형용사 + -(으)ㄹ 텐데 (과거 -았/었을 텐데)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "퇴근 시간이면 도로가 많이 막힐 텐데 지하철을 타고 가세요.",
+        "uzbek": "Ishdan qaytish vaqtida yo'llar juda tirband bo'lsa kerak, metroda keting.",
+        "russian": "В час пик дороги, должно быть, сильно загружены, поэтому поезжайте на метро.",
+        "english": "The roads will likely be congested during rush hour, so please take the subway.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "추측",
+      "배려",
+      "조언"
+    ]
+  },
+  {
+    "id": "g_eumeedo_bulguhago",
+    "pattern": "-(으)ㅁ에도 불구하고",
+    "level": 4,
+    "category": "대조·양보",
+    "description": "앞선 조건이나 상황에 구애받지 않고 뒤의 결과를 이룸",
+    "meaning_ko": "앞선 조건이나 상황에 구애받지 않고 뒤의 결과를 이룸",
+    "meaning_uz": "...ga qaramasdan / ... bo'lishiga qaramay (kutilmagan natija)",
+    "meaning_ru": "Несмотря на то, что... / Вопреки обстоятельствам",
+    "meaning_en": "In spite of / Despite the fact that",
+    "explanation_ko": "상식적으로 기대되는 결과와 반대되는 행동이나 결과를 강조할 때 쓰이며, 문어체나 TOPIK 읽기/쓰기에 매우 자주 등장합니다.",
+    "explanation_uz": "Kutilgan to'siq yoki holatga qaramay harakat davom etganini yoki natijaga erishilganini ifodalaydi.",
+    "explanation_ru": "Подчеркивает свершение действия вопреки очевидному препятствию. Характерно для письменной речи.",
+    "explanation_en": "Highlights that an action succeeded despite an obvious obstacle. Common in formal writing and TOPIK II.",
+    "conjugation_rule": "동사/형용사 + -(으)ㅁ에도 불구하고, 명사 + 에도 불구하고",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "신체적 장애에도 불구하고 그는 세계적인 바이올린 연주자로 성공했습니다.",
+        "uzbek": "Jismoniy nuqsonga qaramasdan, u jahon darajasidagi skripkachi sifatida muvaffaqiyat qozondi.",
+        "russian": "Несмотря на физические ограничения, он стал всемирно известным скрипачом.",
+        "english": "Despite his physical disability, he succeeded as a world-renowned violinist.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "양보",
+      "문어체",
+      "TOPIK 4급"
+    ]
+  },
+  {
+    "id": "g_ge_doeda",
+    "pattern": "-게 되다",
+    "level": 2,
+    "category": "변화·결과",
+    "description": "어떤 외부적 상황이나 계기로 인해 상태나 상황이 변하게 됨",
+    "meaning_ko": "어떤 외부적 상황이나 계기로 인해 상태나 상황이 변하게 됨",
+    "meaning_uz": "Tashqi vaziyat sababli yangi holatga kelib qolish (...digan bo'lmoq)",
+    "meaning_ru": "Стать делать что-то / Измениться под воздействием обстоятельств",
+    "meaning_en": "To come to do / Turn out that way due to external circumstances",
+    "explanation_ko": "주어의 의지보다는 외부의 계기나 환경 변화로 인해 새로운 상황이 생겼음을 나타냅니다.",
+    "explanation_uz": "Insonning o'z xohishidan ko'ra tashqi vaziyat taqozosi bilan yangi holatga erishilganini bildiradi.",
+    "explanation_ru": "Показывает изменение ситуации под влиянием внешних факторов, а не воли субъекта.",
+    "explanation_en": "Indicates a change resulting from external situations rather than personal direct intent.",
+    "conjugation_rule": "동사/형용사 어간 + 게 되다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "회사 발령으로 다음 달부터 서울 본사에서 근무하게 되었습니다.",
+        "uzbek": "Kompaniya buyrug'i bilan keyingi oydan Seul bosh idorasida ishlaydigan bo'ldim.",
+        "russian": "По распоряжению руководства со следующего месяца я перехожу на работу в главный офис в Сеуле.",
+        "english": "Due to a company transfer, I have come to work at the Seoul headquarters starting next month.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "변화",
+      "결과",
+      "피동적변화"
+    ]
+  },
+  {
+    "id": "g_a_eojida",
+    "pattern": "-아/어지다",
+    "level": 2,
+    "category": "변화·결과",
+    "description": "형용사와 결합하여 상태가 점차 변화해 감을 나타냄",
+    "meaning_ko": "형용사와 결합하여 상태가 점차 변화해 감을 나타냄",
+    "meaning_uz": "Sifat bilan birikib, holat asta-sekin o'zgarib borishini bildiradi (...ib bormoq)",
+    "meaning_ru": "С прилагательными выражает постепенное изменение состояния (становиться каким-то)",
+    "meaning_en": "Expresses a gradual change in state with adjectives (to become/get...)",
+    "explanation_ko": "형용사에 결합하여 점진적인 상태 변화를 뜻합니다. 동사에 결합하면 피동(자연스러운 피동적 결과)을 만듭니다.",
+    "explanation_uz": "Sifatlarga qo'shilib holatning asta-sekin o'zgarishini ifodalaydi.",
+    "explanation_ru": "В сочетании с прилагательными обозначает постепенный переход в новое состояние.",
+    "explanation_en": "Combines with adjectives to denote transition into a state (e.g. get colder, become clean).",
+    "conjugation_rule": "모음 조화에 따라 형용사 + -아/어지다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "가을이 깊어가면서 아침저녁으로 날씨가 제법 쌀쌀해졌어요.",
+        "uzbek": "Kuz fasli kirib kelishi bilan ertalab va kechqurun havo ancha salqinlashib qoldi.",
+        "russian": "С наступлением осени по утрам и вечерам стало довольно прохладно.",
+        "english": "As autumn deepens, the weather has become quite chilly in the mornings and evenings.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "상태변화",
+      "점진적"
+    ]
+  },
+  {
+    "id": "g_gi_wihan",
+    "pattern": "-기 위해(서)",
+    "level": 2,
+    "category": "목적·의도",
+    "description": "어떤 목적이나 목표를 이루기 위해 행동함을 나타냄",
+    "meaning_ko": "어떤 목적이나 목표를 이루기 위해 행동함을 나타냄",
+    "meaning_uz": "Biror maqsad yoki niyatga erishish uchun harakat qilish (...maq uchun)",
+    "meaning_ru": "Ради / Для того чтобы (цель действия)",
+    "meaning_en": "In order to / For the purpose of",
+    "explanation_ko": "어떤 중대한 목적이나 명확한 목표를 세우고 노력할 때 쓰이며, 격식체 담화 및 쓰기 시험에 자주 활용됩니다.",
+    "explanation_uz": "Jiddiy maqsad yoki vazifani ko'zlab harakat qilganda qo'llaniladi.",
+    "explanation_ru": "Выражает четкую цель или стремление к результату. Характерно для публичной и письменной речи.",
+    "explanation_en": "Indicates a clear purpose or goal. Commonly used in formal speeches, essays, and TOPIK writing.",
+    "conjugation_rule": "동사 어간 + 기 위해(서), 명사 + 을/를 위해(서)",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "원하는 대학에 진학하기 위해 매일 밤늦게까지 학업에 매진하고 있습니다.",
+        "uzbek": "Istalgan universitetga kirish maqsadida har kuni kechgacha o'qishga bor kuchini bermoqda.",
+        "russian": "Ради поступления в желанный университет он каждый день до поздней ночи усердно учится.",
+        "english": "In order to enter the university of his choice, he dedicates himself to studying late every night.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "목적",
+      "목표",
+      "쓰기필수"
+    ]
+  },
+  {
+    "id": "g_eul_manhada",
+    "pattern": "-(으)ㄹ 만하다",
+    "level": 3,
+    "category": "추측·양태",
+    "description": "어떤 행동을 할 만한 가치가 있거나 일정한 수준에 도달함을 나타냄",
+    "meaning_ko": "어떤 행동을 할 만한 가치가 있거나 일정한 수준에 도달함을 나타냄",
+    "meaning_uz": "Biror ishni qilishga arzigulik yoki unga qodir ekanlikni bildiradi (...ishga arziydi)",
+    "meaning_ru": "Стоит сделать... / Заслуживает того, чтобы... / Достаточно сносно",
+    "meaning_en": "Worth doing / Deserves to be done / Tolerable",
+    "explanation_ko": "1) 가치: 시도해 볼 만한 가치가 있음. 2) 허용도: 완벽하진 않지만 견디거나 인정할 만함.",
+    "explanation_uz": "1) Qimmatli: qilib ko'rishga arziydi. 2) Qoniqarli: mukammal bo'lmasa-da, chidasa bo'ladi.",
+    "explanation_ru": "1) Действие заслуживает внимания. 2) Удовлетворительное качество, приемлемо.",
+    "explanation_en": "1) Worthwhile to do. 2) Acceptable or passable though not perfect.",
+    "conjugation_rule": "동사 어간 + -(으)ㄹ 만하다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "이 소설책은 내용이 감동적이어서 꼭 한번 읽어 볼 만합니다.",
+        "uzbek": "Bu qissa mazmuni ta'sirli bo'lgani uchun albatta bir marta o'qib ko'rishga arziydi.",
+        "russian": "Этот роман очень трогательный, его определенно стоит прочитать хотя бы раз.",
+        "english": "This novel is so touching that it is definitely worth reading once.",
+        "tag": "기본 회화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "가치",
+      "추천",
+      "평가"
+    ]
+  },
+  {
+    "id": "g_da_boni",
+    "pattern": "-다 보니",
+    "level": 3,
+    "category": "시간·순서",
+    "description": "어떤 행동을 계속 반복하다 보니 새로운 사실이나 결과를 알게 됨",
+    "meaning_ko": "어떤 행동을 계속 반복하다 보니 새로운 사실이나 결과를 알게 됨",
+    "meaning_uz": "Biror harakatni davomiy qilaverib, yangi natija yoki faktni anglash",
+    "meaning_ru": "В процессе регулярного повторения действия выяснилось / привело к результату",
+    "meaning_en": "As a result of doing something continuously / repeatedly",
+    "explanation_ko": "어떤 행동을 지속적으로 반복하다 보니 자연스럽게 깨달음이나 변화된 결과가 생겼음을 뜻합니다.",
+    "explanation_uz": "Biror ishni takroriy qilib ko'raverganidan so'ng tabiiy ravishda o'zgarish paydo bo'lishini ifodalaydi.",
+    "explanation_ru": "Показывает, что в результате многократного повторения действия возникло новое знание или результат.",
+    "explanation_en": "Indicates that after continuously doing an action, a realization or natural result occurred.",
+    "conjugation_rule": "동사 어간 + 다 보니",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "한국 드라마를 자막 없이 꾸준히 보다 보니 듣기 실력이 많이 늘었습니다.",
+        "uzbek": "Koreys seriallarini subtitrsiz muntazam ko'raverib, eshitib tushunish qobiliyatim ancha oshdi.",
+        "russian": "Регулярно смотря корейские дорамы без субтитров, я заметил, что восприятие на слух сильно улучшилось.",
+        "english": "As a result of steadily watching Korean dramas without subtitles, my listening skills improved a lot.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "지속",
+      "발견",
+      "경험"
+    ]
+  },
+  {
+    "id": "g_gi_maryeonida",
+    "pattern": "-기 마련이다",
+    "level": 3,
+    "category": "추측·양태",
+    "description": "어떤 일이 그렇게 되는 것이 당연하거나 필연적인 이치임을 나타냄",
+    "meaning_ko": "어떤 일이 그렇게 되는 것이 당연하거나 필연적인 이치임을 나타냄",
+    "meaning_uz": "Biror narsaning shunday bo'lishi tabiiy qonuniyat yoki muqarrar ekanligini bildiradi",
+    "meaning_ru": "Естественно, что... / Неизбежно произойдет так, таков закон природы",
+    "meaning_en": "It is natural that... / Bound to happen / It is only matters of course",
+    "explanation_ko": "세상의 자연스러운 이치나 인간사의 보편적인 규칙을 이야기할 때 주로 씁니다.",
+    "explanation_uz": "Dunyoning tabiiy qonuniyati yoki insoniyat hayotidagi umumiy haqiqatni aytganda qo'llaniladi.",
+    "explanation_ru": "Употребляется для выражения всеобщих законов жизни и неизбежности вещей.",
+    "explanation_en": "Used when stating a universal truth or an outcome bound to happen naturally.",
+    "conjugation_rule": "동사/형용사 어간 + 기 마련이다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "누구나 낯선 환경에 처음 놓이면 당황하고 불안해지기 마련입니다.",
+        "uzbek": "Har kim notanish muhitga birinchi bor tushganda sarosimaga tushishi va xavotirlanishi tabiiy hol.",
+        "russian": "Любой человек, впервые оказавшись в незнакомой обстановке, неизбежно испытывает тревогу.",
+        "english": "Anyone is bound to feel confused and anxious when placed in an unfamiliar environment for the first time.",
+        "tag": "TOPIK 실전"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "당연",
+      "필연",
+      "보편적법칙"
+    ]
+  },
+  {
+    "id": "g_eul_ppeonhada",
+    "pattern": "-(으)ㄹ 뻔하다",
+    "level": 3,
+    "category": "변화·결과",
+    "description": "하마터면 어떤 부정적인 일이 일어날 뻔했으나 실제로는 일어나지 않음",
+    "meaning_ko": "하마터면 어떤 부정적인 일이 일어날 뻔했으나 실제로는 일어나지 않음",
+    "meaning_uz": "Sal qolsa biror yomon ish yuz berayozdi, lekin amalda yuz bermadi",
+    "meaning_ru": "Чуть было не... / Едва не случилось (но в итоге обошлось)",
+    "meaning_en": "Almost happened / Nearly occurred (but narrowly avoided)",
+    "explanation_ko": "거의 일어날 뻔한 아슬아슬한 위기를 모면했을 때 쓰이며, 항상 과거형 '-(으)ㄹ 뻔했다'로 사용됩니다.",
+    "explanation_uz": "Kutilmagan xavfli holat yuz berayozib, omon qolgan paytda faqat o'tgan zamonda ishlatiladi.",
+    "explanation_ru": "Указывает на ситуацию, которая едва не произошла, но обошлось. Всегда в прошедшем времени.",
+    "explanation_en": "Expresses that a dangerous or negative situation almost occurred but was narrowly avoided. Always in past tense.",
+    "conjugation_rule": "동사 어간 + -(으)ㄹ 뻔하다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "눈길에 미끄러져서 하마터면 앞차와 충돌할 뻔했어요.",
+        "uzbek": "Qorli yo'lda sirpanib, sal qolsa oldidagi mashina bilan to'qnashib ketayozdim.",
+        "russian": "Поскользнувшись на заснеженной дороге, я едва не врезался в машину впереди.",
+        "english": "Slipping on the snowy road, I almost crashed into the car ahead.",
+        "tag": "일상 대화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "위기모면",
+      "아슬아슬"
+    ]
+  },
+  {
+    "id": "g_neun_cheokhada",
+    "pattern": "-(으)ㄴ/는 척하다",
+    "level": 3,
+    "category": "기타·조사",
+    "description": "실제로는 그렇지 않은데 겉으로 그런 것처럼 꾸미거나 행동함",
+    "meaning_ko": "실제로는 그렇지 않은데 겉으로 그런 것처럼 꾸미거나 행동함",
+    "meaning_uz": "Aslida unday bo'lmasa-da, o'zini shunday qilib ko'rsatish (...ganga olmoq)",
+    "meaning_ru": "Притворяться, делать вид, что...",
+    "meaning_en": "To pretend to / Make believe that...",
+    "explanation_ko": "실제 상태나 감정을 숨기고 남에게 속이려는 뉘앙스를 담고 있습니다. '체하다'와 동의어입니다.",
+    "explanation_uz": "Haqiqiy holatni yashirib, o'zini bilmaganga yoki band qilib ko'rsatish.",
+    "explanation_ru": "Показывает ложное поведение с целью ввести в заблуждение окружающих.",
+    "explanation_en": "Indicates feigning a state or pretending to do something contrary to the truth.",
+    "conjugation_rule": "동사 현재: -는 척하다, 동사 과거/형용사: -(으)ㄴ 척하다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "그는 자신의 실수를 이미 알면서도 전혀 모르는 척했어요.",
+        "uzbek": "U o'z xatosini allaqachon bilsa-da, o'zini mutlaqo bilmaganga oldi.",
+        "russian": "Он уже знал о своей ошибке, но сделал вид, будто совсем ничего не знает.",
+        "english": "Even though he already knew about his mistake, he pretended not to know at all.",
+        "tag": "일상 대화"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "가식",
+      "행동",
+      "태도"
+    ]
+  },
+  {
+    "id": "g_euljieonjeong",
+    "pattern": "-(으)ㄹ망정 / -(으)ㄹ지언정",
+    "level": 5,
+    "category": "대조·양보",
+    "description": "앞선 극단적인 희생이나 손해를 감수하더라도 뒤의 신념이나 행동을 지키겠다는 강한 양보",
+    "meaning_ko": "앞선 극단적인 희생이나 손해를 감수하더라도 뒤의 신념이나 행동을 지키겠다는 강한 양보",
+    "meaning_uz": "Oldingi o'ta og'ir zararga rozi bo'lsa ham, keyingi qat'iy niyatni asrab qolish",
+    "meaning_ru": "Даже если придется пойти на крайние жертвы, от своего не отступлюсь",
+    "meaning_en": "Even if it means enduring the worst, I would rather... than compromise",
+    "explanation_ko": "화자의 결연한 의지나 신념을 표현하는 문어체 최고급 문법입니다. 주로 신조나 명예를 지키고자 할 때 씁니다.",
+    "explanation_uz": "So'zlovchining qat'iy irodasi va g'ururini ifodalovchi eng yuqori darajadagi kitobiy grammatika.",
+    "explanation_ru": "Выражает твердую решимость и принципиальность субъекта перед лицом худшего исхода.",
+    "explanation_en": "High-level literary grammar expressing resolute commitment to principles over extreme sacrifice.",
+    "conjugation_rule": "동사/형용사 + -(으)ㄹ망정 / -(으)ㄹ지언정",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "굶어 죽을지언정 결코 불의와 타협하지는 않겠습니다.",
+        "uzbek": "Ochlikdan o'lsam o'lamanki, aslo nohaqlik bilan murosaga kelmayman.",
+        "russian": "Даже если придется умереть от голода, я ни за что не пойду на сделку с несправедливостью.",
+        "english": "Even if I were to starve to death, I will never compromise with injustice.",
+        "tag": "TOPIK 고급"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "결연한의지",
+      "극단적양보",
+      "TOPIK 5급"
+    ]
+  },
+  {
+    "id": "g_gi_ssangida",
+    "pattern": "-기 십상이다",
+    "level": 5,
+    "category": "추측·양태",
+    "description": "어떤 부정적이거나 원치 않는 결과가 발생하기 매우 쉬움을 나타냄",
+    "meaning_ko": "어떤 부정적이거나 원치 않는 결과가 발생하기 매우 쉬움을 나타냄",
+    "meaning_uz": "Biror salbiy yoki noxush oqibat sodir bo'lishi ehtimoli juda yuqori",
+    "meaning_ru": "Очень легко может случиться неприятность / Высока вероятность ошибки",
+    "meaning_en": "Very easy to fall into a bad result / Highly prone to",
+    "explanation_ko": "주의를 기울이지 않으면 실수나 사고, 실패 등 부정적인 상태로 빠지기 십상임을 경고할 때 씁니다.",
+    "explanation_uz": "Agar e'tibor berilmasa, xato, xatar yoki salbiy oqibat kelib chiqishi juda osonligini ogohlantirishda ishlatiladi.",
+    "explanation_ru": "Предупреждает о высокой вероятности совершить ошибку или попасть в неловкую ситуацию при невнимательности.",
+    "explanation_en": "Warns that an undesirable mistake or failure is bound or highly likely to occur without caution.",
+    "conjugation_rule": "동사 어간 + 기 십상이다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "충분한 사전 검토 없이 섣불리 투자했다가는 큰 손실을 보기 십상입니다.",
+        "uzbek": "Yetarlicha o'rganmasdan shoshilinch sarmoya kiritilsa, katta zarar ko'rish hech gap emas.",
+        "russian": "Если инвестировать опрометчиво без должного анализа, очень легко понести огромные убытки.",
+        "english": "If you invest hastily without thorough prior review, it is all too easy to suffer heavy losses.",
+        "tag": "TOPIK 고급"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "경고",
+      "부정적가능성",
+      "고급어휘"
+    ]
+  },
+  {
+    "id": "g_eul_ri_manmuhada",
+    "pattern": "-(으)ㄹ 리 만무하다",
+    "level": 6,
+    "category": "추측·양태",
+    "description": "어떤 사실이나 가능성이 결코 존재하지 않음을 강하게 확신함",
+    "meaning_ko": "어떤 사실이나 가능성이 결코 존재하지 않음을 강하게 확신함",
+    "meaning_uz": "Biror fakt yoki ehtimol mutlaqo bo'lishi mumkin emasligiga qat'iy ishonch",
+    "meaning_ru": "Ни в коем случае не может быть так / Совершенно невероятно",
+    "meaning_en": "There is absolutely no reason or possibility that...",
+    "explanation_ko": "'-(으)ㄹ 리가 없다'의 최고급 문어체 표현으로 논설문, 학술 논문, 사설 등에서 단호한 배제를 뜻합니다.",
+    "explanation_uz": "'-(으)ㄹ 리가 없다' iborasining eng yuqori darajadagi kitobiy varianti.",
+    "explanation_ru": "Высшая литературная форма отрицания возможности чего-либо, характерна для аналитических статей.",
+    "explanation_en": "The most formal literary equivalent of '-(으)ㄹ 리가 없다', expressing absolute certainty that something cannot be true.",
+    "conjugation_rule": "동사/형용사 + -(으)ㄹ 리 만무하다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "철저한 보안 시스템을 갖춘 연구소에서 기밀이 외부로 유출되었을 리 만무합니다.",
+        "uzbek": "Kuchli xavfsizlik tizimiga ega laboratoriyadan maxfiy ma'lumot tashqariga sizib chiqqan bo'lishi aslo mumkin emas.",
+        "russian": "Совершенно невероятно, чтобы секретная информация утекла из лаборатории с такой строгой системой безопасности.",
+        "english": "It is utterly inconceivable that confidential data leaked outside from a research institute with such tight security.",
+        "tag": "TOPIK 최고급"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "강한부정",
+      "확신",
+      "논설문"
+    ]
+  },
+  {
+    "id": "g_a_eo_majianhta",
+    "pattern": "-아/어 마지않다",
+    "level": 6,
+    "category": "정도·강조",
+    "description": "마음속에서 우러나오는 간절한 축하나 감사의 감정을 극도로 강조함",
+    "meaning_ko": "마음속에서 우러나오는 간절한 축하나 감사의 감정을 극도로 강조함",
+    "meaning_uz": "Qalb tubidan chiqqan samimiy tilak, minnatdorchilik yoki his-tuyg'uni haddan ziyod chuqur ifodalash",
+    "meaning_ru": "Искренне и от всей души (не перестаю восхищаться / поздравлять)",
+    "meaning_en": "Do not cease to / Sincerely and boundlessly (congratulate, thank, admire)",
+    "explanation_ko": "주로 '축하하다', '감사하다', '기원하다', '존경하다' 등의 심리·축원 동사와 결합하여 격식 있는 자리에서 씁니다.",
+    "explanation_uz": "Tantanali marosimlarda tabriklash, minnatdorchilik bildirish kabi holatlarda yuqori hurmat ifodasi sifatida aytiladi.",
+    "explanation_ru": "Используется в торжественной обстановке с глаголами поздравления, благодарности и пожелания.",
+    "explanation_en": "Reserved for formal ceremonies and literary writing, pairing with verbs of congratulation, gratitude, and admiration.",
+    "conjugation_rule": "특정 심리 동사 + -아/어 마지않다",
+    "comparisons_json": [],
+    "examples_json": [
+      {
+        "korean": "오랜 각고의 노력 끝에 이뤄낸 귀하의 눈부신 학위 취득을 진심으로 축하해 마지않습니다.",
+        "uzbek": "Ko'p yillik mashaqqatli mehnat evaziga qo'lga kiritilgan ushbu yorqin ilmiy darajangizni chin yurakdan qutlab qolaman.",
+        "russian": "От всей души и безмерно поздравляю Вас с получением блестящей ученой степени, достигнутой упорным трудом.",
+        "english": "I offer my deepest and most boundless congratulations on your brilliant academic degree achieved through enduring effort.",
+        "tag": "TOPIK 최고급"
+      }
+    ],
+    "quizzes_json": [],
+    "tags_json": [
+      "격식축원",
+      "최고급",
+      "공식의전"
+    ]
+  }
+]

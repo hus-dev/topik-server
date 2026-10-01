@@ -61,6 +61,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Database backups and dumps
 *.sql
+!prisma/migrations/**/*.sql
 
 # Python
 __pycache__/

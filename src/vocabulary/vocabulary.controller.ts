@@ -17,6 +17,8 @@ import { AdminGuard } from '../auth/guards/admin.guard';
 import { CreateVocabularyDto } from './dto/create-vocabulary.dto';
 import { GetVocabularyQueryDto } from './dto/get-vocabulary-query.dto';
 import { UpdateVocabularyDto } from './dto/update-vocabulary.dto';
+import { GenerateAiExampleDto } from './dto/generate-ai-example.dto';
+import { AiExampleService } from './ai-example.service';
 import { VocabularyService } from './vocabulary.service';
 
 type JwtRequest = ExpressRequest & {
@@ -29,7 +31,16 @@ type JwtRequest = ExpressRequest & {
 @ApiTags('vocabulary')
 @Controller('vocabulary')
 export class VocabularyController {
-  constructor(private readonly vocabularyService: VocabularyService) {}
+  constructor(
+    private readonly vocabularyService: VocabularyService,
+    private readonly aiExampleService: AiExampleService,
+  ) {}
+
+  @Post('ai-example')
+  @ApiOperation({ summary: 'Generate AI example sentence for a vocabulary word' })
+  generateAiExample(@Body() dto: GenerateAiExampleDto) {
+    return this.aiExampleService.generateExample(dto);
+  }
 
   @Get()
   @ApiOperation({ summary: 'Get vocabulary list' })

@@ -51,12 +51,38 @@ def get_reading_prompt(q):
     if q in [69, 70]: return "※ [69～70] 다음을 읽고 물음에 답하십시오."
     return ""
 
+def clean_listening_script(s):
+    if not s: return ''
+    s = re.sub(r'---PAGE \d+---', '', s, flags=re.IGNORECASE)
+    s = re.sub(r'---.*', '', s)
+    s = re.sub(r'TOPIK\s*제?\d*회?.*', '', s, flags=re.IGNORECASE)
+    s = re.sub(r'제\d+회\s*한국어능력시험.*', '', s)
+    s = re.sub(r'홀수형.*', '', s)
+    s = re.sub(r'짝수형.*', '', s)
+    s = re.sub(r'듣기\s*통합.*', '', s)
+    s = re.sub(r'※.*', '', s)
+    s = re.sub(r'^\s*[①②③④\d\s\.\)]+$', '', s, flags=re.MULTILINE)
+    # Remove options leaked into Q19 in 102
+    s = re.sub(r'\n\s*여자는\s*운전에\s*익숙해졌습니다.*', '', s, flags=re.DOTALL)
+    s = re.sub(r'\n{3,}','\n\n', s)
+    return s.strip()
+
 def build_listening(round_num):
     print(f"Building {round_num} listening...")
     with open(f'content/topik1-{round_num}/answers.json') as f:
         answers = json.load(f)['listening']
     with open(f'content/topik1-{round_num}/listening-ocr.txt') as f:
         l_text = f.read()
+
+    # Pre-extract shared dialogues for paired questions (25-26, 27-28, 29-30)
+    m25 = re.search(r'※\s*\[25[~～-]26\].*?\n(.*?)(?=\n\s*25\.)', l_text, re.DOTALL)
+    dialogue_25_26 = clean_listening_script(m25.group(1)) if m25 else ''
+
+    m27 = re.search(r'※\s*\[27[~～-]28\].*?\n(.*?)(?=\n\s*27\.)', l_text, re.DOTALL)
+    dialogue_27_28 = clean_listening_script(m27.group(1)) if m27 else ''
+
+    m29 = re.search(r'※\s*\[29[~～-]30\].*?\n(.*?)(?=\n\s*29\.)', l_text, re.DOTALL)
+    dialogue_29_30 = clean_listening_script(m29.group(1)) if m29 else ''
 
     opts_override = {}
     if round_num == 102:
@@ -119,6 +145,20 @@ def build_listening(round_num):
         else:
             script_chunk = chunk
 
+        # Correct shared dialogues for Q25~Q30
+        passage_text = None
+        if q in [25, 26]:
+            script_chunk = dialogue_25_26
+            passage_text = dialogue_25_26
+        elif q in [27, 28]:
+            script_chunk = dialogue_27_28
+            passage_text = dialogue_27_28
+        elif q in [29, 30]:
+            script_chunk = dialogue_29_30
+            passage_text = dialogue_29_30
+        else:
+            script_chunk = clean_listening_script(script_chunk)
+
         if q in opts_override:
             opts = opts_override[q]
         else:
@@ -130,7 +170,7 @@ def build_listening(round_num):
             "section": "listening",
             "prompt": prompt,
             "question_text": None,
-            "passage": None,
+            "passage": passage_text,
             "options": opts,
             "correct_answer": ans,
             "explanation": explanation,
@@ -252,7 +292,7 @@ def build_reading(round_num):
         ans = answers[q - 31]
         prompt = get_reading_prompt(q)
 
-        img = f"/test/photos/mock-exams/topik1-{round_num}/reading-q{q:02d}.png" if q in [40, 41, 42] else None
+        img = f"/test/photos/mock-exams/topik1-{round_num}/reading-q{q:02d}.png{'?v=2' if round_num == 102 else ''}" if q in [40, 41, 42] else None
 
         next_pat = rf'(?:\n\s*){q+1}\.' if q < 70 else r'\Z'
         m = re.search(rf'(?:^|\n)\s*{q}\.\s*(.*?)(?={next_pat}|※\s*\[|\Z)', r_text, re.DOTALL)

@@ -183,7 +183,7 @@ async function importExamSet(config: {
         question_number: q.question_number,
         level: qLevel,
         prompt: q.prompt,
-        correct_answer: q.correct_answer,
+        correct_answer: q.correct_answer ? String(q.correct_answer) : null,
         explanation: q.explanation,
         difficulty: 3,
         time_limit_seconds: config.section === 'listening' ? 72 : (config.section === 'writing' ? 750 : 84),

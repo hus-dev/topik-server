@@ -25,5 +25,6 @@ jobs:
             docker compose -f docker-compose.ec2.yml down || true
             docker compose -f docker-compose.ec2.yml up -d --build --remove-orphans
             docker compose -f docker-compose.ec2.yml exec -T api node dist/prisma/seed/import-mock-exams.js || true
+            docker compose -f docker-compose.ec2.yml exec -T api node dist/prisma/seed/import-topik1-mock-exams.js || true
             docker compose -f docker-compose.ec2.yml exec -T api node dist/prisma/seed/import-grammar-content.js || true
             docker image prune -f

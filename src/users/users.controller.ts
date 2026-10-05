@@ -62,6 +62,20 @@ export class UsersController {
     )) as Record<string, unknown>;
   }
 
+  @UseGuards(AuthGuard('jwt'))
+  @ApiBearerAuth()
+  @Delete('profile')
+  @ApiOperation({ summary: 'Delete current user account (withdrawal)' })
+  @ApiResponse({ status: 200, description: 'Account deleted successfully' })
+  async deleteProfile(
+    @Request() req: JwtRequest,
+  ): Promise<Record<string, unknown>> {
+    return (await this.usersService.remove(req.user.userId)) as Record<
+      string,
+      unknown
+    >;
+  }
+
   @Get(':id')
   @UseGuards(AuthGuard('jwt'), AdminGuard)
   @ApiBearerAuth()

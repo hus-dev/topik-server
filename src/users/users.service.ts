@@ -101,10 +101,48 @@ export class UsersService {
 
   async remove(id: string) {
     try {
-      const user = await this.prisma.users.delete({
-        where: { id },
+      return await this.prisma.$transaction(async (tx) => {
+        // 1. Delete answers for user's exam sessions
+        const sessions = await tx.exam_sessions.findMany({
+          where: { user_id: id },
+          select: { id: true },
+        });
+        const sessionIds = sessions.map((s) => s.id);
+        if (sessionIds.length > 0) {
+          await tx.answers.deleteMany({
+            where: { session_id: { in: sessionIds } },
+          });
+        }
+
+        // 2. Delete exam sessions
+        await tx.exam_sessions.deleteMany({
+          where: { user_id: id },
+        });
+
+        // 3. Delete user bookmarks & records
+        await tx.user_vocabulary.deleteMany({
+          where: { user_id: id },
+        });
+        await tx.user_grammar_items.deleteMany({
+          where: { user_id: id },
+        });
+        await tx.user_questions.deleteMany({
+          where: { user_id: id },
+        });
+        await tx.user_downloads.deleteMany({
+          where: { user_id: id },
+        });
+        await tx.sync_queue.deleteMany({
+          where: { user_id: id },
+        });
+
+        // 4. Delete the user
+        const user = await tx.users.delete({
+          where: { id },
+        });
+
+        return this.serializeUser(user);
       });
-      return this.serializeUser(user);
     } catch (error) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }

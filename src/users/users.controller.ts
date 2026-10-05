@@ -7,6 +7,8 @@ import {
   Delete,
   UseGuards,
   Request,
+  UnauthorizedException,
+  NotFoundException,
 } from '@nestjs/common';
 import {
   ApiTags,
@@ -41,10 +43,19 @@ export class UsersController {
   async getProfile(
     @Request() req: JwtRequest,
   ): Promise<Record<string, unknown>> {
-    return (await this.usersService.findOne(req.user.userId)) as Record<
-      string,
-      unknown
-    >;
+    try {
+      return (await this.usersService.findOne(req.user.userId)) as Record<
+        string,
+        unknown
+      >;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new UnauthorizedException(
+          'User account not found or has been deleted',
+        );
+      }
+      throw error;
+    }
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -52,14 +63,24 @@ export class UsersController {
   @Patch('profile')
   @ApiOperation({ summary: 'Update current user profile settings' })
   @ApiResponse({ status: 200, description: 'Profile updated successfully' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   async updateProfile(
     @Request() req: JwtRequest,
     @Body() updateUserDto: UpdateUserDto,
   ): Promise<Record<string, unknown>> {
-    return (await this.usersService.update(
-      req.user.userId,
-      updateUserDto,
-    )) as Record<string, unknown>;
+    try {
+      return (await this.usersService.update(
+        req.user.userId,
+        updateUserDto,
+      )) as Record<string, unknown>;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new UnauthorizedException(
+          'User account not found or has been deleted',
+        );
+      }
+      throw error;
+    }
   }
 
   @UseGuards(AuthGuard('jwt'))
@@ -67,13 +88,23 @@ export class UsersController {
   @Delete('profile')
   @ApiOperation({ summary: 'Delete current user account (withdrawal)' })
   @ApiResponse({ status: 200, description: 'Account deleted successfully' })
+  @ApiResponse({ status: 401, description: 'Unauthorized' })
   async deleteProfile(
     @Request() req: JwtRequest,
   ): Promise<Record<string, unknown>> {
-    return (await this.usersService.remove(req.user.userId)) as Record<
-      string,
-      unknown
-    >;
+    try {
+      return (await this.usersService.remove(req.user.userId)) as Record<
+        string,
+        unknown
+      >;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw new UnauthorizedException(
+          'User account not found or has already been deleted',
+        );
+      }
+      throw error;
+    }
   }
 
   @Get(':id')

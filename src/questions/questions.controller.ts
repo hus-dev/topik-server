@@ -18,7 +18,9 @@ import { OfflineService } from '../offline/offline.service';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { GetQuestionsQueryDto } from './dto/get-questions-query.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
+import { GetAiExplanationDto } from './dto/get-ai-explanation.dto';
 import { QuestionsService } from './questions.service';
+import { QuestionsAiExplanationService } from './questions-ai-explanation.service';
 
 type JwtRequest = ExpressRequest & {
   user: {
@@ -33,6 +35,7 @@ export class QuestionsController {
   constructor(
     private readonly questionsService: QuestionsService,
     private readonly offlineService: OfflineService,
+    private readonly aiExplanationService: QuestionsAiExplanationService,
   ) {}
 
   @Get()
@@ -99,4 +102,16 @@ export class QuestionsController {
       false,
     );
   }
+
+  @Post(':id/ai-explanation')
+  @ApiOperation({
+    summary: 'Generate or retrieve 1:1 tailored AI explanation for student answer',
+  })
+  getAiExplanation(
+    @Param('id') id: string,
+    @Body() dto: GetAiExplanationDto,
+  ) {
+    return this.aiExplanationService.explainQuestion(id, dto);
+  }
 }
+

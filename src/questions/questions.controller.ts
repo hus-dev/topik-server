@@ -19,7 +19,9 @@ import { CreateQuestionDto } from './dto/create-question.dto';
 import { GetQuestionsQueryDto } from './dto/get-questions-query.dto';
 import { UpdateQuestionDto } from './dto/update-question.dto';
 import { GetAiExplanationDto } from './dto/get-ai-explanation.dto';
+import { GetAiWritingFeedbackDto } from './dto/get-ai-writing-feedback.dto';
 import { QuestionsService } from './questions.service';
+
 import { QuestionsAiExplanationService } from './questions-ai-explanation.service';
 
 type JwtRequest = ExpressRequest & {
@@ -113,5 +115,17 @@ export class QuestionsController {
   ) {
     return this.aiExplanationService.explainQuestion(id, dto);
   }
+
+  @Post(':id/ai-writing-feedback')
+  @ApiOperation({
+    summary: 'Generate 1:1 tailored AI feedback & correction for student writing answer',
+  })
+  getAiWritingFeedback(
+    @Param('id') id: string,
+    @Body() dto: GetAiWritingFeedbackDto,
+  ) {
+    return this.aiExplanationService.provideWritingFeedback(id, dto);
+  }
 }
+
 

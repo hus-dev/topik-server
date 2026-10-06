@@ -1,8 +1,10 @@
+import * as crypto from 'crypto';
 import { Injectable, Logger, NotFoundException } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { PrismaService } from '../prisma/prisma.service';
 import { RedisService } from '../redis/redis.service';
 import { GetAiExplanationDto } from './dto/get-ai-explanation.dto';
+import { GetAiWritingFeedbackDto } from './dto/get-ai-writing-feedback.dto';
 
 export interface KeyVocabItem {
   korean: string;
@@ -26,6 +28,30 @@ export interface QuestionAiExplanationResult {
   rawExplanationText: string;
   source: 'cache' | 'db' | 'ai' | 'fallback';
 }
+
+export interface WritingGrammarCorrection {
+  original: string;
+  corrected: string;
+  reason: string;
+}
+
+export interface WritingFeedbackPayload {
+  scoreEstimate: string;
+  grammarCorrections: WritingGrammarCorrection[];
+  deductionPoints: string;
+  polishedVersion: string;
+  nativeFeedback: string;
+  keyVocabulary: KeyVocabItem[];
+}
+
+export interface QuestionAiWritingFeedbackResult {
+  questionId: string;
+  userAnswer: string;
+  languageCode: string;
+  feedback: WritingFeedbackPayload;
+  source: 'cache' | 'ai' | 'fallback';
+}
+
 
 function getLanguageFullName(langCode: string): string {
   const map: Record<string, string> = {
@@ -176,7 +202,8 @@ export class QuestionsAiExplanationService {
     if (apiKey && apiKey.trim().length > 0) {
       try {
         const primaryModel =
-          this.configService.get<string>('GEMINI_MODEL') || 'gemini-2.0-flash';
+          this.configService.get<string>('GEMINI_MODEL') ||
+          'gemini-flash-lite-latest';
 
         const aiPayload = await this.callGeminiApi(
           apiKey,
@@ -407,9 +434,10 @@ ${optionsText || '(선택지 없음)'}
     const modelsToTry = Array.from(
       new Set([
         model,
-        'gemini-2.0-flash',
         'gemini-flash-lite-latest',
         'gemini-3.1-flash-lite',
+        'gemini-3.5-flash',
+        'gemini-3.8-flash',
       ]),
     );
 
@@ -417,7 +445,7 @@ ${optionsText || '(선택지 없음)'}
       try {
         const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`;
         const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 12000);
+        const timeout = setTimeout(() => controller.abort(), 6000);
 
         let response: Response;
         try {
@@ -502,4 +530,259 @@ ${optionsText || '(선택지 없음)'}
       tip: '지문에서 정답과 직접 관련된 핵심 표현의 전후 문맥을 확인하세요.',
     };
   }
+
+  async provideWritingFeedback(
+    questionId: string,
+    dto: GetAiWritingFeedbackDto,
+    fallbackUserLang?: string,
+  ): Promise<QuestionAiWritingFeedbackResult> {
+    const question = await this.prisma.questions.findUnique({
+      where: { id: questionId },
+      include: {
+        question_passages: true,
+      },
+    });
+
+    if (!question) {
+      throw new NotFoundException(`Question with ID ${questionId} not found`);
+    }
+
+    const rawUserAnswer = (dto.userAnswer || '').trim();
+    const targetLang = (
+      dto.languageCode ||
+      fallbackUserLang ||
+      'uz'
+    ).toLowerCase();
+
+    const answerHash = crypto
+      .createHash('md5')
+      .update(rawUserAnswer)
+      .digest('hex')
+      .slice(0, 12);
+
+    const cacheKey = `ai:w_fb:${questionId}:${answerHash}:${targetLang}`;
+
+    // 1. Redis 캐시 확인 (30일 TTL)
+    try {
+      const cached = await this.redis.get(cacheKey);
+      if (cached) {
+        const parsed = JSON.parse(cached) as QuestionAiWritingFeedbackResult;
+        return { ...parsed, source: 'cache' };
+      }
+    } catch (e) {
+      this.logger.warn(`Redis get failed for writing feedback: ${cacheKey}`, e);
+    }
+
+    // 2. Gemini AI 첨삭 생성
+    const apiKey = this.configService.get<string>('GEMINI_API_KEY');
+    if (apiKey && apiKey.trim().length > 0) {
+      try {
+        const primaryModel =
+          this.configService.get<string>('GEMINI_MODEL') ||
+          'gemini-flash-lite-latest';
+
+        const aiFeedback = await this.callGeminiWritingApi(
+          apiKey,
+          primaryModel,
+          question,
+          rawUserAnswer,
+          targetLang,
+        );
+
+        if (aiFeedback) {
+          const result: QuestionAiWritingFeedbackResult = {
+            questionId,
+            userAnswer: rawUserAnswer,
+            languageCode: targetLang,
+            feedback: aiFeedback,
+            source: 'ai',
+          };
+
+          try {
+            await this.redis.set(cacheKey, JSON.stringify(result), 2592000);
+          } catch (err) {
+            this.logger.warn(`Failed to cache writing feedback in Redis: ${err}`);
+          }
+
+          return result;
+        }
+      } catch (err) {
+        this.logger.error(`Gemini writing feedback generation failed: ${err}`);
+      }
+    }
+
+    // 3. Fallback
+    const fallbackFeedback = this.generateWritingFallback(
+      question,
+      rawUserAnswer,
+      targetLang,
+    );
+
+    return {
+      questionId,
+      userAnswer: rawUserAnswer,
+      languageCode: targetLang,
+      feedback: fallbackFeedback,
+      source: 'fallback',
+    };
+  }
+
+  private async callGeminiWritingApi(
+    apiKey: string,
+    model: string,
+    question: any,
+    userAnswer: string,
+    targetLang: string,
+  ): Promise<WritingFeedbackPayload | null> {
+    const targetLangName = getLanguageFullName(targetLang);
+
+    const passageText =
+      question.question_passages?.passage_text ||
+      question.question_passages?.title ||
+      '';
+
+    const prompt = `당신은 외국인 학생을 위한 TOPIK II(한국어능력시험) 쓰기 영역 전문 수석 채점관이자 첨삭 지도 강사입니다.
+학생이 작성한 쓰기 답안을 공식 TOPIK 채점 기준에 따라 엄격하고 친절하게 정밀 첨삭해 주세요.
+모든 설명, 감점 요인, 총평은 반드시 학생의 모국어인 [${targetLangName}]로 명확하게 작성하세요.
+
+[시험 문제 정보]
+- 문제 번호: ${question.questionNumber}번
+- 문제 유형: ${question.question_type || '쓰기'}
+- 문제 지문 / 제시문:
+"""
+${passageText || '(지문 없음 / 발문 참조)'}
+"""
+- 문제 발문 / 조건:
+"${question.prompt || ''}"
+- 공식 모범 답안:
+"${question.correct_answer || ''}"
+- 채점 기준 및 해설:
+"${question.explanation || ''}"
+
+[학생이 작성한 답안]
+"""
+${userAnswer || '(답안 미작성)'}
+"""
+
+[채점 및 첨삭 지침]
+1. 문제 유형별 핵심 기준:
+   - 51번/52번(단답형 빈칸): ㉠, ㉡의 문맥 적합성, 종결어미 격식체(-ㅂ니다/습니다 vs -ㄴ/는다), 주술 호응 검사.
+   - 53번(소논술/도표): 그래프 정보 누락 여부, -ㄴ/는다 평어체 일관성, 분량(200~300자), 표현의 객관성.
+   - 54번(대논술): 3대 제시 조건 충족, 단락 전개, 격식체, 어휘의 다양성.
+2. grammarCorrections:
+   - 학생 글에서 맞춤법, 띄어쓰기, 조사, 어미가 잘못된 부분을 찾아 original(원문), corrected(교정안), reason([${targetLangName}]로 작성된 이유)으로 배열 구성.
+3. scoreEstimate: 예상 획득 점수 (예: "7 / 10점", "23 / 30점").
+4. deductionPoints: 어떤 부분에서 왜 감점되었는지 [${targetLangName}]로 구체적으로 설명.
+5. polishedVersion: 학생의 원래 의도를 살리면서, 한국어 원어민/TOPIK 최고 득점자 수준으로 자연스럽고 유려하게 다듬은 모범 한국어 문장/단락.
+6. nativeFeedback: 학생에게 도움이 되는 종합 총평과 실전 팁을 [${targetLangName}]로 따뜻하게 조언.
+7. keyVocabulary: 이 문제를 쓸 때 사용하면 점수가 올라가는 고급 어휘 2~3개 (korean, translation).
+
+[응답 형식 - 반드시 아래 JSON 포맷으로만 응답]:
+{
+  "scoreEstimate": "예: 8 / 10점",
+  "grammarCorrections": [
+    {
+      "original": "학생의 틀린 부분",
+      "corrected": "교정된 올바른 표현",
+      "reason": "${targetLangName}로 된 설명"
+    }
+  ],
+  "deductionPoints": "${targetLangName}로 설명된 감점 요인",
+  "polishedVersion": "자연스럽게 다듬어진 완성형 한국어 모범 문장",
+  "nativeFeedback": "${targetLangName}로 작성된 총평 및 조언",
+  "keyVocabulary": [
+    { "korean": "한국어 어휘", "translation": "${targetLangName} 번역" }
+  ]
+}`;
+
+    const modelsToTry = Array.from(
+      new Set([
+        model,
+        'gemini-flash-lite-latest',
+        'gemini-3.1-flash-lite',
+        'gemini-3.5-flash',
+        'gemini-3.8-flash',
+      ]),
+    );
+
+    for (const m of modelsToTry) {
+      try {
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/${m}:generateContent?key=${apiKey}`;
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 8000);
+
+        let response: Response;
+        try {
+          response = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: prompt }] }],
+              generationConfig: {
+                responseMimeType: 'application/json',
+                temperature: 0.3,
+              },
+            }),
+            signal: controller.signal,
+          });
+        } finally {
+          clearTimeout(timeout);
+        }
+
+        if (!response.ok) {
+          const errText = await response.text();
+          this.logger.warn(`Gemini (${m}) returned HTTP ${response.status}: ${errText}`);
+          continue;
+        }
+
+        const data = await response.json();
+        const textContent =
+          data?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+        if (textContent) {
+          const parsed = JSON.parse(textContent);
+          return {
+            scoreEstimate: cleanText(parsed.scoreEstimate || ''),
+            grammarCorrections: Array.isArray(parsed.grammarCorrections)
+              ? parsed.grammarCorrections.map((c: any) => ({
+                  original: cleanText(c.original || ''),
+                  corrected: cleanText(c.corrected || ''),
+                  reason: cleanText(c.reason || ''),
+                }))
+              : [],
+            deductionPoints: cleanText(parsed.deductionPoints || ''),
+            polishedVersion: cleanText(parsed.polishedVersion || ''),
+            nativeFeedback: cleanText(parsed.nativeFeedback || ''),
+            keyVocabulary: Array.isArray(parsed.keyVocabulary)
+              ? parsed.keyVocabulary.map((v: any) => ({
+                  korean: cleanText(v.korean || ''),
+                  translation: cleanText(v.translation || ''),
+                }))
+              : [],
+          };
+        }
+      } catch (err) {
+        this.logger.warn(`Model ${m} call failed for writing feedback: ${err}`);
+      }
+    }
+
+    return null;
+  }
+
+  private generateWritingFallback(
+    question: any,
+    userAnswer: string,
+    targetLang: string,
+  ): WritingFeedbackPayload {
+    const modelAnswer = question.correct_answer || '공식 모범 답안을 참고하세요.';
+    return {
+      scoreEstimate: '채점 진행 중',
+      grammarCorrections: [],
+      deductionPoints: '공식 모범 답안과 비교하여 어미와 필수 조건 충족 여부를 확인하세요.',
+      polishedVersion: modelAnswer,
+      nativeFeedback: '작성하신 답안의 문맥과 어미를 모범 답안과 대조해 보세요.',
+      keyVocabulary: [],
+    };
+  }
 }
+

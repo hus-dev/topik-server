@@ -30,7 +30,7 @@ describe('QuestionsAiExplanationService', () => {
     configService = {
       get: jest.fn((key: string) => {
         if (key === 'GEMINI_API_KEY') return 'test-gemini-key';
-        if (key === 'GEMINI_MODEL') return 'gemini-2.0-flash';
+        if (key === 'GEMINI_MODEL') return 'gemini-3.8-flash';
         return null;
       }),
     };
@@ -145,4 +145,28 @@ describe('QuestionsAiExplanationService', () => {
     expect(result.correctAnswer).toBe('2');
     expect(result.rawExplanationText).toContain('오답인 이유');
   });
+
+  it('should return writing feedback fallback or cache', async () => {
+    redis.get.mockResolvedValue(null);
+    configService.get.mockReturnValue(null);
+
+    prisma.questions.findUnique.mockResolvedValue({
+      id: 'q-w51',
+      questionNumber: 51,
+      correct_answer: '참석하지 못합니다',
+      explanation: '격식체 어미를 사용해야 합니다.',
+      prompt: '다음을 읽고 ㉠에 들어갈 말을 쓰십시오.',
+      question_passages: { title: '초대장', passage_text: '모임에 초대합니다.' },
+    });
+
+    const result = await service.provideWritingFeedback('q-w51', {
+      userAnswer: '참석하고 싶어요',
+      languageCode: 'uz',
+    });
+
+    expect(result.questionId).toBe('q-w51');
+    expect(result.source).toBe('fallback');
+    expect(result.feedback.polishedVersion).toBe('참석하지 못합니다');
+  });
 });
+
